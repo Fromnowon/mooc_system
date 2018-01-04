@@ -1,11 +1,57 @@
-#login{
+#container {
+    /*background: url("../resource/index.jpg") no-repeat;*/
+    /*background-size: cover;*/
+    /*filter: blur(1px);*/
+}
+
+#login {
+    position: absolute;
+    /*right: 100px;*/
+    width: 310px;
+
+}
+
+.login_input {
+    margin: 20px 0px 0px 10px;
     width: 300px;
-    margin: 50px auto;
 }
-.login_input{
-    margin: 20px;
+#checkbox_div{
+    margin: 0px 0px 0px 10px;
 }
-form{
-    position: relative;
-    top: 100px;
+.checkbox{
+padding: 5px;
+}
+
+#btn_div{
+    margin: 10px 0px 0px 10px;
+}
+#reg_btn{
+    width: 100px;
+}
+#submit_btn {
+    width: 100px;
+    float: right;
+}
+
+#login_role {
+    margin: 20px 0px 0px 10px;
+}
+
+form {
+
+}
+
+#footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    /*background: rgba(86, 86, 86, 0.5);*/
+}
+
+footer {
+    font-size: 16px;
+    margin: auto;
+    color: black;
+    background: rgba(75, 75, 75, 0.5);
 }

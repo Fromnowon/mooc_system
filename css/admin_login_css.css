@@ -1,0 +1,11 @@
+#login{
+    width: 300px;
+    margin: 50px auto;
+}
+.login_input{
+    margin: 20px;
+}
+form{
+    position: relative;
+    top: 100px;
+}

@@ -47,7 +47,7 @@ function login($conn, $username, $password, $checkbox)
     if ($result = mysqli_fetch_assoc($check_query)) {
         //登录成功
         session_start();
-        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['username'] = $username;
         if (isset($checkbox[count($checkbox) - 1])) {
             //登录到后台
             if ($result['flag'] != '1') {

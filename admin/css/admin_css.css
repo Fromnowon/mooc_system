@@ -1,0 +1,9 @@
+.logo{
+    position: relative;
+    left: 20px;
+}
+.navigation{
+    position: relative;
+    float: right;
+    right: 20px;
+}

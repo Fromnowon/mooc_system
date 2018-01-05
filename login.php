@@ -14,14 +14,12 @@
 
 </head>
 <body style="visibility: hidden">
-
 <div id="container">
-
     <div id="output"></div>
 </div>
 <!--登录模块-->
 <div id="login">
-    <div id="form_bg"></div>
+    <img class="img-responsive login_logo" src="resource/doge.png"/>
     <form action="util/action.php?action=login" method="post">
         <input id="login_username" type="text" class="form-control login_input" name="login_username" placeholder="用户名">
         &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>

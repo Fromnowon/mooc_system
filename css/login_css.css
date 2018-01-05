@@ -1,4 +1,5 @@
-body {
+
+body{
     padding: 0px;
     margin: 0px;
 }
@@ -41,7 +42,7 @@ body {
 }
 
 form {
-
+    margin-top: 60px;
 }
 
 #footer {
@@ -72,5 +73,10 @@ footer {
     font-size: 16px;
     color: black;
     top:20%;
+}
+
+.login_logo{
+    margin: 0px auto;
+    width: 70%;
 }
 

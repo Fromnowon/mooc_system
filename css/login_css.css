@@ -1,7 +1,6 @@
-#container {
-    /*background: url("../resource/index.jpg") no-repeat;*/
-    /*background-size: cover;*/
-    /*filter: blur(1px);*/
+body {
+    padding: 0px;
+    margin: 0px;
 }
 
 #login {
@@ -15,19 +14,23 @@
     margin: 20px 0px 0px 10px;
     width: 300px;
 }
-#checkbox_div{
+
+#checkbox_div {
     margin: 0px 0px 0px 10px;
 }
-.checkbox{
-padding: 5px;
+
+.checkbox {
+    padding: 5px;
 }
 
-#btn_div{
+#btn_div {
     margin: 10px 0px 0px 10px;
 }
-#reg_btn{
+
+#reg_btn {
     width: 100px;
 }
+
 #submit_btn {
     width: 100px;
     float: right;
@@ -53,5 +56,21 @@ footer {
     font-size: 16px;
     margin: auto;
     color: black;
-    background: rgba(75, 75, 75, 0.5);
+    background: rgba(105, 105, 105, 0.31);
 }
+
+#loading {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.31);
+    left: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#loading_main {
+    position: relative;
+    font-size: 16px;
+    color: black;
+    top:20%;
+}
+

@@ -137,7 +137,9 @@ function setMisc() {
     victor(["#18bbff", "#00486b"]).set();
     $("body").css('visibility', 'visible');
     $(".login_logo").hover(function () {
-        $(this).shake(3,20,400);
+        $(this).shake(10,20,2000);
+    },function () {
+        $(this).stop();
     })
 }
 

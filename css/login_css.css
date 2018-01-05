@@ -42,7 +42,7 @@ body{
 }
 
 form {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 #footer {
@@ -76,7 +76,7 @@ footer {
 }
 
 .login_logo{
-    margin: 0px auto;
+    margin: 0px auto 50px auto;
     width: 70%;
 }
 

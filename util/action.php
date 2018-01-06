@@ -37,6 +37,7 @@ switch ($_GET['action']) {
     }
     default : {
         echo 'Error';
+        mysqli_close($conn);
         break;
     }
 }
@@ -47,19 +48,25 @@ function login($conn, $username, $password, $checkbox)
     if ($result = mysqli_fetch_assoc($check_query)) {
         //登录成功
         session_start();
-        $_SESSION['username'] = $username;
+        $_SESSION['userinfo'] = $result;
+        /*$_SESSION['username'] = $username;
+        $_SESSION['flag'] = $result['flag'];*/
         if (isset($checkbox[count($checkbox) - 1])) {
             //登录到后台
-            if ($result['flag'] != '1') {
+            if ($result['flag'] < 1) {
                 echo '对不起，您的账户没有管理员权限，' . '点击此处 <a href="javascript:history.back(-1);">返回</a> 重试';
+                mysqli_close($conn);
                 exit();
             }
+            mysqli_close($conn);
             header("Location: ../admin/admin_index.php");
         } else {
+            mysqli_close($conn);
             //登录到前台主页
             header("Location: ../index.php");
         }
     } else {
+        mysqli_close($conn);
         exit('登录失败！点击此处 <a href="javascript:history.back(-1);">返回</a> 重试');
     }
 }
@@ -73,4 +80,5 @@ function register($conn, $username, $password, $mail, $school, $contact, $date)
         echo 'OK';
     else
         echo 'ERROR';
+    mysqli_close($conn);
 }

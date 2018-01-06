@@ -15,8 +15,13 @@
 <body>
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
+$userinfo = $_SESSION['userinfo'];
+if (!isset($userinfo['username'])) {
     echo "<script language='JavaScript'>alert('非法访问，请登录！');</script>";
+    echo '点击此处 <a href="../login.php">返回</a> 重试';
+    exit();
+} else if ($userinfo['flag'] < 1) {
+    echo "<script language='JavaScript'>alert('您的账号没有管理权限！');</script>";
     echo '点击此处 <a href="../login.php">返回</a> 重试';
     exit();
 }
@@ -26,7 +31,7 @@ if (!isset($_SESSION['username'])) {
     <div class="navigation">
         <ul>
             <li>欢迎您！</li>
-            <li><a href=""><?php echo $_SESSION['username'] ?></a></li>
+            <li><a href=""><?php echo $userinfo['username'] ?></a></li>
             <li><a href="">修改密码</a></li>
             <li><a href="">设置</a></li>
             <li><a href="">退出</a></li>
@@ -36,8 +41,18 @@ if (!isset($_SESSION['username'])) {
 <div id="content">
 
     <div class="left_menu">
-        <div id="userinfo" style="height: 200px;border: 3px red solid;margin: 10px 10px 50px 10px">
-            这里准备放头像，用户组，hello什么的
+        <div id="userinfo">
+            <div><img src="../avatar/<?php echo $userinfo['avatar'] ?>.png"></div>
+            <p class="identity">身份：
+                <?php
+                if ($userinfo['flag'] == 1)
+                    echo '管理员';
+                else echo '超级管理员';
+                ?>
+            </p>
+            <br/>
+            <p class="date"></p>
+            <p class="time"></p>
         </div>
 
         <ul id="nav_dot">

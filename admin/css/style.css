@@ -42,6 +42,7 @@ body {
     position: relative;
     z-index: 5;
     top: 0;
+    box-shadow: 0px 2px 10px #2a2a2a;
 }
 
 .logo {
@@ -123,7 +124,7 @@ body {
 }
 
 .left_menu ul li a:hover {
-    color: #ffffff;
+    color: #2a2a2a;
 }
 
 .left_menu ul li a.selected:hover {

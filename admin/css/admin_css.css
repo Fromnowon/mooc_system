@@ -1,9 +1,33 @@
-.logo{
+.logo {
     position: relative;
     left: 20px;
 }
-.navigation{
+
+.navigation {
     position: relative;
     float: right;
     right: 20px;
+}
+
+#userinfo {
+    height: 200px;
+    margin: 10px 10px 50px 10px;
+    position: relative;
+    text-align: center;
+}
+
+#userinfo img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#userinfo p {
+    padding-top: 3px;
+    font-size: 16px;
+}
+
+#userinfo p[class='identity'] {
+    font-weight: bold;
+    font-size: 20px;
 }

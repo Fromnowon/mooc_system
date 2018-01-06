@@ -133,8 +133,10 @@ function regModule() {
 }
 
 function setMisc() {
+    //动态背景
     var victor = new Victor("container", "output");
     victor(["#18bbff", "#00486b"]).set();
+
     $("body").css('visibility', 'visible');
     $(".login_logo").hover(function () {
         $(this).shake(10,20,2000);

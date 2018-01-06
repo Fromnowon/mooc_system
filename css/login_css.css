@@ -73,13 +73,11 @@ footer {
     font-size: 16px;
     color: black;
     top:20%;
+    z-index: 200;
 }
 
 .login_logo{
     margin: 0px auto 50px auto;
     width: 70%;
-}
-#output{
-    width: 500px;
 }
 

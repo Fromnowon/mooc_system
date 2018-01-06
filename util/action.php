@@ -11,12 +11,7 @@ if (!isset($_GET['action'])) {
     echo 'No action received.';
     exit();
 }
-error_reporting(E_ALL ^ E_NOTICE);
 include('conn.php');
-mysqli_select_db($conn, "mooc");
-mysqli_query($conn, "set names 'utf8'");
-ini_set('date.timezone', 'Asia/Shanghai');
-$date = date('Y-m-d H:i:s');
 
 switch ($_GET['action']) {
     case 'login': {

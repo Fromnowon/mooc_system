@@ -26,23 +26,20 @@
         <input id="login_password" type="password" class="form-control login_input" name="login_password"
                placeholder="密码">
         &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
-        <br/>
+        <br/><br/>
         <div id="checkbox_div">
             <table>
                 <tr>
                     <td>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="login_checkbox[]" value="enable">
-                                记住密码
-                            </label></div>
-                    </td>
-                    <td>
-                        <div id="mode_adminlogin" class="checkbox">
-                            <label>&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" name="login_checkbox[]" value="enable">
-                                后台登录
-                            </label></div>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-success">
+                                <input type="checkbox" name="login_checkbox[]" value="enable" autocomplete="off">记住密码
+                            </label>
+                            <label class="btn btn-success">
+                                <input type="checkbox" name="login_checkbox[]" value="enable" autocomplete="off">登录后台
+                            </label>
+                        </div>
+                        <br/><br/>
                     </td>
                 </tr>
             </table>

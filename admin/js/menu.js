@@ -8,10 +8,10 @@ function navList(id) {
         if (!$(this).parent().hasClass('selected')) {
             $(this).css('background-color', '#00a5a5');
         }
-        $(this).animate({fontSize: 22}, 200);
+        $(this).stop(true,true).animate({fontSize: 22}, 200);
     }, function () {
         $(this).removeClass("hover");
-        $(this).animate({fontSize: 18}, 200);
+        $(this).stop(true,true).animate({fontSize: 18}, 200);
         $(this).css('background-color', '');
     });
     $obj.find("a").hover(function () {

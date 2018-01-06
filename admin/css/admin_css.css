@@ -4,9 +4,8 @@
 }
 
 .navigation {
-    position: relative;
-    float: right;
-    right: 20px;
+    position: absolute;
+    right: 30px;
 }
 
 #userinfo {
@@ -30,4 +29,37 @@
 #userinfo p[class='identity'] {
     font-weight: bold;
     font-size: 20px;
+}
+
+#form_content th, #form_content td {
+    padding: 10px;
+    background: #f6f6f6;
+}
+#form_content td span{
+    margin-top: 3px;
+}
+
+#right_content {
+    overflow: auto;
+    padding: 80px 40px 40px 280px;
+}
+
+#loading {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.31);
+    left: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#loading_main {
+    position: relative;
+    font-size: 16px;
+    color: black;
+    top: 20%;
+    z-index: 200;
+}
+
+.input-group .form-control,.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    z-index: 0;
 }

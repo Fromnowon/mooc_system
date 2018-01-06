@@ -5,14 +5,17 @@
     <title>后台管理系统</title>
 
     <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/menu.js"></script>
     <link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="./css/style.css"/>
     <link type="text/css" rel="stylesheet" href="./css/admin_css.css"/>
     <script type="text/javascript" src="./js/admin_js.js"></script>
+    <link href="../css/loading.css" rel="stylesheet">
 </head>
 
 <body>
+<div id="output"></div>
 <?php
 session_start();
 $userinfo = $_SESSION['userinfo'];
@@ -34,7 +37,7 @@ if (!isset($userinfo['username'])) {
             <li><a href=""><?php echo $userinfo['username'] ?></a></li>
             <li><a href="">修改密码</a></li>
             <li><a href="">设置</a></li>
-            <li><a href="">退出</a></li>
+            <li><a href="../util/admin_action.php?admin_action=logout">退出</a></li>
         </ul>
     </div>
 </div>
@@ -86,7 +89,7 @@ if (!isset($userinfo['username'])) {
             <li>
                 <h4 class="M10"><span></span>用户管理</h4>
                 <div class="list-item none">
-                    <a href=''>状态监控</a>
+                    <a id="user_status" href="javascript:void(0)">状态监控</a>
                     <a href=''>黑名单</a>
                     <a href=''>管理员</a>
                 </div>
@@ -154,10 +157,48 @@ if (!isset($userinfo['username'])) {
         </ul>
     </div>
     <div id="right_content">
-        这边就是显示对应功能内容区域
+        <div>
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>注意！</strong> 你的每个动作都可能会引起严重后果，请谨慎操作
+            </div>
+        </div>
+        <div id="ajax_content">
+
+        </div>
+        <!--        <div id="form_search">-->
+        <!---->
+        <!--        </div>-->
+        <!--        <br/><br/><br/>-->
+        <!--        <div id="form_content"></div>-->
+        <!--        <nav aria-label="Page navigation">-->
+        <!--            <ul class="pagination" id="page_btn">-->
+        <!---->
+        <!--            </ul>-->
+        <!--        </nav>-->
     </div>
 </div>
 <div id="footer"><p>Copyright© 2018 版权所有</p></div>
 <script>navList(12);</script>
+<div id="loading" style="visibility: hidden">
+    <div id="loading_main">
+        <div class="loading">
+            <div><span></span></div>
+            <div><span></span></div>
+            <div><span></span></div>
+        </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+        <div id="load">
+            <div>G</div>
+            <div>N</div>
+            <div>I</div>
+            <div>D</div>
+            <div>A</div>
+            <div>O</div>
+            <div>L</div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

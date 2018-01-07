@@ -1,5 +1,5 @@
 
-body{
+body {
     padding: 0px;
     margin: 0px;
 }
@@ -57,7 +57,7 @@ footer {
     font-size: 16px;
     margin: auto;
     color: black;
-    background: rgba(105, 105, 105, 0.31);
+    /*background: rgba(105, 105, 105, 0.31);*/
 }
 
 #loading {
@@ -66,22 +66,57 @@ footer {
     left: 0px;
     top: 0px;
     text-align: center;
+    z-index: 200;
 }
 
 #loading_main {
     position: relative;
     font-size: 16px;
     color: black;
-    top:20%;
-    z-index: 200;
+    top: 20%;
 }
 
-.login_logo{
+.login_logo {
     margin: 0px auto 50px auto;
-    width: 70%;
+    width: 60%;
 }
 
-.btn-group>.btn.active{
-    z-index: 0;
+/*消除遮罩bug*/
+
+/*美化checkbox*/
+.demo--label {
+    margin: 20px 20px 0 0;
+    display: inline-block;
+    font-weight: normal;
 }
 
+.demo--radio {
+    display: none
+}
+
+.demo--radioInput {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 100%;
+    display: inline-block;
+    height: 16px;
+    margin-right: 10px;
+    margin-top: -1px;
+    vertical-align: middle;
+    width: 16px;
+    line-height: 1
+}
+
+.demo--radio:checked + .demo--radioInput:after {
+    background-color: #57ad68;
+    border-radius: 100%;
+    content: "";
+    display: inline-block;
+    height: 12px;
+    margin: 1px;
+    width: 12px
+}
+
+.demo--checkbox.demo--radioInput, .demo--radio:checked + .demo--checkbox.demo--radioInput:after {
+    border-radius: 0
+}

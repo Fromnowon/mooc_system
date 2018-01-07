@@ -5,7 +5,7 @@
             <div><span></span></div>
             <div><span></span></div>
         </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/>
         <div id="load">
             <div>G</div>
             <div>N</div>

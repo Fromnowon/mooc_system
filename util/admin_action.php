@@ -12,27 +12,98 @@ if (!isset($_GET['admin_action'])) {
     exit();
 }
 include('conn.php');
-
 switch ($_GET['admin_action']) {
     case 'user_status': {
-        //返回所有用户数据
-        allUsers($conn);
+        //返回查询数据，注意判断动作类型
+        allUsers($conn, $_POST['page'], $_POST['action']);
         break;
     }
-    case 'logout':{
-        $_SESSION=[];
+    case 'logout': {
+        $_SESSION = [];
         session_destroy();
         header("Location: ../login.php");
         break;
     }
 }
-function allUsers($conn)
+function allUsers($conn, $page, $action)
 {
-    $check_query = mysqli_query($conn, "select * from user");
+    //查询
+    $num = 10;//每页数据量
+    $num_start = ($page - 1) * 10;//每页第一条数据位置
+    $check_query = mysqli_query($conn, "select * from user limit $num_start,$num");
     $rs = array();
-    while ($r = mysqli_fetch_assoc($check_query)) {
+    while ($r = mysqli_fetch_array($check_query)) {
         $rs[count($rs)] = $r;
     }
-    echo json_encode($rs);
-    //print_r($rs);
+
+    /*准备拼接html*/
+
+    //表格主体
+    $form_main = '';
+    $i = 0;//行数
+    $j = 0;//列数
+    foreach ($rs as $val) {
+        $form_main .= '<tr>';
+        foreach ($val as $key => $val_row) {
+            if ($val_row == '' || $val_row == null) $val_row = '暂无';
+            if ($key == 'password' || $key == 'avatar' || $key == 'like_id' || $key == 'dislike_id' || is_numeric($key)) {
+                //啥都不做
+            } else {
+                $form_main .= "<td class=" . $key . ">" . $val_row . "</td>";
+                $j++;
+            }
+        }
+        $form_main .= "</tr>";
+        $i++;
+    }
+    $j /= $i;
+    //补全
+    while ($i < $num) {
+        $form_main .= "<tr>";
+        $x = 0;
+        while ($x < $j) {
+            $form_main .= '<td><span style="visibility: hidden">0</span></td>';
+            $x++;
+        }
+        $form_main .= "</tr>";
+        $i++;
+    }
+
+    //若是分页，则只返回表格主体
+    if ($action == 'page') {
+        echo $form_main;
+        mysqli_close($conn);
+        exit();
+    }
+
+    //“新增”按钮
+    $addBtn = '<div id="form_misc"><button type="button" class="btn btn-success" onclick="addData()">
+<span class="glyphicon glyphicon-plus"></span>新增</button>';
+
+    //搜索框
+    $form_search_html = '<div class="input-group col-lg-3" style="float: right">' .
+        '<input type="text" class="form-control" placeholder="用户名、姓名、邮箱等">' .
+        '<span class="input-group-btn">' .
+        '<button class="btn btn-default" type="button">查询</button></span></div></div><br/><br/>';
+    //页码
+    $total_data = mysqli_num_rows(mysqli_query($conn, "select * from user"));;
+    $total_page = ceil($total_data / 10);
+    $page_html = '<nav aria-label="Page navigation"><ul class="pagination" id="page_btn">';
+    //page_btn.children().remove();
+    $i = 1;
+    while ($i <= $total_page) {
+        $page_html .= "<li><a href='javascript:void(0)' onclick='loadData($i,\"page\")'>$i</a></li>";
+        $i++;
+    }
+    $page_html .= "</ul></nav>";
+    //表头
+    $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="user_status">' .
+        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>邮箱</th><th>联系方式</th><th>性别</th><th>名字</th>' .
+        '<th>学校</th><th>注册时间</th><th>简介</th><th>身份</th><th>状态</th>' .
+        '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th></tr></thead>';
+    //echo $form_search_html.$table_head_html.$page_html;
+
+    //完全拼接
+    echo $addBtn . $form_search_html . $form_head . $form_main . '</table></div>' . $page_html;
+    mysqli_close($conn);
 }

@@ -1,8 +1,7 @@
 .loading{
     width: 60px;
     height: 60px;
-    margin: 0 auto;
-    margin-top:100px;
+    margin:100px auto 20px;
     position: relative;
     -webkit-animation: load 3s linear infinite;
 }
@@ -64,12 +63,13 @@
 
 /*文字特效*/
 #load {
-    position: absolute;
-    width: 300px;
+    position: relative;
+    width: 240px;
     height: 36px;
-    left: 60%;
-    top: 40%;
-    margin-left: -400px;
+    /*left: 60%;*/
+    /*top: 40%;*/
+    margin: 0px auto;
+    /*margin-left: -400px;*/
     overflow: visible;
     -webkit-user-select: none;
     -moz-user-select: none;

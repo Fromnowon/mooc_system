@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>登录</title>
     <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
@@ -10,6 +11,7 @@
 
     <link href="css/loading.css" rel="stylesheet">
     <script src="js/login_js.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./util/util_js.js"></script>
     <link href="css/login_css.css" rel="stylesheet">
 
 </head>
@@ -25,18 +27,21 @@
         &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
         <input id="login_password" type="password" class="form-control login_input" placeholder="密码">
         &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
-        <br/><br/>
+        <br/>
         <div id="checkbox_div">
             <table>
                 <tr>
                     <td>
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-success">
-                                <input type="checkbox" id="login_checkbox_remember" value="enable" autocomplete="off">记住密码
+                        <div>
+                            <label class="demo--label">
+                                <input id="login_checkbox_remember" value="enable" class="demo--radio" type="checkbox"
+                                       name="demo-checkbox1">
+                                <span class="demo--checkbox demo--radioInput"></span>记住密码
                             </label>
-                            <label class="btn btn-success">
-                                <input type="checkbox" id="login_checkbox_logintoadmin" value="enable"
-                                       autocomplete="off">登录后台
+                            <label class="demo--label">
+                                <input id="login_checkbox_logintoadmin" value="enable" class="demo--radio"
+                                       type="checkbox" name="demo-checkbox2">
+                                <span class="demo--checkbox demo--radioInput"></span>登录后台
                             </label>
                         </div>
                         <br/><br/>
@@ -58,24 +63,8 @@ include('register.php');
 <div id="footer">
     <footer>2018 Designed by ZZH</footer>
 </div>
-<div id="loading" style="visibility: hidden">
-    <div id="loading_main">
-        <div class="loading">
-            <div><span></span></div>
-            <div><span></span></div>
-            <div><span></span></div>
-        </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/>
-        <div id="load">
-            <div>G</div>
-            <div>N</div>
-            <div>I</div>
-            <div>D</div>
-            <div>A</div>
-            <div>O</div>
-            <div>L</div>
-        </div>
-    </div>
-</div>
+<?php
+include './util/loading.php';
+?>
 </body>
 </html>

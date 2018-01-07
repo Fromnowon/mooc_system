@@ -13,11 +13,6 @@ window.onbeforeunload = function (event) {
     setLoading('visible');
 }
 
-//遮罩控制
-function setLoading(str) {
-    var loading = $('#loading');
-    loading.css('visibility', str);
-}
 
 //动态设置元素高度
 $(window).resize(function () {
@@ -25,11 +20,11 @@ $(window).resize(function () {
     var clientwidth = $(this).width();
     $("#container").css('height', $(this).height());
     var login_form = $("#login");
-    login_form.css('left', clientwidth / 2 - 155).css('top', clientheight * 0.15);
+    login_form.css('left', clientwidth / 2 - 155).css('top', clientheight * 0.12);
 
     var footer = $("footer");
-    footer.css('height', clientheight / 10);
-    footer.css('padding-top', footer.height() * 0.4);
+    footer.css('height', 30);
+    //footer.css('padding-top', footer.height() * 0.4);
 
     var loading = $('#loading');
     loading.css('height', clientheight);
@@ -41,11 +36,11 @@ function uiSet() {
     var clientwidth = $(window).width();
     var login_form = $("#login");
     var loading = $('#loading');
-    login_form.css('left', clientwidth / 2 - 155).css('top', clientheight * 0.15);
+    login_form.css('left', clientwidth / 2 - 155).css('top', clientheight * 0.12);
     $("#container").css('height', clientheight);
     var footer = $("footer");
-    footer.css('height', clientheight / 10);
-    footer.css('padding-top', footer.height() * 0.4);
+    footer.css('height', 30);
+    //footer.css('padding-top', footer.height() * 0.4);
     //加载遮罩
     loading.css('height', clientheight);
     loading.css('width', clientwidth);
@@ -177,6 +172,8 @@ function setMisc() {
         }
     });
 
+
+
 }
 
 //异步登录
@@ -224,17 +221,4 @@ function ajaxLogin() {
             //console.log("error:" + msg);
         }
     });
-}
-
-//抖动函数
-jQuery.fn.shake = function (intShakes /*Amount of shakes*/, intDistance /*Shake distance*/, intDuration /*Time duration*/) {
-    this.each(function () {
-        var jqNode = $(this);
-        jqNode.css({position: 'relative'});
-        for (var x = 1; x <= intShakes; x++) {
-            jqNode.animate({left: intDistance}, (((intDuration / intShakes) / 2)))
-                .animate({left: 0}, (((intDuration / intShakes) / 2)))
-        }
-    });
-    return this;
 }

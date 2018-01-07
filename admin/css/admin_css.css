@@ -50,6 +50,7 @@
     left: 0px;
     top: 0px;
     text-align: center;
+    z-index: 200;
 }
 
 #loading_main {
@@ -57,9 +58,4 @@
     font-size: 16px;
     color: black;
     top: 20%;
-    z-index: 200;
-}
-
-.input-group .form-control,.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
-    z-index: 0;
 }

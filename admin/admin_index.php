@@ -11,6 +11,7 @@
     <link type="text/css" rel="stylesheet" href="./css/style.css"/>
     <link type="text/css" rel="stylesheet" href="./css/admin_css.css"/>
     <script type="text/javascript" src="./js/admin_js.js"></script>
+    <script type="text/javascript" src="../util/util_js.js"></script>
     <link href="../css/loading.css" rel="stylesheet">
 </head>
 
@@ -20,12 +21,14 @@
 session_start();
 $userinfo = $_SESSION['userinfo'];
 if (!isset($userinfo['username'])) {
-    echo "<script language='JavaScript'>alert('非法访问，请登录！');</script>";
-    echo '点击此处 <a href="../login.php">返回</a> 重试';
+    //echo "<script language='JavaScript'>alert('非法访问，请登录！');</script>";
+    //echo '点击此处 <a href="../login.php">返回</a> 重试';
+    header("Location: ../login.php");
     exit();
 } else if ($userinfo['flag'] < 1) {
-    echo "<script language='JavaScript'>alert('您的账号没有管理权限！');</script>";
-    echo '点击此处 <a href="../login.php">返回</a> 重试';
+    //echo "<script language='JavaScript'>alert('您的账号没有管理权限！');</script>";
+    //echo '点击此处 <a href="../login.php">返回</a> 重试';
+    header("Location: ../login.php");
     exit();
 }
 ?>

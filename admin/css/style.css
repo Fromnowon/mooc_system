@@ -72,9 +72,9 @@ body {
 }
 
 #footer {
-    height: 40px;
-    line-height: 50px;
-    background: #5e5e5e;
+    /*height: 30px;*/
+    /*line-height: 30px;*/
+    /*background: #5e5e5e;*/
     width: 100%;
     z-index: 200;
     bottom: 0;
@@ -84,7 +84,7 @@ body {
 
 #footer p {
     text-align: center;
-    line-height: 40px;
+    /*line-height: 20px;*/
     color: #fbfbfb;
 }
 
@@ -95,7 +95,7 @@ body {
     float: left;
     width: 240px;
     background: #2a2a2a;
-    height: 900px;
+    /*height: 900px;*/
     position: fixed;
     margin-top: 40px;
     padding-top: 30px;

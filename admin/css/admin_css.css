@@ -10,7 +10,7 @@
 
 #userinfo {
     height: 200px;
-    margin: 10px 10px 50px 10px;
+    margin: 10px 10px 30px 10px;
     position: relative;
     text-align: center;
 }
@@ -34,6 +34,7 @@
 #form_content th, #form_content td {
     padding: 10px;
     background: #f6f6f6;
+    white-space:nowrap;
 }
 #form_content td span{
     margin-top: 3px;
@@ -45,7 +46,7 @@
 }
 
 #loading {
-    position: absolute;
+    position: fixed;
     background: rgba(0, 0, 0, 0.31);
     left: 0px;
     top: 0px;
@@ -58,4 +59,11 @@
     font-size: 16px;
     color: black;
     top: 20%;
+}
+
+fieldset{
+    margin: 10px 0px 20px 0px;
+}
+.form-group{
+    margin: 10px;
 }

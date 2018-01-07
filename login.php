@@ -58,7 +58,7 @@
 </div>
 <!--注册模块-->
 <?php
-include('register.php');
+include('./util/register.php');
 ?>
 <div id="footer">
     <footer>2018 Designed by ZZH</footer>

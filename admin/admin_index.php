@@ -168,15 +168,14 @@ if (!isset($userinfo['username'])) {
             </div>
         </div>
         <div id="ajax_content">
-
         </div>
 
     </div>
 </div>
-<div id="footer"><p>Copyright© 2018 版权所有</p></div>
 <script>navList(12);</script>
 <!--加载遮罩-->
 <?php
+include '../util/user_edit_save.php';
 include '../util/loading.php';
 ?>
 </body>

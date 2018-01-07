@@ -41,7 +41,7 @@ body{
     margin: 20px 0px 0px 10px;
 }
 
-form {
+#login_form {
     margin-top: 20px;
 }
 
@@ -79,5 +79,9 @@ footer {
 .login_logo{
     margin: 0px auto 50px auto;
     width: 70%;
+}
+
+.btn-group>.btn.active{
+    z-index: 0;
 }
 

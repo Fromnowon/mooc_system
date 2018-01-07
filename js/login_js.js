@@ -10,8 +10,15 @@ $(function () {
 
 })
 window.onbeforeunload = function (event) {
-    $('#loading').css('visibility', 'visible');
+    setLoading('visible');
 }
+
+//遮罩控制
+function setLoading(str) {
+    var loading = $('#loading');
+    loading.css('visibility', str);
+}
+
 //动态设置元素高度
 $(window).resize(function () {
     var clientheight = $(this).height();
@@ -48,7 +55,7 @@ function formCheck() {
     var btn = $("#submit_btn");
     var login_username = $("#login_username");
     var login_password = $("#login_password");
-    btn.attr('disabled', 'disabled');
+    btn.attr('disabled', true);
     login_username.bind('blur keyup input', function () {
         tipHandler(login_username, login_password, 3);
         //console.log('username' + login_username.val().length);
@@ -60,13 +67,14 @@ function formCheck() {
 
     function tipHandler(object1, object2, min) {
         if (object1.val().length > 0 && object1.val().length < min) {
-            btn.attr('disabled', 'disabled');
+            btn.attr('disabled', true);
             object1.next().css('visibility', 'visible');
         }
         else {
             object1.next().css('visibility', 'hidden');
             if (object2.val().length >= min && object1.val().length >= min) {
-                btn.removeAttr('disabled');
+                btn.attr('disabled', false);
+                //btn.removeAttr('disabled');
             }
         }
     }
@@ -93,7 +101,7 @@ function regModule() {
         } else {
             //显示提交提示并防止重复提交
             reg_tip.html('正在提交，请稍候...');
-            $(this).attr('disabled', 'disabled');
+            $(this).attr('disabled', true);
             //静默提交注册
             $.ajax({
                 type: "post",
@@ -116,9 +124,9 @@ function regModule() {
                         //关闭注册框,清空注册表单，并启用登陆按钮
                         $('#reg_modal').modal('hide');
                         $("#reg_form").find('input').val('');
-                        $("#submit_btn").removeAttr('disabled');
+                        $("#submit_btn").attr('disabled', false);;
                         //启用注册按钮
-                        $("#reg_submit").removeAttr('disabled');
+                        $("#reg_submit").attr('disabled', false);;
                     }
                     else
                         alert('ERROR!请联系管理员');
@@ -139,12 +147,84 @@ function setMisc() {
 
     $("body").css('visibility', 'visible');
     $(".login_logo").hover(function () {
-        $(this).shake(10,20,2000);
-    },function () {
+        $(this).shake(10, 20, 2000);
+    }, function () {
         $(this).stop();
     })
+
+    //处理回车
+    //用户名回车跳到下一行
+    $('#login_username').bind('keypress', function (event) {
+        if (event.keyCode == "13") {
+            $("#login_password").focus();
+        }
+    });
+    //密码回车判断是否可以提交
+    $('#login_password').bind('keypress', function (event) {
+        //console.log($("#submit_btn").attr("disabled"));
+        if (event.keyCode == "13") {
+            var btn = $("#submit_btn");
+            if (!btn.attr("disabled"))
+                btn.trigger('click');
+        }
+    });
+    //用户名密码都无焦点时回车判断提交
+    $(document).bind('keypress', function (event) {
+        if (!$('#login_username').is(':focus') && !$('#login_password').is(':focus') && !$("#submit_btn").attr("disabled")) {
+            if (event.keyCode == "13") {
+                $("#submit_btn").trigger('click');
+            }
+        }
+    });
+
 }
 
+//异步登录
+function ajaxLogin() {
+    setLoading('visible');
+    var login_username = $("#login_username").val();
+    var login_password = $("#login_password").val();
+    var logintoadmin = 0;
+    if ($("#login_checkbox_logintoadmin").is(':checked')) logintoadmin = 1;
+    else logintoadmin = 0;
+    $.ajax({
+        type: "post",
+        url: "./util/action.php?action=login",
+        data: {login_username: login_username, login_password: login_password, logintoadmin: logintoadmin},
+        dataType: "html",
+        success: function (msg) {
+            setLoading('hidden');
+            switch (msg) {
+                case 'REFUSED': {
+                    alert('您的账户没有管理权限');
+                    break;
+                }
+                case 'WRONG': {
+                    alert('用户名或密码错误');
+                    break;
+                }
+                case 'NORMAL': {
+                    $(location).attr('href', 'index.php');
+                    break;
+                }
+                case 'ADMIN': {
+                    $(location).attr('href', 'admin/admin_index.php');
+                    break;
+                }
+                default: {
+                    alert('未知错误');
+                    break;
+                }
+            }
+            //alert(msg);
+            //console.log("DONE:" + msg);
+        },
+        error: function (msg) {
+            alert(msg);
+            //console.log("error:" + msg);
+        }
+    });
+}
 
 //抖动函数
 jQuery.fn.shake = function (intShakes /*Amount of shakes*/, intDistance /*Shake distance*/, intDuration /*Time duration*/) {

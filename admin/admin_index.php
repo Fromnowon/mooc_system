@@ -167,38 +167,14 @@ if (!isset($userinfo['username'])) {
         <div id="ajax_content">
 
         </div>
-        <!--        <div id="form_search">-->
-        <!---->
-        <!--        </div>-->
-        <!--        <br/><br/><br/>-->
-        <!--        <div id="form_content"></div>-->
-        <!--        <nav aria-label="Page navigation">-->
-        <!--            <ul class="pagination" id="page_btn">-->
-        <!---->
-        <!--            </ul>-->
-        <!--        </nav>-->
+
     </div>
 </div>
 <div id="footer"><p>Copyright© 2018 版权所有</p></div>
 <script>navList(12);</script>
-<div id="loading" style="visibility: hidden">
-    <div id="loading_main">
-        <div class="loading">
-            <div><span></span></div>
-            <div><span></span></div>
-            <div><span></span></div>
-        </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/>
-        <div id="load">
-            <div>G</div>
-            <div>N</div>
-            <div>I</div>
-            <div>D</div>
-            <div>A</div>
-            <div>O</div>
-            <div>L</div>
-        </div>
-    </div>
-</div>
+<!--加载遮罩-->
+<?php
+include '../util/loading.php';
+?>
 </body>
 </html>

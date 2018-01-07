@@ -20,11 +20,10 @@
 <!--登录模块-->
 <div id="login">
     <img class="img-responsive login_logo" src="resource/doge.png"/>
-    <form action="util/action.php?action=login" method="post">
-        <input id="login_username" type="text" class="form-control login_input" name="login_username" placeholder="用户名">
+    <div id="login_form">
+        <input id="login_username" type="text" class="form-control login_input" placeholder="用户名">
         &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
-        <input id="login_password" type="password" class="form-control login_input" name="login_password"
-               placeholder="密码">
+        <input id="login_password" type="password" class="form-control login_input" placeholder="密码">
         &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
         <br/><br/>
         <div id="checkbox_div">
@@ -33,10 +32,11 @@
                     <td>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-success">
-                                <input type="checkbox" name="login_checkbox[]" value="enable" autocomplete="off">记住密码
+                                <input type="checkbox" id="login_checkbox_remember" value="enable" autocomplete="off">记住密码
                             </label>
                             <label class="btn btn-success">
-                                <input type="checkbox" name="login_checkbox[]" value="enable" autocomplete="off">登录后台
+                                <input type="checkbox" id="login_checkbox_logintoadmin" value="enable"
+                                       autocomplete="off">登录后台
                             </label>
                         </div>
                         <br/><br/>
@@ -47,10 +47,9 @@
         </div>
         <div id="btn_div">
             <a id="reg_btn" class="btn btn-default">注册</a>
-            <button id="submit_btn" type="submit" class="btn btn-primary">登录
-            </button>
+            <a id="submit_btn" class="btn btn-primary" onclick="ajaxLogin()"> 登录</a>
         </div>
-    </form>
+    </div>
 </div>
 <!--注册模块-->
 <?php

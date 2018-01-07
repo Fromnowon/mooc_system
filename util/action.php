@@ -17,7 +17,7 @@ switch ($_GET['action']) {
     case 'login': {
         $login_username = $_POST['login_username'];
         $login_password = md5($_POST['login_password']);
-        $login_checkbox = $_POST['login_checkbox'];
+        $login_checkbox = $_POST['logintoadmin'];
         login($conn, $login_username, $login_password, $login_checkbox);
         break;
     }
@@ -46,23 +46,26 @@ function login($conn, $username, $password, $checkbox)
         $_SESSION['userinfo'] = $result;
         /*$_SESSION['username'] = $username;
         $_SESSION['flag'] = $result['flag'];*/
-        if (isset($checkbox[count($checkbox) - 1])) {
+        if ($checkbox) {
             //登录到后台
             if ($result['flag'] < 1) {
-                echo '对不起，您的账户没有管理员权限，' . '点击此处 <a href="javascript:history.back(-1);">返回</a> 重试';
+                //无权限，拒绝请求
+                echo 'REFUSED';
                 mysqli_close($conn);
                 exit();
             }
             mysqli_close($conn);
-            header("Location: ../admin/admin_index.php");
+            echo 'ADMIN';
+            //header("Location: ../admin/admin_index.php");
         } else {
             mysqli_close($conn);
+            echo'NORMAL';
             //登录到前台主页
-            header("Location: ../index.php");
+            //header("Location: ../index.php");
         }
     } else {
         mysqli_close($conn);
-        exit('登录失败！点击此处 <a href="javascript:history.back(-1);">返回</a> 重试');
+        exit('WRONG');
     }
 }
 

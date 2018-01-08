@@ -56,17 +56,40 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="edit_email">邮<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<span>&nbsp;&nbsp;</span></label>
+                            <input type="text" class="form-control" id="edit_email">
+                        </div>
+                        <div class="form-group">
                             <label for="edit_contact">联系方式：<span>&nbsp;&nbsp;</span></label>
                             <input type="text" class="form-control" id="edit_contact">
                         </div>
+                        <br/>
                         <div class="form-group">
                             <label for="edit_school">学<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：<span>&nbsp;&nbsp;</span></label>
                             <input type="text" class="form-control" id="edit_school">
                         </div>
+                        <div class="form-group">
+                            <label for="edit_subject" class="control-label">科目：<span>&nbsp;&nbsp;</span></label>
+                            <select id="edit_subject" class="form-control">
+                                <option value="语文">语文</option>
+                                <option value="数学">数学</option>
+                                <option value="英语">英语</option>
+                                <option value="物理">物理</option>
+                                <option value="生物">生物</option>
+                                <option value="化学">化学</option>
+                                <option value="政治">政治</option>
+                                <option value="历史">历史</option>
+                                <option value="地理">地理</option>
+                                <option value="心理">心理</option>
+                                <option value="信息技术">信息技术</option>
+                                <option value="通用技术">通用技术</option>
+                                <option value="暂无">暂无</option>
+                            </select>
+                        </div>
                         <div class="form-group" style="display: block">
                             <label for="edit_introduction">简介：</label>
                             <p><span>&nbsp;&nbsp;</span></p>
-                            <textarea rows="5" class="form-control" style="width: 90%;resize: none"
+                            <textarea rows="5" class="form-control" style="width: 100%;resize: none"
                                       id="edit_introduction"></textarea>
                         </div>
                     </fieldset>

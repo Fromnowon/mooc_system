@@ -19,7 +19,7 @@ switch ($_GET['admin_action']) {
         break;
     }
     case 'edit_add': {
-        editOrSave($conn, $date);
+        editOrSave($conn, $date, $_POST['action']);
         break;
     }
     case 'logout': {
@@ -54,53 +54,56 @@ function allUsers($conn, $page, $action)
             if ($key == 'flag') {
                 switch ($val_row) {
                     case 0:
-                        $val_row = '普通用户';
+                        $val_row = '<span value="0">普通用户</span>';
                         break;
                     case 1;
-                        $val_row = '管理员';
+                        $val_row = '<span value="1">管理员</span>';
                         break;
                     case 2;
-                        $val_row = '网站维护人';
+                        $val_row = '<span value="2">网站维护人</span>';
                         break;
                     default:
-                        $val_row = '未知';
+                        $val_row = '<span value="-1">未知</span>';
                         break;
                 }
             }
             if ($key == 'status') {
                 switch ($val_row) {
                     case 0:
-                        $val_row = '封禁';
+                        $val_row = '<span value="0">封禁</span>';
                         break;
                     case 1;
-                        $val_row = '正常';
+                        $val_row = '<span value="1">正常</span>';
                         break;
                     case 2;
-                        $val_row = '禁止上传';
+                        $val_row = '<span value="2">禁止上传</span>';
                         break;
                     case 3;
-                        $val_row = '禁止发言';
+                        $val_row = '<span value="3">禁止发言</span>';
                         break;
                     default:
-                        $val_row = '未知';
+                        $val_row = '<span value="-1">未知</span>';
                         break;
                 }
             }
             if ($key == 'gender') {
                 switch ($val_row) {
                     case 0:
-                        $val_row = '保密';
+                        $val_row = '<span value="0">保密</span>';
                         break;
                     case 1;
-                        $val_row = '男';
+                        $val_row = '<span value="1">男</span>';
                         break;
                     case 2;
-                        $val_row = '女';
+                        $val_row = '<span value="2">女</span>';
                         break;
                     default:
-                        $val_row = '未知';
+                        $val_row = '<span value="-1">未知</span>';
                         break;
                 }
+            }
+            if ($key == 'subject') {
+                $val_row = '<span value="' . $val_row . '">' . $val_row . '</span>';
             }
             if ($key == 'password' || $key == 'avatar' || $key == 'like_id' || $key == 'dislike_id' || is_numeric($key)) {
                 //啥都不做
@@ -133,7 +136,7 @@ function allUsers($conn, $page, $action)
     }
 
     //“新增”按钮
-    $addBtn = "<div id='form_misc'><button type='button' class='btn btn-success' onclick='editData(\"new\")'>
+    $addBtn = "<div id='form_misc'><button type='button' class='btn btn-success' onclick='editData(\"new\",null,null)'>
 <span class='glyphicon glyphicon-plus'></span>新增</button>";
 
     //搜索框
@@ -154,9 +157,9 @@ function allUsers($conn, $page, $action)
     $page_html .= "</ul></nav>";
     //表头
     $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="user_status">' .
-        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>邮箱</th><th>联系方式</th><th>名字</th><th>性别</th>' .
+        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>邮箱</th><th>联系方式</th><th>姓名</th><th>性别</th>' .
         '<th>学校</th><th>注册时间</th><th>简介</th><th>身份</th><th>状态</th>' .
-        '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th></tr></thead>';
+        '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th><th>最后编辑</th></tr></thead>';
     //echo $form_search_html.$table_head_html.$page_html;
 
     //完全拼接
@@ -164,30 +167,54 @@ function allUsers($conn, $page, $action)
     mysqli_close($conn);
 }
 
-function editOrSave($conn, $date)
+function editOrSave($conn, $date, $action)
 {
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    //是否更改密码
+    if ($_POST['password'] != '')
+        $password = md5($_POST['password']);
+    else
+        $password = '';
+    $uid = $_POST['uid'];
     $flag = $_POST['flag'];
     $status = $_POST['status'];
     $realname = $_POST['realname'];
     $gender = $_POST['gender'];
+    $email = $_POST['email'];
     $contact = $_POST['contact'];
     $school = $_POST['school'];
+    $subject = $_POST['subject'];
     $introduction = $_POST['introduction'];
-    if ($_POST['action'] == 'new') {
+    if ($action == 'new') {
         //查重
         if (mysqli_num_rows(mysqli_query($conn, "select * from user where username='$username'")) > 0) {
             echo "CONFLICT";
             mysqli_close($conn);
             exit();
         }
-        $sql = "insert into user (username,password,flag,status,real_name,gender,contact,school,introduction,reg_date)" .
-            "values ('$username','$password','$flag','$status','$realname','$gender','$contact','$school','$introduction','$date')";
+        $sql = "insert into user (username,password,flag,status,real_name,gender,mail,contact,school,subject,introduction,reg_date)" .
+            "values ('$username','$password','$flag','$status','$realname','$gender','$email','$contact','$school','$subject','$introduction','$date')";
         if (mysqli_query($conn, $sql))
             echo 'OK';
         else
             echo 'ERROR';
         mysqli_close($conn);
+//        echo $sql;
+    } else if ($action == 'edit') {
+        if ($password == '') {
+            $sql = "update user set flag='$flag',status='$status',real_name='$realname',gender='$gender',mail='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
+            if (mysqli_query($conn, $sql))
+                echo 'OK';
+            else
+                echo 'ERROR';
+            mysqli_close($conn);
+        } else {
+            $sql = "update user set password='$password',flag='$flag',status='$status',real_name='$realname',gender='$gender',mail='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
+            if (mysqli_query($conn, $sql))
+                echo 'OK';
+            else
+                echo 'ERROR';
+            mysqli_close($conn);
+        }
     }
 }

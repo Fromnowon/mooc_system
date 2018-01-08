@@ -68,7 +68,6 @@ if (!isset($userinfo['username'])) {
                     <a href=''>状态监控</a>
                     <a href=''>占位</a>
                     <a href=''>占位</a>
-                    <a href=''>占位</a>
                 </div>
             </li>
             <li>
@@ -77,7 +76,6 @@ if (!isset($userinfo['username'])) {
                     <a href=''>上传审核</a>
                     <a href=''>申精审核</a>
                     <a href=''>举报审核</a>
-                    <a href=''>占位</a>
                     <a href=''>占位</a>
                 </div>
             </li>

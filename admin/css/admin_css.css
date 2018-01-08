@@ -33,10 +33,25 @@
 
 #form_content th, #form_content td {
     padding: 10px;
-    background: #f6f6f6;
-    white-space:nowrap;
+    /*background: #f6f6f6;*/
+    white-space: nowrap;
 }
-#form_content td span{
+#form_content tr{
+    background: #f6f6f6;
+    transition:background 1s;
+    -moz-transition:background 1s; /* Firefox 4 */
+    -webkit-transition:background 1s; /* Safari and Chrome */
+    -o-transition:background 1s; /* Opera */
+}
+#form_content tbody tr:hover{
+    cursor: pointer;
+    background: #bebebe;
+    /*animation: myfirst 1s forwards;*/
+    /*transition: all 1s linear;*/
+}
+
+
+#form_content td span {
     margin-top: 3px;
 }
 
@@ -61,9 +76,10 @@
     top: 20%;
 }
 
-fieldset{
+fieldset {
     margin: 10px 0px 20px 0px;
 }
-.form-group{
+
+.form-group {
     margin: 10px;
 }

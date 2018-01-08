@@ -15,7 +15,7 @@ include('conn.php');
 switch ($_GET['admin_action']) {
     case 'user_status': {
         //返回查询数据，注意判断动作类型
-        allUsers($conn, $_POST['page'], $_POST['action']);
+        sqlUsers($conn, $_POST['page'], $_POST['action']);
         break;
     }
     case 'edit_add': {
@@ -30,15 +30,76 @@ switch ($_GET['admin_action']) {
     }
 
 }
-function allUsers($conn, $page, $action)
+function sqlUsers($conn, $page, $action)
 {
+    //表头
+    $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="user_status">' .
+        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>邮箱</th><th>联系方式</th><th>姓名</th><th>性别</th>' .
+        '<th>学校</th><th>注册时间</th><th>简介</th><th>身份</th><th>状态</th>' .
+        '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th><th>最后编辑</th></tr></thead>';
+    //echo $form_search_html.$table_head_html.$page_html;
+
+
     //查询
-    $num = 10;//每页数据量
-    $num_start = ($page - 1) * 10;//每页第一条数据位置
-    $check_query = mysqli_query($conn, "select * from user limit $num_start,$num");
-    $rs = array();
-    while ($r = mysqli_fetch_array($check_query)) {
-        $rs[count($rs)] = $r;
+    if ($action == 'search') {
+        $filter_arr = ['ALL', 'username', 'real_name', 'school', 'email'];
+        $filter = $_POST['filter'];
+        $search_key = $_POST['search_key'];
+        $num = 10;//每页数据量
+        $num_start = ($page - 1) * 10;//每页第一条数据位置
+        if ($filter == '0') {
+            $sql = "select * from user where username like '%$search_key%' or real_name like '%$search_key%'" .
+                " or school like '%$search_key%' or email like '%$search_key%' limit $num_start,$num";
+//            echo $sql;
+//            exit();
+            $check_query = mysqli_query($conn, $sql);
+            $rs = array();
+            while ($r = mysqli_fetch_array($check_query)) {
+                $rs[count($rs)] = $r;
+            }
+            //若无结果直接返回
+            if (count($rs, COUNT_NORMAL) == 0) {
+                echo $form_head . '<tr style="text-align: center;font-size: 18px"><td colspan="17" style="color: red">无结果匹配</td></tr>'. '</table></div>' ;
+                exit();
+            }
+        } else {
+            $sql = "select * from user where $filter_arr[$filter] like '%$search_key%' limit $num_start,$num";
+//            echo $sql;
+//            exit();
+            $check_query = mysqli_query($conn, $sql);
+            $rs = array();
+            while ($r = mysqli_fetch_array($check_query)) {
+                $rs[count($rs)] = $r;
+            }
+            //若无结果直接返回
+            if (count($rs, COUNT_NORMAL) == 0) {
+                echo $form_head . '<tr style="text-align: center;font-weight: bold;font-size: 18px"><td colspan="17" style="color: red">无结果匹配</td></tr>'. '</table></div>' ;
+                exit();
+            }
+        }
+        //重新生成页码
+        if ($filter == '0') {
+            $total_data = mysqli_num_rows(mysqli_query($conn, "select * from user where username like '%$search_key%' or real_name like '%$search_key%'" .
+                " or school like '%$search_key%' or email like '%$search_key%'"));
+        } else {
+            $total_data = mysqli_num_rows(mysqli_query($conn, "select * from user where $filter_arr[$filter] like '%$search_key%'"));
+        }
+        $total_page = ceil($total_data / 10);
+        $page_html = '<nav aria-label="Page navigation"><ul class="pagination" id="page_btn">';
+        //page_btn.children().remove();
+        $i = 1;
+        while ($i <= $total_page) {
+            $page_html .= "<li><a href='javascript:void(0)' onclick='userSearch($i)'>$i</a></li>";
+            $i++;
+        }
+    } else {
+        $num = 10;//每页数据量
+        $num_start = ($page - 1) * 10;//每页第一条数据位置
+        $check_query = mysqli_query($conn, "select * from user limit $num_start,$num");
+        $rs = array();
+        while ($r = mysqli_fetch_array($check_query)) {
+            $rs[count($rs)] = $r;
+        }
     }
 
     /*准备拼接html*/
@@ -128,9 +189,14 @@ function allUsers($conn, $page, $action)
         $i++;
     }
 
-    //若是分页，则只返回表格主体
+    //若是分页或查询，则提前返回
     if ($action == 'page') {
         echo $form_main;
+        mysqli_close($conn);
+        exit();
+    }
+    if ($action == 'search') {
+        echo $form_head . $form_main . '</table></div>' . $page_html;
         mysqli_close($conn);
         exit();
     }
@@ -139,13 +205,34 @@ function allUsers($conn, $page, $action)
     $addBtn = "<div id='form_misc'><button type='button' class='btn btn-success' onclick='editData(\"new\",null,null)'>
 <span class='glyphicon glyphicon-plus'></span>新增</button>";
 
-    //搜索框
-    $form_search_html = '<div class="input-group col-lg-3" style="float: right">' .
-        '<input type="text" class="form-control" placeholder="用户名、姓名、邮箱等">' .
-        '<span class="input-group-btn">' .
-        '<button class="btn btn-default" type="button">查询</button></span></div></div><br/><br/>';
+    //搜索模块
+    $user_form_search_html = '<div style="float: right;">
+        <div class="input-group" style="width: 300px;float: left">
+            <input type="text" id="user_form_search_key" class="form-control" placeholder="关键词">
+            <div class="input-group-btn">
+                <button id="user_form_search_button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false" filter="0"><span>综合</span><span class="caret" style="margin-left: 5px"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a class="user_form_search_list" filter="1" href="javascript:void(0)">用户名</a></li>
+                    <li><a class="user_form_search_list" filter="2" href="javascript:void(0)">姓名</a></li>
+                    <li><a class="user_form_search_list" filter="3" href="javascript:void(0)">学校</a></li>
+                    <li><a class="user_form_search_list" filter="4" href="javascript:void(0)">邮箱</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a class="user_form_search_list"  filter="0" href="javascript:void(0)">综合</a></li>
+                </ul>
+            </div>
+        </div>
+    <button class="btn btn-primary" id="user_form_search" style="float: left;margin-left: 10px">查询</button>
+</div></div><br/><br/>';
+    $user_form_search_js = '<script>$(".user_form_search_list").on("click",function() {
+                            var ts=$("#user_form_search_button");
+                            ts.children(":first-child").html($(this).html());
+                            ts.attr("filter",$(this).attr("filter"));
+                            })</script>';
+
     //页码
-    $total_data = mysqli_num_rows(mysqli_query($conn, "select * from user"));;
+    $total_data = mysqli_num_rows(mysqli_query($conn, "select * from user"));
     $total_page = ceil($total_data / 10);
     $page_html = '<nav aria-label="Page navigation"><ul class="pagination" id="page_btn">';
     //page_btn.children().remove();
@@ -155,15 +242,9 @@ function allUsers($conn, $page, $action)
         $i++;
     }
     $page_html .= "</ul></nav>";
-    //表头
-    $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="user_status">' .
-        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>邮箱</th><th>联系方式</th><th>姓名</th><th>性别</th>' .
-        '<th>学校</th><th>注册时间</th><th>简介</th><th>身份</th><th>状态</th>' .
-        '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th><th>最后编辑</th></tr></thead>';
-    //echo $form_search_html.$table_head_html.$page_html;
 
     //完全拼接
-    echo $addBtn . $form_search_html . $form_head . $form_main . '</table></div>' . $page_html;
+    echo $addBtn . $user_form_search_html . $user_form_search_js . $form_head . $form_main . '</table></div>' . $page_html;
     mysqli_close($conn);
 }
 
@@ -192,24 +273,24 @@ function editOrSave($conn, $date, $action)
             mysqli_close($conn);
             exit();
         }
-        $sql = "insert into user (username,password,flag,status,real_name,gender,mail,contact,school,subject,introduction,reg_date)" .
+        $sql = "insert into user (username,password,flag,status,real_name,gender,email,contact,school,subject,introduction,reg_date)" .
             "values ('$username','$password','$flag','$status','$realname','$gender','$email','$contact','$school','$subject','$introduction','$date')";
-        if (mysqli_query($conn, $sql))
+        if (mysqli_query($conn, $sql)) {
             echo 'OK';
-        else
+        } else
             echo 'ERROR';
         mysqli_close($conn);
 //        echo $sql;
     } else if ($action == 'edit') {
         if ($password == '') {
-            $sql = "update user set flag='$flag',status='$status',real_name='$realname',gender='$gender',mail='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
+            $sql = "update user set flag='$flag',status='$status',real_name='$realname',gender='$gender',email='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
             if (mysqli_query($conn, $sql))
                 echo 'OK';
             else
                 echo 'ERROR';
             mysqli_close($conn);
         } else {
-            $sql = "update user set password='$password',flag='$flag',status='$status',real_name='$realname',gender='$gender',mail='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
+            $sql = "update user set password='$password',flag='$flag',status='$status',real_name='$realname',gender='$gender',email='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
             if (mysqli_query($conn, $sql))
                 echo 'OK';
             else

@@ -8,9 +8,6 @@ $(function () {
     //实现"用户监控"
     userStatus();
 
-    //绑定各种按钮
-    setBtn();
-
     //布局相关
     setMisc();
 })
@@ -33,9 +30,6 @@ function setUI(obj) {
     loading.css('height', clientheight);
     loading.css('width', clientwidth);
     $(".left_menu").css('height', clientheight);
-}
-
-function setBtn() {
 }
 
 function setLoading(toggle) {
@@ -63,23 +57,75 @@ function loadData(page, action) {
         data: {page: page, action: action},
         dataType: "html",
         success: function (msg) {
+            //加载页面完成后绑定事件
+            loadDataComplete(msg, page, action);
             //alert("DONE!");
-            if (action == 'init')
-                $("#ajax_content").html(msg);
-            else
-                $("#result").next().empty().append(msg);
-            setLoading('hidden');
-            //生成表格后绑定点击事件
-            $("tr").on('click', function () {
-                //打开弹窗并传递行对象、所对应数据的uid
-                editData('edit', $(this).children(':first-child').html(), $(this));
-            })
-            //清除空行的点击事件
             //console.log("DONE:" + msg);
         },
         error: function (msg) {
             alert("ERROR!");
             //console.log("error:" + msg);
+        }
+    });
+}
+
+function loadDataComplete(msg, page, action) {
+    if (action == 'init')
+        $("#ajax_content").html(msg);
+    else
+        $("#result").next().empty().append(msg);
+    setLoading('hidden');
+
+    //在页头标记本页页码
+    //$("#result").attr('value', page);
+
+    //生成表格后绑定点击事件
+    $("tr").on('click', function () {
+        //打开弹窗并传递行对象、所对应数据的uid
+        editData('edit', $(this).children(':first-child').html(), $(this));
+    })
+
+    //搜索按钮与搜索分页复用模块
+    $("#user_form_search").on('click', function () {
+        if ($("#user_form_search_key").val() == '') {
+            $(this).prev().shake(2, 10, 300);
+            return false;
+        }
+        userSearch(1);
+    })
+
+
+}
+
+//搜索按钮与搜索分页复用模块
+function userSearch(page) {
+    setLoading('visible')
+    var data = {
+        search_key: $("#user_form_search_key").val(),
+        filter: $("#user_form_search_button").attr('filter'),
+        page: page,
+        action: 'search'
+    };
+    $.ajax({
+        type: "post",
+        url: "../util/admin_action.php?admin_action=user_status",
+        data: data,
+        dataType: "html",
+        success: function (msg) {
+            //追加搜索结果
+            $("nav").remove();
+            $("#form_content").empty().append(msg);
+            setLoading('hidden');
+            $("tr").on('click', function () {
+                //打开弹窗并传递行对象、所对应数据的uid
+                editData('edit', $(this).children(':first-child').html(), $(this));
+            })
+            //alert("DONE!");
+            console.log(msg);
+        },
+        error: function (msg) {
+            alert("ERROR!");
+            //console.log(msg);
         }
     });
 }
@@ -98,7 +144,7 @@ function editData(action, uid, obj) {
         $("#edit_status").val(obj.children('.status').children('span').attr('value'));
         $("#edit_realname").val(obj.children('.real_name').html());
         $("#edit_gender").val(obj.children('.gender').children('span').attr('value'));
-        $("#edit_email").val(obj.children('.mail').html());
+        $("#edit_email").val(obj.children('.email').html());
         $("#edit_contact").val(obj.children('.contact').html());
         $("#edit_school").val(obj.children('.school').html());
         $("#edit_subject").val(obj.children('.subject').children('span').attr('value'));
@@ -177,7 +223,7 @@ function editData(action, uid, obj) {
                         alert("are you ok?Let's go");
                         $("#user_edit_modal").modal('hide');
                         initEditModal();
-                        $("#user_status").trigger('click');
+                        if (action == 'new') $("#user_status").trigger('click');
                         break;
                     }
                     default: {

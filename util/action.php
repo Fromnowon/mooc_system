@@ -70,10 +70,10 @@ function login($conn, $username, $password, $checkbox)
 }
 
 //注册函数
-function register($conn, $username, $password, $mail, $school, $contact, $date)
+function register($conn, $username, $password, $email, $school, $contact, $date)
 {
     //echo 'OK';exit();
-    $sql = "insert into user (username,password,mail,contact,school,reg_date) values ('$username','$password','$mail','$contact','$school','$date')";
+    $sql = "insert into user (username,password,email,contact,school,reg_date) values ('$username','$password','$email','$contact','$school','$date')";
     if (mysqli_query($conn, $sql))
         echo 'OK';
     else

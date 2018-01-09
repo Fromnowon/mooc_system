@@ -13,23 +13,24 @@ $(function () {
 })
 
 $(window).resize(function () {
-    setUI($(this));
+    setUI();
 })
 
 function setMisc() {
-    setUI($(window));
+    setUI();
     $('#user_edit_modal').on('hidden.bs.modal', function (e) {
         initEditModal();
     })
 }
 
-function setUI(obj) {
-    var clientheight = obj.height();
-    var clientwidth = obj.width();
+function setUI() {
+    var clientheight = document.body.clientHeight;
+    var clientwidth = document.body.clientWidth;
     var loading = $('#loading');
     loading.css('height', clientheight);
     loading.css('width', clientwidth);
     $(".left_menu").css('height', clientheight);
+    //console.log(document.body.clientHeight);
 }
 
 function setLoading(toggle) {
@@ -170,39 +171,26 @@ function editData(action, uid, obj) {
         }
         $(this).attr('disabled', true);
         //新增数据
-        if (action == 'new') {
-            var data = {
-                action: action,
-                username: $("#edit_username").val(),
-                password: $("#edit_password").val(),
-                flag: $("#edit_flag option:selected").val(),
-                status: $("#edit_status option:selected").val(),
-                realname: $("#edit_realname").val(),
-                gender: $("#edit_gender option:selected").val(),
-                email: $("#edit_email").val(),
-                contact: $("#edit_contact").val(),
-                school: $("#edit_school").val(),
-                subject: $("#edit_subject option:selected").val(),
-                introduction: $("#edit_introduction").val()
-            };
-        } else if (action == 'edit') {
-            var data = {
-                action: action,
-                uid: uid,
-                username: $("#edit_username").val(),
-                password: $("#edit_password").val(),
-                flag: $("#edit_flag option:selected").val(),
-                status: $("#edit_status option:selected").val(),
-                realname: $("#edit_realname").val(),
-                gender: $("#edit_gender option:selected").val(),
-                email: $("#edit_email").val(),
-                contact: $("#edit_contact").val(),
-                school: $("#edit_school").val(),
-                subject: $("#edit_subject option:selected").val(),
-                introduction: $("#edit_introduction").val()
-            }
-        } else {
-
+        var data = {
+            action: action,
+            username: $("#edit_username").val(),
+            password: $("#edit_password").val(),
+            flag: $("#edit_flag option:selected").val(),
+            status: $("#edit_status option:selected").val(),
+            realname: $("#edit_realname").val(),
+            gender: $("#edit_gender option:selected").val(),
+            email: $("#edit_email").val(),
+            contact: $("#edit_contact").val(),
+            school: $("#edit_school").val(),
+            subject: $("#edit_subject option:selected").val(),
+            introduction: $("#edit_introduction").val()
+        };
+        if (action == 'edit') {
+            data['uid'] = uid;
+            data['reg_date'] = obj.children(".reg_date").html();
+            data['total'] = obj.children(".total").html();
+            data['total_like'] = obj.children(".total_like").html();
+            data['total_dislike'] = obj.children(".total_dislike").html();
         }
         $.ajax({
             type: "post",
@@ -219,21 +207,31 @@ function editData(action, uid, obj) {
                         alert('服务器抽风，请联系管理员');
                         break;
                     }
-                    case 'OK': {
+                    default: {
                         alert("are you ok?Let's go");
                         $("#user_edit_modal").modal('hide');
                         initEditModal();
                         if (action == 'new') $("#user_status").trigger('click');
-                        break;
-                    }
-                    default: {
-                        alert('未知错误，烫烫烫烫烫烫烫烫');
+                        else {
+                            //修改后更新那一行
+                            if (obj.replaceWith(msg)) {
+                                setTimeout(function () {
+                                    $(".edit_complete").removeClass('edit_complete');
+                                }, 2000);
+                                $("#edit_complete").on('click', function () {
+                                    //打开弹窗并传递行对象、所对应数据的uid
+                                    editData('edit', $(this).children(':first-child').html(), $(this));
+                                })
+                                // var tr = $("#edit_complete");
+                                // tr.css('color', 'green');
+                            }
+                        }
                         break;
                     }
                 }
                 $("#data_edit_btn").attr('disabled', false);
                 //alert("DONE!");
-                console.log("DONE:" + msg);
+                //console.log("DONE:" + msg);
             },
             error: function (msg) {
                 alert("ERROR!");

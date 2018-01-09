@@ -59,7 +59,7 @@ function sqlUsers($conn, $page, $action)
             }
             //若无结果直接返回
             if (count($rs, COUNT_NORMAL) == 0) {
-                echo $form_head . '<tr style="text-align: center;font-size: 18px"><td colspan="17" style="color: red">无结果匹配</td></tr>'. '</table></div>' ;
+                echo $form_head . '<tr style="text-align: center;font-size: 18px"><td colspan="17" style="color: red">无结果匹配</td></tr>' . '</table></div>';
                 exit();
             }
         } else {
@@ -73,7 +73,7 @@ function sqlUsers($conn, $page, $action)
             }
             //若无结果直接返回
             if (count($rs, COUNT_NORMAL) == 0) {
-                echo $form_head . '<tr style="text-align: center;font-weight: bold;font-size: 18px"><td colspan="17" style="color: red">无结果匹配</td></tr>'. '</table></div>' ;
+                echo $form_head . '<tr style="text-align: center;font-weight: bold;font-size: 18px"><td colspan="17" style="color: red">无结果匹配</td></tr>' . '</table></div>';
                 exit();
             }
         }
@@ -284,9 +284,13 @@ function editOrSave($conn, $date, $action)
     } else if ($action == 'edit') {
         if ($password == '') {
             $sql = "update user set flag='$flag',status='$status',real_name='$realname',gender='$gender',email='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
-            if (mysqli_query($conn, $sql))
-                echo 'OK';
-            else
+            if (mysqli_query($conn, $sql)) {
+                //返回一行
+                $flag_arr = ['普通用户', '管理员', '网站维护人'];
+                $status_arr = ['禁止登陆', '正常', '禁止上传', '禁止发言'];
+                $gender_arr = ['保密', '男', '女'];
+                echo '<tr id="edit_complete" class="edit_complete"><td class="uid">' . $uid . '</td><td class="username">' . $username . '</td><td class="email">' . $email . '</td><td class="contact">' . $contact . '</td><td class="real_name">' . $realname . '</td><td class="gender"><span value="0">' . $gender_arr[$gender] . '</span></td><td class="school">' . $school . '</td><td class="reg_date">' . $_POST['reg_date'] . '</td><td class="introduction">' . $introduction . '</td><td class="flag"><span value="0">' . $flag_arr[$flag] . '</span></td><td class="status"><span value="1">' . $status_arr[$status] . '</span></td><td class="subject"><span value="暂无">' . $subject . '</span></td><td class="total">' . $_POST['total'] . '</td><td class="tag">暂无</td><td class="total_like">' . $_POST['total_like'] . '</td><td class="total_dislike">' . $_POST['total_dislike'] . '</td><td class="edit_date">' . $date . '</td></tr>';
+            } else
                 echo 'ERROR';
             mysqli_close($conn);
         } else {

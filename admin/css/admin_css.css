@@ -10,7 +10,7 @@
 
 #userinfo {
     height: 200px;
-    margin: 10px 10px 30px 10px;
+    margin: 30px 10px 30px 10px;
     position: relative;
     text-align: center;
 }
@@ -31,18 +31,27 @@
     font-size: 20px;
 }
 
+#content{
+
+}
+
 #form_content th, #form_content td {
     padding: 10px;
     /*background: #f6f6f6;*/
     white-space: nowrap;
 }
+
 #form_content tr{
     background: #f6f6f6;
-    transition:background 1s;
-    -moz-transition:background 1s; /* Firefox 4 */
-    -webkit-transition:background 1s; /* Safari and Chrome */
-    -o-transition:background 1s; /* Opera */
+    transition:all 2s;
+    -moz-transition:all 2s; /* Firefox 4 */
+    -webkit-transition:all 2s; /* Safari and Chrome */
+    -o-transition:all 2s; /* Opera */
 }
+#form_content .edit_complete{
+    background: rgba(52, 168, 83, 0.71);
+}
+
 #form_content tbody tr:hover{
     cursor: pointer;
     background: #bebebe;
@@ -50,14 +59,25 @@
     /*transition: all 1s linear;*/
 }
 
+#form_content table{
 
+}
+
+#form_content td{
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis; /* for IE */
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */
+}
 #form_content td span {
     margin-top: 3px;
 }
 
 #right_content {
+    float: left;
+    margin: 70px 20px 20px 260px;
     overflow: auto;
-    padding: 80px 40px 40px 280px;
+    /*padding: 80px 40px 40px 280px;*/
 }
 
 #loading {

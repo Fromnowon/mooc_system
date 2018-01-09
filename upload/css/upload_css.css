@@ -1,8 +1,29 @@
 .upload_form {
-    width: 50%;
+    width: 30%;
     margin: 0 auto
 }
 
-.upload_form div{
+.input_upload {
     padding: 10px 0px 10px 0px;
+}
+
+/*进度条相关*/
+.progress {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.bar {
+    background-color: #5ad06c;
+    width: 0%;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.percent {
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    left: 48%;
 }

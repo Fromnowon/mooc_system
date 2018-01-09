@@ -30,6 +30,10 @@ switch ($_GET['action']) {
         register($conn, $reg_username, $reg_password, $reg_mail, $reg_school, $reg_contact, $date);
         break;
     }
+    case 'course_upload': {
+        courseUpload();
+        break;
+    }
     default : {
         echo 'Error';
         mysqli_close($conn);
@@ -59,7 +63,7 @@ function login($conn, $username, $password, $checkbox)
             //header("Location: ../admin/admin_index.php");
         } else {
             mysqli_close($conn);
-            echo'NORMAL';
+            echo 'NORMAL';
             //登录到前台主页
             //header("Location: ../index.php");
         }
@@ -79,4 +83,52 @@ function register($conn, $username, $password, $email, $school, $contact, $date)
     else
         echo 'ERROR';
     mysqli_close($conn);
+}
+
+//上传函数
+function courseUpload()
+{
+    $course = $_FILES['course_upload'];
+    if (!empty($course)) {//判断上传内容是否为空
+        if ($course['error'] > 0) {//判断上传错误信息
+            echo "上传错误：";
+            switch ($course['error']) {
+                case 1:
+                    echo "上传文件大小超出配置文件规定值";
+                    break;
+                case 2:
+                    echo "上传文件大小超出表单中的约定值";
+                    break;
+                case 3:
+                    echo "上传文件不全";
+                    break;
+                case 4:
+                    echo "没有上传文件";
+                    break;
+                default:
+                    echo $course['error'];
+            }
+        } else {
+            list($maintype, $subtype) = explode("/", $course['type']);
+            $allow_arr = ['avi', 'mp4', 'flv', 'mov', 'mkv'];
+            if (!in_array($subtype, $allow_arr)) {//如果要限制文件格式，就去掉注释
+                echo "上传文件格式不正确";
+            } else {
+                if (!is_dir("../resource/course")) {//判断指定目录是否存在
+                    mkdir("../resource/course");//创建目录
+                }
+                $path = '../resource/course/' . time() . strtolower(strstr($course['name'], "."));//定义上传文件名和存储位置
+                if (is_uploaded_file($course['tmp_name'])) {//判断文件上传是否为HTTP POST上传
+                    if (!move_uploaded_file($course['tmp_name'], $path)) {//执行上传操作
+                        echo "上传失败";
+                    } else {
+                        //echo "文件:" . time() . strtolower(strstr($course['name'], ".")) . "上传成功，大小为：" . $course['size'] . "字节";
+                        echo $_SERVER['DOCUMENT_ROOT'].'\\resource\\course\\'.$course['name'];
+                    }
+                } else {
+                    echo "上传文件：" . $course['name'] . "不合法";
+                }
+            }
+        }
+    }
 }

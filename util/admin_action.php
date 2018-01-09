@@ -202,11 +202,11 @@ function sqlUsers($conn, $page, $action)
     }
 
     //“新增”按钮
-    $addBtn = "<div id='form_misc'><button type='button' class='btn btn-success' onclick='editData(\"new\",null,null)'>
-<span class='glyphicon glyphicon-plus'></span>新增</button>";
+    $addBtn = "<div id='form_misc'><div><br/></div><button type='button' class='btn btn-success' onclick='editData(\"new\",null,null)'>
+<span class='glyphicon glyphicon-plus'></span>新增</button><div><br/></div>";
 
     //搜索模块
-    $user_form_search_html = '<div style="float: right;">
+    $user_form_search_html = '<div">
         <div class="input-group" style="width: 300px;float: left">
             <input type="text" id="user_form_search_key" class="form-control" placeholder="关键词">
             <div class="input-group-btn">
@@ -244,7 +244,7 @@ function sqlUsers($conn, $page, $action)
     $page_html .= "</ul></nav>";
 
     //完全拼接
-    echo $addBtn . $user_form_search_html . $user_form_search_js . $form_head . $form_main . '</table></div>' . $page_html;
+    echo $user_form_search_html . $addBtn . $user_form_search_js . $form_head . $form_main . '</table></div>' . $page_html;
     mysqli_close($conn);
 }
 

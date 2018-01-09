@@ -159,7 +159,7 @@ if (!isset($userinfo['username'])) {
     </div>
     <div id="right_content">
         <div>
-            <div class="alert alert-warning alert-dismissible" role="alert">
+            <div style="width: 100%" class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <strong>注意！</strong> 你的每个动作都可能会引起严重后果，请谨慎操作

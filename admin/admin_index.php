@@ -65,7 +65,7 @@ if (!isset($userinfo['username'])) {
             <li>
                 <h4 class="M1"><span></span>课程管理</h4>
                 <div class="list-item none">
-                    <a href=''>状态监控</a>
+                    <a id="course_status" href="javascript:void(0)">课程状态</a>
                     <a href=''>占位</a>
                     <a href=''>占位</a>
                 </div>
@@ -90,69 +90,9 @@ if (!isset($userinfo['username'])) {
             <li>
                 <h4 class="M10"><span></span>用户管理</h4>
                 <div class="list-item none">
-                    <a id="user_status" href="javascript:void(0)">状态监控</a>
+                    <a id="user_status" href="javascript:void(0)">用户状态</a>
                     <a href=''>黑名单</a>
                     <a href=''>管理员</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M5" style="visibility: hidden"><span></span>调研问卷</h4>
-                <div class="list-item none">
-                    <a href=''>调研问卷1</a>
-                    <a href=''>调研问卷2</a>
-                    <a href=''>调研问卷3</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M6" style="visibility: hidden"><span></span>数据统计</h4>
-                <div class="list-item none">
-                    <a href=''>数据统计1</a>
-                    <a href=''>数据统计2</a>
-                    <a href=''>数据统计3</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M7" style="visibility: hidden"><span></span>奖励管理</h4>
-                <div class="list-item none">
-                    <a href=''>奖励管理1</a>
-                    <a href=''>奖励管理2</a>
-                    <a href=''>奖励管理3</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M8" style="visibility: hidden"><span></span>字典维护</h4>
-                <div class="list-item none">
-                    <a href=''>字典维护1</a>
-                    <a href=''>字典维护2</a>
-                    <a href=''>字典维护3</a>
-                    <a href=''>字典维护4</a>
-                    <a href=''>字典维护5</a>
-                    <a href=''>字典维护6</a>
-                    <a href=''>字典维护7</a>
-                    <a href=''>字典维护8</a>
-                    <a href=''>字典维护9</a>
-                    <a href=''>字典维护4</a>
-                    <a href=''>字典维护5</a>
-                    <a href=''>字典维护6</a>
-                    <a href=''>字典维护7</a>
-                    <a href=''>字典维护8</a>
-                    <a href=''>字典维护9</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M9" style="visibility: hidden"><span></span>内容管理</h4>
-                <div class="list-item none">
-                    <a href=''>内容管理1</a>
-                    <a href=''>内容管理2</a>
-                    <a href=''>内容管理3</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M10" style="visibility: hidden"><span></span>系统管理</h4>
-                <div class="list-item none">
-                    <a href=''>系统管理1</a>
-                    <a href=''>系统管理2</a>
-                    <a href=''>系统管理3</a>
                 </div>
             </li>
         </ul>

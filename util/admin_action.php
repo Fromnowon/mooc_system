@@ -22,6 +22,10 @@ switch ($_GET['admin_action']) {
         editOrSave($conn, $date, $_POST['action']);
         break;
     }
+    case 'course_status': {
+        sqlCourse($conn, $_POST['page'], $_POST['action']);
+        break;
+    }
     case 'logout': {
         $_SESSION = [];
         session_destroy();
@@ -30,6 +34,16 @@ switch ($_GET['admin_action']) {
     }
 
 }
+function sqlCourse($conn, $page, $action)
+{
+    //表头
+    $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="course_status">' .
+        '<thead id=\'result\'><tr><th>id</th><th>路径</th><th>拥有者id</th><th>上传时间</th><th>审核状态</th><th>科目</th>' .
+        '<th>标题</th><th>介绍</th><th>观看数</th><th>赞</th><th>踩</th></thead>';
+
+
+}
+
 function sqlUsers($conn, $page, $action)
 {
     //表头
@@ -39,9 +53,8 @@ function sqlUsers($conn, $page, $action)
         '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th><th>最后编辑</th></tr></thead>';
     //echo $form_search_html.$table_head_html.$page_html;
 
-
-    //查询
-    if ($action == 'search') {
+    //用户查询
+    if ($action == 'user_search') {
         $filter_arr = ['ALL', 'username', 'real_name', 'school', 'email'];
         $filter = $_POST['filter'];
         $search_key = $_POST['search_key'];

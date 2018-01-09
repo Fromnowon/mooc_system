@@ -8,6 +8,9 @@ $(function () {
     //实现"用户监控"
     userStatus();
 
+    //实现课程监控
+    courseStatus();
+
     //布局相关
     setMisc();
 })
@@ -15,6 +18,56 @@ $(function () {
 $(window).resize(function () {
     setUI();
 })
+
+function courseStatus() {
+    $("#course_status").on('click', function () {
+        loadCourse(1, 'init');
+    })
+}
+
+function loadCourse(page, action) {
+    setLoading('visible');
+    $.ajax({
+        type: "post",
+        url: "../util/admin_action.php?admin_action=course_status",
+        //点击用户页面即显示第一页,动作标记为初始表格
+        data: {page: page, action: action},
+        dataType: "html",
+        success: function (msg) {
+            //加载页面完成后绑定事件
+            loadCourseComplete(msg, page, action);
+            //alert("DONE!");
+            //console.log("DONE:" + msg);
+        },
+        error: function (msg) {
+            alert("ERROR!");
+            //console.log("error:" + msg);
+        }
+    });
+}
+
+function loadCourseComplete(msg, page, action) {
+    if (action == 'init')
+        $("#ajax_content").html(msg);
+    else
+        $("#result").next().empty().append(msg);
+    setLoading('hidden');
+
+    //生成表格后绑定点击事件
+    $("tr").on('click', function () {
+        //打开弹窗并传递行对象、所对应数据的uid
+        editData('edit', $(this).children(':first-child').html(), $(this));
+    })
+
+    //搜索按钮与搜索分页复用模块
+    $("#user_form_search").on('click', function () {
+        if ($("#user_form_search_key").val() == '') {
+            $(this).prev().shake(2, 10, 300);
+            return false;
+        }
+        userSearch(1);
+    })
+}
 
 function setMisc() {
     setUI();
@@ -77,9 +130,6 @@ function loadDataComplete(msg, page, action) {
         $("#result").next().empty().append(msg);
     setLoading('hidden');
 
-    //在页头标记本页页码
-    //$("#result").attr('value', page);
-
     //生成表格后绑定点击事件
     $("tr").on('click', function () {
         //打开弹窗并传递行对象、所对应数据的uid
@@ -105,7 +155,7 @@ function userSearch(page) {
         search_key: $("#user_form_search_key").val(),
         filter: $("#user_form_search_button").attr('filter'),
         page: page,
-        action: 'search'
+        action: 'user_search'
     };
     $.ajax({
         type: "post",

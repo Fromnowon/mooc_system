@@ -6,6 +6,7 @@
  * Time: 16:55
  */
 //准备阶段
+session_start();
 if (!isset($_GET['action'])) {
     //非法访问
     echo 'No action received.';
@@ -31,7 +32,7 @@ switch ($_GET['action']) {
         break;
     }
     case 'course_upload': {
-        courseUpload();
+        courseUpload($conn, $date);
         break;
     }
     default : {
@@ -86,7 +87,7 @@ function register($conn, $username, $password, $email, $school, $contact, $date)
 }
 
 //上传函数
-function courseUpload()
+function courseUpload($conn, $date)
 {
     $course = $_FILES['course_upload'];
     if (!empty($course)) {//判断上传内容是否为空
@@ -114,16 +115,24 @@ function courseUpload()
             if (!in_array($subtype, $allow_arr)) {//如果要限制文件格式，就去掉注释
                 echo "上传文件格式不正确";
             } else {
-                if (!is_dir("../resource/course")) {//判断指定目录是否存在
-                    mkdir("../resource/course");//创建目录
+                if (!is_dir("../resource/courses")) {//判断指定目录是否存在
+                    mkdir("../resource/courses");//创建目录
                 }
-                $path = '../resource/course/' . time() . strtolower(strstr($course['name'], "."));//定义上传文件名和存储位置
+                $path = '../resource/courses/' . time() . strtolower(strstr($course['name'], "."));//定义上传文件名和存储位置
                 if (is_uploaded_file($course['tmp_name'])) {//判断文件上传是否为HTTP POST上传
                     if (!move_uploaded_file($course['tmp_name'], $path)) {//执行上传操作
                         echo "上传失败";
                     } else {
                         //echo "文件:" . time() . strtolower(strstr($course['name'], ".")) . "上传成功，大小为：" . $course['size'] . "字节";
-                        echo $_SERVER['DOCUMENT_ROOT'].'\\resource\\course\\'.$course['name'];
+                        //入库
+                        $upload_arr = [$_POST['upload_title'], $_POST['upload_introduction'], $_POST['upload_subject']];
+                        $sql = "insert into course (path,uploader_id,upload_date,subject,title,introduction) values ('" . substr($path, 2) . "','" . $_SESSION['userinfo']['uid'] . "','$date','$upload_arr[2]','$upload_arr[0]','$upload_arr[1]')";
+                        if (mysqli_query($conn, $sql)) {
+                            echo '<p style="color: green">上传成功！</p>';
+                        } else {
+                            //echo $sql;
+                            echo '<p style="color: red">上传发生错误，请联系管理员</p>';
+                        }
                     }
                 } else {
                     echo "上传文件：" . $course['name'] . "不合法";
@@ -131,4 +140,5 @@ function courseUpload()
             }
         }
     }
+    mysqli_close($conn);
 }

@@ -9,9 +9,14 @@
 
 /*进度条相关*/
 .progress {
+    visibility: hidden;
     position: relative;
     border: 1px solid #ddd;
     border-radius: 3px;
+    transition: all 2s;
+    -moz-transition: all 2s; /* Firefox 4 */
+    -webkit-transition: all 2s; /* Safari and Chrome */
+    -o-transition: all 2s; /* Opera */
 }
 
 .bar {
@@ -19,11 +24,42 @@
     width: 0%;
     height: 20px;
     border-radius: 3px;
+    transition: all 2s;
+    -moz-transition: all 2s; /* Firefox 4 */
+    -webkit-transition: all 2s; /* Safari and Chrome */
+    -o-transition: all 2s; /* Opera */
 }
 
 .percent {
+    font-weight: bold;
     position: absolute;
     display: inline-block;
     top: 0px;
     left: 48%;
+}
+
+/*顶部登录信息*/
+.userinfo_avatar {
+    float: left;
+    margin: 10px 0px 0px 50px;
+}
+
+.userinfo_avatar > img {
+    margin: 2px 3px 0px 0px;
+    height: 26px;
+    float: left;
+}
+
+.userinfo_avatar > p {
+    font-size: 20px;
+    float: left;
+}
+
+.backtoindex {
+    margin: 3px 40px 0px -20px;
+    color: blue;
+}
+
+.backtoindex:hover {
+    cursor: pointer;
 }

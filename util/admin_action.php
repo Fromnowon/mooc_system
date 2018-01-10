@@ -41,6 +41,44 @@ function sqlCourse($conn, $page, $action)
         '<thead id=\'result\'><tr><th>id</th><th>路径</th><th>拥有者id</th><th>上传时间</th><th>审核状态</th><th>科目</th>' .
         '<th>标题</th><th>介绍</th><th>观看数</th><th>赞</th><th>踩</th></thead>';
 
+    $rs = sqlResult($conn, $page, 'course');
+
+    //页码
+    $total_data = mysqli_num_rows(mysqli_query($conn, "select * from course"));
+    $total_page = ceil($total_data / 10);
+    $page_html = '<nav aria-label="Page navigation"><ul class="pagination" id="page_btn">';
+    $i = 1;
+    while ($i <= $total_page) {
+        $page_html .= "<li><a href='javascript:void(0)' onclick='loadCourseData($i,\"page\")'>$i</a></li>";
+        $i++;
+    }
+    $page_html .= "</ul></nav>";
+    //表格主体
+    $form_main = '';
+    $i = 0;//行数
+    $j = 0;//列数
+    foreach ($rs as $val) {
+        $form_main .= '<tr>';
+        foreach ($val as $key => $val_row) {
+            $form_main .= "<td class=" . $key . ">" . $val_row . "</td>";
+            $j++;
+        }
+        $form_main .= "</tr>";
+        $i++;
+    }
+    $j /= $i;
+    //补全
+    while ($i < 10) {
+        $form_main .= "<tr>";
+        $x = 0;
+        while ($x < $j) {
+            $form_main .= '<td><span style="visibility: hidden">0</span></td>';
+            $x++;
+        }
+        $form_main .= "</tr>";
+        $i++;
+    }
+    echo $form_head . $form_main . '</table></div>' . $page_html;
 
 }
 
@@ -53,7 +91,7 @@ function sqlUsers($conn, $page, $action)
         '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th><th>最后编辑</th></tr></thead>';
     //echo $form_search_html.$table_head_html.$page_html;
 
-    //用户查询
+    //搜索
     if ($action == 'user_search') {
         $filter_arr = ['ALL', 'username', 'real_name', 'school', 'email'];
         $filter = $_POST['filter'];
@@ -106,13 +144,7 @@ function sqlUsers($conn, $page, $action)
             $i++;
         }
     } else {
-        $num = 10;//每页数据量
-        $num_start = ($page - 1) * 10;//每页第一条数据位置
-        $check_query = mysqli_query($conn, "select * from user limit $num_start,$num");
-        $rs = array();
-        while ($r = mysqli_fetch_array($check_query)) {
-            $rs[count($rs)] = $r;
-        }
+        $rs = sqlResult($conn, $page, 'user');
     }
 
     /*准备拼接html*/
@@ -208,7 +240,7 @@ function sqlUsers($conn, $page, $action)
         mysqli_close($conn);
         exit();
     }
-    if ($action == 'search') {
+    if ($action == 'user_search') {
         echo $form_head . $form_main . '</table></div>' . $page_html;
         mysqli_close($conn);
         exit();
@@ -315,4 +347,17 @@ function editOrSave($conn, $date, $action)
             mysqli_close($conn);
         }
     }
+}
+
+//通用分页查询函数
+function sqlResult($conn, $page, $table)
+{
+    $num = 10;
+    $num_start = ($page - 1) * 10;
+    $check_query = mysqli_query($conn, "select * from $table limit $num_start,$num");
+    $rs = array();
+    while ($r = mysqli_fetch_array($check_query)) {
+        $rs[count($rs)] = $r;
+    }
+    return $rs;
 }

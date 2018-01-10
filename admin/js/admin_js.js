@@ -21,7 +21,7 @@ $(window).resize(function () {
 
 function courseStatus() {
     $("#course_status").on('click', function () {
-        loadCourse(1, 'init');
+        loadCourseData(1, 'init');
     })
 }
 
@@ -60,13 +60,13 @@ function loadCourseComplete(msg, page, action) {
     })
 
     //搜索按钮与搜索分页复用模块
-    $("#user_form_search").on('click', function () {
-        if ($("#user_form_search_key").val() == '') {
-            $(this).prev().shake(2, 10, 300);
-            return false;
-        }
-        userSearch(1);
-    })
+    // $("#user_form_search").on('click', function () {
+    //     if ($("#user_form_search_key").val() == '') {
+    //         $(this).prev().shake(2, 10, 300);
+    //         return false;
+    //     }
+    //     userSearch(1);
+    // })
 }
 
 function setMisc() {
@@ -113,6 +113,27 @@ function loadData(page, action) {
         success: function (msg) {
             //加载页面完成后绑定事件
             loadDataComplete(msg, page, action);
+            //alert("DONE!");
+            //console.log("DONE:" + msg);
+        },
+        error: function (msg) {
+            alert("ERROR!");
+            //console.log("error:" + msg);
+        }
+    });
+}
+
+function loadCourseData(page, action) {
+    setLoading('visible');
+    $.ajax({
+        type: "post",
+        url: "../util/admin_action.php?admin_action=course_status",
+        //点击用户页面即显示第一页,动作标记为初始表格
+        data: {page: page, action: action},
+        dataType: "html",
+        success: function (msg) {
+            //加载页面完成后绑定事件
+            loadCourseComplete(msg, page, action);
             //alert("DONE!");
             //console.log("DONE:" + msg);
         },

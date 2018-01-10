@@ -47,16 +47,17 @@ function loadCourse(page, action) {
 }
 
 function loadCourseComplete(msg, page, action) {
-    if (action == 'init')
+    if (action == 'init') {
+        //console.log(msg);
         $("#ajax_content").html(msg);
-    else
+    } else
         $("#result").next().empty().append(msg);
     setLoading('hidden');
 
     //生成表格后绑定点击事件
     $("tr").on('click', function () {
         //打开弹窗并传递行对象、所对应数据的uid
-        editData('edit', $(this).children(':first-child').html(), $(this));
+        editCourse('edit', $(this).children(':first-child').html(), $(this));
     })
 
     //搜索按钮与搜索分页复用模块
@@ -209,18 +210,18 @@ function editData(action, uid, obj) {
     else $("#user_edit_modal").modal({backdrop: 'static'});
     //修改时填充数据
     if (action == 'edit') {
-        $("#edit_username").val(obj.children('.username').html()).attr('disabled', true);
+        var username = $("#edit_username").val(obj.children('.username').html()).attr('disabled', true);
         //注意修改密码的处理
-        $("#edit_password").attr('placeholder', '(输入新密码以覆盖)');
-        $("#edit_flag").val(obj.children('.flag').children('span').attr('value'));
-        $("#edit_status").val(obj.children('.status').children('span').attr('value'));
-        $("#edit_realname").val(obj.children('.real_name').html());
-        $("#edit_gender").val(obj.children('.gender').children('span').attr('value'));
-        $("#edit_email").val(obj.children('.email').html());
-        $("#edit_contact").val(obj.children('.contact').html());
-        $("#edit_school").val(obj.children('.school').html());
-        $("#edit_subject").val(obj.children('.subject').children('span').attr('value'));
-        $("#edit_introduction").val(obj.children('.introduction').html());
+        var$("#edit_password").attr('placeholder', '(输入新密码以覆盖)');
+        var flag = $("#edit_flag").val(obj.children('.flag').children('span').attr('value'));
+        var status = $("#edit_status").val(obj.children('.status').children('span').attr('value'));
+        var realname = $("#edit_realname").val(obj.children('.real_name').html());
+        var gender = $("#edit_gender").val(obj.children('.gender').children('span').attr('value'));
+        var email = $("#edit_email").val(obj.children('.email').html());
+        var contact = $("#edit_contact").val(obj.children('.contact').html());
+        var school = $("#edit_school").val(obj.children('.school').html());
+        var subject = $("#edit_subject").val(obj.children('.subject').children('span').attr('value'));
+        var introduction = $("#edit_introduction").val(obj.children('.introduction').html());
     } else if (action == 'new') {
         $("#edit_username").attr('disabled', false);
         $("#edit_password").removeAttr('placeholder');
@@ -229,13 +230,13 @@ function editData(action, uid, obj) {
     $("#data_edit_btn").unbind().on('click', function () {
         //简单校验
         if (action == 'new') {
-            if ($("#edit_username").val() == '' || $("#edit_password").val() == '') {
+            if (username == '' || $("#edit_password").val() == '') {
                 alert('用户名或密码不能为空！');
                 return false;
             }
         } else if (action == 'edit') {
             //密码可以留空
-            if ($("#edit_username").val() == '') {
+            if (username == '') {
                 alert('用户名不能为空！');
                 return false;
             }
@@ -244,17 +245,17 @@ function editData(action, uid, obj) {
         //新增数据
         var data = {
             action: action,
-            username: $("#edit_username").val(),
+            username: username,
             password: $("#edit_password").val(),
-            flag: $("#edit_flag option:selected").val(),
-            status: $("#edit_status option:selected").val(),
-            realname: $("#edit_realname").val(),
-            gender: $("#edit_gender option:selected").val(),
-            email: $("#edit_email").val(),
-            contact: $("#edit_contact").val(),
-            school: $("#edit_school").val(),
-            subject: $("#edit_subject option:selected").val(),
-            introduction: $("#edit_introduction").val()
+            flag: flag,
+            status: status,
+            realname: realname,
+            gender: gender,
+            email: email,
+            contact: contact,
+            school: school,
+            subject: subject,
+            introduction: introduction
         };
         if (action == 'edit') {
             data['uid'] = uid;
@@ -301,6 +302,57 @@ function editData(action, uid, obj) {
                     }
                 }
                 $("#data_edit_btn").attr('disabled', false);
+                //alert("DONE!");
+                //console.log("DONE:" + msg);
+            },
+            error: function (msg) {
+                alert("ERROR!");
+                //console.log("error:" + msg);
+            }
+        });
+    })
+}
+
+function editCourse(action, id, obj) {
+    if (action != 'edit' && !obj.children(':first-child').hasClass('id')) {
+
+    }
+    else $("#course_edit_modal").modal({backdrop: 'static'});
+    var check = $("#course_check").val(obj.children('.check').children('span').attr('value'));
+    var subject = $("#upload_subject").val(obj.children('.subject').html());
+    var title = $("#edit_course_title").val(obj.children('.title').html());
+    var introduction = $("#edit_course_introduction").val(obj.children('.introduction').html());
+    //提交按钮
+    $("#course_edit_submit").unbind().on('click', function () {
+        $(this).attr('disabled', true);
+        var data = {
+            id: id,
+            action: action,
+            check: check,
+            subject: subject,
+            title: title,
+            introduction: introduction
+        };
+        $.ajax({
+            type: "post",
+            url: "../util/admin_action.php?admin_action=course_status",
+            data: data,
+            dataType: "text",
+            success: function (msg) {
+                if (msg == 'OK') {
+                    $(this).attr('disabled', false);
+                    if (obj.replaceWith(msg)) {
+                        setTimeout(function () {
+                            $(".edit_complete").removeClass('edit_complete');
+                        }, 2000);
+                        $("#edit_complete").on('click', function () {
+                            //打开弹窗并传递行对象、所对应数据的uid
+                            editData('edit', $(this).children(':first-child').html(), $(this));
+                        })
+                        // var tr = $("#edit_complete");
+                        // tr.css('color', 'green');
+                    }
+                }
                 //alert("DONE!");
                 //console.log("DONE:" + msg);
             },

@@ -36,23 +36,30 @@ switch ($_GET['admin_action']) {
 }
 function sqlCourse($conn, $page, $action)
 {
+    //修改
+    if ($action == 'edit') {
+        $id = $_POST['id'];
+        $check = $_POST['check'];//数值
+        $subject = $_POST['subject'];
+        $title = $_POST['title'];
+        $introduction = $_POST['introduction'];
+        $sql = "update course set check='$check',subject='$subject',title='$title',$introduction=$introduction where id='$id'";
+        if (mysqli_query($conn, $sql))
+            echo 'OK';
+        else echo "ERROR";
+        mysqli_close($conn);
+        exit();
+    }
+
+
     //表头
     $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="course_status">' .
         '<thead id=\'result\'><tr><th>id</th><th>路径</th><th>拥有者id</th><th>上传时间</th><th>审核状态</th><th>科目</th>' .
-        '<th>标题</th><th>介绍</th><th>观看数</th><th>赞</th><th>踩</th></thead>';
+        '<th>标题</th><th>介绍</th><th>观看数</th><th>赞</th><th>踩</th><th>最后编辑</th></thead>';
 
+    //查询函数
     $rs = sqlResult($conn, $page, 'course');
 
-    //页码
-    $total_data = mysqli_num_rows(mysqli_query($conn, "select * from course"));
-    $total_page = ceil($total_data / 10);
-    $page_html = '<nav aria-label="Page navigation"><ul class="pagination" id="page_btn">';
-    $i = 1;
-    while ($i <= $total_page) {
-        $page_html .= "<li><a href='javascript:void(0)' onclick='loadCourseData($i,\"page\")'>$i</a></li>";
-        $i++;
-    }
-    $page_html .= "</ul></nav>";
     //表格主体
     $form_main = '';
     $i = 0;//行数
@@ -60,8 +67,24 @@ function sqlCourse($conn, $page, $action)
     foreach ($rs as $val) {
         $form_main .= '<tr>';
         foreach ($val as $key => $val_row) {
-            $form_main .= "<td class=" . $key . ">" . $val_row . "</td>";
-            $j++;
+            if ($key == 'edit_date') $val_row = '暂无';
+            if ($key == 'check') {
+                switch ($val_row) {
+                    case '-1':
+                        $val_row = '<span value="-1">屏蔽</span>';
+                        break;
+                    case '0':
+                        $val_row = '<span value="0">正常</span>';
+                        break;
+                    case '1':
+                        $val_row = '<span value="1">审核中</span>';
+                        break;
+                }
+            }
+            if (!is_numeric($key)) {
+                $form_main .= "<td class=" . $key . ">" . $val_row . "</td>";
+                $j++;
+            }
         }
         $form_main .= "</tr>";
         $i++;
@@ -78,8 +101,27 @@ function sqlCourse($conn, $page, $action)
         $form_main .= "</tr>";
         $i++;
     }
-    echo $form_head . $form_main . '</table></div>' . $page_html;
 
+    if ($action == 'page') {
+        echo $form_main;
+        mysqli_close($conn);
+        exit();
+    }
+
+    //页码
+    $total_data = mysqli_num_rows(mysqli_query($conn, "select * from course"));
+    $total_page = ceil($total_data / 10);
+    $page_html = '<nav aria-label="Page navigation"><ul class="pagination" id="page_btn">';
+    $i = 1;
+    while ($i <= $total_page) {
+        $page_html .= "<li><a href='javascript:void(0)' onclick='loadCourseData($i,\"page\")'>$i</a></li>";
+        $i++;
+    }
+    $page_html .= "</ul></nav>";
+
+    // echo $form_main;
+    echo $form_head . $form_main . '</table></div>' . $page_html;
+    mysqli_close($conn);
 }
 
 function sqlUsers($conn, $page, $action)
@@ -223,7 +265,7 @@ function sqlUsers($conn, $page, $action)
     }
     $j /= $i;
     //补全
-    while ($i < $num) {
+    while ($i < 10) {
         $form_main .= "<tr>";
         $x = 0;
         while ($x < $j) {

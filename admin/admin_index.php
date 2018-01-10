@@ -99,10 +99,15 @@ if (!isset($userinfo['username'])) {
     </div>
     <div id="right_content">
         <div>
-            <div style="width: 100%" class="alert alert-warning alert-dismissible" role="alert">
+            <div style="width: 600px;" class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <strong>注意！</strong> 你的每个动作都可能会引起严重后果，请谨慎操作
+            </div>
+            <div style="width: 600px" class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>点击对应行可进行修改操作；表格溢出时请往右拖动滚动条</strong>
             </div>
         </div>
         <div id="ajax_content">
@@ -111,10 +116,11 @@ if (!isset($userinfo['username'])) {
     </div>
 </div>
 <script>navList(12);</script>
-<!--加载遮罩-->
+<!--加载组件-->
 <?php
-include '../util/user_edit_save.php';
 include '../util/loading.php';
+include '../util/user_edit_save.php';
+include '../util/edit_course.php';
 ?>
 </body>
 </html>

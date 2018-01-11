@@ -1,28 +1,27 @@
 .play_header {
     padding: 10px 30px 10px 30px;
-    border: 1px red solid;
 }
 
 .play_header {
     height: 50px;
 }
 
-.paly_userinfo {
+.play_userinfo {
     height: 50px;
     float: right;
 }
 
-.paly_userinfo_avatar {
+.play_userinfo_avatar {
 
 }
 
-.paly_userinfo_avatar > img {
+.play_userinfo_avatar > img {
     margin: 2px 3px 0px 0px;
     height: 30px;
     float: left;
 }
 
-.paly_userinfo_name {
+.play_userinfo_name {
     font-size: 24px;
     float: left;
 }
@@ -42,29 +41,69 @@ div {
 }
 
 .player {
-    width: 720px;
+    width: 900px;
     height: 576px;
+}
 
-    float: left;
+.play_table {
+    margin: 0px auto;
 }
 
 .note {
-    width: 300px;
+    width: 400px;
     height: 576px;
 
     float: left;
 }
 
 .info {
-    clear: both;
     padding-top: 10px;
     margin: 10px;
 }
 
 .teacher_info {
-    height: 100px;
+    background: #72d8ff;
+    width: 70%;
+    height: 200px;
 }
 
 .course_info {
-    height: 100px;
+    background: #6dc9a4;
+    width: 70%;
+    height: 200px;
+}
+
+.info > div {
+    margin: 0px auto;
+}
+
+.reply {
+    width: 70%;
+    margin: 10px auto;
+    height: 500px;
+}
+
+/*播放器相关*/
+.vjs-control-bar {
+    padding-top: 3px;
+}
+.vjs-remaining-time-display{
+    position: relative;
+    bottom: 3px;
+}
+.vjs-menu-content{
+    visibility: hidden;
+}
+
+.player{
+    position: relative;
+}
+
+#myPlayer{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    /*高度需要jq动态计算*/
+    margin-left: -450px;
+    margin-top:-200px ;
 }

@@ -38,11 +38,13 @@
         </div>
         <div class="input_upload">
             <h2>简介：</h2>
-            <textarea rows="6" style="resize: none" name="upload_introduction" class="form-control" placeholder="课程知识点重点难点等"></textarea>
+            <textarea rows="6" style="resize: none" name="upload_introduction" class="form-control"
+                      placeholder="课程知识点重点难点等"></textarea>
         </div>
         <div class="form-group form-inline input_upload">
             <label for="upload_subject" class="control-label">科目：<span>&nbsp;&nbsp;</span></label>
             <select id="upload_subject" name="upload_subject" class="form-control">
+                <option value="暂无">暂无</option>
                 <option value="语文">语文</option>
                 <option value="数学">数学</option>
                 <option value="英语">英语</option>
@@ -55,7 +57,6 @@
                 <option value="心理">心理</option>
                 <option value="信息技术">信息技术</option>
                 <option value="通用技术">通用技术</option>
-                <option value="暂无">暂无</option>
             </select>
         </div>
         <div>
@@ -63,7 +64,7 @@
                    accept="video/*" onchange="showSize()">
             <br/>
             <p class="upload_size"></p>
-            <p style="color: red;">注意：只接受avi，mp4，flv，mov，mkv格式</p>
+            <p style="color: red;">注意：文件大小限制500MB以下，并为avi，mp4，flv，mov，mkv格式</p>
             <button class="btn btn-primary col-md-2" id="upload_btn">上传</button>
         </div>
         <div class="progress" style="margin-top: 60px">

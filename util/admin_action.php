@@ -23,7 +23,7 @@ switch ($_GET['admin_action']) {
         break;
     }
     case 'course_status': {
-        sqlCourse($conn, $_POST['page'], $_POST['action']);
+        sqlCourse($conn, $_POST['page'], $_POST['action'], $date);
         break;
     }
     case 'logout': {
@@ -34,19 +34,20 @@ switch ($_GET['admin_action']) {
     }
 
 }
-function sqlCourse($conn, $page, $action)
+function sqlCourse($conn, $page, $action, $date)
 {
     //修改
-    if ($action == 'edit') {
+    if ($action == 'course_edit') {
         $id = $_POST['id'];
-        $check = $_POST['check'];//数值
+        $flag = $_POST['flag'];//数值
         $subject = $_POST['subject'];
         $title = $_POST['title'];
         $introduction = $_POST['introduction'];
-        $sql = "update course set check='$check',subject='$subject',title='$title',$introduction=$introduction where id='$id'";
+        $sql = "update course set flag='$flag',subject='$subject',title='$title',introduction='$introduction',edit_date='$date' where id='$id'";
         if (mysqli_query($conn, $sql))
-            echo 'OK';
-        else echo "ERROR";
+            echo $date;
+        else
+            echo $sql;//检查sql语句
         mysqli_close($conn);
         exit();
     }
@@ -68,7 +69,7 @@ function sqlCourse($conn, $page, $action)
         $form_main .= '<tr>';
         foreach ($val as $key => $val_row) {
             if ($key == 'edit_date') $val_row = '暂无';
-            if ($key == 'check') {
+            if ($key == 'flag') {
                 switch ($val_row) {
                     case '-1':
                         $val_row = '<span value="-1">屏蔽</span>';

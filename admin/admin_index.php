@@ -66,33 +66,32 @@ if (!isset($userinfo['username'])) {
                 <h4 class="M1"><span></span>课程管理</h4>
                 <div class="list-item none">
                     <a id="course_status" href="javascript:void(0)">课程状态</a>
-                    <a href=''>占位</a>
-                    <a href=''>占位</a>
+                    <a href="javascript:void(0)">暂无</a>
+                    <a href="javascript:void(0)">暂无</a>
                 </div>
             </li>
             <li>
                 <h4 class="M5"><span></span>课程审核</h4>
                 <div class="list-item none">
-                    <a href=''>上传审核</a>
-                    <a href=''>申精审核</a>
-                    <a href=''>举报审核</a>
-                    <a href=''>占位</a>
+                    <a href="javascript:void(0)">暂无</a>
+                    <a href="javascript:void(0)">暂无</a>
+                    <a href="javascript:void(0)">暂无</a>
                 </div>
             </li>
             <li>
                 <h4 class="M9"><span></span>留言管理</h4>
                 <div class="list-item none">
-                    <a href=''>留言浏览</a>
-                    <a href=''>留言审核</a>
-                    <a href=''>占位</a>
+                    <a href="javascript:void(0)">暂无</a>
+                    <a href="javascript:void(0)">暂无</a>
+                    <a href="javascript:void(0)">暂无</a>
                 </div>
             </li>
             <li>
                 <h4 class="M10"><span></span>用户管理</h4>
                 <div class="list-item none">
                     <a id="user_status" href="javascript:void(0)">用户状态</a>
-                    <a href=''>黑名单</a>
-                    <a href=''>管理员</a>
+                    <a href="javascript:void(0)">暂无</a>
+                    <a href="javascript:void(0)">暂无</a>
                 </div>
             </li>
         </ul>
@@ -107,7 +106,7 @@ if (!isset($userinfo['username'])) {
             <div style="width: 600px" class="alert alert-info alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <strong>点击对应行可进行修改操作；表格溢出时请往右拖动滚动条</strong>
+                <strong>点击对应行可进行修改操作；表格内容溢出时请往右拖动滚动条</strong>
             </div>
         </div>
         <div id="ajax_content">

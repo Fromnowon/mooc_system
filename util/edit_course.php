@@ -10,8 +10,8 @@
             <div class="modal-body">
                 <h4>审核状态</h4>
                 <div class="form-group form-inline">
-                    <label for="course_check" class="control-label">标记：<span>&nbsp;&nbsp;</span></label>
-                    <select id="course_check" class="form-control">
+                    <label for="course_flag" class="control-label">标记：<span>&nbsp;&nbsp;</span></label>
+                    <select id="course_flag" class="form-control">
                         <option value="0">正常</option>
                         <option value="1">审核中</option>
                         <option value="-1">屏蔽</option>

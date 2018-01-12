@@ -49,11 +49,14 @@ div {
     margin: 0px auto;
 }
 
+.player_bg{
+    background: black;
+}
+
 .note {
     width: 400px;
     height: 576px;
-
-    float: left;
+    padding: 10px;
 }
 
 .info {
@@ -99,11 +102,27 @@ div {
     position: relative;
 }
 
-#myPlayer{
+#course_player{
     position: absolute;
     top:50%;
     left: 50%;
     /*高度需要jq动态计算*/
     margin-left: -450px;
     margin-top:-200px ;
+}
+
+/*笔记弹窗相关*/
+.note_pop{
+    background: white;
+    z-index: 999;
+    position: absolute;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+}
+.note_pop>input{
+    margin-bottom: 10px;
+}
+.note_pop>textarea{
+    margin-bottom: 10px;
 }

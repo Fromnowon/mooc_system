@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc0c9183-17bc-4918-9d6c-5041d8b7ac4e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/document/笔记.docx" afterPath="$PROJECT_DIR$/document/笔记.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/index_css.css" afterPath="$PROJECT_DIR$/css/index_css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/play/css/play_css.css" afterPath="$PROJECT_DIR$/play/css/play_css.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/play/js/play_js.js" afterPath="$PROJECT_DIR$/play/js/play_js.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/play/js/video.min.js" afterPath="$PROJECT_DIR$/play/js/video.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/play/paly.php" afterPath="$PROJECT_DIR$/play/paly.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/action.php" afterPath="$PROJECT_DIR$/util/action.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/util_js.js" afterPath="$PROJECT_DIR$/util/util_js.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,32 +21,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="paly.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paly.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/play/paly.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="267">
+              <caret line="91" column="20" lean-forward="false" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="20" />
               <folding>
-                <marker date="1515682597159" expanded="true" signature="1865:1895" ph="select * fro... course" />
-                <marker date="1515682597159" expanded="true" signature="1865:1896" ph="select * fro... course" />
-                <marker date="1515682597159" expanded="true" signature="1865:1898" ph="select * fro... course" />
-                <marker date="1515682597159" expanded="true" signature="1865:1916" ph="select * fro... course" />
-                <marker date="1515682597159" expanded="true" signature="1865:1917" ph="select * fro... course" />
-                <marker date="1515682597159" expanded="true" signature="1865:2117" ph="select * fro... course" />
-                <marker date="1515682597159" expanded="true" signature="2216:2304" ph="..." />
-                <marker date="1515682597159" expanded="true" signature="2357:2482" ph="..." />
-                <marker date="1515682597159" expanded="true" signature="2526:2534" ph="..." />
+                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1515747096424" expanded="true" signature="452:501" ph="select * fro... course" />
+                <marker date="1515747096424" expanded="true" signature="964:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="971:990" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="971:1610" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1617:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1663:1778" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1729:1771" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1797:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1821:1892" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1923:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1936:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="1992:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="2029:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="2129:2218" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="2395:2423" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="2395:2733" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="2786:2907" ph="..." />
+                <marker date="1515747096424" expanded="true" signature="2949:2957" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play_js.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="play_js.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="427">
+              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="action.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/action.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="156" column="213" lean-forward="false" selection-start-line="156" selection-start-column="213" selection-end-line="156" selection-end-column="213" />
+              <folding>
+                <element signature="n#login#0;n#!!top" expanded="false" />
+                <element signature="n#register#0;n#!!top" expanded="false" />
+                <element signature="n#courseUpload#0;n#!!top" expanded="false" />
+                <marker date="1515747220942" expanded="true" signature="1262:1332" ph="select * fro... user" />
+                <marker date="1515747220942" expanded="true" signature="2257:2394" ph="insert into user... " />
+                <marker date="1515747220942" expanded="true" signature="4260:4470" ph="insert into course... " />
+                <marker date="1515747220942" expanded="true" signature="4574:4586" ph="..." />
+                <marker date="1515747220942" expanded="true" signature="4718:4728" ph="..." />
+                <marker date="1515747220942" expanded="true" signature="5154:5239" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5247" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5249" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5252" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5276" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5277" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5305" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5306" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5330" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5331" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5357" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5384" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5385" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5399" ph="insert into note... " />
+                <marker date="1515747220942" expanded="true" signature="5154:5400" ph="insert into note... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,18 +100,8 @@
       <file leaf-file-name="play_css.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/play/css/play_css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="81" column="21" lean-forward="false" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="animate.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/animate.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="207">
+              <caret line="115" column="21" lean-forward="false" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -82,8 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>z-index</find>
-      <find>login_form</find>
       <find>form</find>
       <find>#logiform</find>
       <find>disabled</find>
@@ -112,6 +148,8 @@
       <find>.vjs-control-bar</find>
       <find>vjs-progress-holder</find>
       <find>paly</find>
+      <find>vjs-paused</find>
+      <find>note_content</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,8 +191,6 @@
         <option value="$PROJECT_DIR$/upload.php" />
         <option value="$PROJECT_DIR$/upload/js/jquery.form.min.js" />
         <option value="$PROJECT_DIR$/js/index_js.js" />
-        <option value="$PROJECT_DIR$/util/action.php" />
-        <option value="$PROJECT_DIR$/util/util_js.js" />
         <option value="$PROJECT_DIR$/upload/css/upload_css.css" />
         <option value="$PROJECT_DIR$/upload/js/upload_js.js" />
         <option value="$PROJECT_DIR$/admin/css/admin_css.css" />
@@ -165,13 +201,16 @@
         <option value="$PROJECT_DIR$/play/paly.html" />
         <option value="$PROJECT_DIR$/upload/upload.php" />
         <option value="$PROJECT_DIR$/play/player.css" />
-        <option value="$PROJECT_DIR$/play/js/play_js.js" />
         <option value="$PROJECT_DIR$/play/css/player.css" />
         <option value="$PROJECT_DIR$/play/css/video-js.min.css" />
         <option value="$PROJECT_DIR$/css/index_css.css" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/play/css/play_css.css" />
+        <option value="$PROJECT_DIR$/play/js/video.min.js" />
+        <option value="$PROJECT_DIR$/util/util_js.js" />
         <option value="$PROJECT_DIR$/play/paly.php" />
+        <option value="$PROJECT_DIR$/util/action.php" />
+        <option value="$PROJECT_DIR$/play/css/play_css.css" />
+        <option value="$PROJECT_DIR$/play/js/play_js.js" />
       </list>
     </option>
   </component>
@@ -209,46 +248,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mooc_system" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mooc_system" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="play" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mooc_system" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="play" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="play" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resource" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mooc_system" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -290,7 +317,6 @@
     </option>
   </component>
   <component name="RunManager" selected="JavaScript Debug.paly.php">
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/util/admin_action.php" />
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -332,6 +358,13 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/util/admin_action.php" />
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -365,12 +398,6 @@
       <envs />
       <properties />
       <listeners />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <configuration name="admin_index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/mooc_system/admin/admin_index.php" />
     <configuration name="login.php" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/mooc_system/login.php" />
@@ -423,42 +450,44 @@
       <workItem from="1515585822326" duration="11545000" />
       <workItem from="1515633163269" duration="24361000" />
       <workItem from="1515666687590" duration="13922000" />
+      <workItem from="1515714946016" duration="21873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298436000" />
+    <option name="totallyTimeSpent" value="320309000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4015748" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23386243" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23343849" sideWeight="0.50512445" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12445095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23343849" sideWeight="0.49487555" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +524,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="151" />
+      <option name="time" value="152" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -610,13 +639,6 @@
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard/standard_1.php" />
-    <entry file="file://$PROJECT_DIR$/util/util_js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/login_js.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -642,21 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/conn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/action.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -725,50 +732,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
           <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="10" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/media.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play/css/player.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="263" column="0" lean-forward="true" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play/js/video.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="14" column="15434" lean-forward="false" selection-start-line="14" selection-start-column="15434" selection-end-line="14" selection-end-column="15434" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play/css/video-js.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="0" column="39383" lean-forward="false" selection-start-line="0" selection-start-column="39367" selection-end-line="0" selection-end-column="39383" />
-          <folding>
-            <element signature="e#1901#6894#1" expanded="true" />
-            <element signature="e#6910#14612#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/media.rnc" />
+    <entry file="file://$PROJECT_DIR$/play/css/player.css" />
+    <entry file="file://$PROJECT_DIR$/play/css/video-js.min.css" />
     <entry file="file://$PROJECT_DIR$/css/index_css.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -780,45 +753,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/animate.css">
+    <entry file="file://$PROJECT_DIR$/css/animate.css" />
+    <entry file="file://$PROJECT_DIR$/util/conn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play/js/video.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21604">
+          <caret line="953" column="48" lean-forward="false" selection-start-line="953" selection-start-column="38" selection-end-line="953" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/util_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/action.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="156" column="213" lean-forward="false" selection-start-line="156" selection-start-column="213" selection-end-line="156" selection-end-column="213" />
+          <folding>
+            <element signature="n#login#0;n#!!top" expanded="false" />
+            <element signature="n#register#0;n#!!top" expanded="false" />
+            <element signature="n#courseUpload#0;n#!!top" expanded="false" />
+            <marker date="1515747220942" expanded="true" signature="1262:1332" ph="select * fro... user" />
+            <marker date="1515747220942" expanded="true" signature="2257:2394" ph="insert into user... " />
+            <marker date="1515747220942" expanded="true" signature="4260:4470" ph="insert into course... " />
+            <marker date="1515747220942" expanded="true" signature="4574:4586" ph="..." />
+            <marker date="1515747220942" expanded="true" signature="4718:4728" ph="..." />
+            <marker date="1515747220942" expanded="true" signature="5154:5239" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5247" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5249" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5252" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5276" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5277" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5305" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5306" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5330" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5331" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5357" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5384" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5385" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5399" ph="insert into note... " />
+            <marker date="1515747220942" expanded="true" signature="5154:5400" ph="insert into note... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/play/css/play_css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="81" column="21" lean-forward="false" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="207">
+          <caret line="115" column="21" lean-forward="false" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/play/paly.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="267">
+          <caret line="91" column="20" lean-forward="false" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="20" />
           <folding>
-            <marker date="1515682597159" expanded="true" signature="1865:1895" ph="select * fro... course" />
-            <marker date="1515682597159" expanded="true" signature="1865:1896" ph="select * fro... course" />
-            <marker date="1515682597159" expanded="true" signature="1865:1898" ph="select * fro... course" />
-            <marker date="1515682597159" expanded="true" signature="1865:1916" ph="select * fro... course" />
-            <marker date="1515682597159" expanded="true" signature="1865:1917" ph="select * fro... course" />
-            <marker date="1515682597159" expanded="true" signature="1865:2117" ph="select * fro... course" />
-            <marker date="1515682597159" expanded="true" signature="2216:2304" ph="..." />
-            <marker date="1515682597159" expanded="true" signature="2357:2482" ph="..." />
-            <marker date="1515682597159" expanded="true" signature="2526:2534" ph="..." />
+            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1515747096424" expanded="true" signature="452:501" ph="select * fro... course" />
+            <marker date="1515747096424" expanded="true" signature="964:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="971:990" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="971:1610" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1617:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1663:1778" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1729:1771" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1797:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1821:1892" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1923:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1936:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="1992:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="2029:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="2129:2218" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="2395:2423" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="2395:2733" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="2786:2907" ph="..." />
+            <marker date="1515747096424" expanded="true" signature="2949:2957" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

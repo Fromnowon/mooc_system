@@ -69,3 +69,13 @@ function formatSeconds(value) {
     }
     return result;
 }
+
+//添加动画并自动删除
+function animate_auto(obj, type, duration, function_down) {
+    if (obj.addClass(type + ' animated')) {
+        setTimeout(function () {
+            if ($.isFunction(function_down)) function_down();
+            obj.removeClass(type + ' animated');
+        }, duration);
+    }
+}

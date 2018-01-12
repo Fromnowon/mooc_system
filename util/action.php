@@ -35,6 +35,10 @@ switch ($_GET['action']) {
         courseUpload($conn, $date);
         break;
     }
+    case 'note': {
+        noteHandler($conn, $date);
+        break;
+    }
     default : {
         echo 'Error';
         mysqli_close($conn);
@@ -138,6 +142,27 @@ function courseUpload($conn, $date)
                     echo "上传文件：" . $course['name'] . "不合法";
                 }
             }
+        }
+    }
+    mysqli_close($conn);
+}
+
+//笔记函数
+function noteHandler($conn, $date)
+{
+    switch ($_POST['action']) {
+        case 'save': {
+            session_start();
+            $userinfo = $_SESSION['userinfo'];
+            $sql = "insert into note (relate_user_id,relate_course_id,note_time,title,content,creat_time) values ('" . $userinfo['uid'] . "','" . $_POST['courseID'] . "','" . $_POST['time'] . "','" . $_POST['title'] . "','" . $_POST['content'] . "','" . $date . "')";
+            if (mysqli_query($conn, $sql))
+                echo "OK";
+            else
+                echo $sql;
+            break;
+        }
+        default: {
+            echo 'ERROR';
         }
     }
     mysqli_close($conn);

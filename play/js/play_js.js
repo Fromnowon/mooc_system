@@ -1,10 +1,46 @@
 $(function () {
+    var player = videojs('course_player');
+
     //笔记相关
-    noteHandler();
+    noteHandler(player);
+
+    //笔记初始化
+    noteInit($(".panel-default"), player);
 })
 
-function noteHandler() {
-    var player = videojs('course_player');
+function noteInit(note, player) {
+    //绑定删除事件
+    note.find(".note_del").unbind().on('click', function () {
+        animate_auto(note, 'fadeOutRight', 1000, function () {
+            note.remove();
+        });
+        $.ajax({
+            type: "post",
+            url: "../util/action.php?action=note",
+            data: {action: 'delete', id: note.find('.id').html()},
+            dataType: "text",
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (msg) {
+                alert("ERROR!");
+                console.log(msg);
+            }
+        });
+    })
+    //绑定定位播放
+    note.find(".note_play").unbind().on('click', function () {
+        var time = $(this).parents('.panel-default').find('.mark_time').html();//笔记对应时间点
+        console.log(time);
+        if (player.paused) {
+            player.play();
+            player.currentTime(time);
+        } else player.currentTime(time);
+
+    })
+}
+
+function noteHandler(player) {
     var note_pop = $(".note_pop");
     var courseID = $(".course_title").find('span').attr('value');
     //console.log(courrseID);
@@ -41,7 +77,11 @@ function noteHandler() {
             success: function (msg) {
                 //console.log("DONE:" + msg);
                 btn.prevAll('a').trigger('click');//模拟点击“取消”
-                loadNote(data);
+                //添加结果
+                var t = $(".note_content_show");
+                t.prepend(msg);
+                animate_auto(t.children(":first-child"), 'fadeInRight', 1000);
+                noteInit(t, player);
             },
             error: function (msg) {
                 alert("ERROR!");
@@ -50,8 +90,4 @@ function noteHandler() {
         });
 
     })
-}
-
-function loadNote() {
-
 }

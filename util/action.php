@@ -154,11 +154,48 @@ function noteHandler($conn, $date)
         case 'save': {
             session_start();
             $userinfo = $_SESSION['userinfo'];
-            $sql = "insert into note (relate_user_id,relate_course_id,note_time,title,content,creat_time) values ('" . $userinfo['uid'] . "','" . $_POST['courseID'] . "','" . $_POST['time'] . "','" . $_POST['title'] . "','" . $_POST['content'] . "','" . $date . "')";
-            if (mysqli_query($conn, $sql))
-                echo "OK";
-            else
-                echo $sql;
+            $uid = $userinfo['uid'];
+            $courseID = $_POST['courseID'];
+            $time = $_POST['time'];
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $sql = "insert into note (relate_user_id,relate_course_id,note_time,title,content,creat_time) values ('" . $uid . "','" . $courseID . "','" . $time . "','" . $title . "','" . $content . "','" . $date . "')";
+            if (mysqli_query($conn, $sql)) {
+                //拼接笔记html
+                $p1 = '<div class="panel panel-default">
+    <div class="panel-heading" role="tab">
+        <h4 class="panel-title">
+            <div class="note_mark" style="display: none">';
+                $p2 = '<p class="id">' . mysqli_insert_id($conn) . '</p>' . '<p class="mark_time">' . $time . '</p>' . '<p class="mark_courseid">' . $_POST['courseID'] . '</p>' . '<p class="mark_userid">' . $uid . '</p>';
+                $t = floor($time);//向下取整
+                $s = $time % 60;//秒
+                $m = floor($time / 60);//分
+                $h = floor($time / 3600);//时
+                $p3_t = ($h == 0 ? '' : '0' . $h . ':') . ($m < 10 ? ('0' . $m) : $m) . ':' . ($s < 10 ? ('0' . $s) : $s);
+                $p3 = '</div><a href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
+                    . $p3_t . '</span></a>';
+
+                $p4 = '<span>&nbsp;&nbsp;</span>
+            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse' . mysqli_insert_id($conn) . '" aria-expanded="false">'
+                    . $title
+                    . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
+                    . '<div id="collapse' . mysqli_insert_id($conn) . '" class="panel-collapse collapse" role="tabpanel">';
+
+                $p5 = '<div class="panel-body">'
+                    . $content
+                    . '</div></div></div>';
+
+                //输出
+                echo $p1 . $p2 . $p3 . $p4 . $p5;
+            } else
+                echo $sql;//error
+            break;
+        }
+        case 'delete': {
+            $id = $_POST['id'];
+            echo $sql = "delete from note where id='" . $id . "'";
+            mysqli_query($conn, $sql);
+            echo 'OK';
             break;
         }
         default: {

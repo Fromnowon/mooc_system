@@ -85,6 +85,7 @@ function regModule() {
         //取出表单数据
         var reg_username = $("#reg_username");
         var reg_password = $("#reg_password");
+        var reg_realname = $("#reg_realname");
         var reg_mail = $("#reg_mail");
         var reg_school = $("#reg_school");
         var reg_contact = $("#reg_contact");
@@ -104,6 +105,7 @@ function regModule() {
                 data: {
                     reg_username: reg_username.val(),
                     reg_password: reg_password.val(),
+                    reg_realname: reg_realname.val(),
                     reg_mail: reg_mail.val(),
                     reg_school: reg_school.val(),
                     reg_contact: reg_contact.val()
@@ -119,9 +121,11 @@ function regModule() {
                         //关闭注册框,清空注册表单，并启用登陆按钮
                         $('#reg_modal').modal('hide');
                         $("#reg_form").find('input').val('');
-                        $("#submit_btn").attr('disabled', false);;
+                        $("#submit_btn").attr('disabled', false);
+                        ;
                         //启用注册按钮
-                        $("#reg_submit").attr('disabled', false);;
+                        $("#reg_submit").attr('disabled', false);
+                        ;
                     }
                     else
                         alert('ERROR!请联系管理员');
@@ -171,7 +175,6 @@ function setMisc() {
             }
         }
     });
-
 
 
 }

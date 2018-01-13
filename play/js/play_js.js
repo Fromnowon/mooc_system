@@ -107,6 +107,7 @@ function noteHandler(player) {
     //保存笔记
     $(".note_save").unbind().on('click', function () {
         var btn = $(this);
+        $(".note_pop_dismiss").trigger('click');//模拟点击“取消”
         data = {
             action: 'save',
             courseID: courseID,
@@ -120,8 +121,6 @@ function noteHandler(player) {
             data: data,
             dataType: "text",
             success: function (msg) {
-                //console.log("DONE:" + msg);
-                // btn.prevAll('a').trigger('click');//模拟点击“取消”
                 btn.prevAll('input').val('');
                 btn.prevAll('textarea').val('');
                 //添加结果

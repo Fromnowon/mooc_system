@@ -24,15 +24,22 @@ $courseID = $_GET['playid'];
 //浏览量+1
 mysqli_query($conn, "update course set views=views+1 where id='$courseID'");
 
+
 //返回标题
 $sql = "select * from course where id='" . $courseID . "'";//注意，这行必须写在函数外
 $rs = mysqli_fetch_array(mysqli_query($conn, $sql));//注意，这行必须写在函数外
+if (count($rs) == 0) {
+    echo '迷路啦，没有这个视频！';
+    mysqli_close($conn);
+    exit();
+}
+$uploaderID = $rs['uploader_id'];
 function titleInfo()
 {
     global $courseID;
     global $rs;
-    if ($rs['title'] == '' || $rs['title'] == null) echo "<span value='$courseID'>未命名</span>";
-    else echo "<span value='$courseID'>" . $rs['title'] . "</span>";
+    if ($rs['title'] == '' || $rs['title'] == null) echo "<span value='$courseID'>未命名</span>" . "<span class='userID' style='display: none'>" . $rs['uploader_id'] . "</span>";
+    else echo "<span value='$courseID'>" . $rs['title'] . "</span>" . "<span class='userID' style='display: none'>" . $rs['uploader_id'] . "</span>";
 }
 
 //返回视频地址
@@ -78,7 +85,7 @@ function loadNote()
     echo $p;
 }
 
-//加载信息块
+//加载课程信息块
 function courseInfo()
 {
     global $rs;
@@ -89,7 +96,7 @@ function courseInfo()
                 <span class="live-rating">' . $rs['rating_show'] . '</span>
             </div>
             <div class="course_rating_count">评分数：<span>' . $rs['rating_count'] . '</span>次</div>
-            <div class="course_views">播放量：<span>' . $rs['views'] . '</span>次，</div>
+            <div class="course_views">浏览量：<span>' . $rs['views'] . '</span>次，</div>
         </div>
         <div class="clear"></div>
         <div class="course_info_p2">
@@ -102,5 +109,29 @@ function courseInfo()
     echo $course_info;
 }
 
+//加载教师信息块
+$sql_t = "select * from user where uid='" . $uploaderID . "'";
+$rs_t = mysqli_fetch_array(mysqli_query($conn, $sql_t));
+function teacherInfo()
+{
+    global $rs_t;
+    $t = '<div class="teacher_info_p1">
+            <table>
+                <tr>
+                    <td><img src="../resource/avatar/' . $rs_t['avatar'] . '.png"></td>
+                    <td>
+                        <div>
+                            <p>' . $rs_t['real_name'] . '</p>
+                            <p>' . $rs_t['school'] . '</p>
+                        </div></td>
+                </tr>
+            </table>
+            <hr/>
+            <div class="teacher_info_p2">
+                <p>' . $rs_t['introduction'] . '</p>
+            </div>
+        </div>';
+    echo $t;
+}
 
 mysqli_close($conn);

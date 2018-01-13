@@ -58,22 +58,7 @@ include 'playHandler.php';
         <?php courseInfo(); ?>
     </div>
     <div class="teacher_info fadeInRight animated">
-        <div class="teacher_info_p1">
-            <table>
-                <tr>
-                    <td><img src="../resource/avatar/0.png"></td>
-                    <td>
-                        <div>
-                            <p>xxx</p>
-                            <p>来宾高级中学</p>
-                        </div></td>
-                </tr>
-            </table>
-            <hr/>
-            <div class="teacher_info_p2">
-                <p>dsdsadsadsadadsdadadsadadsa</p>
-            </div>
-        </div>
+        <?php teacherInfo(); ?>
     </div>
 </div>
 <div class="reply  fadeInRight animated">

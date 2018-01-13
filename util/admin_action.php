@@ -82,8 +82,8 @@ function sqlCourse($conn, $page, $action, $date)
                         break;
                 }
             }
-            if ($key=='rating'||$key=='rating_show'){
-                if ($val_row==''||$val_row==null) $val_row='暂无';
+            if ($key == 'rating' || $key == 'rating_show') {
+                if ($val_row == '' || $val_row == null) $val_row = '暂无';
             }
             if (!is_numeric($key)) {
                 $form_main .= "<td class=" . $key . ">" . $val_row . "</td>";
@@ -364,6 +364,11 @@ function editOrSave($conn, $date, $action)
             mysqli_close($conn);
             exit();
         }
+        $realname = nullHandler($realname);
+        $email = nullHandler($email);
+        $contact = nullHandler($contact);
+        $school = nullHandler($school);
+        $introduction = nullHandler($introduction);
         $sql = "insert into user (username,password,flag,status,real_name,gender,email,contact,school,subject,introduction,reg_date)" .
             "values ('$username','$password','$flag','$status','$realname','$gender','$email','$contact','$school','$subject','$introduction','$date')";
         if (mysqli_query($conn, $sql)) {
@@ -399,4 +404,10 @@ function sqlResult($conn, $page, $table)
         $rs[count($rs)] = $r;
     }
     return $rs;
+}
+
+//处理空值
+function nullHandler($t)
+{
+    return $t == '' || $t == null ? '暂无' : $t;
 }

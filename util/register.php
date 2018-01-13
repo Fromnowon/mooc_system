@@ -17,6 +17,10 @@
                         <input id="reg_password" type="password" class="form-control" placeholder="必填（长度不少于5）">
                     </div>
                     <div class="form-group">
+                        <label class="form-label">姓名：</label>
+                        <input id="reg_realname" type="text" class="form-control" placeholder="选填">
+                    </div>
+                    <div class="form-group">
                         <label class="form-label">邮箱：</label>
                         <input id="reg_mail" type="text" class="form-control" placeholder="选填">
                     </div>

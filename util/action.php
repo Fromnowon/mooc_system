@@ -25,10 +25,11 @@ switch ($_GET['action']) {
     case 'register': {
         $reg_username = $_POST['reg_username'];
         $reg_password = md5($_POST['reg_password']);
+        $reg_realname = $_POST['reg_realname'];
         $reg_mail = $_POST['reg_mail'];
         $reg_school = $_POST['reg_school'];
         $reg_contact = $_POST['reg_contact'];
-        register($conn, $reg_username, $reg_password, $reg_mail, $reg_school, $reg_contact, $date);
+        register($conn, $reg_username, $reg_password, $reg_realname, $reg_mail, $reg_school, $reg_contact, $date);
         break;
     }
     case 'course_upload': {
@@ -79,10 +80,14 @@ function login($conn, $username, $password, $checkbox)
 }
 
 //注册函数
-function register($conn, $username, $password, $email, $school, $contact, $date)
+function register($conn, $username, $password, $reg_realname, $email, $school, $contact, $date)
 {
     //echo 'OK';exit();
-    $sql = "insert into user (username,password,email,contact,school,reg_date) values ('$username','$password','$email','$contact','$school','$date')";
+    $email = nullHandler($email);
+    $school = nullHandler($school);
+    $contact = nullHandler($contact);
+    $reg_realname = nullHandler($reg_realname);
+    $sql = "insert into user (username,password,real_name,email,contact,school,reg_date) values ('$username','$password','$reg_realname','$email','$contact','$school','$date')";
     if (mysqli_query($conn, $sql))
         echo 'OK';
     else
@@ -129,7 +134,7 @@ function courseUpload($conn, $date)
                     } else {
                         //echo "文件:" . time() . strtolower(strstr($course['name'], ".")) . "上传成功，大小为：" . $course['size'] . "字节";
                         //入库
-                        $upload_arr = [$_POST['upload_title'], $_POST['upload_introduction'], $_POST['upload_subject']];
+                        $upload_arr = [nullHandler($_POST['upload_title']), nullHandler($_POST['upload_introduction']), $_POST['upload_subject']];
                         $sql = "insert into course (path,uploader_id,upload_date,subject,title,introduction) values ('" . substr($path, 2) . "','" . $_SESSION['userinfo']['uid'] . "','$date','$upload_arr[2]','$upload_arr[0]','$upload_arr[1]')";
                         if (mysqli_query($conn, $sql)) {
                             echo '<p style="color: green">上传成功！</p>';
@@ -237,4 +242,10 @@ function noteHandler($conn, $date)
         }
     }
     mysqli_close($conn);
+}
+
+//处理空值
+function nullHandler($t)
+{
+    return $t == '' || $t == null ? '暂无' : $t;
 }

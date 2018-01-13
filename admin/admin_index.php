@@ -48,7 +48,7 @@ if (!isset($userinfo['username'])) {
 
     <div class="left_menu">
         <div id="userinfo">
-            <div><img src="../avatar/<?php echo $userinfo['avatar'] ?>.png"></div>
+            <div><img src="../resource/avatar/<?php echo $userinfo['avatar'] ?>.png"></div>
             <p class="identity">身份：
                 <?php
                 if ($userinfo['flag'] == 1)

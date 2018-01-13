@@ -203,14 +203,14 @@ function userSearch(page) {
 }
 
 function editData(action, uid, obj) {
-    if (!obj.children(':first-child').hasClass('uid')) {
+    if (obj != null && !obj.children(':first-child').hasClass('uid')) {
 
     }
     else $("#user_edit_modal").modal({backdrop: 'static'});
     //修改时填充数据
     if (action == 'edit') {
         $("#edit_username").val(obj.children('.username').html()).attr('disabled', true)
-        console.log($("#edit_username").val());
+        //console.log($("#edit_username").val());
         //注意修改密码的处理
         $("#edit_password").attr('placeholder', '(输入新密码以覆盖)');
         $("#edit_flag").val(obj.children('.flag').children('span').attr('value'));

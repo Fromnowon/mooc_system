@@ -25,7 +25,7 @@
     if (!isset($_SESSION['userinfo'])) {
         header("Location:login.php");
     } else {
-        $userinfo = "<div class='userinfo_avatar'><p class='glyphicon glyphicon-chevron-left backtoindex'>BACK</p><img src='../avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>";
+        $userinfo = "<div class='userinfo_avatar'><p class='glyphicon glyphicon-chevron-left backtoindex'>BACK</p><img src='../resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>";
         echo $userinfo . '<p>' . $_SESSION['userinfo']['username'] . '</p></div>';
     }
     ?>

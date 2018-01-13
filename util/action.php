@@ -172,11 +172,11 @@ function noteHandler($conn, $date)
                 $m = floor($time / 60);//分
                 $h = floor($time / 3600);//时
                 $p3_t = ($h == 0 ? '' : '0' . $h . ':') . ($m < 10 ? ('0' . $m) : $m) . ':' . ($s < 10 ? ('0' . $s) : $s);
-                $p3 = '</div><a href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
+                $p3 = '</div><a  title="点击从此时间点播放" href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
                     . $p3_t . '</span></a>';
 
                 $p4 = '<span>&nbsp;&nbsp;</span>
-            <a class="collapsed" role="button" data-toggle="collapse" href="#collapse' . mysqli_insert_id($conn) . '" aria-expanded="false">'
+            <a title="点击展开或收起笔记" class="collapsed" role="button" data-toggle="collapse" href="#collapse' . mysqli_insert_id($conn) . '" aria-expanded="false">'
                     . $title
                     . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
                     . '<div id="collapse' . mysqli_insert_id($conn) . '" class="panel-collapse collapse" role="tabpanel">';
@@ -196,6 +196,40 @@ function noteHandler($conn, $date)
             echo $sql = "delete from note where id='" . $id . "'";
             mysqli_query($conn, $sql);
             echo 'OK';
+            break;
+        }
+        case 'rating': {
+            $rating = $_POST['rating'];//拿到评分
+            $id = $_POST['id'];
+            $sql = "select * from course where id='" . $id . "'";
+            $rs = mysqli_fetch_array(mysqli_query($conn, $sql));
+            if ($rs['rating'] == null) {
+                $rs['rating'] = $rating;
+            } else {
+                //处理显示评分
+                $t = (($rs['rating'] * $rs['rating_count']) + $rating) / ($rs['rating_count'] + 1);
+                $x = floor($t);//取整
+                $y = $t * 10 % 10;//取第一位小数
+                if ($y == 0 || $y == 5) {
+                    //无需处理
+
+                } else {
+                    if ($y > 2 && $y < 8)
+                        $y = 5;
+                    else if ($y < 3)
+                        $y = 0;
+                    else if ($y > 7) {
+                        $x++;//进位
+                        $y = 0;
+                    }
+                }
+                $rs['rating'] = ($x * 10 + $y) / 10;
+            }
+            $rs['rating_count']++;
+            $sql = "update course set rating='" . $t . "',rating_count='" . $rs['rating_count'] . "',rating_show='" . $rs['rating'] . "' where id='" . $id . "'";
+            if (mysqli_query($conn, $sql)) {
+                echo $rs['rating'];
+            } else echo $sql;
             break;
         }
         default: {

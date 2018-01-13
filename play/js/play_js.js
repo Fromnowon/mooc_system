@@ -1,6 +1,36 @@
 $(function () {
     var player = videojs('course_player');
-
+    $(".course_rating_star").starRating({
+        starSize: 28,
+        emptyColor: 'white',
+        ratedColor: 'red',
+        initialRating: 3.5,
+        onHover: function (currentIndex, currentRating, $el) {
+            $('.live-rating').text(currentIndex);
+        },
+        onLeave: function (currentIndex, currentRating, $el) {
+            $('.live-rating').text(currentRating);
+        },
+        callback: function (currentRating, $el) {
+            // do something after rating
+            $.ajax({
+                type: "post",
+                url: "../util/action.php?action=note",
+                data: {action: 'rating', rating: currentRating, id: $(".course_title").children().attr('value')},
+                dataType: "html",
+                success: function (msg) {
+                    //console.log("DONE:" + msg);
+                    $('.live-rating').text(msg);
+                    $(".course_rating_star").starRating('setRating', msg);
+                    $(".course_rating_count").children().html(parseInt($(".course_rating_count").children().html()) + 1);
+                },
+                error: function (msg) {
+                    alert("ERROR!");
+                    console.log("error:" + msg);
+                }
+            });
+        }
+    });
     //笔记相关
     noteHandler(player);
 
@@ -11,8 +41,9 @@ $(function () {
 function noteInit(note, player) {
     //绑定删除事件
     note.find(".note_del").unbind().on('click', function () {
-        animate_auto(note, 'fadeOutRight', 1000, function () {
-            note.remove();
+        var t = $(this).parents('.panel-default');
+        animate_auto(t, 'fadeOutRight', 1000, function () {
+            t.remove();
         });
         $.ajax({
             type: "post",
@@ -44,23 +75,37 @@ function noteHandler(player) {
     var note_pop = $(".note_pop");
     var courseID = $(".course_title").find('span').attr('value');
     //console.log(courrseID);
+    //新增笔记
     $("#new_note").unbind().on('click', function () {
         //绑定取消按钮
         $(".note_pop_dismiss").unbind().on('click', function () {
-            animate_auto(note_pop, 'fadeOut', 1000, function () {
+            $("#new_note").html('添加笔记');
+            if (player.currentTime() != 0) player.play();
+            animate_auto(note_pop, 'bounceOut', 1000, function () {
                 note_pop.css('display', 'none');
-                note_pop.children('input').val('');
-                note_pop.children('textarea').val('');
+                // note_pop.children('input').val('');
+                // note_pop.children('textarea').val('');
             });
         });
-        //暂停视频，获取时间节点，弹窗
-        player.pause();
-        //alert($(this).offset().top+'||'+$(this).offset().left+'||'+note_time);
-        var note_pop_position = [$(this).offset().top, $(this).offset().left];
-        note_pop.css({'display': '', 'top': note_pop_position[0] + 40, 'left': note_pop_position[1]});
-        animate_auto(note_pop, 'fadeIn', 1000);
+        //判断笔记弹窗是否已经显示
+        if (note_pop.css('display') == 'none') {
+            player.pause();
+            $(this).html('取消添加');
+            var note_pop_position = [$(this).offset().top, $(this).offset().left];
+            note_pop.css({'display': '', 'top': note_pop_position[0] + 40, 'left': note_pop_position[1]});
+            animate_auto(note_pop, 'bounceIn', 1000);
+        } else {
+            if (player.currentTime() != 0) player.play();
+            $(this).html('添加笔记');
+            animate_auto(note_pop, 'bounceOut', 1000, function () {
+                note_pop.css('display', 'none');
+            });
+        }
+
+
     });
-    $(".note_save").on('click', function () {
+    //保存笔记
+    $(".note_save").unbind().on('click', function () {
         var btn = $(this);
         data = {
             action: 'save',
@@ -76,7 +121,9 @@ function noteHandler(player) {
             dataType: "text",
             success: function (msg) {
                 //console.log("DONE:" + msg);
-                btn.prevAll('a').trigger('click');//模拟点击“取消”
+                // btn.prevAll('a').trigger('click');//模拟点击“取消”
+                btn.prevAll('input').val('');
+                btn.prevAll('textarea').val('');
                 //添加结果
                 var t = $(".note_content_show");
                 t.prepend(msg);
@@ -89,5 +136,10 @@ function noteHandler(player) {
             }
         });
 
+    })
+    //清空笔记
+    $(".note_pop_clear").unbind().on('click', function () {
+        note_pop.children('input').val('');
+        note_pop.children('textarea').val('');
     })
 }

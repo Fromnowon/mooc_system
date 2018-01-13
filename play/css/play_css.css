@@ -1,5 +1,6 @@
 .play_header {
     padding: 10px 30px 10px 30px;
+    box-shadow: 0px 2px 10px #d0d0d0;
 }
 
 .play_header {
@@ -33,7 +34,7 @@
 }
 
 div {
-    border: 1px red solid;
+    /*border: 1px red solid;*/
 }
 
 .play {
@@ -67,13 +68,13 @@ div {
 .teacher_info {
     background: #72d8ff;
     width: 70%;
-    height: 200px;
+    height: 300px;
 }
 
 .course_info {
     background: #6dc9a4;
     width: 70%;
-    height: 200px;
+    height: 300px;
 }
 
 .info > div {
@@ -114,8 +115,13 @@ ul[class='vjs-menu-content'] {
 }
 
 /*笔记相关*/
-#new_note {
+.note {
+    margin-left: 10px;
+    border: 1px black solid;
+}
 
+#new_note {
+    margin-bottom: 10px;
 }
 
 .note_pop {
@@ -133,4 +139,60 @@ ul[class='vjs-menu-content'] {
 
 .note_pop > textarea {
     margin-bottom: 10px;
+}
+
+/*课程信息栏相关*/
+.clear {
+    clear: both;
+}
+
+.course_info {
+    padding: 10px;
+}
+
+.course_info .p1_title {
+    font-size: 24px;
+    display: inline-block;
+}
+
+.course_info .course_rating {
+    padding-top: 2px;
+    float: right;
+    display: inline;
+    width: 200px
+}
+
+.course_info .p3_content {
+    font-size: 20px;
+}
+
+.course_info .course_rating .live-rating {
+    font-size: 30px;
+}
+
+.course_info .course_info_p2 {
+    color: #636363;
+}
+
+.course_views, .course_rating_count {
+    float: right;
+    margin: 10px 10px 0px 0px;
+    font-size: 16px;
+}
+
+/*教师信息栏相关*/
+.teacher_info_p1 {
+    padding: 10px;
+}
+
+.teacher_info_p1 img {
+    width: 100px;
+}
+
+.teacher_info_p1 div {
+    padding-left: 10px;
+    font-size: 26px;
+}
+.teacher_info_p2{
+    padding: 10px;
 }

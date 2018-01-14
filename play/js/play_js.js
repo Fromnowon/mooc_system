@@ -1,41 +1,14 @@
 $(function () {
     var player = videojs('course_player');
-    $(".course_rating_star").starRating({
-        starSize: 28,
-        emptyColor: 'white',
-        ratedColor: 'red',
-        initialRating: 3.5,
-        onHover: function (currentIndex, currentRating, $el) {
-            $('.live-rating').text(currentIndex);
-        },
-        onLeave: function (currentIndex, currentRating, $el) {
-            $('.live-rating').text(currentRating);
-        },
-        callback: function (currentRating, $el) {
-            // do something after rating
-            $.ajax({
-                type: "post",
-                url: "../util/action.php?action=note",
-                data: {action: 'rating', rating: currentRating, id: $(".course_title").children().attr('value')},
-                dataType: "html",
-                success: function (msg) {
-                    //console.log("DONE:" + msg);
-                    $('.live-rating').text(msg);
-                    $(".course_rating_star").starRating('setRating', msg);
-                    $(".course_rating_count").children().html(parseInt($(".course_rating_count").children().html()) + 1);
-                },
-                error: function (msg) {
-                    alert("ERROR!");
-                    console.log("error:" + msg);
-                }
-            });
-        }
-    });
+    var courseID = $(".course_title").find('span').attr('value');
+    //其他
+    setMisc(courseID);
     //笔记相关
-    noteHandler(player);
-
+    noteHandler(player, courseID);
     //笔记初始化
     noteInit($(".panel-default"), player);
+    //回复分页
+    replyHandler();
 })
 
 function noteInit(note, player) {
@@ -71,9 +44,8 @@ function noteInit(note, player) {
     })
 }
 
-function noteHandler(player) {
+function noteHandler(player, courseID) {
     var note_pop = $(".note_pop");
-    var courseID = $(".course_title").find('span').attr('value');
     //console.log(courrseID);
     //新增笔记
     $("#new_note").unbind().on('click', function () {
@@ -140,5 +112,135 @@ function noteHandler(player) {
     $(".note_pop_clear").unbind().on('click', function () {
         note_pop.children('input').val('');
         note_pop.children('textarea').val('');
+    })
+}
+
+function setMisc(courseID) {
+    //初始化评分
+    $(".course_rating_star").starRating({
+        starSize: 28,
+        emptyColor: 'white',
+        ratedColor: 'red',
+        initialRating: 3.5,
+        onHover: function (currentIndex, currentRating, $el) {
+            $('.live-rating').text(currentIndex);
+        },
+        onLeave: function (currentIndex, currentRating, $el) {
+            $('.live-rating').text(currentRating);
+        },
+        callback: function (currentRating, $el) {
+            // do something after rating
+            $.ajax({
+                type: "post",
+                url: "../util/action.php?action=note",
+                data: {action: 'rating', rating: currentRating, id: $(".course_title").children().attr('value')},
+                dataType: "html",
+                success: function (msg) {
+                    //console.log("DONE:" + msg);
+                    $('.live-rating').text(msg);
+                    $(".course_rating_star").starRating('setRating', msg);
+                    $(".course_rating_count").children().html(parseInt($(".course_rating_count").children().html()) + 1);
+                },
+                error: function (msg) {
+                    alert("ERROR!");
+                    console.log("error:" + msg);
+                }
+            });
+        }
+    });
+
+    //新增回复
+    $(".reply_new").find('button').on('click', function () {
+        var content = $(this).parent().prevAll('textarea').val();
+        var btn = $(this);
+        btn.attr('disabled', true);
+        $.ajax({
+            type: "post",
+            url: "../util/action.php?action=reply",
+            data: {courseID: courseID, content: content, action: 'new_reply'},
+            dataType: "html",
+            success: function (msg) {
+                var t = $(".reply_floor");
+
+                //修改新增项属性
+                var old_floor = t.children(':first-child');
+                var new_floor = parseInt(old_floor.attr('floor')) + 1;
+
+                t.prepend(msg);
+
+                old_floor.prev().find('.new_floor_flag').prepend(new_floor + '楼');
+                old_floor.prev().attr('floor', new_floor);
+
+                animate_auto(t.find('.reply_table').first(), 'fadeInLeft', 1000);
+                setReplyBtn(t.find('.reply_btn').first());
+                btn.removeAttr('disabled');
+                //console.log(msg);
+            },
+            error: function (msg) {
+                alert("ERROR!");
+                console.log("error:" + msg);
+            }
+        });
+    })
+
+    //控制回复框
+    setReplyBtn($(".reply_btn"));
+
+    //判断是否需要继续加载回复
+    if (parseInt($(this).attr('max')) <= 5) {
+        $(this).css('display', 'none');
+    }
+
+    //回复楼中楼
+    replyToReply($(".reply_edit"));
+}
+
+function setReplyBtn(obj) {
+    obj.unbind().on('click', function () {
+        var btn = $(this);
+        var reply_div = $(this).parent().next().next();
+        if (parseInt(reply_div.css('height')) == 0) {
+            reply_div.animate({height: 200}, 500, function () {
+                btn.text('收起编辑框');
+            });
+        } else {
+            reply_div.animate({height: 0}, 500, function () {
+                btn.text('参与讨论');
+            });
+        }
+    })
+}
+
+function replyHandler() {
+    $(".more_reply").on('click', function () {
+        var now = parseInt($(this).attr('now'));
+        var max = parseInt($(this).attr('max'));
+        $("#t" + now).nextUntil("#t" + (now + 5)).css('display', '');
+        now += 5;
+        $(this).attr('now', now);
+        if (now >= max) {
+            $(this).css('display', 'none');
+        }
+    })
+}
+
+function replyToReply(obj) {
+    obj.find('button').on('click', function () {
+        var btn = $(this);
+        data = {content: btn.prevAll('textarea').val(), id: btn.parents('.reply_table').attr('flag'), action: 'toreply'};
+        $.ajax({
+            type: "post",
+            url: "../util/action.php?action=reply",
+            data: data,
+            dataType: "html",
+            success: function (msg) {
+                alert('ok');
+                //console.log(msg);
+            },
+            error: function (msg) {
+                alert("ERROR!");
+                console.log("error:" + msg);
+            }
+        });
     })
 }

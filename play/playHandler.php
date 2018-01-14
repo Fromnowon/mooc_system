@@ -134,4 +134,75 @@ function teacherInfo()
     echo $t;
 }
 
-mysqli_close($conn);
+//加载回复、二级回复
+function loadReply()
+{
+    global $rs_reply, $conn, $courseID;
+    $a = mysqli_query($conn, "select * from reply where relate_course_id='$courseID' order by id desc");
+    $rs_reply = array();
+    while ($t = mysqli_fetch_array($a)) {
+        $rs_reply[count($rs_reply)] = $t;
+    }
+    $l = $total = count($rs_reply, COUNT_NORMAL);
+    $i = 1;
+    //页码
+//    $page = ceil($total / 10);
+//    $page_p1 = '<div><nav aria-label="Page navigation"  style="text-align: center"><ul class="pagination">';
+//    $page_p2 = '';
+//    $x = 1;
+//    while ($x <= $page) {
+//        $page_p2 .= '<li><a href="javascript:void(0)" class="reply_page">' . $x . '</a></li>';
+//        $x++;
+//    }
+//    $page_p3 = '</ul></nav><br>';
+//    echo $page_p1 . $page_p2 . $page_p3 . '<span class="uid" style="display: none">' . $rs_reply[0]['relate_user_id'] . '</span></div>';
+
+    foreach ($rs_reply as $reply) {
+        $t1 = '<table class="reply_table" id="t' . $i . '" floor="' . $l . '" flag="' . $reply['id'] . '"';
+        if ($i > 5) $t1 .= ' style="display: none"';
+        $t2 = '>
+            <tr>
+                <td>
+                    <img class="avatar" src="../resource/avatar/' . $reply['avatar'] . '.png" alt="avatar">
+                    <span class="reply_username">' . $reply['real_name'] . '</span>
+                </td>
+                <td style="text-align: right">
+                    <span>' . $l . '楼&nbsp;&nbsp;&nbsp;</span><span>发布于：<span class="time">' . $reply['sub_date'] . '</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="content">
+                        ' . $reply['content'] . '
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="text-align: right">
+                        <a class="reply_btn" style="font-size: 16px">参与讨论</a>
+                    </div>
+                    <div></div>
+                    <div class="reply_edit" style="height: 0;overflow: hidden">
+                        <textarea class="form-control" rows="6" style="resize: none"></textarea>
+                        <br/>
+                        <button class="btn btn-sm btn-default">提交</button>
+                    </div>
+                    <div style="clear: both"></div>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2" class="toreply">
+            <div><span style="font-weight: bold">name:</span><p style="word-break: break-all">sasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasa</p></div>
+            <div><span>time</span><a href="javascript:void(0)" style="float: right">回复TA</a></div>
+            <hr/>
+            </td>
+            </tr>
+        </table>';
+        $i++;
+        $l--;
+        echo $t1 . $t2;
+    }
+    if ($i > 5) echo '<div style="text-align: center;margin: 20px 0 80px 0"><a class="btn btn-success more_reply" now="5" max="' . $total . '">显示更多回复</a></div>';
+
+}

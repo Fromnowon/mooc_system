@@ -15,36 +15,46 @@ if (!isset($_GET['action'])) {
 include('conn.php');
 
 switch ($_GET['action']) {
-    case 'login': {
-        $login_username = $_POST['login_username'];
-        $login_password = md5($_POST['login_password']);
-        $login_checkbox = $_POST['logintoadmin'];
-        login($conn, $login_username, $login_password, $login_checkbox);
-        break;
-    }
-    case 'register': {
-        $reg_username = $_POST['reg_username'];
-        $reg_password = md5($_POST['reg_password']);
-        $reg_realname = $_POST['reg_realname'];
-        $reg_mail = $_POST['reg_mail'];
-        $reg_school = $_POST['reg_school'];
-        $reg_contact = $_POST['reg_contact'];
-        register($conn, $reg_username, $reg_password, $reg_realname, $reg_mail, $reg_school, $reg_contact, $date);
-        break;
-    }
-    case 'course_upload': {
-        courseUpload($conn, $date);
-        break;
-    }
-    case 'note': {
-        noteHandler($conn, $date);
-        break;
-    }
-    default : {
-        echo 'Error';
-        mysqli_close($conn);
-        break;
-    }
+    case 'login':
+        {
+            $login_username = $_POST['login_username'];
+            $login_password = md5($_POST['login_password']);
+            $login_checkbox = $_POST['logintoadmin'];
+            login($conn, $login_username, $login_password, $login_checkbox);
+            break;
+        }
+    case 'register':
+        {
+            $reg_username = $_POST['reg_username'];
+            $reg_password = md5($_POST['reg_password']);
+            $reg_realname = $_POST['reg_realname'];
+            $reg_mail = $_POST['reg_mail'];
+            $reg_school = $_POST['reg_school'];
+            $reg_contact = $_POST['reg_contact'];
+            register($conn, $reg_username, $reg_password, $reg_realname, $reg_mail, $reg_school, $reg_contact, $date);
+            break;
+        }
+    case 'course_upload':
+        {
+            courseUpload($conn, $date);
+            break;
+        }
+    case 'note':
+        {
+            noteHandler($conn, $date);
+            break;
+        }
+    case 'reply':
+        {
+            replyHandler($conn, $date);
+            break;
+        }
+    default :
+        {
+            echo 'Error';
+            mysqli_close($conn);
+            break;
+        }
 }
 //登录函数
 function login($conn, $username, $password, $checkbox)
@@ -156,90 +166,155 @@ function courseUpload($conn, $date)
 function noteHandler($conn, $date)
 {
     switch ($_POST['action']) {
-        case 'save': {
-            session_start();
-            $userinfo = $_SESSION['userinfo'];
-            $uid = $userinfo['uid'];
-            $courseID = $_POST['courseID'];
-            $time = $_POST['time'];
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $sql = "insert into note (relate_user_id,relate_course_id,note_time,title,content,creat_time) values ('" . $uid . "','" . $courseID . "','" . $time . "','" . $title . "','" . $content . "','" . $date . "')";
-            if (mysqli_query($conn, $sql)) {
-                //拼接笔记html
-                $p1 = '<div class="panel panel-default">
+        case 'save':
+            {
+                session_start();
+                $userinfo = $_SESSION['userinfo'];
+                $uid = $userinfo['uid'];
+                $courseID = $_POST['courseID'];
+                $time = $_POST['time'];
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $sql = "insert into note (relate_user_id,relate_course_id,note_time,title,content,creat_time) values ('" . $uid . "','" . $courseID . "','" . $time . "','" . $title . "','" . $content . "','" . $date . "')";
+                if (mysqli_query($conn, $sql)) {
+                    //拼接笔记html
+                    $p1 = '<div class="panel panel-default">
     <div class="panel-heading" role="tab">
         <h4 class="panel-title">
             <div class="note_mark" style="display: none">';
-                $p2 = '<p class="id">' . mysqli_insert_id($conn) . '</p>' . '<p class="mark_time">' . $time . '</p>' . '<p class="mark_courseid">' . $_POST['courseID'] . '</p>' . '<p class="mark_userid">' . $uid . '</p>';
-                $t = floor($time);//向下取整
-                $s = $time % 60;//秒
-                $m = floor($time / 60);//分
-                $h = floor($time / 3600);//时
-                $p3_t = ($h == 0 ? '' : '0' . $h . ':') . ($m < 10 ? ('0' . $m) : $m) . ':' . ($s < 10 ? ('0' . $s) : $s);
-                $p3 = '</div><a  title="点击从此时间点播放" href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
-                    . $p3_t . '</span></a>';
+                    $p2 = '<p class="id">' . mysqli_insert_id($conn) . '</p>' . '<p class="mark_time">' . $time . '</p>' . '<p class="mark_courseid">' . $_POST['courseID'] . '</p>' . '<p class="mark_userid">' . $uid . '</p>';
+                    $t = floor($time);//向下取整
+                    $s = $time % 60;//秒
+                    $m = floor($time / 60);//分
+                    $h = floor($time / 3600);//时
+                    $p3_t = ($h == 0 ? '' : '0' . $h . ':') . ($m < 10 ? ('0' . $m) : $m) . ':' . ($s < 10 ? ('0' . $s) : $s);
+                    $p3 = '</div><a  title="点击从此时间点播放" href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
+                        . $p3_t . '</span></a>';
 
-                $p4 = '<span>&nbsp;&nbsp;</span>
+                    $p4 = '<span>&nbsp;&nbsp;</span>
             <a title="点击展开或收起笔记" class="collapsed" role="button" data-toggle="collapse" href="#collapse' . mysqli_insert_id($conn) . '" aria-expanded="false">'
-                    . $title
-                    . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
-                    . '<div id="collapse' . mysqli_insert_id($conn) . '" class="panel-collapse collapse" role="tabpanel">';
+                        . $title
+                        . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
+                        . '<div id="collapse' . mysqli_insert_id($conn) . '" class="panel-collapse collapse" role="tabpanel">';
 
-                $p5 = '<div class="panel-body">'
-                    . $content
-                    . '</div></div></div>';
+                    $p5 = '<div class="panel-body">'
+                        . $content
+                        . '</div></div></div>';
 
-                //输出
-                echo $p1 . $p2 . $p3 . $p4 . $p5;
-            } else
-                echo $sql;//error
-            break;
-        }
-        case 'delete': {
-            $id = $_POST['id'];
-            echo $sql = "delete from note where id='" . $id . "'";
-            mysqli_query($conn, $sql);
-            echo 'OK';
-            break;
-        }
-        case 'rating': {
-            $rating = $_POST['rating'];//拿到评分
-            $id = $_POST['id'];
-            $sql = "select * from course where id='" . $id . "'";
-            $rs = mysqli_fetch_array(mysqli_query($conn, $sql));
-            if ($rs['rating'] == null) {
-                $rs['rating'] = $rating;
-            } else {
-                //处理显示评分
-                $t = (($rs['rating'] * $rs['rating_count']) + $rating) / ($rs['rating_count'] + 1);
-                $x = floor($t);//取整
-                $y = $t * 10 % 10;//取第一位小数
-                if ($y == 0 || $y == 5) {
-                    //无需处理
-
-                } else {
-                    if ($y > 2 && $y < 8)
-                        $y = 5;
-                    else if ($y < 3)
-                        $y = 0;
-                    else if ($y > 7) {
-                        $x++;//进位
-                        $y = 0;
-                    }
-                }
-                $rs['rating'] = ($x * 10 + $y) / 10;
+                    //输出
+                    echo $p1 . $p2 . $p3 . $p4 . $p5;
+                } else
+                    echo $sql;//error
+                break;
             }
-            $rs['rating_count']++;
-            $sql = "update course set rating='" . $t . "',rating_count='" . $rs['rating_count'] . "',rating_show='" . $rs['rating'] . "' where id='" . $id . "'";
-            if (mysqli_query($conn, $sql)) {
-                echo $rs['rating'];
-            } else echo $sql;
-            break;
-        }
-        default: {
-            echo 'ERROR';
-        }
+        case 'delete':
+            {
+                $id = $_POST['id'];
+                echo $sql = "delete from note where id='" . $id . "'";
+                mysqli_query($conn, $sql);
+                echo 'OK';
+                break;
+            }
+        case 'rating':
+            {
+                $rating = $_POST['rating'];//拿到评分
+                $id = $_POST['id'];
+                $sql = "select * from course where id='" . $id . "'";
+                $rs = mysqli_fetch_array(mysqli_query($conn, $sql));
+                if ($rs['rating'] == null) {
+                    $rs['rating'] = $rating;
+                } else {
+                    //处理显示评分
+                    $t = (($rs['rating'] * $rs['rating_count']) + $rating) / ($rs['rating_count'] + 1);
+                    $x = floor($t);//取整
+                    $y = $t * 10 % 10;//取第一位小数
+                    if ($y == 0 || $y == 5) {
+                        //无需处理
+
+                    } else {
+                        if ($y > 2 && $y < 8)
+                            $y = 5;
+                        else if ($y < 3)
+                            $y = 0;
+                        else if ($y > 7) {
+                            $x++;//进位
+                            $y = 0;
+                        }
+                    }
+                    $rs['rating'] = ($x * 10 + $y) / 10;
+                }
+                $rs['rating_count']++;
+                $sql = "update course set rating='" . $t . "',rating_count='" . $rs['rating_count'] . "',rating_show='" . $rs['rating'] . "' where id='" . $id . "'";
+                if (mysqli_query($conn, $sql)) {
+                    echo $rs['rating'];
+                } else echo $sql;
+                break;
+            }
+        default:
+            {
+                echo 'ERROR';
+            }
+    }
+    mysqli_close($conn);
+}
+
+//回复函数
+function replyHandler($conn, $date)
+{
+    $userID = $_SESSION['userinfo']['uid'];//当前登录的用户id，即发表回复用户id
+
+    if ($_POST['action'] == 'toreply') {
+        $id = $_POST['id'];
+        $content = $_POST['content'];
+        $sql = "insert into toreply (relate_reply_id,relate_user_id,content,sub_date) values ('$id','$userID','$content','$date')";
+        if (mysqli_query($conn, $sql)) {
+            echo 'OK';
+        } else echo $sql;
+    } else {
+        $courseID = $_POST['courseID'];
+        $content = $_POST['content'];
+
+        //reply表需要写入发布者的部分信息
+        $user = mysqli_fetch_array(mysqli_query($conn, "select * from user where uid='$userID'"));
+        $avatar = $user['avatar'];
+        $real_name = $user['real_name'];
+
+        $sql = "insert into reply (relate_course_id,relate_user_id,avatar,real_name,content,sub_date) values ('$courseID','$userID','$avatar','$real_name','$content','$date')";
+        if (mysqli_query($conn, $sql)) {
+            echo '<table class="reply_table" flag="' . mysqli_insert_id($conn) . '">
+            <tr>
+                <td>
+                    <img class="avatar" src="../resource/avatar/' . $avatar . '.png" alt="avatar">
+                    <span class="reply_username">' . $real_name . '</span>
+                </td>
+                <td  style="text-align: right">
+                    <span class="new_floor_flag">&nbsp;&nbsp;&nbsp;</span><span>发布于：<span class="time">' . $date . '</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="content">
+                        ' . $content . '
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="text-align: right">
+                        <a class="reply_btn">参与讨论</a>
+                    </div>
+                    <div></div>
+                    <div class="reply_edit" style="height: 0;overflow: hidden">
+                        <textarea class="form-control" rows="6" style="resize: none"></textarea>
+                        <br/>
+                        <button class="btn btn-sm btn-default">提交</button>
+                    </div>
+                    <div style="clear: both"></div>
+                    <hr/>
+                </td>
+            </tr>
+        </table>';
+        } else echo $sql;
     }
     mysqli_close($conn);
 }

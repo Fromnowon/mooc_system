@@ -230,6 +230,7 @@ function setReplyBtn(obj) {
         if (parseInt(reply_div.css('height')) == 0) {
             reply_div.animate({height: 200}, 500, function () {
                 btn.text('收起编辑框');
+                btn.parent().parent().find('textarea').focus();
             });
         } else {
             reply_div.animate({height: 0}, 500, function () {

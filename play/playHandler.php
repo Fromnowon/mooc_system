@@ -199,8 +199,8 @@ function loadReply()
         $l--;
         if ($j > 5) {
             $j--;
-            echo $t1 . $t2 . $t3 . '<tr><td  colspan="2" class="toreply" style="text-align: center"><a class="more_toreply" href="javascript:void(0)" now="5" max="' . $j . '">加载更多回复</a></td></tr><hr></table > ';
-        } else echo $t1 . $t2 . $t3 . '<hr></table > ';
+            echo $t1 . $t2 . $t3 . '<tr><td  colspan="2" class="toreply" style="text-align: center"><a class="more_toreply" href="javascript:void(0)" now="5" max="' . $j . '">加载更多回复</a><hr></td></tr></table> ';
+        } else echo $t1 . $t2 . $t3 . '<tr><td colspan="2"><hr></td></tr></table> ';
     }
     if ($i > 5) echo '<div style = "text-align: center;margin: 20px 0 80px 0" ><a class="btn btn-success more_reply" now = "5" max = "' . $total . '" > 显示更多讨论</a ></div > ';
 }

@@ -309,7 +309,7 @@ function replyHandler($conn, $date)
                     <div style="clear: both"></div>
                 </td>
             </tr>
-            <hr>
+            <tr><td colspan="2"><hr></td></tr>
         </table>';
         } else echo $sql;
     }

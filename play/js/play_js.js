@@ -152,6 +152,10 @@ function setMisc(courseID) {
     //新增回复
     $(".reply_new").find('button').on('click', function () {
         var content = $(this).parent().prevAll('textarea').val();
+        if (content.length == 0) {
+            alert('写点啥吧');
+            return;
+        }
         var btn = $(this);
         btn.attr('disabled', true);
         $.ajax({
@@ -163,7 +167,7 @@ function setMisc(courseID) {
                 var t = $(".reply_floor");
 
                 //修改新增项标记
-                var old_floor = t.children(':first-child');
+                var old_floor = t.children('table').first();
                 if (old_floor.length != 0) {
                     var new_floor = parseInt(old_floor.attr('floor')) + 1;
                     t.prepend(msg);
@@ -256,12 +260,16 @@ function replyHandler(obj, selector) {
 function replyToReply(obj) {
     obj.find('button').on('click', function () {
         var btn = $(this);
-        btn.attr('disabled', true);
         data = {
             content: btn.prevAll('textarea').val(),
             id: btn.parents('.reply_table').attr('flag'),
             action: 'toreply'
         };
+        if (data['content'].length == 0) {
+            alert('写点啥吧');
+            return;
+        }
+        btn.attr('disabled', true);
         $.ajax({
             type: "post",
             url: "../util/action.php?action=reply",

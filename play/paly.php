@@ -71,7 +71,7 @@ include 'playHandler.php';
         <div class="reply_new" style="width: 70%;margin: 30px auto 30px">
             <textarea class="form-control" rows="6" style="resize: none"></textarea>
             <br/>
-            <div style="text-align: right"><button class="btn btn-default">发表回复</button></div>
+            <div style="text-align: right"><button class="btn btn-primary">发表回复</button></div>
             <br/>
         </div>
         <div class="reply_floor">

@@ -115,11 +115,13 @@ function noteHandler(player, courseID) {
 
 function setMisc(courseID) {
     //初始化评分
+    var initialRating = $(".live-rating").text();
+    if (initialRating == '') initialRating = 0;
     $(".course_rating_star").starRating({
         starSize: 28,
         emptyColor: 'white',
         ratedColor: 'red',
-        initialRating: 3.5,
+        initialRating: initialRating,
         onHover: function (currentIndex, currentRating, $el) {
             $('.live-rating').text(currentIndex);
         },
@@ -160,16 +162,22 @@ function setMisc(courseID) {
             success: function (msg) {
                 var t = $(".reply_floor");
 
-                //修改新增项属性
+                //修改新增项标记
                 var old_floor = t.children(':first-child');
-                var new_floor = parseInt(old_floor.attr('floor')) + 1;
-
-                t.prepend(msg);
-
-                old_floor.prev().find('.new_floor_flag').prepend(new_floor + '楼');
-                old_floor.prev().attr('floor', new_floor);
+                if (old_floor.length != 0) {
+                    var new_floor = parseInt(old_floor.attr('floor')) + 1;
+                    t.prepend(msg);
+                    old_floor.prev().find('.new_floor_flag').prepend(new_floor + '楼');
+                    old_floor.prev().attr('floor', new_floor);
+                } else {
+                    t.prepend(msg);
+                    var this_floor = t.children(':first-child');
+                    this_floor.find('.new_floor_flag').prepend('1楼');
+                    this_floor.attr('floor', 1);
+                }
 
                 var append = t.find('.reply_table').first();
+                t.prev().find('textarea').val('');
                 animate_auto(append, 'fadeInLeft', 1000);
                 //各种绑定
                 setReplyBtn(append.find('.reply_btn'));
@@ -211,7 +219,7 @@ function setReplyTo(obj) {
             t.trigger('click');
         var textarea = t.parent().next().next().find('textarea');
         textarea.val('回复 ' + name + ' ' + textarea.val());
-
+        textarea.focus();
     })
 }
 
@@ -235,7 +243,7 @@ function replyHandler(obj, selector) {
     obj.on('click', function () {
         var now = parseInt($(this).attr('now'));
         var max = parseInt($(this).attr('max'));
-        $(selector + now).nextUntil(selector + (now + 5)).css('display', '');
+        $(selector + now).nextUntil(selector + (now + 5 + 1)).css('display', '');
         now += 5;
         $(this).attr('now', now);
         if (now >= max) {
@@ -247,6 +255,7 @@ function replyHandler(obj, selector) {
 function replyToReply(obj) {
     obj.find('button').on('click', function () {
         var btn = $(this);
+        btn.attr('disabled', true);
         data = {
             content: btn.prevAll('textarea').val(),
             id: btn.parents('.reply_table').attr('flag'),
@@ -259,6 +268,10 @@ function replyToReply(obj) {
             dataType: "html",
             success: function (msg) {
                 btn.parents('tr').after(msg);
+                btn.prevAll('textarea').val('');
+                animate_auto(btn.parents('tr').next(), 'fadeInLeft', 1000);
+                btn.removeAttr('disabled');
+                btn.parents('tr').find('.reply_btn').trigger('click');
                 setReplyTo($(".replytoreply"));
                 //console.log(msg);
             },

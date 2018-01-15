@@ -307,9 +307,9 @@ function replyHandler($conn, $date)
                         <button class="btn btn-sm btn-default">提交</button>
                     </div>
                     <div style="clear: both"></div>
-                    <hr/>
                 </td>
             </tr>
+            <hr>
         </table>';
         } else echo $sql;
     }

@@ -169,8 +169,13 @@ function setMisc(courseID) {
                 old_floor.prev().find('.new_floor_flag').prepend(new_floor + '楼');
                 old_floor.prev().attr('floor', new_floor);
 
-                animate_auto(t.find('.reply_table').first(), 'fadeInLeft', 1000);
-                setReplyBtn(t.find('.reply_btn').first());
+                var append = t.find('.reply_table').first();
+                animate_auto(append, 'fadeInLeft', 1000);
+                //各种绑定
+                setReplyBtn(append.find('.reply_btn'));
+                replyToReply(append);
+                setReplyTo(append.find('.replytoreply'));
+
                 btn.removeAttr('disabled');
                 //console.log(msg);
             },
@@ -205,7 +210,7 @@ function setReplyTo(obj) {
         if (parseInt(t.parent().next().next().css('height')) == 0)
             t.trigger('click');
         var textarea = t.parent().next().next().find('textarea');
-        textarea.val('回复 ' + name + ' '+textarea.val());
+        textarea.val('回复 ' + name + ' ' + textarea.val());
 
     })
 }
@@ -254,6 +259,7 @@ function replyToReply(obj) {
             dataType: "html",
             success: function (msg) {
                 btn.parents('tr').after(msg);
+                setReplyTo($(".replytoreply"));
                 //console.log(msg);
             },
             error: function (msg) {

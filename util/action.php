@@ -263,7 +263,7 @@ function replyHandler($conn, $date)
             echo '<tr>
             <td colspan="2" class="toreply">
             <div><span style="font-weight: bold">' . $_SESSION['userinfo']['real_name'] . ':</span><p style="word-break: break-all">' . $content . '</p></div>
-            <div><span>' . $date . '</span><a href="javascript:void(0)" style="float: right">回复TA</a></div>
+            <div><span>' . $date . '</span><a href="javascript:void(0)" style="float: right" class="replytoreply">回复TA</a></div>
             </td>
             </tr>';
         } else echo $sql;

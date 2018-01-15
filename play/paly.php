@@ -67,7 +67,7 @@ include 'playHandler.php';
             <?php teacherInfo(); ?>
         </div>
     </div>
-    <div class="reply fadeInRight animated">
+    <div class="reply fadeInUp animated">
         <div class="reply_new" style="width: 70%;margin: 30px auto 30px">
             <textarea class="form-control" rows="6" style="resize: none"></textarea>
             <br/>

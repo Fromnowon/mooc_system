@@ -7,8 +7,6 @@ $(function () {
     noteHandler(player, courseID);
     //笔记初始化
     noteInit($(".panel-default"), player);
-    //回复分页
-    replyHandler();
 })
 
 function noteInit(note, player) {
@@ -186,13 +184,30 @@ function setMisc(courseID) {
     //控制回复框
     setReplyBtn($(".reply_btn"));
 
-    //判断是否需要继续加载回复
-    if (parseInt($(this).attr('max')) <= 5) {
-        $(this).css('display', 'none');
-    }
-
     //回复楼中楼
     replyToReply($(".reply_edit"));
+
+    //更多讨论
+    replyHandler($(".more_reply"), "#t");
+    //更多楼中楼
+    replyHandler($(".more_toreply"), "#f");
+
+    //绑定“回复TA”
+    setReplyTo($(".replytoreply"));
+}
+
+function setReplyTo(obj) {
+    obj.unbind().on('click', function () {
+        var btn = $(this);
+        var name = btn.parent().prev().children('span').text();//获取TA的名字
+        var t = btn.parents('tbody').find('.reply_btn');//获取所在楼层的“参与讨论”
+        //console.log(t.parent().next().next().css('height'));
+        if (parseInt(t.parent().next().next().css('height')) == 0)
+            t.trigger('click');
+        var textarea = t.parent().next().next().find('textarea');
+        textarea.val('回复 ' + name + ' '+textarea.val());
+
+    })
 }
 
 function setReplyBtn(obj) {
@@ -211,11 +226,11 @@ function setReplyBtn(obj) {
     })
 }
 
-function replyHandler() {
-    $(".more_reply").on('click', function () {
+function replyHandler(obj, selector) {
+    obj.on('click', function () {
         var now = parseInt($(this).attr('now'));
         var max = parseInt($(this).attr('max'));
-        $("#t" + now).nextUntil("#t" + (now + 5)).css('display', '');
+        $(selector + now).nextUntil(selector + (now + 5)).css('display', '');
         now += 5;
         $(this).attr('now', now);
         if (now >= max) {
@@ -227,14 +242,18 @@ function replyHandler() {
 function replyToReply(obj) {
     obj.find('button').on('click', function () {
         var btn = $(this);
-        data = {content: btn.prevAll('textarea').val(), id: btn.parents('.reply_table').attr('flag'), action: 'toreply'};
+        data = {
+            content: btn.prevAll('textarea').val(),
+            id: btn.parents('.reply_table').attr('flag'),
+            action: 'toreply'
+        };
         $.ajax({
             type: "post",
             url: "../util/action.php?action=reply",
             data: data,
             dataType: "html",
             success: function (msg) {
-                alert('ok');
+                btn.parents('tr').after(msg);
                 //console.log(msg);
             },
             error: function (msg) {

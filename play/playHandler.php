@@ -50,11 +50,11 @@ function courseSource()
 }
 
 //加载笔记
-$sql = "select * from note where relate_user_id='$uid' and relate_course_id='$courseID' order by note_time desc";//进度升序//注意，这行必须写在函数外
-$r = mysqli_query($conn, $sql);//注意，这行必须写在函数外
 function loadNote()
 {
-    global $r;
+    global $r, $conn, $uid, $courseID;
+    $sql = "select * from note where relate_user_id='$uid' and relate_course_id='$courseID' order by note_time desc";
+    $r = mysqli_query($conn, $sql);
     $p = '';
     while ($rs = mysqli_fetch_array($r)) {
         //拼接笔记html
@@ -110,11 +110,11 @@ function courseInfo()
 }
 
 //加载教师信息块
-$sql_t = "select * from user where uid='" . $uploaderID . "'";
-$rs_t = mysqli_fetch_array(mysqli_query($conn, $sql_t));
 function teacherInfo()
 {
-    global $rs_t;
+    global $conn, $uploaderID;
+    $sql_t = "select * from user where uid='" . $uploaderID . "'";
+    $rs_t = mysqli_fetch_array(mysqli_query($conn, $sql_t));
     $t = '<div class="teacher_info_p1">
             <table>
                 <tr>
@@ -137,7 +137,7 @@ function teacherInfo()
 //加载回复、二级回复
 function loadReply()
 {
-    global $rs_reply, $conn, $courseID;
+    global $rs_reply, $conn, $courseID, $date;
     $a = mysqli_query($conn, "select * from reply where relate_course_id='$courseID' order by id desc");
     $rs_reply = array();
     while ($t = mysqli_fetch_array($a)) {
@@ -145,17 +145,6 @@ function loadReply()
     }
     $l = $total = count($rs_reply, COUNT_NORMAL);
     $i = 1;
-    //页码
-//    $page = ceil($total / 10);
-//    $page_p1 = '<div><nav aria-label="Page navigation"  style="text-align: center"><ul class="pagination">';
-//    $page_p2 = '';
-//    $x = 1;
-//    while ($x <= $page) {
-//        $page_p2 .= '<li><a href="javascript:void(0)" class="reply_page">' . $x . '</a></li>';
-//        $x++;
-//    }
-//    $page_p3 = '</ul></nav><br>';
-//    echo $page_p1 . $page_p2 . $page_p3 . '<span class="uid" style="display: none">' . $rs_reply[0]['relate_user_id'] . '</span></div>';
 
     foreach ($rs_reply as $reply) {
         $t1 = '<table class="reply_table" id="t' . $i . '" floor="' . $l . '" flag="' . $reply['id'] . '"';
@@ -190,19 +179,28 @@ function loadReply()
                     </div>
                     <div style="clear: both"></div>
                 </td>
-            </tr>
-            <tr>
-            <td colspan="2" class="toreply">
-            <div><span style="font-weight: bold">name:</span><p style="word-break: break-all">sasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasasasasasassasa</p></div>
-            <div><span>time</span><a href="javascript:void(0)" style="float: right">回复TA</a></div>
-            <hr/>
-            </td>
-            </tr>
-        </table>';
+            </tr>';
+        //查询二级回复
+        $sql_toreply = mysqli_query($conn, "select * from toreply where relate_reply_id='" . $reply['id'] . "' order by id desc");
+        $t3 = '';
+        $j = 1;
+        while ($rs_toreply = mysqli_fetch_array($sql_toreply)) {
+            if ($j > 5) {
+                $t3 .= '<tr style="display: none;" id="f' . $j . '">';
+            } else $t3 .= '<tr id="f' . $j . '">';
+            $t3 .= '<td colspan="2" class="toreply">
+            <div><span style="font-weight: bold">' . $rs_toreply['real_name'] . ':</span><p style="word-break: break-all">' . $rs_toreply['content'] . '</p></div>
+            <div><span>' . $date . ' </span ><a href = "javascript:void(0)" style = "float: right" class="replytoreply"> 回复TA</a ></div >
+            </td >
+            </tr >';
+            $j++;
+        }
         $i++;
         $l--;
-        echo $t1 . $t2;
+        if ($j > 5) {
+            $j--;
+            echo $t1 . $t2 . $t3 . '<tr><td  colspan="2" class="toreply" style="text-align: center"><a class="more_toreply" href="javascript:void(0)" now="5" max="' . $j . '">加载更多回复</a></td></tr></table > ';
+        } else echo $t1 . $t2 . $t3 . '</table > ';
     }
-    if ($i > 5) echo '<div style="text-align: center;margin: 20px 0 80px 0"><a class="btn btn-success more_reply" now="5" max="' . $total . '">显示更多回复</a></div>';
-
+    if ($i > 5) echo '<div style = "text-align: center;margin: 20px 0 80px 0" ><a class="btn btn-success more_reply" now = "5" max = "' . $total . '" > 显示更多讨论</a ></div > ';
 }

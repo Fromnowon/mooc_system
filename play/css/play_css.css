@@ -216,7 +216,7 @@ ul[class='vjs-menu-content'] {
 }
 
 .reply table {
-    margin: 0px auto;
+    margin: 0 auto 20px;
     width: 70%;
 }
 
@@ -229,7 +229,7 @@ ul[class='vjs-menu-content'] {
 }
 
 .reply .content {
-    min-height: 80px;
+    /*min-height: 80px;*/
     font-size: 24px;
 }
 
@@ -238,4 +238,8 @@ ul[class='vjs-menu-content'] {
 }
 .reply_btn:hover{
     cursor: pointer;
+}
+.toreply{
+    padding: 10px;
+    background: #f4f4f4;
 }

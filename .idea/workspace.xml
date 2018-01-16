@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc0c9183-17bc-4918-9d6c-5041d8b7ac4e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/login_js.js" afterPath="$PROJECT_DIR$/js/login_js.js" />
-      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change beforePath="$PROJECT_DIR$/play/css/play_css.css" afterPath="$PROJECT_DIR$/play/css/play_css.css" />
-      <change beforePath="$PROJECT_DIR$/play/js/play_js.js" afterPath="$PROJECT_DIR$/play/js/play_js.js" />
       <change beforePath="$PROJECT_DIR$/play/paly.php" afterPath="$PROJECT_DIR$/play/paly.php" />
-      <change beforePath="$PROJECT_DIR$/play/playHandler.php" afterPath="$PROJECT_DIR$/play/playHandler.php" />
-      <change beforePath="$PROJECT_DIR$/util/action.php" afterPath="$PROJECT_DIR$/util/action.php" />
-      <change beforePath="$PROJECT_DIR$/util/util_js.js" afterPath="$PROJECT_DIR$/util/util_js.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,17 +17,17 @@
       <file leaf-file-name="paly.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/play/paly.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="74" column="93" lean-forward="false" selection-start-line="74" selection-start-column="93" selection-end-line="74" selection-end-column="93" />
+            <state relative-caret-position="326">
+              <caret line="81" column="15" lean-forward="false" selection-start-line="81" selection-start-column="15" selection-end-line="81" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play_js.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="play_js.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
+            <state relative-caret-position="305">
               <caret line="290" column="62" lean-forward="false" selection-start-line="290" selection-start-column="62" selection-end-line="290" selection-end-column="62" />
               <folding>
                 <element signature="n#!!block;n#noteInit#0" expanded="false" />
@@ -78,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util_js.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="util_js.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/util_js.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="725">
@@ -197,9 +189,9 @@
         <option value="$PROJECT_DIR$/play/css/play_css.css" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/js/login_js.js" />
-        <option value="$PROJECT_DIR$/play/paly.php" />
         <option value="$PROJECT_DIR$/play/js/play_js.js" />
         <option value="$PROJECT_DIR$/util/util_js.js" />
+        <option value="$PROJECT_DIR$/play/paly.php" />
       </list>
     </option>
   </component>
@@ -463,12 +455,12 @@
       <workItem from="1516060604075" duration="9153000" />
       <workItem from="1516072560018" duration="1488000" />
       <workItem from="1516084565092" duration="9582000" />
-      <workItem from="1516105274623" duration="8522000" />
+      <workItem from="1516105274623" duration="8911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="454057000" />
+    <option name="totallyTimeSpent" value="454446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -838,29 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/play/paly.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="74" column="93" lean-forward="false" selection-start-line="74" selection-start-column="93" selection-end-line="74" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="290" column="62" lean-forward="false" selection-start-line="290" selection-start-column="62" selection-end-line="290" selection-end-column="62" />
-          <folding>
-            <element signature="n#!!block;n#noteInit#0" expanded="false" />
-            <element signature="n#!!block;n#noteHandler#0" expanded="false" />
-            <element signature="e#1398#1423#0" expanded="false" />
-            <element signature="e#2633#3600#0" expanded="false" />
-            <element signature="e#3953#5197#0" expanded="false" />
-            <element signature="n#!!block;n#bugHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/action.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1052">
@@ -898,6 +867,29 @@
             <element signature="e#749#1379#0" expanded="false" />
             <element signature="n#!!block;n#getJsonLength#0" expanded="false" />
             <element signature="n#!!block;n#formatSeconds#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play/paly.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="81" column="15" lean-forward="false" selection-start-line="81" selection-start-column="15" selection-end-line="81" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="290" column="62" lean-forward="false" selection-start-line="290" selection-start-column="62" selection-end-line="290" selection-end-column="62" />
+          <folding>
+            <element signature="n#!!block;n#noteInit#0" expanded="false" />
+            <element signature="n#!!block;n#noteHandler#0" expanded="false" />
+            <element signature="e#1398#1423#0" expanded="false" />
+            <element signature="e#2633#3600#0" expanded="false" />
+            <element signature="e#3953#5197#0" expanded="false" />
+            <element signature="n#!!block;n#bugHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>

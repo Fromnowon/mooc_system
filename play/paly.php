@@ -79,7 +79,7 @@ include 'playHandler.php';
                 <span>/200&nbsp;&nbsp;&nbsp;</span>
                 <button class="btn btn-primary">发表主题</button>
             </div>
-            <br/>
+            <hr/>
         </div>
         <div class="reply_floor">
             <?php loadReply(); ?>

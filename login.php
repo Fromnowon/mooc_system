@@ -15,11 +15,13 @@
     <link href="css/login_css.css" rel="stylesheet">
 
 </head>
-<body style="visibility: hidden">
-
-<div id="container">
-    <div id="output"></div>
+<body style="visibility: hidden;overflow: hidden">
+<div style="position: absolute;" id="canvas_div">
+    <canvas id="canvas"></canvas>
 </div>
+<!--<div id="container">-->
+<!--    <div id="output"></div>-->
+<!--</div>-->
 <!--登录模块-->
 <div id="login">
     <img class="img-responsive login_logo" src="resource/doge.png"/>
@@ -37,12 +39,12 @@
                             <label class="demo--label">
                                 <input id="login_checkbox_remember" value="enable" class="demo--radio" type="checkbox"
                                        name="demo-checkbox1">
-                                <span class="demo--checkbox demo--radioInput"></span>记住密码
+                                <span class="demo--checkbox demo--radioInput"></span><span style="color: white">记住密码</span>
                             </label>
                             <label class="demo--label">
                                 <input id="login_checkbox_logintoadmin" value="enable" class="demo--radio"
                                        type="checkbox" name="demo-checkbox2">
-                                <span class="demo--checkbox demo--radioInput"></span>登录后台
+                                <span class="demo--checkbox demo--radioInput"></span><span style="color: white">登录后台</span>
                             </label>
                         </div>
                         <br/><br/>

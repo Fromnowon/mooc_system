@@ -20,7 +20,9 @@ include 'playHandler.php';
     <script src="./js/play_js.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="testbg" style="z-index: 1;width: 900px;height: 900px;background: url(img/1.jpg);position: absolute"></div>
+<!--<div style="width: 900px;height: 900px;position: absolute">-->
+<!--    <canvas id="canvas"></canvas>-->
+<!--</div>-->
 <div style="z-index: 2;position: relative">
     <div class="play_header fadeInDown animated">
         <a href="../index.php">返回</a>
@@ -59,21 +61,23 @@ include 'playHandler.php';
             </tr>
         </table>
     </div>
-    <div class="info" style="display: block">
-        <div class="course_info fadeInLeft animated">
+    <div class="info  fadeInUp animated" style="display: block">
+        <div class="course_info">
             <?php courseInfo(); ?>
         </div>
         <div style="height: 10px"></div>
-        <div class="teacher_info fadeInRight animated">
+        <div class="teacher_info">
             <?php teacherInfo(); ?>
         </div>
     </div>
     <div class="reply fadeInUp animated" style="display: block">
         <div class="reply_new" style="width: 70%;margin: 30px auto 30px">
-            <textarea class="form-control" rows="6" style="resize: none"></textarea>
+            <textarea class="form-control" rows="6" style="resize: none" placeholder="说说你的想法呗"></textarea>
             <br/>
             <div style="text-align: right">
-                <button class="btn btn-primary">发表回复</button>
+                <span style="color: blue" class="reply_new_limit"></span>
+                <span>/200&nbsp;&nbsp;&nbsp;</span>
+                <button class="btn btn-primary">发表主题</button>
             </div>
             <br/>
         </div>

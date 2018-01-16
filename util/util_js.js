@@ -81,20 +81,31 @@ function animate_auto(obj, type, duration, function_down) {
 }
 
 //即时限制输入字数
-function textLimit(textObj, infoObj) {
+function textLimit(textObj, infoObj,limit_num) {
     //留言框字数限制
     var text = textObj.val();
     var counter = text.length;
     infoObj.text(counter);
-    textObj.on('blur keyup input', function () {
+    textObj.on('focusout focus blur keyup input', function () {
         var text = textObj.val();
         var counter = text.length;
         infoObj.text(counter);
         // console.log($("#msg_data").val());
-        if (counter >= 200) {
-            textObj.val(textObj.val().substr(0, 200));
+        if (counter >= limit_num) {
+            textObj.val(textObj.val().substr(0, limit_num));
             infoObj.css({"color": "red", "font-weight": "bold"});
         }
-        else infoObj.removeAttr("style");
+        else infoObj.css({"color": "blue", "font-weight": "normal"});
     });
+}
+
+//处理转义
+function msg_handler(content) {
+    content = content.replace(/[\r\n]/g, "<br/>");
+    //content = content.replace(/[\r]/g, "<br/>");
+    content = content.replace(/["]/g, "&quot;");
+    content = content.replace(/[']/g, "&#039;");
+    //content = content.replace(/[\\]/g, "\\\\");
+    content = content.replace(/[ ]/g, "&nbsp;");
+    return content;
 }

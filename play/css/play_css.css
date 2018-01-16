@@ -73,16 +73,18 @@ div {
 }
 
 .info {
-    padding: 10px;
+    padding: 20px;
 }
 
 .teacher_info {
+    padding: 30px;
     background: white;
     width: 70%;
     height: 300px;
 }
 
 .course_info {
+    padding: 30px;
     background: white;
     width: 70%;
     height: 300px;
@@ -94,6 +96,8 @@ div {
 
 /*播放器相关*/
 #course_player {
+    position: relative;
+    z-index: 999;
     padding-top: 550px;
 }
 
@@ -146,9 +150,6 @@ ul[class='vjs-menu-content'] {
     clear: both;
 }
 
-.course_info {
-    padding: 10px;
-}
 
 .course_info .p1_title {
     font-size: 24px;
@@ -201,10 +202,10 @@ ul[class='vjs-menu-content'] {
 /*回复区相关*/
 .reply {
     background: white;
-    width: 70%;
+    /*width: 70%;*/
     margin: 10px auto;
     min-height: 300px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .reply table {
@@ -222,7 +223,8 @@ ul[class='vjs-menu-content'] {
 
 .reply .content {
     /*min-height: 80px;*/
-    font-size: 24px;
+    padding-top: 10px;
+    font-size: 20px;
 }
 
 .reply .reply_edit {

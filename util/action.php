@@ -301,6 +301,9 @@ function replyHandler($conn, $date)
                         <textarea class="form-control" rows="6" style="resize: none"></textarea>
                         <br/>
                         <button class="btn btn-sm btn-default">提交</button>
+                        <span>&nbsp;&nbsp;&nbsp;</span>
+                        <span style="color: blue" class="reply_edit_limit"></span>
+                        <span>/200</span>
                     </div>
                     <div style="clear: both"></div>
                 </td>

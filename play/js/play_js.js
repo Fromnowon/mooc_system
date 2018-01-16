@@ -11,6 +11,7 @@ $(function () {
     noteInit($(".panel-default"), player);
 })
 
+
 function noteInit(note, player) {
     //绑定删除事件
     note.find(".note_del").unbind().on('click', function () {
@@ -163,7 +164,7 @@ function setMisc(courseID) {
         $.ajax({
             type: "post",
             url: "../util/action.php?action=reply",
-            data: {courseID: courseID, content: content, action: 'new_reply'},
+            data: {courseID: courseID, content: msg_handler(content), action: 'new_reply'},
             dataType: "html",
             success: function (msg) {
                 var t = $(".reply_floor");
@@ -186,9 +187,13 @@ function setMisc(courseID) {
                 t.prev().find('textarea').val('');
                 animate_auto(append, 'fadeInLeft', 1000);
                 //各种绑定
+                textLimit(t.find('textarea'), t.find('.reply_edit_limit'), 200);
                 setReplyBtn(append.find('.reply_btn'));
                 replyToReply(append);
                 setReplyTo(append.find('.replytoreply'));
+
+                //清除字数限制
+                $(".reply_new_limit").html('0');
 
                 btn.removeAttr('disabled');
                 //console.log(msg);
@@ -214,7 +219,12 @@ function setMisc(courseID) {
     //绑定“回复TA”
     setReplyTo($(".replytoreply"));
 
+    //textarea即时限制字数
+    textLimit($('.reply_new').find('textarea'), $(".reply_new_limit"), 200);
+    textLimit($('.reply_edit').find('textarea'), $(".reply_edit_limit"), 200);
+
 }
+
 
 function bugHandler(player) {
     player.on('fullscreenchange', function () {
@@ -278,7 +288,7 @@ function replyToReply(obj) {
     obj.find('button').on('click', function () {
         var btn = $(this);
         data = {
-            content: btn.prevAll('textarea').val(),
+            content: msg_handler(btn.prevAll('textarea').val()),
             id: btn.parents('.reply_table').attr('flag'),
             action: 'toreply'
         };
@@ -293,6 +303,8 @@ function replyToReply(obj) {
             data: data,
             dataType: "html",
             success: function (msg) {
+                //清除字数限制
+                $(".reply_edit_limit").html('0');
                 btn.parents('tr').after(msg);
                 btn.prevAll('textarea').val('');
                 animate_auto(btn.parents('tr').next(), 'fadeInLeft', 1000);

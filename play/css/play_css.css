@@ -93,6 +93,10 @@ div {
 }
 
 /*播放器相关*/
+#course_player {
+    padding-top: 550px;
+}
+
 .vjs-control-bar {
     padding-top: 3px;
 }
@@ -106,21 +110,9 @@ ul[class='vjs-menu-content'] {
     visibility: hidden;
 }
 
-.player {
-    position: relative;
-}
-
-#course_player {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /*高度需要jq动态计算*/
-    margin-left: -450px;
-    margin-top: -200px;
-}
-
 /*笔记相关*/
 .note {
+    z-index: 1;
     background: white;
     margin-left: 10px;
     border: 1px black solid;
@@ -236,10 +228,12 @@ ul[class='vjs-menu-content'] {
 .reply .reply_edit {
     margin-top: 10px;
 }
-.reply_btn:hover{
+
+.reply_btn:hover {
     cursor: pointer;
 }
-.toreply{
+
+.toreply {
     padding: 10px;
     background: #f4f4f4;
 }

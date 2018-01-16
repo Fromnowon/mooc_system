@@ -20,7 +20,7 @@ include 'playHandler.php';
     <script src="./js/play_js.js" type="text/javascript"></script>
 </head>
 <body>
-<div style="z-index: 999">
+<div>
     <div class="play_header fadeInDown animated">
         <a href="../index.php">返回</a>
         <div class="play_userinfo">
@@ -46,7 +46,7 @@ include 'playHandler.php';
                         </video>
                     </div>
                 <td>
-                    <div class="note fadeInRight animated" style="overflow-y: auto;overflow-x: hidden">
+                    <div class="note fadeInRight animated" style="overflow-y: auto;overflow-x: hidden;display: block">
                         <div class="note_main">
                             <button class="btn btn-primary" id="new_note">添加笔记</button>
                             <div class="note_content_show">
@@ -58,7 +58,7 @@ include 'playHandler.php';
             </tr>
         </table>
     </div>
-    <div class="info">
+    <div class="info" style="display: block">
         <div class="course_info fadeInLeft animated">
             <?php courseInfo(); ?>
         </div>
@@ -67,11 +67,13 @@ include 'playHandler.php';
             <?php teacherInfo(); ?>
         </div>
     </div>
-    <div class="reply fadeInUp animated">
+    <div class="reply fadeInUp animated" style="display: block">
         <div class="reply_new" style="width: 70%;margin: 30px auto 30px">
             <textarea class="form-control" rows="6" style="resize: none"></textarea>
             <br/>
-            <div style="text-align: right"><button class="btn btn-primary">发表回复</button></div>
+            <div style="text-align: right">
+                <button class="btn btn-primary">发表回复</button>
+            </div>
             <br/>
         </div>
         <div class="reply_floor">

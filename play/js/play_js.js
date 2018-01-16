@@ -1,5 +1,7 @@
 $(function () {
     var player = videojs('course_player');
+    //全屏时处理table产生的bug
+    bugHandler(player);
     var courseID = $(".course_title").find('span').attr('value');
     //其他
     setMisc(courseID);
@@ -211,6 +213,21 @@ function setMisc(courseID) {
 
     //绑定“回复TA”
     setReplyTo($(".replytoreply"));
+
+}
+
+function bugHandler(player) {
+    player.on('fullscreenchange', function () {
+        if ($(".note").css('display') == 'block') {
+            $(".note").css('display', 'none');
+            $(".info").css('display', 'none');
+            $(".reply").css('display', 'none');
+        } else {
+            $(".note").css('display', 'block');
+            $(".info").css('display', 'block');
+            $(".reply").css('display', 'block');
+        }
+    })
 }
 
 function setReplyTo(obj) {

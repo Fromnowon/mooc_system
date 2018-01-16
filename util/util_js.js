@@ -79,3 +79,22 @@ function animate_auto(obj, type, duration, function_down) {
         }, duration);
     }
 }
+
+//即时限制输入字数
+function textLimit(textObj, infoObj) {
+    //留言框字数限制
+    var text = textObj.val();
+    var counter = text.length;
+    infoObj.text(counter);
+    textObj.on('blur keyup input', function () {
+        var text = textObj.val();
+        var counter = text.length;
+        infoObj.text(counter);
+        // console.log($("#msg_data").val());
+        if (counter >= 200) {
+            textObj.val(textObj.val().substr(0, 200));
+            infoObj.css({"color": "red", "font-weight": "bold"});
+        }
+        else infoObj.removeAttr("style");
+    });
+}

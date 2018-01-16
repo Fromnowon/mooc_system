@@ -23,13 +23,7 @@ switch ($_GET['action']) {
         break;
     }
     case 'register': {
-        $reg_username = $_POST['reg_username'];
-        $reg_password = md5($_POST['reg_password']);
-        $reg_realname = $_POST['reg_realname'];
-        $reg_mail = $_POST['reg_mail'];
-        $reg_school = $_POST['reg_school'];
-        $reg_contact = $_POST['reg_contact'];
-        register($conn, $reg_username, $reg_password, $reg_realname, $reg_mail, $reg_school, $reg_contact, $date);
+        register($conn, $date);
         break;
     }
     case 'course_upload': {
@@ -84,18 +78,20 @@ function login($conn, $username, $password, $checkbox)
 }
 
 //注册函数
-function register($conn, $username, $password, $reg_realname, $email, $school, $contact, $date)
+function register($conn, $date)
 {
     //echo 'OK';exit();
-    $email = nullHandler($email);
-    $school = nullHandler($school);
-    $contact = nullHandler($contact);
-    $reg_realname = nullHandler($reg_realname);
-    $sql = "insert into user (username,password,real_name,email,contact,school,reg_date) values ('$username','$password','$reg_realname','$email','$contact','$school','$date')";
+    $username = $_POST['reg_username'];
+    $password = md5($_POST['reg_password']);
+    $email = nullHandler($_POST['reg_mail']);
+    $school = nullHandler($_POST['reg_school']);
+    $contact = nullHandler($_POST['reg_contact']);
+    $reg_realname = nullHandler($_POST['reg_realname']);
+    $sql = "insert into user (username,password,real_name,email,contact,school,introduction,reg_date) values ('$username','$password','$reg_realname','$email','$contact','$school','暂无','$date')";
     if (mysqli_query($conn, $sql))
         echo 'OK';
     else
-        echo 'ERROR';
+        echo $sql;
     mysqli_close($conn);
 }
 

@@ -23,7 +23,7 @@
         <a href="./upload/upload.php" class="btn btn-primary">上传视频</a>
     </div>
     <div class="play">
-        <a href="./play/paly.php?playid=13" class="btn btn-primary">示例视频</a>
+        <a href="./play/paly.php?playid=1" class="btn btn-primary">示例视频</a>
     </div>
 </div>
 

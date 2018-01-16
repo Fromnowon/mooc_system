@@ -94,7 +94,10 @@ function regModule() {
         //简单校验
         if (reg_username.val().length < 3 || reg_password.val().length < 3) {
             alert('用户名或密码长度必须不小于3，请检查');
-        } else {
+        } else if (reg_realname.val().length < 1) {
+            alert('写个名字或者昵称吧');
+        }
+        else {
             //显示提交提示并防止重复提交
             reg_tip.html('正在提交，请稍候...');
             $(this).attr('disabled', true);
@@ -129,6 +132,7 @@ function regModule() {
                     }
                     else
                         alert('ERROR!请联系管理员');
+                    console.log(msg);
                 },
                 error: function (msg) {
                     alert("ERROR!");
@@ -213,6 +217,7 @@ function ajaxLogin() {
                 }
                 default: {
                     alert('未知错误');
+                    console.log(msg);
                     break;
                 }
             }

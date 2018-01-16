@@ -12,7 +12,8 @@
                     <fieldset>
                         <legend>登录相关</legend>
                         <div class="form-group">
-                            <label for="edit_username"><span style="color: red">*</span>账号:<span>&nbsp;&nbsp;</span></label>
+                            <label for="edit_username"><span
+                                        style="color: red">*</span>账号:<span>&nbsp;&nbsp;</span></label>
                             <input type="text" class="form-control" id="edit_username">
                         </div>
                         <div class="form-group">
@@ -48,7 +49,7 @@
                             <input type="text" class="form-control" id="edit_realname">
                         </div>
                         <div class="form-group">
-                            <label for="edit_gender" class="control-label">性别：<span>&nbsp;&nbsp;</span></label>
+                            <label for="edit_gender" class="control-label">性<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span>&nbsp;&nbsp;</span></label>
                             <select id="edit_gender" class="form-control">
                                 <option value="0">保密</option>
                                 <option value="1">男</option>
@@ -60,16 +61,7 @@
                             <input type="text" class="form-control" id="edit_email">
                         </div>
                         <div class="form-group">
-                            <label for="edit_contact">联系方式：<span>&nbsp;&nbsp;</span></label>
-                            <input type="text" class="form-control" id="edit_contact">
-                        </div>
-                        <br/>
-                        <div class="form-group">
-                            <label for="edit_school">学<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：<span>&nbsp;&nbsp;</span></label>
-                            <input type="text" class="form-control" id="edit_school">
-                        </div>
-                        <div class="form-group">
-                            <label for="edit_subject" class="control-label">科目：<span>&nbsp;&nbsp;</span></label>
+                            <label for="edit_subject" class="control-label">科<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目：<span>&nbsp;&nbsp;</span></label>
                             <select id="edit_subject" class="form-control">
                                 <option value="语文">语文</option>
                                 <option value="数学">数学</option>
@@ -85,6 +77,15 @@
                                 <option value="通用技术">通用技术</option>
                                 <option value="暂无">暂无</option>
                             </select>
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="edit_school">学<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：<span>&nbsp;&nbsp;</span></label>
+                            <input type="text" class="form-control" id="edit_school">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_contact">联系方式：<span>&nbsp;&nbsp;</span></label>
+                            <input type="text" class="form-control" id="edit_contact">
                         </div>
                         <div class="form-group" style="display: block">
                             <label for="edit_introduction">简介：</label>

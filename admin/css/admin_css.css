@@ -71,7 +71,7 @@ td > span {
 /*用户管理样式*/
 
 #user_status td {
-    max-width: 120px;
+    max-width: 180px;
     overflow: hidden;
     text-overflow: ellipsis; /* for IE */
     -moz-text-overflow: ellipsis; /* for Firefox,mozilla */

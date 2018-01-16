@@ -55,7 +55,7 @@ function sqlCourse($conn, $page, $action, $date)
 
     //表头
     $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="course_status">' .
-        '<thead id=\'result\'><tr><th>id</th><th>路径</th><th>拥有者id</th><th>上传时间</th><th>审核状态</th><th>科目</th>' .
+        '<thead id=\'result\'><tr><th>id</th><th>审核状态</th><th>路径</th><th>所属id</th><th>上传时间</th><th>科目</th>' .
         '<th>标题</th><th>介绍</th><th>浏览量</th><th>评分</th><th>评分（格式化）</th><th>评分数</th><th>赞</th><th>踩</th><th>最后编辑</th></thead>';
 
     //查询函数
@@ -132,7 +132,7 @@ function sqlUsers($conn, $page, $action)
 {
     //表头
     $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="user_status">' .
-        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>邮箱</th><th>联系方式</th><th>姓名</th><th>性别</th>' .
+        '<thead id=\'result\'><tr><th>id</th><th>用户名</th><th>姓名(昵称)</th><th>性别</th><th>邮箱</th><th>联系方式</th>' .
         '<th>学校</th><th>注册时间</th><th>简介</th><th>身份</th><th>状态</th>' .
         '<th>科目</th><th>上传数</th><th>标签</th><th>赞</th><th>踩</th><th>最后编辑</th></tr></thead>';
     //echo $form_search_html.$table_head_html.$page_html;

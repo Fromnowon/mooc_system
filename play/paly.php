@@ -20,7 +20,8 @@ include 'playHandler.php';
     <script src="./js/play_js.js" type="text/javascript"></script>
 </head>
 <body>
-<div>
+<div class="testbg" style="z-index: 1;width: 900px;height: 900px;background: url(img/1.jpg);position: absolute"></div>
+<div style="z-index: 2;position: relative">
     <div class="play_header fadeInDown animated">
         <a href="../index.php">返回</a>
         <div class="play_userinfo">

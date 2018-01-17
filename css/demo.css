@@ -1,0 +1,67 @@
+
+
+/* Buttons */
+
+.searcher .btn {
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+.searcher .btn:focus {
+	outline: none;
+}
+
+.searcher .btn--search {
+	font-size: 1.5em;
+}
+
+.searcher .btn--hidden {
+	pointer-events: none;
+	opacity: 0;
+}
+
+
+/* Reset Search Input */
+
+.searcher .search__input {
+	border: 0;
+	background: transparent;
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+
+.searcher .search__input:focus {
+	outline: none;
+}
+
+
+/* Links */
+
+.searcher a,
+.searcher .btn {
+	text-decoration: none;
+	color: black;
+	outline: none;
+}
+
+.searcher .hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+
+/* Icons */
+
+.searcher .icon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0 auto;
+	fill: currentColor;
+}

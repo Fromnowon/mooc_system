@@ -1,4 +1,46 @@
-.container-fluid div{
+.container-fluid div {
     text-align: center;
     padding-top: 100px;
+}
+
+/*顶部*/
+.header div {
+    height: 100px;
+}
+
+.header .logo {
+    background: red;
+}
+
+.header .searcher {
+    background: orange;
+}
+
+.header .userinfo {
+    background: gray;
+}
+
+.header .logo p {
+    line-height: 100px;
+    text-align: center;
+    font-size: 30px
+}
+.header .userinfo p{
+    line-height: 100px;
+    text-align: center;
+}
+.header .userinfo img {
+    width: 30px;
+    margin: 0 5px 10px 0
+}
+.header .userinfo span{
+    font-size: 30px;
+}
+.header .userinfo a{
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.header .searcher .search form{
+
 }

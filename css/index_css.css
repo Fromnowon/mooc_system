@@ -8,10 +8,6 @@
 
 .header .logo_td {
     background: white;
-    transition: background 1s;
-    -moz-transition: background 1s; /* Firefox 4 */
-    -webkit-transition: background 1s; /* Safari 和 Chrome */
-    -o-transition: background 1s; /* Opera */
 }
 
 .header .search_td {
@@ -23,13 +19,13 @@
 }
 
 .header .logo p {
-    line-height: 50px;
+    line-height: 60px;
     text-align: center;
     font-size: 22px
 }
 
 .header .userinfo p {
-    line-height: 50px;
+    line-height: 60px;
     text-align: center;
 }
 
@@ -54,20 +50,57 @@ p {
     margin: 0;
 }
 
+.search_back {
+    transition: background 1s;
+    -moz-transition: background 1s; /* Firefox 4 */
+    -webkit-transition: background 1s; /* Safari 和 Chrome */
+    -o-transition: background 1s; /* Opera */
+    cursor: pointer;
+}
+
+/*展开搜索框相关*/
+.search_back {
+    width: 200px;
+    height: 64px;
+    text-align: center;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    font-size: 26px;
+}
+
+.search_back p {
+    color: cornflowerblue;
+    line-height: 60px;
+}
+
+.search_title {
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 46%;
+    font-size: 26px;
+}
+
+.search_title span {
+    line-height: 64px
+}
+
 /*页面主体*/
 body {
     overflow: hidden;
 }
 
-.content_main {
+.content_div {
     position: relative;
-    top: -54px;
     margin: 0 10px 10px 10px;
-    border: 1px red solid;
     text-align: center;
+    padding-top: 60px;
+    background: #cecece;
 }
 
-.content_main .test1{
-   padding-top: 60px;
+.content_main {
+    top: -60px;
 }
 

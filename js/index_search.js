@@ -37,15 +37,22 @@
         $(".search_bg").css('display', '');
         $(".logo").animate({opacity: 0}, 500);
         $(".userinfo").animate({opacity: 0}, 500);
-        $(".open_search_content").animate({opacity: 1}, 500);
+        var open_search_content = $(".open_search_content");
+        open_search_content.animate({opacity: 1}, 500);
         inputSearch.focus();
 
         //绑定“返回”hover事件
         $(".open_search_content").find('p').hover(function () {
-            $(".logo_td").css('background','red');
-        },function () {
-            $(".logo_td").css('background','white');
+            $(this).parent().css('background', 'red');
+            $(this).parent().find('p').css('color','white');
+        }, function () {
+            $(this).parent().css('background', 'white');
+            $(this).parent().find('p').css('color','cornflowerblue');
         });
+        $('.search_back').unbind().on('click',function () {
+            closeSearch();
+        })
+
     }
 
     function closeSearch() {
@@ -53,9 +60,12 @@
         $(".search_bg").css('display', 'none');
         $(".logo").animate({opacity: 1}, 500);
         $(".userinfo").animate({opacity: 1}, 500);
-        $(".open_search_content").animate({opacity: 0}, 500);
+        var open_search_content = $(".open_search_content");
+        open_search_content.animate({opacity: 0}, 500);
         inputSearch.blur();
         inputSearch.value = '';
+        open_search_content.find('p').unbind();
+        $('.search_back').css('background', 'white');
     }
 
     init();

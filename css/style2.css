@@ -1,10 +1,11 @@
-.search_bg{
+.search_bg {
     position: absolute;
-    z-index: 1;
+    z-index: 19;
     width: 2222px;
     height: 2222px;
     background: rgba(0, 0, 0, 0.6);
 }
+
 .searcher .search {
     position: absolute;
     z-index: 101;
@@ -40,9 +41,10 @@
 
 .searcher .search__form {
     position: relative;
-    width: 50%;
+    width: 40%;
     min-width: 300px;
     margin: 0 auto;
+    top: -22px;
 }
 
 .searcher .search__input {
@@ -75,26 +77,27 @@
     pointer-events: none;
     color: black;
 }
-.searcher .search--open{
+
+.searcher .search--open {
     z-index: 999;
 }
+
 .searcher .search--open .btn--search {
     pointer-events: auto;
     color: white;
     font-size: 30px;
 }
 
-.searcher .search--open .search__input{
+.searcher .search--open .search__input {
     color: white;
     font-size: 30px;
 }
 
-
 .searcher .search__suggestion {
-    width: 50%;
+    width: 40%;
     max-width: 450px;
     margin: calc(40vh + 2em) auto 0;
-    text-align: left;
+    text-align: center;
 }
 
 .searcher .search__suggestion:nth-child(2) {

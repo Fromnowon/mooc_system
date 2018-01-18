@@ -35,14 +35,25 @@
     function openSearch() {
         searchContainer.classList.add('search--open');
         $(".search_bg").css('display', '');
-        $('body').css('overflow','hidden');
+        $(".logo").animate({opacity: 0}, 500);
+        $(".userinfo").animate({opacity: 0}, 500);
+        $(".open_search_content").animate({opacity: 1}, 500);
         inputSearch.focus();
+
+        //绑定“返回”hover事件
+        $(".open_search_content").find('p').hover(function () {
+            $(".logo_td").css('background','red');
+        },function () {
+            $(".logo_td").css('background','white');
+        });
     }
 
     function closeSearch() {
         searchContainer.classList.remove('search--open');
         $(".search_bg").css('display', 'none');
-        $('body').css('overflow','auto');
+        $(".logo").animate({opacity: 1}, 500);
+        $(".userinfo").animate({opacity: 1}, 500);
+        $(".open_search_content").animate({opacity: 0}, 500);
         inputSearch.blur();
         inputSearch.value = '';
     }

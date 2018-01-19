@@ -18,6 +18,7 @@ if (!isset($_SESSION['userinfo'])) {
     <link href="css/optiscroll.css" rel="stylesheet">
     <script src="js/hubslider.min.js" type="text/javascript"></script>
     <link href="css/style.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
     <link href="css/index_css.css?v=14" rel="stylesheet">
@@ -119,7 +120,7 @@ if (!isset($_SESSION['userinfo'])) {
         <div class="content_main">
             <div class="hub-slider" style="height: 500px">
                 <div class="hub-slider-slides">
-                    <ul>
+                    <ul style="text-align: center">
                         <li>Slide 1</li>
                         <li>Slide 2</li>
                         <li>Slide 3</li>
@@ -132,30 +133,87 @@ if (!isset($_SESSION['userinfo'])) {
             </div>
             <!-- 撑开父元素-->
             <div style="clear: both"></div>
-            <table>
+            <table style="margin: 0 auto">
                 <tr>
                     <td>
-                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                        <div class="box">
+                            <img src="resource/img/1.jpg" alt=""/>
+                            <div class="box-content">
+                                <div class="box-inner-content">
+                                    <h3 class="title">图片标题</h3>
+                                    <span class="post">图片描述</span>
+                                    <ul class="icon">
+                                        <li><a class="fa fa-search" href="#"></a></li>
+                                        <li><a class="fa fa-link" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <img src="resource/img/2.jpg" alt=""/>
+                            <div class="box-content">
+                                <div class="box-inner-content">
+                                    <h3 class="title">图片标题</h3>
+                                    <span class="post">图片描述</span>
+                                    <ul class="icon">
+                                        <li><a class="fa fa-search" href="#"></a></li>
+                                        <li><a class="fa fa-link" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <img src="resource/img/3.jpg" alt=""/>
+                            <div class="box-content">
+                                <div class="box-inner-content">
+                                    <h3 class="title">图片标题</h3>
+                                    <span class="post">图片描述</span>
+                                    <ul class="icon">
+                                        <li><a class="fa fa-search" href="#"></a></li>
+                                        <li><a class="fa fa-link" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <img src="resource/img/1.jpg" alt=""/>
+                            <div class="box-content">
+                                <div class="box-inner-content">
+                                    <h3 class="title">图片标题</h3>
+                                    <span class="post">图片描述</span>
+                                    <ul class="icon">
+                                        <li><a class="fa fa-search" href="#"></a></li>
+                                        <li><a class="fa fa-link" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="box">
+                            <img src="resource/img/2.jpg" alt=""/>
+                            <div class="box-content">
+                                <div class="box-inner-content">
+                                    <h3 class="title">图片标题</h3>
+                                    <span class="post">图片描述</span>
+                                    <ul class="icon">
+                                        <li><a class="fa fa-search" href="#"></a></li>
+                                        <li><a class="fa fa-link" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                    <td colspan="5">
+                        <hr>
                     </td>
                 </tr>
             </table>

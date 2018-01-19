@@ -8,14 +8,17 @@
 
 .header .logo_td {
     background: white;
+    min-width: 140px;
 }
 
 .header .search_td {
+    min-width: 315px;
     background: white;
 }
 
 .header .info_td {
     background: white;
+    min-width: 170px;
 }
 
 .header .logo p {
@@ -94,14 +97,10 @@ body {
 
 .content_div {
     position: relative;
-    margin: 0 10px 10px 10px;
-    text-align: center;
-    padding-top: 60px;
-    background: #cecece;
 }
 
 .content_main {
-    margin-top: 80px;
+    margin: 80px 10px 10px 10px;
     height: 1000px;
 }
 

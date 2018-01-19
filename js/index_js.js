@@ -1,15 +1,18 @@
 $(function () {
     //初始化ui
     setUI();
+
+    //其他
+    setMiscIndex();
 });
 
-function setUI() {
+$(window).resize(function () {
+    setUI();
+})
+
+function setMiscIndex() {
     var width = $(window).width();
     var height = $(window).height();
-    $(".logo_td").css('width', width / 3);
-    $(".info_td").css('width', width / 3);
-    $(".search_td").css('width', 2 * width / 3);
-
     //滑动区域
     var content = $(".content_div");
     content.css('height', height - 20);
@@ -68,6 +71,19 @@ function setUI() {
         //若到顶部强制停止所有动画瞬间显示
         $(".header").stop(true, true).css('opacity', 1);
     });
+
+}
+
+function setUI() {
+    var width = $(window).width();
+    var height = $(window).height();
+    $(".logo_td").css('width', width / 3);
+    $(".info_td").css('width', width / 3);
+    $(".search_td").css('width', 2 * width / 3);
+
+    //设置幻灯片居中
+    $(".hub-slider").css('left', width / 2 - 400);
+    console.log('nice');
 }
 
 function closeSearch() {

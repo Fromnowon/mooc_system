@@ -16,9 +16,11 @@ if (!isset($_SESSION['userinfo'])) {
     <link rel="stylesheet" type="text/css" href="css/index_search.css"/>
     <script src="js/jquery.optiscroll.min.js" type="text/javascript"></script>
     <link href="css/optiscroll.css" rel="stylesheet">
+    <script src="js/hubslider.min.js" type="text/javascript"></script>
+    <link href="css/style.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
-    <link href="css/index_css.css?v=133" rel="stylesheet">
+    <link href="css/index_css.css?v=14" rel="stylesheet">
 </head>
 <body>
 <div class="content">
@@ -98,7 +100,7 @@ if (!isset($_SESSION['userinfo'])) {
                             } else {
                                 echo "<img src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'><span>" . $_SESSION['userinfo']['username'] . "</span>";
                             } ?>
-                            <a href="">注销</a>
+                            <a href="util/action.php?action=logout">注销</a>
                         </p>
                     </div>
                 </td>
@@ -115,8 +117,50 @@ if (!isset($_SESSION['userinfo'])) {
     </div>
     <div class="content_div optiscroll">
         <div class="content_main">
-            gdgdfgdfgdf
+            <div class="hub-slider" style="height: 500px">
+                <div class="hub-slider-slides">
+                    <ul>
+                        <li>Slide 1</li>
+                        <li>Slide 2</li>
+                        <li>Slide 3</li>
+                    </ul>
+                </div>
+                <div class="hub-slider-controls">
+                    <button class="hub-slider-arrow hub-slider-arrow_next">↑</button>
+                    <button class="hub-slider-arrow hub-slider-arrow_prev">↓</button>
+                </div>
+            </div>
+            <!-- 撑开父元素-->
+            <div style="clear: both"></div>
+            <table>
+                <tr>
+                    <td>
+                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行
+                    </td>
+                </tr>
+            </table>
         </div>
+
     </div>
 </body>
 </html>

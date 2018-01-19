@@ -38,6 +38,12 @@ switch ($_GET['action']) {
         replyHandler($conn, $date);
         break;
     }
+    case 'logout': {
+        $_SESSION = [];
+        session_destroy();
+        header("Location: ../login.php");
+        break;
+    }
     default : {
         echo 'Error';
         mysqli_close($conn);

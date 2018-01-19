@@ -42,17 +42,19 @@
         inputSearch.focus();
 
         //绑定“返回”hover事件
-        $(".open_search_content").find('p').hover(function () {
+        var back_btn = $(".search_back").find('p');
+        back_btn.hover(function () {
             $(this).parent().css('background', 'red');
-            $(this).parent().find('p').css('color','white');
+            back_btn.css('color', 'white');
         }, function () {
             $(this).parent().css('background', 'white');
-            $(this).parent().find('p').css('color','cornflowerblue');
+            back_btn.css('color', 'cornflowerblue');
         });
-        $('.search_back').unbind().on('click',function () {
+        back_btn.parent().unbind().on('click', function () {
             closeSearch();
+            back_btn.css('color', 'cornflowerblue');
+            back_btn.unbind();
         })
-
     }
 
     function closeSearch() {

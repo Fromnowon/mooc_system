@@ -82,7 +82,8 @@ function setUI() {
     $(".search_td").css('width', 2 * width / 3);
 
     //设置幻灯片居中
-    $(".hub-slider").css('left', width / 2 - 400);
+    $(".hub-slider ul li").css('left', width / 2 - 400);
+    $(".hub-slider-controls button").css('left', width / 2 - 400);
     console.log('nice');
 }
 

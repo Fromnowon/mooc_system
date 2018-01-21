@@ -1,11 +1,8 @@
-<?php session_start();
-if (!isset($_SESSION['userinfo'])) {
-    header("Location:login.php");
-} ?>
+<?php
+include 'index_handler.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>首页</title>
     <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -96,11 +93,8 @@ if (!isset($_SESSION['userinfo'])) {
                     <div class="userinfo">
                         <p>
                             <?php
-                            if (!isset($_SESSION['userinfo'])) {
-                                header("Location:login.php");
-                            } else {
-                                echo "<img src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'><span>" . $_SESSION['userinfo']['username'] . "</span>";
-                            } ?>
+                            echo "<img src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'><span>" . $_SESSION['userinfo']['username'] . "</span>";
+                            ?>
                             <a href="util/action.php?action=logout">注销</a>
                         </p>
                     </div>
@@ -217,6 +211,27 @@ if (!isset($_SESSION['userinfo'])) {
                     </td>
                 </tr>
             </table>
+            <div class="test" style="text-align: center;margin-top: 50px">
+                <div><a class="btn btn-success" href="upload/upload.php">上传视频</a></div>
+                <br>
+                <div>
+                    <div class="box" style="height: 240px;width:430px;margin: 0 auto">
+                        <?php courseInfo('cover') ?>
+                        <div class="box-content">
+                            <div class="box-inner-content">
+                                <?php
+                                courseInfo('title');
+                                courseInfo('subject');
+                                ?>
+                                <ul class="icon">
+                                    <li><a class="fa fa-play" href="play/paly.php?playid=1"></a></li>
+                                    <li><a class="fa fa-exclamation" href="#"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

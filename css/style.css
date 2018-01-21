@@ -42,6 +42,10 @@
     z-index: 1000;
 }
 
+.hub-slider-controls button{
+    position: relative;
+}
+
 .hub-slider-arrow {
     width: 40px;
     height: 40px;

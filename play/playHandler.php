@@ -26,8 +26,8 @@ mysqli_query($conn, "update course set views=views+1 where id='$courseID'");
 
 
 //返回标题
-$sql = "select * from course where id='" . $courseID . "'";//注意，这行必须写在函数外
-$rs = mysqli_fetch_array(mysqli_query($conn, $sql));//注意，这行必须写在函数外
+$sql = "select * from course where id='" . $courseID . "'";
+$rs = mysqli_fetch_array(mysqli_query($conn, $sql));
 if (count($rs) == 0) {
     echo '迷路啦，没有这个视频！';
     mysqli_close($conn);
@@ -42,12 +42,23 @@ function titleInfo()
     else echo "<span value='$courseID'>" . $rs['title'] . "</span>" . "<span class='userID' style='display: none'>" . $rs['uploader_id'] . "</span>";
 }
 
-//返回视频地址
-function courseSource()
+//返回视频信息
+function courseSource($action)
 {
     global $rs;
-    echo '<source src="http://172.96.222.54' . $rs['path'] . '"type="video/mp4"/>';
+    switch ($action) {
+        case 'path':
+            {
+                echo '<source src="' . $rs['path'] . '" type="video/mp4"/>';
+                break;
+            }
+        default:
+            {
+                echo 'error';
+            }
+    }
 }
+
 
 //加载笔记
 function loadNote()

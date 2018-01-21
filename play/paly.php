@@ -45,7 +45,7 @@ include 'playHandler.php';
                         <video width="900px" id="course_player" class="video-js vjs-big-play-centered"
                                controls preload="none"
                                data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-                            <?php courseSource() ?>
+                            <?php courseSource('path') ?>
                         </video>
                     </div>
                 <td>

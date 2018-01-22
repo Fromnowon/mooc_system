@@ -14,8 +14,9 @@ include 'index_handler.php' ?>
     <script src="js/jquery.optiscroll.min.js" type="text/javascript"></script>
     <link href="css/optiscroll.css" rel="stylesheet">
     <script src="js/hubslider.min.js" type="text/javascript"></script>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/hub-slider.css" rel="stylesheet">
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/hover-effects.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
     <link href="css/index_css.css?v=14" rel="stylesheet">
@@ -127,110 +128,15 @@ include 'index_handler.php' ?>
             </div>
             <!-- 撑开父元素-->
             <div style="clear: both"></div>
-            <table style="margin: 0 auto">
-                <tr>
-                    <td>
-                        <div class="box">
-                            <img src="resource/img/1.jpg" alt=""/>
-                            <div class="box-content">
-                                <div class="box-inner-content">
-                                    <h3 class="title">图片标题</h3>
-                                    <span class="post">图片描述</span>
-                                    <ul class="icon">
-                                        <li><a class="fa fa-search" href="#"></a></li>
-                                        <li><a class="fa fa-link" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="box">
-                            <img src="resource/img/2.jpg" alt=""/>
-                            <div class="box-content">
-                                <div class="box-inner-content">
-                                    <h3 class="title">图片标题</h3>
-                                    <span class="post">图片描述</span>
-                                    <ul class="icon">
-                                        <li><a class="fa fa-search" href="#"></a></li>
-                                        <li><a class="fa fa-link" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="box">
-                            <img src="resource/img/3.jpg" alt=""/>
-                            <div class="box-content">
-                                <div class="box-inner-content">
-                                    <h3 class="title">图片标题</h3>
-                                    <span class="post">图片描述</span>
-                                    <ul class="icon">
-                                        <li><a class="fa fa-search" href="#"></a></li>
-                                        <li><a class="fa fa-link" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="box">
-                            <img src="resource/img/1.jpg" alt=""/>
-                            <div class="box-content">
-                                <div class="box-inner-content">
-                                    <h3 class="title">图片标题</h3>
-                                    <span class="post">图片描述</span>
-                                    <ul class="icon">
-                                        <li><a class="fa fa-search" href="#"></a></li>
-                                        <li><a class="fa fa-link" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="box">
-                            <img src="resource/img/2.jpg" alt=""/>
-                            <div class="box-content">
-                                <div class="box-inner-content">
-                                    <h3 class="title">图片标题</h3>
-                                    <span class="post">图片描述</span>
-                                    <ul class="icon">
-                                        <li><a class="fa fa-search" href="#"></a></li>
-                                        <li><a class="fa fa-link" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        <hr>
-                    </td>
-                </tr>
-            </table>
-            <div class="test" style="text-align: center;margin-top: 50px">
-                <div><a class="btn btn-success" href="upload/upload.php">上传视频</a></div>
-                <br>
-                <div>
-                    <div class="box" style="height: 240px;width:430px;margin: 0 auto">
-                        <?php courseInfo('cover') ?>
-                        <div class="box-content">
-                            <div class="box-inner-content">
-                                <?php
-                                courseInfo('title');
-                                courseInfo('subject');
-                                ?>
-                                <ul class="icon">
-                                    <li><a class="fa fa-play" href="play/paly.php?playid=1"></a></li>
-                                    <li><a class="fa fa-exclamation" href="#"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!--展示最新上传的5个-->
+            <hr>
+            <h3>最新上传：</h3>
+            <div class="newest_upload">
+                <table>
+                    <tr>
+                        <?php newest(); ?>
+                    </tr>
+                </table>
             </div>
         </div>
 

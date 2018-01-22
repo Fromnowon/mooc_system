@@ -10,30 +10,23 @@ session_start();
 if (!isset($_SESSION['userinfo'])) {
     header("Location:login.php");
 }
-$sql = "select * from course where id=1";
-$rs = mysqli_fetch_array(mysqli_query($conn, $sql));
-function courseInfo($action)
+function newest()
 {
-    global $rs;
-    switch ($action) {
-        case 'cover':
-            {
-                echo '<img src="' . $rs['cover'] . '" alt="封面" style="height: 240px;width:430px;"/>';
-                break;
-            }
-        case 'title':
-            {
-                echo '<h3 class="title">' . $rs['title'] . '</h3>';
-                break;
-            }
-        case 'subject':
-            {
-                echo '<span class="post">科目：' . $rs['subject'] . '</span>';
-                break;
-            }
-        default:
-            {
-                echo 'error';
-            }
+    global $conn;
+    $sql = "select * from course order by upload_date desc limit 5";
+    $r = mysqli_query($conn, $sql);
+    while ($rs = mysqli_fetch_array($r)) {
+        echo '<td><div class="port-1 effect-1">
+		                	<div class="image-box">
+		                    	<img src="' . $rs['cover'] . '" alt="Image-1" style="width: 260px;height: 160px">
+		                    </div>
+		                    <div class="text-desc">
+		                    	<h3'.$rs['title'].'</h3>
+		                    	<h4>'.$rs['subject'].'</h4>
+		                        <p>'.$rs['introduction'].'</p>
+		                    	<a href="play/play.php?playid='.$rs['id'].'" class="btn">播放</a>
+		                    </div>
+		                </div>
+		                <div style="text-align: center"><h4>'.$rs['title'].'</h4></div></td>';
     }
 }

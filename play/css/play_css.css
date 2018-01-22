@@ -165,6 +165,7 @@ ul[class='vjs-menu-content'] {
 
 .course_info .p3_content {
     font-size: 20px;
+    word-break: break-all;
 }
 
 .course_info .course_rating .live-rating {
@@ -197,6 +198,7 @@ ul[class='vjs-menu-content'] {
 
 .teacher_info_p2 {
     padding: 10px;
+    word-break: break-all;
 }
 
 /*回复区相关*/

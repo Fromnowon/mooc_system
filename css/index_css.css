@@ -92,7 +92,7 @@ p {
 
 /*页面主体*/
 body {
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .content_div {
@@ -104,3 +104,64 @@ body {
     height: 1000px;
 }
 
+/*最新上传*/
+.newest_upload .box {
+    margin: 10px;
+}
+
+.newest_upload .box, .newest_upload .box img {
+    width: 250px;
+    height: 140px;
+}
+
+.full-length {
+    width: 100%;
+    float: left;
+    padding-bottom: 80px;
+}
+
+ul {
+    margin: 0 -1.5%;
+}
+
+li {
+    float: left;
+    width: 31.33%;
+    margin: 10px 1%;
+    list-style: none;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 5px 0 10px;
+}
+
+.newest_upload .btn {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    border: 2px solid #4d92d9;
+    background-color: #4d92d9;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.newest_upload .btn:hover {
+    background-color: transparent;
+    color: #4d92d9;
+    transition: 0.4s;
+}
+
+.text-desc {
+    word-break: break-all;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    height: 100%;
+    line-height: 20px;
+    opacity: 0;
+    width: 100%;
+    padding: 20px;
+}

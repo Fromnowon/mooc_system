@@ -9,9 +9,6 @@ $(function () {
     setMisc();
 
 })
-window.onbeforeunload = function (event) {
-    setLoading('visible');
-}
 
 
 //动态设置元素高度
@@ -21,6 +18,7 @@ $(window).resize(function () {
     $("#container").css('height', $(this).height());
     var login_form = $("#login");
     login_form.css('left', clientwidth / 2 - 155).css('top', clientheight * 0.12);
+    login_bg(login_form);
 
     var footer = $("footer");
     footer.css('height', 30);
@@ -33,6 +31,7 @@ $(window).resize(function () {
     $("#canvas").remove();
     $("#canvas_div").append('<canvas id="canvas"></canvas>');
     test();
+
 
 });
 
@@ -49,6 +48,20 @@ function uiSet() {
     //加载遮罩
     loading.css('height', clientheight);
     loading.css('width', clientwidth);
+
+    login_bg(login_form);
+
+}
+
+function login_bg(login_form) {
+    //login背景
+    $(".login_bg").css({
+        'width': login_form.width()+10,
+        'height': login_form.height()+20,
+        'z-index': 1,
+        'top': login_form.offset().top-10,
+        'left': login_form.offset().left
+    });
 }
 
 function formCheck() {
@@ -193,7 +206,6 @@ function setMisc() {
 //异步登录
 function ajaxLogin() {
     if (typeof($("#submit_btn").attr("disabled")) != "undefined") return false;
-    setLoading('visible');
     var login_username = $("#login_username").val();
     var login_password = $("#login_password").val();
     var logintoadmin = 0;
@@ -205,7 +217,6 @@ function ajaxLogin() {
         data: {login_username: login_username, login_password: login_password, logintoadmin: logintoadmin},
         dataType: "html",
         success: function (msg) {
-            setLoading('hidden');
             switch (msg) {
                 case 'REFUSED': {
                     alert('您的账户没有管理权限');

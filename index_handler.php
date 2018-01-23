@@ -21,10 +21,12 @@ function newest()
 		                    	<img src="' . $rs['cover'] . '" alt="Image-1" style="width: 260px;height: 160px">
 		                    </div>
 		                    <div class="text-desc">
-		                    	<h3'.$rs['title'].'</h3>
-		                    	<h4>'.$rs['subject'].'</h4>
-		                        <p>'.$rs['introduction'].'</p>
-		                    	<a href="play/play.php?playid='.$rs['id'].'" class="btn">播放</a>
+		                    <p style="display: none">'.$rs['id'].'</p>
+		                    <a href="javascript:void(0)" class="fa fa-info-circle fa-lg"></a>
+		                    	<span class="label label-primary" style="font-size: 14px">'.$rs['subject'].'</span>
+		                    	<p style="line-height: 30px">上传时间：'.$rs['upload_date'].'</p>
+		                        <p style="font-size: 16px;">简介：'.$rs['introduction'].'</p>
+		                    	<a href="play/play.php?playid='.$rs['id'].'" class="btn" style="width: 100px;">播放</a>
 		                    </div>
 		                </div>
 		                <div style="text-align: center"><h4>'.$rs['title'].'</h4></div></td>';

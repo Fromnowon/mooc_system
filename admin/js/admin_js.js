@@ -26,7 +26,6 @@ function courseStatus() {
 }
 
 function loadCourse(page, action) {
-    setLoading('visible');
     $.ajax({
         type: "post",
         url: "../util/admin_action.php?admin_action=course_status",
@@ -52,7 +51,6 @@ function loadCourseComplete(msg, page, action) {
         $("#ajax_content").html(msg);
     } else
         $("#result").next().empty().append(msg);
-    setLoading('hidden');
 
     //生成表格后绑定点击事件
     $("tr").on('click', function () {
@@ -86,10 +84,6 @@ function setUI() {
     //console.log(document.body.clientHeight);
 }
 
-function setLoading(toggle) {
-    $("#loading").css('visibility', toggle);
-}
-
 function userStatus() {
     //点击了用户管理
     $("#user_status").on('click', function () {
@@ -103,7 +97,6 @@ function setTimeShow() {
 }
 
 function loadData(page, action) {
-    setLoading('visible');
     $.ajax({
         type: "post",
         url: "../util/admin_action.php?admin_action=user_status",
@@ -124,7 +117,6 @@ function loadData(page, action) {
 }
 
 function loadCourseData(page, action) {
-    setLoading('visible');
     $.ajax({
         type: "post",
         url: "../util/admin_action.php?admin_action=course_status",
@@ -149,7 +141,6 @@ function loadDataComplete(msg, page, action) {
         $("#ajax_content").html(msg);
     else
         $("#result").next().empty().append(msg);
-    setLoading('hidden');
 
     //生成表格后绑定点击事件
     $("tr").on('click', function () {
@@ -171,7 +162,6 @@ function loadDataComplete(msg, page, action) {
 
 //搜索按钮与搜索分页复用模块
 function userSearch(page) {
-    setLoading('visible')
     var data = {
         search_key: $("#user_form_search_key").val(),
         filter: $("#user_form_search_button").attr('filter'),
@@ -187,7 +177,6 @@ function userSearch(page) {
             //追加搜索结果
             $("nav").remove();
             $("#form_content").empty().append(msg);
-            setLoading('hidden');
             $("tr").on('click', function () {
                 //打开弹窗并传递行对象、所对应数据的uid
                 editData('edit', $(this).children(':first-child').html(), $(this));

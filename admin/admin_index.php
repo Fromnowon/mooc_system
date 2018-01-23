@@ -12,7 +12,6 @@
     <link type="text/css" rel="stylesheet" href="./css/admin_css.css"/>
     <script type="text/javascript" src="./js/admin_js.js"></script>
     <script type="text/javascript" src="../util/util_js.js"></script>
-    <link href="../css/loading.css" rel="stylesheet">
 </head>
 
 <body>
@@ -117,7 +116,6 @@ if (!isset($userinfo['username'])) {
 <script>navList(12);</script>
 <!--加载组件-->
 <?php
-include '../util/loading.php';
 include '../util/user_edit_save.php';
 include '../util/edit_course.php';
 ?>

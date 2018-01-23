@@ -9,7 +9,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/vector.js" type="text/javascript"></script>
 
-    <link href="css/loading.css" rel="stylesheet">
     <script src="js/login_js.js" type="text/javascript"></script>
     <script type="text/javascript" src="./util/util_js.js"></script>
     <link href="css/login_css.css" rel="stylesheet">
@@ -23,6 +22,7 @@
 <!--    <div id="output"></div>-->
 <!--</div>-->
 <!--登录模块-->
+<div class="login_bg"></div>
 <div id="login">
     <img class="img-responsive login_logo" src="resource/doge.png"/>
     <div id="login_form">
@@ -55,7 +55,7 @@
         </div>
         <div id="btn_div">
             <a id="reg_btn" class="btn btn-default">注册</a>
-            <a id="submit_btn" class="btn btn-primary" onclick="ajaxLogin()"> 登录</a>
+            <a id="submit_btn" class="btn btn-success" onclick="ajaxLogin()"> 登录</a>
         </div>
     </div>
 </div>
@@ -66,8 +66,5 @@ include('./util/register.php');
 <div id="footer">
     <footer style="color: white">2018 Designed by ZZH</footer>
 </div>
-<?php
-include './util/loading.php';
-?>
 </body>
 </html>

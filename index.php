@@ -15,7 +15,7 @@ include 'index_handler.php' ?>
     <link href="css/optiscroll.css" rel="stylesheet">
     <script src="js/hubslider.min.js" type="text/javascript"></script>
     <link href="css/hub-slider.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/hover-effects.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
@@ -113,33 +113,68 @@ include 'index_handler.php' ?>
     </div>
     <div class="content_div optiscroll">
         <div class="content_main">
-            <div class="hub-slider" style="height: 500px">
-                <div class="hub-slider-slides">
-                    <ul style="text-align: center">
-                        <li>Slide 1</li>
-                        <li>Slide 2</li>
-                        <li>Slide 3</li>
-                    </ul>
-                </div>
-                <div class="hub-slider-controls">
-                    <button class="hub-slider-arrow hub-slider-arrow_next">↑</button>
-                    <button class="hub-slider-arrow hub-slider-arrow_prev">↓</button>
-                </div>
-            </div>
-            <!-- 撑开父元素-->
-            <div style="clear: both"></div>
+            <table>
+                <tr>
+                    <td class="subject_nav" style="padding-left: 20px">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="test">
+                                        <h3>嘿嘿嘿</h3>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="test">
+                                        <h3>嘿嘿嘿</h3>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="test">
+                                        <h3>嘿嘿嘿</h3>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td colspan="2"><div class="hub-slider" style="height: 500px;margin-left: 20px">
+                            <div class="hub-slider-slides">
+                                <ul style="text-align: center">
+                                    <li>Slide 1</li>
+                                    <li>Slide 2</li>
+                                    <li>Slide 3</li>
+                                </ul>
+                            </div>
+                            <div class="hub-slider-controls">
+                                <button class="hub-slider-arrow hub-slider-arrow_next">↑</button>
+                                <button class="hub-slider-arrow hub-slider-arrow_prev">↓</button>
+                            </div>
+                        </div></td>
+                </tr>
+            </table>
+
             <!--展示最新上传的5个-->
             <hr>
-            <h3>最新上传：</h3>
             <div class="newest_upload">
+                <h3>最新上传：</h3>
                 <table>
                     <tr>
                         <?php newest(); ?>
                     </tr>
                 </table>
             </div>
+            <hr>
         </div>
 
     </div>
+</div>
+<div class="index_bg"></div>
 </body>
 </html>

@@ -81,12 +81,13 @@ function setUI() {
     $(".info_td").css('width', width / 3);
     $(".search_td").css('width', 2 * width / 3);
 
+    $(".subject_nav").css('width', width / 3);
+    $(".hub-slider").parent().css('width', 2 * width / 3);
     //设置幻灯片居中
-    $(".hub-slider ul li").css('left', width / 2 - 400);
-    $(".hub-slider-controls button").css('left', width / 2 - 400);
-    console.log('nice');
+    // $(".hub-slider ul li").css('left', width / 2 - 400);
+    // $(".hub-slider-controls button").css('left', width / 2 - 400);
+    // console.log('nice');
 }
-
 function closeSearch() {
     var searchContainer = document.querySelector('.search'),
         inputSearch = searchContainer.querySelector('.search__input');

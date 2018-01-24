@@ -6,21 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="css/hover-effects.css" rel="stylesheet">
+    <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="play/js/plyr.js" type="text/javascript"></script>
+    <link href="play/css/plyr.css" rel="stylesheet">
 </head>
 <body>
-<ul>
-    <li>
-        <div class="port-1 effect-1">
-            <div class="image-box">
-                <img src="resource/img/1.jpg" alt="Image-1">
-            </div>
-            <div class="text-desc">
-                <h3>Your Title</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="btn">Learn more</a>
-            </div>
-        </div>
-    </li>
+<video controls>
+    <source src="test/View_From_A_Blue_Moon_Trailer-HD.mp4" type="video/mp4"/>
+</video>
+<script>plyr.setup();</script>
 </body>
 </html>

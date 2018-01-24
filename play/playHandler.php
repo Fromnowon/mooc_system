@@ -52,6 +52,10 @@ function courseSource($action)
                 echo '<source src="' . $rs['path'] . '" type="video/mp4"/>';
                 break;
             }
+        case 'cover':{
+            echo $rs['cover'];
+            break;
+        }
         default:
             {
                 echo 'error';

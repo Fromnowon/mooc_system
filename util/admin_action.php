@@ -55,7 +55,7 @@ function sqlCourse($conn, $page, $action, $date)
 
     //表头
     $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="course_status">' .
-        '<thead id=\'result\'><tr><th>id</th><th>审核状态</th><th>路径</th><th>所属id</th><th>上传时间</th><th>科目</th>' .
+        '<thead id=\'result\'><tr><th>id</th><th>审核状态</th><th>路径</th><th>封面</th><th>所属id</th><th>上传时间</th><th>科目</th>' .
         '<th>标题</th><th>介绍</th><th>浏览量</th><th>评分</th><th>评分（格式化）</th><th>评分数</th><th>赞</th><th>踩</th><th>最后编辑</th></thead>';
 
     //查询函数
@@ -387,7 +387,7 @@ function editOrSave($conn, $date, $action)
             $sql = "update user set password='$password',flag='$flag',status='$status',real_name='$realname',gender='$gender',email='$email',contact='$contact',school='$school',subject='$subject',introduction='$introduction',edit_date='$date' where uid='$uid'";
         mysqli_query($conn, $sql);
         //返回一行
-        echo '<tr id="edit_complete" class="edit_complete"><td class="uid">' . $uid . '</td><td class="username">' . $username . '</td><td class="email">' . $email . '</td><td class="contact">' . $contact . '</td><td class="real_name">' . $realname . '</td><td class="gender"><span value="0">' . $gender_arr[$gender] . '</span></td><td class="school">' . $school . '</td><td class="reg_date">' . $_POST['reg_date'] . '</td><td class="introduction">' . $introduction . '</td><td class="flag"><span value="0">' . $flag_arr[$flag] . '</span></td><td class="status"><span value="1">' . $status_arr[$status] . '</span></td><td class="subject"><span value="暂无">' . $subject . '</span></td><td class="total">' . $_POST['total'] . '</td><td class="tag">暂无</td><td class="total_like">' . $_POST['total_like'] . '</td><td class="total_dislike">' . $_POST['total_dislike'] . '</td><td class="edit_date">' . $date . '</td></tr>';
+        echo '<tr id="edit_complete" class="edit_complete"><td class="uid">' . $uid . '</td><td class="username">' . $username . '</td><td class="real_name">' . $realname . '</td><td class="gender"><span value="0">' . $gender_arr[$gender] . '</span></td><td class="email">' . $email . '</td><td class="contact">' . $contact . '</td><td class="school">' . $school . '</td><td class="reg_date">' . $_POST['reg_date'] . '</td><td class="introduction">' . $introduction . '</td><td class="flag"><span value="0">' . $flag_arr[$flag] . '</span></td><td class="status"><span value="1">' . $status_arr[$status] . '</span></td><td class="subject"><span value="暂无">' . $subject . '</span></td><td class="total">' . $_POST['total'] . '</td><td class="tag">暂无</td><td class="total_like">' . $_POST['total_like'] . '</td><td class="total_dislike">' . $_POST['total_dislike'] . '</td><td class="edit_date">' . $date . '</td></tr>';
 
     }
     mysqli_close($conn);

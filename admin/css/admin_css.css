@@ -55,6 +55,10 @@ tr:hover {
     /*transition: all 1s linear;*/
 }
 
+th{
+    background: #a7a7a7;
+}
+
 th, td {
     padding: 10px;
     /*background: #f6f6f6;*/
@@ -80,7 +84,7 @@ td > span {
 /*课程管理样式*/
 #course_status td {
     min-width: 50px;
-    max-width: 270px;
+    max-width: 400px;
     overflow: hidden;
     text-overflow: ellipsis; /* for IE */
     -moz-text-overflow: ellipsis; /* for Firefox,mozilla */

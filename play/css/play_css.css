@@ -59,7 +59,7 @@ div {
 }
 
 .play_table {
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .player_bg {
@@ -92,26 +92,6 @@ div {
 
 .info > div {
     margin: 0px auto;
-}
-
-/*播放器相关*/
-#course_player {
-    position: relative;
-    z-index: 999;
-    padding-top: 550px;
-}
-
-.vjs-control-bar {
-    padding-top: 3px;
-}
-
-.vjs-remaining-time-display {
-    position: relative;
-    bottom: 3px;
-}
-
-ul[class='vjs-menu-content'] {
-    visibility: hidden;
 }
 
 /*笔记相关*/
@@ -149,7 +129,6 @@ ul[class='vjs-menu-content'] {
 .clear {
     clear: both;
 }
-
 
 .course_info .p1_title {
     font-size: 24px;

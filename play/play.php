@@ -15,6 +15,8 @@ include 'playHandler.php';
     <link href="../css/animate.css" rel="stylesheet">
     <script src="js/jquery.star-rating-svg.min.js" type="text/javascript"></script>
     <link href="css/star-rating-svg.css" rel="stylesheet">
+    <script src="js/plyr.js" type="text/javascript"></script>
+    <link href="css/plyr.css" rel="stylesheet">
 
     <link href="./css/play_css.css" rel="stylesheet">
     <script src="./js/play_js.js" type="text/javascript"></script>
@@ -41,13 +43,10 @@ include 'playHandler.php';
             </tr>
             <tr>
                 <td class="player_bg  fadeInLeft animated">
-                    <div class="player">
-                        <video width="900px" id="course_player" class="video-js vjs-big-play-centered"
-                               controls preload="none"
-                               data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-                            <?php courseSource('path') ?>
-                        </video>
-                    </div>
+                    <video class="player" poster="../<?php courseSource('cover') ?>" controls>
+                        <?php courseSource('path') ?>
+                        <!-- Captions are optional -->
+                    </video>
                 <td>
                     <div class="note fadeInRight animated" style="overflow-y: auto;overflow-x: hidden;display: block">
                         <div class="note_main">

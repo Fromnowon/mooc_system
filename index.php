@@ -120,7 +120,22 @@ include 'index_handler.php' ?>
                             <tr>
                                 <td>
                                     <div class="test">
-                                        <h3>嘿嘿嘿</h3>
+                                        <h3>高一</h3>
+                                        <div>
+                                            <table style="margin: 0 auto;font-size: 18px;margin-top: 8px;"
+                                                   class="subject_text">
+                                                <tr>
+                                                    <td><a href="">语文</a><a href="">数学</a><a href="">英语</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">生物</a><a href="">化学</a><a href="">物理</a><a
+                                                                href="">政治</a><a href="">历史</a><a href="">地理</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">心理</a><a href="">信息技术</a><a href="">其他</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                     <br>
                                     <br>
@@ -129,7 +144,22 @@ include 'index_handler.php' ?>
                             <tr>
                                 <td>
                                     <div class="test">
-                                        <h3>嘿嘿嘿</h3>
+                                        <h3>高二</h3>
+                                        <div>
+                                            <table style="margin: 0 auto;font-size: 18px;margin-top: 8px;"
+                                                   class="subject_text">
+                                                <tr>
+                                                    <td><a href="">语文</a><a href="">数学</a><a href="">英语</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">生物</a><a href="">化学</a><a href="">物理</a><a
+                                                                href="">政治</a><a href="">历史</a><a href="">地理</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">通用技术</a><a href="">其他</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                     <br>
                                     <br>
@@ -138,13 +168,29 @@ include 'index_handler.php' ?>
                             <tr>
                                 <td>
                                     <div class="test">
-                                        <h3>嘿嘿嘿</h3>
+                                        <h3>高三</h3>
+                                        <div>
+                                            <table style="margin: 0 auto;font-size: 18px;margin-top: 8px;"
+                                                   class="subject_text">
+                                                <tr>
+                                                    <td><a href="">语文</a><a href="">数学</a><a href="">英语</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">生物</a><a href="">化学</a><a href="">物理</a><a
+                                                                href="">政治</a><a href="">历史</a><a href="">地理</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">其他</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
                         </table>
                     </td>
-                    <td colspan="2"><div class="hub-slider" style="height: 500px;margin-left: 20px">
+                    <td colspan="2">
+                        <div class="hub-slider" style="height: 500px;margin-left: 20px">
                             <div class="hub-slider-slides">
                                 <ul style="text-align: center">
                                     <li>Slide 1</li>
@@ -156,17 +202,28 @@ include 'index_handler.php' ?>
                                 <button class="hub-slider-arrow hub-slider-arrow_next">↑</button>
                                 <button class="hub-slider-arrow hub-slider-arrow_prev">↓</button>
                             </div>
-                        </div></td>
+                        </div>
+                    </td>
                 </tr>
             </table>
 
             <!--展示最新上传的5个-->
             <hr>
-            <div class="newest_upload">
+            <div class="video_list newest_upload">
                 <h3>最新上传：</h3>
                 <table>
                     <tr>
                         <?php newest(); ?>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <!--最多点击的5个-->
+            <div class="video_list most_views">
+                <h3>最多点击：</h3>
+                <table>
+                    <tr>
+                        <?php hottest(); ?>
                     </tr>
                 </table>
             </div>

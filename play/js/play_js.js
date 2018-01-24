@@ -1,5 +1,7 @@
 $(function () {
-    var player = videojs('course_player');
+    var tmp = plyr.setup('.player');
+    var player = tmp[0];
+    var player_obj = $('.player');
     //全屏时处理table产生的bug
     bugHandler(player);
     var courseID = $(".course_title").find('span').attr('value');
@@ -10,7 +12,6 @@ $(function () {
     //笔记初始化
     noteInit($(".panel-default"), player);
 })
-
 
 function noteInit(note, player) {
     //绑定删除事件
@@ -36,12 +37,9 @@ function noteInit(note, player) {
     //绑定定位播放
     note.find(".note_play").unbind().on('click', function () {
         var time = $(this).parents('.panel-default').find('.mark_time').html();//笔记对应时间点
-        console.log(time);
-        if (player.paused) {
-            player.play();
-            player.currentTime(time);
-        } else player.currentTime(time);
-
+        //console.log(time);
+        player.play();
+        player.seek(time);
     })
 }
 
@@ -53,7 +51,7 @@ function noteHandler(player, courseID) {
         //绑定取消按钮
         $(".note_pop_dismiss").unbind().on('click', function () {
             $("#new_note").html('添加笔记');
-            if (player.currentTime() != 0) player.play();
+            if (player.getCurrentTime() != 0) player.play();
             animate_auto(note_pop, 'bounceOut', 1000, function () {
                 note_pop.css('display', 'none');
                 // note_pop.children('input').val('');
@@ -68,7 +66,7 @@ function noteHandler(player, courseID) {
             note_pop.css({'display': '', 'top': note_pop_position[0] + 40, 'left': note_pop_position[1]});
             animate_auto(note_pop, 'bounceIn', 1000);
         } else {
-            if (player.currentTime() != 0) player.play();
+            if (player.getCurrentTime() != 0) player.play();
             $(this).html('添加笔记');
             animate_auto(note_pop, 'bounceOut', 1000, function () {
                 note_pop.css('display', 'none');
@@ -86,7 +84,7 @@ function noteHandler(player, courseID) {
             courseID: courseID,
             title: $(".note_title").val(),
             content: $(".note_content").val(),
-            time: player.currentTime()
+            time: player.getCurrentTime()
         };
         $.ajax({
             type: "post",
@@ -225,18 +223,16 @@ function setMisc(courseID) {
 
 }
 
-
 function bugHandler(player) {
-    player.on('fullscreenchange', function () {
-        if ($(".note").css('display') == 'block') {
-            $(".note").css('display', 'none');
-            $(".info").css('display', 'none');
-            $(".reply").css('display', 'none');
-        } else {
-            $(".note").css('display', 'block');
-            $(".info").css('display', 'block');
-            $(".reply").css('display', 'block');
-        }
+    player.on('enterfullscreen', function () {
+        $(".note").css('display', 'none');
+        $(".info").css('display', 'none');
+        $(".reply").css('display', 'none');
+    })
+    player.on('exitfullscreen', function () {
+        $(".note").css('display', 'block');
+        $(".info").css('display', 'block');
+        $(".reply").css('display', 'block');
     })
 }
 

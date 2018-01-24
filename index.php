@@ -113,10 +113,10 @@ include 'index_handler.php' ?>
     </div>
     <div class="content_div optiscroll">
         <div class="content_main">
-            <table>
+            <table align="center">
                 <tr>
                     <td class="subject_nav" style="padding-left: 20px">
-                        <table>
+                        <table style="margin: 0 auto">
                             <tr>
                                 <td>
                                     <div class="test">
@@ -189,8 +189,8 @@ include 'index_handler.php' ?>
                             </tr>
                         </table>
                     </td>
-                    <td colspan="2">
-                        <div class="hub-slider" style="height: 500px;margin-left: 20px">
+                    <td class="slider_td">
+                        <div class="hub-slider" style="height: 500px">
                             <div class="hub-slider-slides">
                                 <ul style="text-align: center">
                                     <li>Slide 1</li>
@@ -206,12 +206,13 @@ include 'index_handler.php' ?>
                     </td>
                 </tr>
             </table>
-
             <!--展示最新上传的5个-->
             <hr>
             <div class="video_list newest_upload">
-                <h3>最新上传：</h3>
-                <table>
+                <table style="margin: 0 auto">
+                    <tr>
+                        <td><h3>最新上传：</h3></td>
+                    </tr>
                     <tr>
                         <?php newest(); ?>
                     </tr>
@@ -220,8 +221,10 @@ include 'index_handler.php' ?>
             <hr>
             <!--最多点击的5个-->
             <div class="video_list most_views">
-                <h3>最多点击：</h3>
-                <table>
+                <table style="margin: 0 auto">
+                    <tr>
+                        <td><h3>最多点击：</h3></td>
+                    </tr>
                     <tr>
                         <?php hottest(); ?>
                     </tr>

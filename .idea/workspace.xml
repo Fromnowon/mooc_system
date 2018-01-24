@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc0c9183-17bc-4918-9d6c-5041d8b7ac4e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/css/index_css.css" afterPath="$PROJECT_DIR$/css/index_css.css" />
+      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change beforePath="$PROJECT_DIR$/js/index_js.js" afterPath="$PROJECT_DIR$/js/index_js.js" />
       <change beforePath="$PROJECT_DIR$/play/js/play_js.js" afterPath="$PROJECT_DIR$/play/js/play_js.js" />
-      <change beforePath="$PROJECT_DIR$/resource/courses/1516589103/1516589103.mp4" afterPath="$PROJECT_DIR$/resource/courses/1516589103/1516589103.mp4" />
-      <change beforePath="$PROJECT_DIR$/resource/courses/1516589150/1516589150.mp4" afterPath="$PROJECT_DIR$/resource/courses/1516589150/1516589150.mp4" />
-      <change beforePath="$PROJECT_DIR$/resource/courses/1516589192/1516589192.mp4" afterPath="$PROJECT_DIR$/resource/courses/1516589192/1516589192.mp4" />
-      <change beforePath="$PROJECT_DIR$/resource/courses/1516589230/1516589230.mp4" afterPath="$PROJECT_DIR$/resource/courses/1516589230/1516589230.mp4" />
       <change beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,88 +19,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="play.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/play/play.php">
+      <file leaf-file-name="search.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/search/search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="playHandler.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/play/playHandler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="51" column="74" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="74" />
+            <state relative-caret-position="641">
+              <caret line="71" column="71" lean-forward="false" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
               <folding>
-                <element signature="n#loadNote#0;n#!!top" expanded="false" />
-                <element signature="n#loadReply#0;n#!!top" expanded="false" />
-                <marker date="1516779587353" expanded="true" signature="614:666" ph="update cours... " />
-                <marker date="1516779587353" expanded="true" signature="687:736" ph="select * fro... course" />
-                <marker date="1516779587353" expanded="true" signature="1098:1111" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="1248:1261" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="3585:4034" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="3686:3838" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4105:4199" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4250:4335" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4445:4495" ph="select * fro... user" />
-                <marker date="1516779587353" expanded="true" signature="4597:5128" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4617:4981" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4638:4960" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4751:4938" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="4781:4933" ph="..." />
-                <marker date="1516779587353" expanded="true" signature="5041:5113" ph="..." />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#td#1;n#tr#3;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#td#1;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#td#1;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play_css.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/play/css/play_css.css">
+      <file leaf-file-name="jquery-labelauty.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/css/jquery-labelauty.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+            <state relative-caret-position="231">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play_js.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
+      <file leaf-file-name="search_js.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/js/search_js.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-              <folding>
-                <element signature="n#!!block;n#setMisc#0" expanded="false" />
-                <element signature="e#3922#5166#0" expanded="false" />
-                <element signature="e#5240#7161#0" expanded="false" />
-                <element signature="n#!!block;n#bugHandler#0" expanded="false" />
-                <element signature="n#!!block;n#setReplyTo#0" expanded="false" />
-                <element signature="n#!!block;n#setReplyBtn#0" expanded="false" />
-                <element signature="n#!!block;n#replyHandler#0" expanded="false" />
-                <element signature="n#!!block;n#replyToReply#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="42">
+              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plyr.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/play/css/plyr.css">
+      <file leaf-file-name="jquery-labelauty.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/js/jquery-labelauty.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_css.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/css/search_css.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -113,9 +90,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -164,9 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/util/upload.php" />
-        <option value="$PROJECT_DIR$/upload/js/bootstrap-filestyle.min.js" />
-        <option value="$PROJECT_DIR$/upload.php" />
         <option value="$PROJECT_DIR$/upload/js/jquery.form.min.js" />
         <option value="$PROJECT_DIR$/upload/css/upload_css.css" />
         <option value="$PROJECT_DIR$/upload/js/upload_js.js" />
@@ -200,21 +174,24 @@
         <option value="$PROJECT_DIR$/admin/js/admin_js.js" />
         <option value="$PROJECT_DIR$/js/login_js.js" />
         <option value="$PROJECT_DIR$/css/hub-slider.css" />
-        <option value="$PROJECT_DIR$/js/index_js.js" />
         <option value="$PROJECT_DIR$/css/hover-effects.css" />
         <option value="$PROJECT_DIR$/util/conn.php" />
         <option value="$PROJECT_DIR$/util/admin_action.php" />
         <option value="$PROJECT_DIR$/admin/css/admin_css.css" />
         <option value="$PROJECT_DIR$/index_handler.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/css/index_css.css" />
         <option value="$PROJECT_DIR$/play/playHandler.php" />
         <option value="$PROJECT_DIR$/play/js/plyr.js" />
-        <option value="$PROJECT_DIR$/play/play.php" />
         <option value="$PROJECT_DIR$/play/css/plyr.css" />
         <option value="$PROJECT_DIR$/play/css/play_css.css" />
+        <option value="$PROJECT_DIR$/play/play.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/css/index_css.css" />
+        <option value="$PROJECT_DIR$/js/index_js.js" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/play/js/play_js.js" />
+        <option value="$PROJECT_DIR$/search/js/search_js.js" />
+        <option value="$PROJECT_DIR$/search/css/search_css.css" />
+        <option value="$PROJECT_DIR$/search/search.php" />
       </list>
     </option>
   </component>
@@ -267,6 +244,35 @@
               <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="mooc_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mooc_system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="util" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -290,19 +296,19 @@
     <property name="SearchEverywhereHistoryKey" value="setLoading&#9;null&#9;null&#10;resize&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\search\css\img" />
+      <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\search\js" />
+      <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\search\css" />
+      <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\test" />
+      <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\css" />
       <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\play\js" />
       <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\play\css" />
       <recent name="C:\Users\ZZH\Documents\GitHub\mooc_system\play" />
       <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\resource" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\test" />
-      <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\play\css" />
-      <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\play\js" />
-      <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\util\css" />
-      <recent name="C:\Users\Administrator\IdeaProjects\mooc_system\util\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -483,6 +489,7 @@
       <workItem from="1516779296176" duration="2201000" />
       <workItem from="1516781606706" duration="234000" />
       <workItem from="1516783264408" duration="2846000" />
+      <workItem from="1516792395138" duration="9920000" />
     </task>
     <servers />
   </component>
@@ -492,24 +499,24 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="565002000" />
+    <option name="totallyTimeSpent" value="574922000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23343849" sideWeight="0.50512445" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3245243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48503938" sideWeight="0.49487555" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48414376" sideWeight="0.49487555" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -525,7 +532,6 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492113" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -568,36 +574,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/play/js/jquery.logosDistort.min.js" />
-    <entry file="file://$PROJECT_DIR$/play/img/play_bg.jpg" />
-    <entry file="file://$PROJECT_DIR$/admin/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="20" column="97" lean-forward="false" selection-start-line="20" selection-start-column="97" selection-end-line="20" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/edit_course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/user_edit_save.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="58" column="48" lean-forward="false" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/play/js/jquery.backgroundMove.js" />
     <entry file="file://$PROJECT_DIR$/upload/css/upload_css.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -673,13 +649,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css" />
     <entry file="file://$PROJECT_DIR$/css/login_css.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -731,27 +701,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/hub-slider.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="11" lean-forward="false" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/index_js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="89" column="1" lean-forward="false" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/conn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/css/hub-slider.css" />
     <entry file="file://$PROJECT_DIR$/util/admin_action.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -766,24 +716,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/hover-effects.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1496">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/css/hover-effects.css" />
     <entry file="file://$PROJECT_DIR$/index_handler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="41" column="51" lean-forward="true" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="216" column="25" lean-forward="true" selection-start-line="216" selection-start-column="25" selection-end-line="216" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -794,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index_css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-761">
-          <caret line="151" column="11" lean-forward="false" selection-start-line="151" selection-start-column="11" selection-end-line="151" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/js/admin_js.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3982">
@@ -808,22 +738,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/play/css/plyr.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play/css/play_css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/play/css/plyr.css" />
     <entry file="file://$PROJECT_DIR$/js/jquery-3.2.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -834,69 +749,139 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/play/playHandler.php">
+    <entry file="file://$PROJECT_DIR$/play/js/plyr.js" />
+    <entry file="file://$PROJECT_DIR$/play/play.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="51" column="74" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="74" />
+        <state relative-caret-position="210">
+          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding>
-            <element signature="n#loadNote#0;n#!!top" expanded="false" />
-            <element signature="n#loadReply#0;n#!!top" expanded="false" />
-            <marker date="1516779587353" expanded="true" signature="614:666" ph="update cours... " />
-            <marker date="1516779587353" expanded="true" signature="687:736" ph="select * fro... course" />
-            <marker date="1516779587353" expanded="true" signature="1098:1111" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="1248:1261" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="3585:4034" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="3686:3838" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4105:4199" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4250:4335" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4445:4495" ph="select * fro... user" />
-            <marker date="1516779587353" expanded="true" signature="4597:5128" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4617:4981" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4638:4960" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4751:4938" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="4781:4933" ph="..." />
-            <marker date="1516779587353" expanded="true" signature="5041:5113" ph="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/play/play.php">
+    <entry file="file://$PROJECT_DIR$/css/index_css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state relative-caret-position="725">
+          <caret line="210" column="22" lean-forward="false" selection-start-line="210" selection-start-column="22" selection-end-line="210" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play/css/play_css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="767">
+          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/conn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state relative-caret-position="294">
+          <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/play/js/plyr.js">
+    <entry file="file://$PROJECT_DIR$/play/playHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="1178" column="12" lean-forward="false" selection-start-line="1178" selection-start-column="12" selection-end-line="1178" selection-end-column="12" />
+        <state relative-caret-position="21">
+          <caret line="51" column="74" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="74" />
+          <folding>
+            <element signature="n#loadNote#0;n#!!top" expanded="false" />
+            <element signature="n#loadReply#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1701">
+          <caret line="81" column="48" lean-forward="false" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/play/js/play_js.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+        <state relative-caret-position="483">
+          <caret line="38" column="26" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
           <folding>
-            <element signature="n#!!block;n#setMisc#0" expanded="false" />
-            <element signature="e#3922#5166#0" expanded="false" />
-            <element signature="e#5240#7161#0" expanded="false" />
-            <element signature="n#!!block;n#bugHandler#0" expanded="false" />
             <element signature="n#!!block;n#setReplyTo#0" expanded="false" />
             <element signature="n#!!block;n#setReplyBtn#0" expanded="false" />
             <element signature="n#!!block;n#replyHandler#0" expanded="false" />
             <element signature="n#!!block;n#replyToReply#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/searchHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/js/jquery-labelauty.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/js/search_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/css/jquery-labelauty.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/css/search_css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="71" column="71" lean-forward="false" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#td#1;n#tr#3;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#td#1;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#td#1;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

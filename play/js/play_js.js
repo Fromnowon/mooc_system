@@ -1,6 +1,5 @@
 $(function () {
     var player = plyr.setup('.player')[0];
-    var player_obj = $('.player');
     //全屏时处理table产生的bug
     bugHandler(player);
     var courseID = $(".course_title").find('span').attr('value');
@@ -37,8 +36,8 @@ function noteInit(note, player) {
     note.find(".note_play").unbind().on('click', function () {
         var time = $(this).parents('.panel-default').find('.mark_time').html();//笔记对应时间点
         //console.log(time);
-        //player.seek(time);
-        player.currentTime=10;
+        player.seek(time);
+        //本地文件无法测试
     })
 }
 

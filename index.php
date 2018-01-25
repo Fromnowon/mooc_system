@@ -64,11 +64,10 @@ include 'index_handler.php' ?>
                                     <use xlink:href="#icon-cross"></use>
                                 </svg>
                             </button>
-                            <form class="search__form" action="">
+                            <form class="search__form" action="search/search.php?action=key_search" method="post">
                                 <input id="search-input" class="search__input" name="search" type="search"
                                        placeholder=""
-                                       autocomplete="off" autocorrect="off" autocapitalize="off"
-                                       spellcheck="false"/>
+                                       autocomplete="off"/>
                                 <button class="btn btn--search">
                                     <svg class="icon icon--search">
                                         <use xlink:href="#icon-search"></use>

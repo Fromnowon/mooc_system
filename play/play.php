@@ -27,7 +27,7 @@ include 'playHandler.php';
 <!--</div>-->
 <div style="z-index: 2;position: relative">
     <div class="play_header fadeInDown animated">
-        <a href="../index.php">返回</a>
+        <a href="javascript:window.opener=null;window.open('','_self');window.close();">关闭</a>
         <div class="play_userinfo">
             <?php headerInfo(); ?>
         </div>

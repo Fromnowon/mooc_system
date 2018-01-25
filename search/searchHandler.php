@@ -12,10 +12,15 @@ if (!isset($_SESSION['userinfo'])) {
 include '../util/conn.php';
 function search_result()
 {
-    switch ($_GET['action'] || $_POST['action']) {
+    switch ($_GET['action']) {
         case 'key_search':
             {
                 key_search();
+                break;
+            }
+        case 'tag_search':
+            {
+                tag_search();
                 break;
             }
     }
@@ -68,4 +73,31 @@ function key_search()
     }
     if ($result_html == '') echo '<p style="color: red;font-size: 24px">无匹配结果！</p>';
     else echo $result_html;
+}
+
+//分类搜索
+function tag_search()
+{
+    global $conn;
+    $sql = 'select * from course';
+    $flag = 0;//控制where和and
+    if ($_POST['all-grade'] != '所有') {
+        $sql .= ' where';
+        foreach ($_POST['grade'] as $grade) {
+            if ($flag == 0) $sql .= " grade='$grade'";
+            else $sql .= " or grade='$grade'";
+            $flag++;
+        }
+    }
+    if ($_POST['all-subject'] != '所有') {
+        if ($flag == 0) $sql .= ' where';
+        else $sql .= ' and';
+        $flag = 0;
+        foreach ($_POST['subject'] as $subject) {
+            if ($flag == 0) $sql .= " subject='$subject'";
+            else $sql .= " or subject='$subject'";
+            $flag++;
+        }
+    }
+    echo $sql;
 }

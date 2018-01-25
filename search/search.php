@@ -21,22 +21,24 @@ include 'searchHandler.php';
         <form action="search.php?action=key_search" method="post">
             <h3 style="display: inline;font-size: 20px">
                 关键词检索:</h3>
-            <input type="text" class="form-control" name="search" style="display: inline-block;width: 200px;margin-left: 20px">
+            <input type="text" class="form-control" name="search"
+                   style="display: inline-block;width: 200px;margin-left: 20px">
             <button class="btn btn-primary" type="submit" style="width: 100px;margin-left: 20px">搜索</button>
         </form>
     </div>
     <hr>
     <div class="search_tag">
-        <form action="" style="margin-top: -20px">
+        <form action="search.php?action=tag_search" style="margin-top: -20px" method="post">
             <table>
                 <tr>
                     <td><h4>年级：</h4></td>
                     <td>
                         <ul class="grade">
-                            <li><input type="checkbox" name="all-grade" data-labelauty="所有"></li>
-                            <li><input type="checkbox" name="grade" data-labelauty="高一"></li>
-                            <li><input type="checkbox" name="grade" data-labelauty="高二"></li>
-                            <li><input type="checkbox" name="grade" data-labelauty="高三"></li>
+                            <li><input type="checkbox" class="all-grade" name="all-grade" value="所有" data-labelauty="所有"></li>
+                            <li><input type="checkbox" class="grade-m" name="grade[]" value="高一" data-labelauty="高一"></li>
+                            <li><input type="checkbox" class="grade-m" name="grade[]" value="高二" data-labelauty="高二"></li>
+                            <li><input type="checkbox" class="grade-m" name="grade[]" value="高三" data-labelauty="高三"></li>
+                            <li><input type="checkbox" class="grade-m" name="grade[]" value="其他" data-labelauty="其他"></li>
                         </ul>
                     </td>
                 </tr>
@@ -44,7 +46,7 @@ include 'searchHandler.php';
                     <td><h4>科目：</h4></td>
                     <td>
                         <ul class="subject">
-                            <li><input type="checkbox" name="all-subject" data-labelauty="所有"></li>
+                            <li><input type="checkbox" class="all-subject" name="all-subject" value="所有" data-labelauty="所有"></li>
 
                         </ul>
                     </td>
@@ -53,15 +55,15 @@ include 'searchHandler.php';
                     <td></td>
                     <td>
                         <ul style="margin-top: -10px">
-                            <li><input type="checkbox" name="subject" data-labelauty="语文"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="数学"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="英语"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="物理"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="化学"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="生物"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="政治"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="历史"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="地理"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="语文" data-labelauty="语文"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="数学" data-labelauty="数学"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="英语" data-labelauty="英语"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="物理" data-labelauty="物理"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="化学" data-labelauty="化学"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="生物" data-labelauty="生物"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="政治" data-labelauty="政治"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="历史" data-labelauty="历史"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="地理" data-labelauty="地理"></li>
                         </ul>
                     </td>
                 </tr>
@@ -69,9 +71,9 @@ include 'searchHandler.php';
                     <td></td>
                     <td>
                         <ul style="margin-top: -10px">
-                            <li><input type="checkbox" name="subject" data-labelauty="信息技术"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="通用技术"></li>
-                            <li><input type="checkbox" name="subject" data-labelauty="其他"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="信息技术" data-labelauty="信息技术"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="通用技术" data-labelauty="通用技术"></li>
+                            <li><input type="checkbox" class="subject-m" name="subject[]" value="其他" data-labelauty="其他"></li>
                         </ul>
                     </td>
                 </tr>

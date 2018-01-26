@@ -18,13 +18,14 @@ include 'searchHandler.php';
 <body>
 <div class="content">
     <div class="search_key">
-        <form id="search_key_form" method="post">
+        <form id="search_key_form" method="post" style="display: inline-block">
             <h3 style="display: inline;font-size: 20px">
                 关键词检索:</h3>
             <input type="text" class="form-control" name="search"
                    style="display: inline-block;width: 200px;margin-left: 20px">
             <button class="btn btn-primary search_key_btn" type="submit" style="width: 100px;margin-left: 20px">搜索</button>
         </form>
+        <a href="../index.php" style="float: right;padding-right: 50px;font-size: 20px">返回主页</a>
     </div>
     <hr>
     <div class="search_tag">

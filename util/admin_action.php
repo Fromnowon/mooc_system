@@ -55,7 +55,7 @@ function sqlCourse($conn, $page, $action, $date)
 
     //表头
     $form_head = '<div id="form_content"><table class="table table-bordered table-responsive"  id="course_status">' .
-        '<thead id=\'result\'><tr><th>id</th><th>审核状态</th><th>路径</th><th>封面</th><th>所属id</th><th>上传时间</th><th>科目</th>' .
+        '<thead id=\'result\'><tr><th>id</th><th>审核状态</th><th>路径</th><th>封面</th><th>所属id</th><th>上传时间</th><th>年级</th><th>科目</th>' .
         '<th>标题</th><th>介绍</th><th>浏览量</th><th>评分</th><th>评分（格式化）</th><th>评分数</th><th>赞</th><th>踩</th><th>最后编辑</th></thead>';
 
     //查询函数

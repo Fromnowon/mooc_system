@@ -1,6 +1,6 @@
 
 .content{
-    padding: 20px;
+    padding: 20px 10px 10px 10px;
 }
 
 table{
@@ -18,13 +18,10 @@ li {
 }
 
 .search_result{
-    padding: 20px;
+    padding: 10px;
 }
 
 /*结果列表*/
-.search_result .box {
-    margin: 10px;
-}
 
 .search_result .box, .search_result .box img {
     width: 250px;

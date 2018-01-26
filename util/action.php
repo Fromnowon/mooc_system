@@ -336,5 +336,5 @@ function replyHandler($conn, $date)
 //处理空值
 function nullHandler($t)
 {
-    return $t == '' || $t == null ? '暂无' : $t;
+    return $t == '' || $t == null ? '其他' : $t;
 }

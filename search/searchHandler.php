@@ -65,7 +65,7 @@ function index_key_search()
 function key_search()
 {
     global $conn;
-    $search_key = $_GET['search'];
+    $search_key = $_POST['search'];
     $result = [];
     $id_table = [];//结果id表
     $sql1 = "select * from course where title like '%$search_key%' or subject like '%$search_key%'" .

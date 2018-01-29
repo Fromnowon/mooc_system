@@ -129,6 +129,9 @@ div {
 .clear {
     clear: both;
 }
+.course_info{
+    box-shadow: 2px 2px 10px #707070;
+}
 
 .course_info .p1_title {
     font-size: 24px;
@@ -169,7 +172,9 @@ div {
 .teacher_info_p1 img {
     width: 100px;
 }
-
+.teacher_info{
+    box-shadow: 2px 2px 10px #707070;
+}
 .teacher_info_p1 div {
     padding-left: 10px;
     font-size: 26px;

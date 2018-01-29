@@ -115,7 +115,8 @@ function courseInfo()
         </div>
         <div class="clear"></div>
         <div class="course_info_p2">
-            <p class="p2_subject">所属科目：<span>' . $rs['subject'] . '</span></p>
+            <p class="p2_subject">年级：<span>' . $rs['grade'] . '</span></p>
+            <p class="p2_subject">科目：<span>' . $rs['subject'] . '</span></p>
         </div>
         <hr/>
         <div class="course_info_p3">

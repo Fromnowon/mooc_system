@@ -8,6 +8,7 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/vector.js" type="text/javascript"></script>
+    <script src="js/js.cookie.min.js" type="text/javascript"></script>
 
     <script src="js/login_js.js" type="text/javascript"></script>
     <script type="text/javascript" src="./util/util_js.js"></script>

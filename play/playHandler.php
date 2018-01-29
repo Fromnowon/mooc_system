@@ -12,7 +12,7 @@ if (!isset($_SESSION['userinfo'])) {
 //返回顶部块
 function headerInfo()
 {
-    $userinfo = "<div class='play_userinfo_avatar'><a class='history'>观看历史</a><img src='../resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>";
+    $userinfo = "<div class='play_userinfo_avatar'><a class='history' style='display: none'>观看历史</a><img src='../resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>";
     echo $userinfo . '<p class="play_userinfo_name">' . $_SESSION['userinfo']['username'] . '</p></div>';
 
 }

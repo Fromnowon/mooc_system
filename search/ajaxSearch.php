@@ -54,7 +54,7 @@ function tag_search()
     }
     $r = mysqli_query($conn, $sql);
     if (mysqli_num_rows($r) == 0) {
-        echo '<p style="color: red;font-size: 24px">无匹配结果！</p>';
+        echo '<td><p style="color: red;font-size: 24px">无匹配结果！</p></td>';
         mysqli_close($conn);
         exit();
     }
@@ -68,6 +68,7 @@ function tag_search()
 		                    <div class="text-desc">
 		                    <p style="display: none">' . $rs['id'] . '</p>
 		                    <a href="javascript:void(0)" class="fa fa-info-circle fa-lg"></a>
+		                        <span class="label label-success" style="font-size: 14px">' . $rs['grade'] . '</span>
 		                    	<span class="label label-primary" style="font-size: 14px">' . $rs['subject'] . '</span>
 		                    	<p style="line-height: 30px">上传时间：' . $rs['upload_date'] . '</p>
 		                        <p style="font-size: 16px;">简介：' . $rs['introduction'] . '</p>
@@ -119,6 +120,7 @@ function search_key()
 		                    <div class="text-desc">
 		                    <p style="display: none">' . $val['id'] . '</p>
 		                    <a href="javascript:void(0)" class="fa fa-info-circle fa-lg"></a>
+		                        <span class="label label-success" style="font-size: 14px">' . $rs['grade'] . '</span>
 		                    	<span class="label label-primary" style="font-size: 14px">' . $val['subject'] . '</span>
 		                    	<p style="line-height: 30px">上传时间：' . $val['upload_date'] . '</p>
 		                        <p style="font-size: 16px;">简介：' . $val['introduction'] . '</p>
@@ -129,7 +131,7 @@ function search_key()
         $count++;
         if ($count == 5) $result_html .= '<tr>' . $result_html . '</tr>';
     }
-    if ($result_html == '') echo '<p style="color: red;font-size: 24px">无匹配结果！</p>';
+    if ($result_html == '') echo '<td><p style="color: red;font-size: 24px">无匹配结果！</p></td>';
     else echo $result_html;
     mysqli_close($conn);
 }

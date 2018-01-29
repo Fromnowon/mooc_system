@@ -78,10 +78,10 @@ include 'index_handler.php' ?>
                                 <h3>瞧瞧我们给您推荐的？</h3>
                                 <div style="font-weight: bold;text-align: left">
                                     <br>
-                                    <p>1、杨教授亲身示范电击疗法，结果竟然......</p><br>
-                                    <p>2、美日又联合军演了</p><br>
-                                    <p>3、他改变了中国</p><br>
-                                    <p>4、更多。。。</p><br>
+                                    <p>1、<span class="search_suj">杨教授亲身示范电击疗法</span>，结果竟然......</p><br>
+                                    <p>2、又来了，<span class="search_suj">美日联合军演</span></p><br>
+                                    <p>3、<span class="search_suj">他改变了中国</span></p><br>
+                                    <p>4、更多，敬请期待...</p><br>
                                     <div style="clear: both"></div>
                                 </div>
                             </div>
@@ -118,20 +118,34 @@ include 'index_handler.php' ?>
                         <table style="margin: 0 auto">
                             <tr>
                                 <td>
-                                    <div class="test">
+                                    <div class="index_tag_search">
                                         <h3>高一</h3>
                                         <div>
                                             <table style="margin: 0 auto;font-size: 18px;margin-top: 8px;"
                                                    class="subject_text">
                                                 <tr>
-                                                    <td><a href="">语文</a><a href="">数学</a><a href="">英语</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=语文">语文</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=数学">数学</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=英语">英语</a>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="">生物</a><a href="">化学</a><a href="">物理</a><a
-                                                                href="">政治</a><a href="">历史</a><a href="">地理</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=生物">生物</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=化学">化学</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=物理">物理</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=政治">政治</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=历史">历史</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=地理">地理</a>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="">心理</a><a href="">信息技术</a><a href="">其他</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=心理">心理</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=信息技术">信息技术</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高一&subject=其他">其他</a>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -142,20 +156,33 @@ include 'index_handler.php' ?>
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="test">
+                                    <div class="index_tag_search">
                                         <h3>高二</h3>
                                         <div>
                                             <table style="margin: 0 auto;font-size: 18px;margin-top: 8px;"
                                                    class="subject_text">
                                                 <tr>
-                                                    <td><a href="">语文</a><a href="">数学</a><a href="">英语</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=语文">语文</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=数学">数学</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=语文">英语</a>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="">生物</a><a href="">化学</a><a href="">物理</a><a
-                                                                href="">政治</a><a href="">历史</a><a href="">地理</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=生物">生物</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=化学">化学</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=物理">物理</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=政治">政治</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=历史">历史</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=地理">地理</a>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="">通用技术</a><a href="">其他</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=通用技术">通用技术</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高二&subject=其他">其他</a>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -166,20 +193,30 @@ include 'index_handler.php' ?>
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="test">
+                                    <div class="index_tag_search">
                                         <h3>高三</h3>
                                         <div>
                                             <table style="margin: 0 auto;font-size: 18px;margin-top: 8px;"
                                                    class="subject_text">
                                                 <tr>
-                                                    <td><a href="">语文</a><a href="">数学</a><a href="">英语</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=语文">语文</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=数学">数学</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=语文">英语</a>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="">生物</a><a href="">化学</a><a href="">物理</a><a
-                                                                href="">政治</a><a href="">历史</a><a href="">地理</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=生物">生物</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=化学">化学</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=物理">物理</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=政治">政治</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=历史">历史</a>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=地理">地理</a>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="">其他</a></td>
+                                                    <td><a href="search/search.php?action=index_key_search&grade=高三&subject=其他">其他</a></td>
                                                 </tr>
                                             </table>
                                         </div>

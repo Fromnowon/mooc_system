@@ -50,6 +50,11 @@ function setMiscIndex() {
         $(".header").stop(true, true).css('opacity', 1);
     });
 
+    //搜索建议
+    $(".search_suj").on('click', function () {
+        $("#search-input").val($(this).html());
+    });
+
 }
 
 function setUI() {
@@ -60,6 +65,7 @@ function setUI() {
     $(".search_td").css('width', 2 * width / 3);
 
 }
+
 function closeSearch() {
     var searchContainer = document.querySelector('.search'),
         inputSearch = searchContainer.querySelector('.search__input');

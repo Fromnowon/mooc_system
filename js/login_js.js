@@ -56,10 +56,10 @@ function uiSet() {
 function login_bg(login_form) {
     //login背景
     $(".login_bg").css({
-        'width': login_form.width()+10,
-        'height': login_form.height()+20,
+        'width': login_form.width() + 10,
+        'height': login_form.height() + 20,
         'z-index': 1,
-        'top': login_form.offset().top-10,
+        'top': login_form.offset().top - 10,
         'left': login_form.offset().left
     });
 }
@@ -200,7 +200,13 @@ function setMisc() {
         }
     });
 
-
+    //读取cookie
+    if (Cookies.get('username') != undefined) {
+        $("#login_username").val(Cookies.get('username'));
+        $("#login_password").val(Cookies.get('password'));
+        $("#login_checkbox_remember").prop('checked','checked');
+        $("#submit_btn").removeAttr('disabled');
+    }
 }
 
 //异步登录
@@ -208,9 +214,20 @@ function ajaxLogin() {
     if (typeof($("#submit_btn").attr("disabled")) != "undefined") return false;
     var login_username = $("#login_username").val();
     var login_password = $("#login_password").val();
-    var logintoadmin = 0;
-    if ($("#login_checkbox_logintoadmin").is(':checked')) logintoadmin = 1;
-    else logintoadmin = 0;
+
+    //记住用户信息
+    if ($("#login_checkbox_remember").is(":checked")) {
+        Cookies.set('username', login_username, {expires: 7});
+        Cookies.set('password', login_password, {expires: 7});
+    } else {
+        Cookies.remove('username');
+        Cookies.remove('password');
+    }
+
+    if ($("#login_checkbox_logintoadmin").is(':checked'))
+        var logintoadmin = 1;
+    else
+        var logintoadmin = 0;
     $.ajax({
         type: "post",
         url: "./util/action.php?action=login",
@@ -349,3 +366,4 @@ function test() {
 
     animation();
 }
+

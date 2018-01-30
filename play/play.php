@@ -43,7 +43,7 @@ include 'playHandler.php';
             </tr>
             <tr>
                 <td class="player_bg  fadeInLeft animated">
-                    <video class="player" poster="../<?php courseSource('cover') ?>" controls>
+                    <video id="player" class="player" poster="../<?php courseSource('cover') ?>" controls>
                         <?php courseSource('path') ?>
                         <!-- Captions are optional -->
                     </video>

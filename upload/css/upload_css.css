@@ -4,7 +4,19 @@
 }
 
 .input_upload {
-    padding: 10px 0px 10px 0px;
+    padding-top: 15px;
+}
+.form-group{
+ margin: 20px 0;
+}
+.form-group1{
+    display: inline-block;
+    float: left;
+}
+.form-group2{
+    display: inline-block;
+    float: left;
+    margin-left: 30px;
 }
 
 /*进度条相关*/

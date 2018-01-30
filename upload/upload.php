@@ -41,7 +41,7 @@
             <textarea rows="6" style="resize: none" name="upload_introduction" class="form-control"
                       placeholder="课程知识点重点难点等"></textarea>
         </div>
-        <div class="form-group form-inline input_upload">
+        <div class="form-group form-group1 form-inline input_upload">
             <label for="upload_subject" class="control-label">科目：<span>&nbsp;&nbsp;</span></label>
             <select id="upload_subject" name="upload_subject" class="form-control">
                 <option value="暂无">暂无</option>
@@ -57,6 +57,15 @@
                 <option value="心理">心理</option>
                 <option value="信息技术">信息技术</option>
                 <option value="通用技术">通用技术</option>
+            </select>
+        </div>
+        <div class="form-group form-group2 form-inline input_upload">
+            <label for="upload_grade" class="control-label">年级：<span>&nbsp;&nbsp;</span></label>
+            <select id="upload_grade" name="upload_grade" class="form-control">
+                <option value="其他">其他</option>
+                <option value="高一">高一</option>
+                <option value="高二">高二</option>
+                <option value="高三">高三</option>
             </select>
         </div>
         <div>

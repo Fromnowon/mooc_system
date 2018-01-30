@@ -95,6 +95,7 @@ include 'index_handler.php' ?>
                             <?php
                             echo "<img src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'><span>" . $_SESSION['userinfo']['username'] . "</span>";
                             ?>
+                            <a href="upload/upload.php" style="color: green;">上传视频</a>
                             <a href="util/action.php?action=logout">注销</a>
                         </p>
                     </div>

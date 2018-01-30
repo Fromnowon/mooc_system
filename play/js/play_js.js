@@ -36,7 +36,8 @@ function noteInit(note, player) {
     note.find(".note_play").unbind().on('click', function () {
         var time = $(this).parents('.panel-default').find('.mark_time').html();//笔记对应时间点
         //console.log(time);
-        player.seek(time);
+        //player.seek(time);
+        document.getElementById("player").currentTime = time;
         //本地文件无法测试
     })
 }
@@ -217,7 +218,11 @@ function setMisc(courseID) {
 
     //textarea即时限制字数
     textLimit($('.reply_new').find('textarea'), $(".reply_new_limit"), 200);
-    textLimit($('.reply_edit').find('textarea'), $(".reply_edit_limit"), 200);
+    try {
+        textLimit($('.reply_edit').find('textarea'), $(".reply_edit_limit"), 200);
+    } catch (e) {
+        //nothing
+    }
 
 }
 

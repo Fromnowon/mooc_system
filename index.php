@@ -113,7 +113,7 @@ include 'index_handler.php' ?>
     </div>
     <div class="content_div optiscroll">
         <div class="content_main">
-            <table align="center">
+            <table align="center" style="overflow: hidden;">
                 <tr>
                     <td class="subject_nav" style="padding-left: 20px">
                         <table style="margin: 0 auto">
@@ -242,7 +242,7 @@ include 'index_handler.php' ?>
                         </div>
                     </td>
                 </tr>
-            </table>
+            </table sty ststy>
             <!--展示最新上传的5个-->
             <hr>
             <div class="video_list newest_upload">

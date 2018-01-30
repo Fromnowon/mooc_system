@@ -15,7 +15,7 @@ function setMiscIndex() {
     var height = $(window).height();
     //滑动区域
     var content = $(".content_div");
-    content.css('height', height - 20);
+    content.css('height', height);
     content.optiscroll({scrollStopDelay: 100});
 
     $('.hub-slider-slides ul').hubSlider({
@@ -63,7 +63,6 @@ function setUI() {
     $(".logo_td").css('width', width / 3);
     $(".info_td").css('width', width / 3);
     $(".search_td").css('width', 2 * width / 3);
-
 }
 
 function closeSearch() {

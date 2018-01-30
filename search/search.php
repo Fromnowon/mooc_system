@@ -116,6 +116,5 @@ include 'searchHandler.php';
         </table>
     </div>
 </div>
-
 </body>
 </html>

@@ -31,7 +31,7 @@ function uiSet() {
     var clientheight = $(window).height();
     var clientwidth = $(window).width();
     var login_form = $("#login");
-    login_form.css('left', clientwidth / 2 - 155).css('top', clientheight * 0.07);
+    login_form.css('left', clientwidth / 2 - 155).css('top', clientheight / 2 - 250);
     $("#container").css('height', clientheight);
     var footer = $("footer");
     footer.css('height', 30);
@@ -180,7 +180,7 @@ function setMisc() {
     if (Cookies.get('username') != undefined) {
         $("#login_username").val(Cookies.get('username'));
         $("#login_password").val(Cookies.get('password'));
-        $("#login_checkbox_remember").prop('checked','checked');
+        $("#login_checkbox_remember").prop('checked', 'checked');
         $("#submit_btn").removeAttr('disabled');
     }
 }

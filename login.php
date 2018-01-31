@@ -80,5 +80,14 @@ include('./util/register.php');
 <div id="footer">
     <footer>2018 Designed by ZZH</footer>
 </div>
+<?php
+if (strpos($_SERVER['HTTP_USER_AGENT'], "Triden")) {
+    echo '<script>
+    setTimeout(function () {
+        $("#ie_error").modal({backdrop: \'static\'});
+    },2000);
+</script>';
+}
+?>
 </body>
 </html>

@@ -87,7 +87,7 @@ function loadNote()
             . $p3_t . '</span></a>';
 
         $p4 = '<span>&nbsp;&nbsp;</span>
-            <a  title="点击展开或收起笔记" class="collapsed" role="button" data-toggle="collapse" href="#collapse' . $rs['id'] . '" aria-expanded="false">'
+            <a style="color: blue" title="点击展开或收起笔记" class="collapsed" role="button" data-toggle="collapse" href="#collapse' . $rs['id'] . '" aria-expanded="false">'
             . $rs['title']
             . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
             . '<div id="collapse' . $rs['id'] . '" class="panel-collapse collapse" role="tabpanel">';

@@ -221,3 +221,9 @@ body {
     color: dodgerblue;
     cursor: pointer;
 }
+
+.subject_nav a:hover{
+    text-decoration: none;
+    font-weight: bold;
+    color: green;
+}

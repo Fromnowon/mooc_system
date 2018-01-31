@@ -23,8 +23,7 @@ include 'index_handler.php' ?>
 </head>
 <body>
 <div class="content">
-    <div class="search_bg">
-    </div>
+    <div class="search_bg"></div>
     <div class="header">
         <table style="table-layout: fixed;">
             <tr>
@@ -116,7 +115,7 @@ include 'index_handler.php' ?>
             <table align="center" style="overflow: hidden;">
                 <tr>
                     <td class="subject_nav" style="padding-left: 20px">
-                        <table style="margin: 0 auto">
+                        <table style="margin: 0 auto;">
                             <tr>
                                 <td>
                                     <div class="index_tag_search">
@@ -217,7 +216,9 @@ include 'index_handler.php' ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="search/search.php?action=index_key_search&grade=高三&subject=其他">其他</a></td>
+                                                    <td>
+                                                        <a href="search/search.php?action=index_key_search&grade=高三&subject=其他">其他</a>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -236,38 +237,38 @@ include 'index_handler.php' ?>
                                 </ul>
                             </div>
                             <div class="hub-slider-controls">
-                                <button class="hub-slider-arrow hub-slider-arrow_next">↑</button>
-                                <button class="hub-slider-arrow hub-slider-arrow_prev">↓</button>
+                                <button class="hub-slider-arrow hub-slider-arrow_prev">prev</button>
+                                <button class="hub-slider-arrow hub-slider-arrow_next">next</button>
                             </div>
                         </div>
                     </td>
                 </tr>
             </table sty ststy>
             <!--展示最新上传的5个-->
-            <hr>
+            <br>
             <div class="video_list newest_upload">
                 <table style="margin: 0 auto">
                     <tr>
-                        <td><h3>最新上传：</h3></td>
+                        <td><h3 style="font-weight: bold">最新上传：</h3></td>
                     </tr>
                     <tr>
                         <?php newest(); ?>
                     </tr>
                 </table>
             </div>
-            <hr>
+            <br>
             <!--最多点击的5个-->
             <div class="video_list most_views">
                 <table style="margin: 0 auto">
                     <tr>
-                        <td><h3>最多点击：</h3></td>
+                        <td><h3 style="font-weight: bold">最多点击：</h3></td>
                     </tr>
                     <tr>
                         <?php hottest(); ?>
                     </tr>
                 </table>
             </div>
-            <hr>
+            <br>
         </div>
 
     </div>

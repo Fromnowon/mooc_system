@@ -16,21 +16,34 @@
 
 </head>
 <body style="visibility: hidden;overflow: hidden">
-<div style="position: absolute;" id="canvas_div">
-    <canvas id="canvas"></canvas>
-</div>
-<!--<div id="container">-->
-<!--    <div id="output"></div>-->
-<!--</div>-->
 <!--登录模块-->
-<div class="login_bg"></div>
+<!--<div class="login_bg"></div>-->
 <div id="login">
     <img class="img-responsive login_logo" src="resource/doge.png"/>
     <div id="login_form">
-        <input id="login_username" type="text" class="form-control login_input" placeholder="用户名">
-        &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
-        <input id="login_password" type="password" class="form-control login_input" placeholder="密码">
-        &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
+        <div>
+            <table style="margin: 0 auto">
+                <tr>
+                    <td>
+                        <div style="position: relative">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            <input id="login_username" type="text" class="form-control login_input" placeholder="用户名">
+                            &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="position: relative">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            <input id="login_password" type="password" class="form-control login_input"
+                                   placeholder="密码">
+                            &nbsp;&nbsp;&nbsp;<span style="color: red;visibility: hidden">* 长度小于3字符</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <br/>
         <div id="checkbox_div">
             <table>
@@ -40,12 +53,12 @@
                             <label class="demo--label">
                                 <input id="login_checkbox_remember" value="enable" class="demo--radio" type="checkbox"
                                        name="demo-checkbox1">
-                                <span class="demo--checkbox demo--radioInput"></span><span style="color: white">记住密码</span>
+                                <span class="demo--checkbox demo--radioInput"></span><span>记住密码</span>
                             </label>
                             <label class="demo--label">
                                 <input id="login_checkbox_logintoadmin" value="enable" class="demo--radio"
                                        type="checkbox" name="demo-checkbox2">
-                                <span class="demo--checkbox demo--radioInput"></span><span style="color: white">登录后台</span>
+                                <span class="demo--checkbox demo--radioInput"></span><span>登录后台</span>
                             </label>
                         </div>
                         <br/><br/>
@@ -56,7 +69,7 @@
         </div>
         <div id="btn_div">
             <a id="reg_btn" class="btn btn-default">注册</a>
-            <a id="submit_btn" class="btn btn-success" onclick="ajaxLogin()"> 登录</a>
+            <a id="submit_btn" class="btn btn-primary" onclick="ajaxLogin()"> 登录</a>
         </div>
     </div>
 </div>
@@ -65,7 +78,7 @@
 include('./util/register.php');
 ?>
 <div id="footer">
-    <footer style="color: white">2018 Designed by ZZH</footer>
+    <footer>2018 Designed by ZZH</footer>
 </div>
 </body>
 </html>

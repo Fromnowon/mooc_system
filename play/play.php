@@ -27,7 +27,14 @@ include 'playHandler.php';
 <!--</div>-->
 <div style="z-index: 2;position: relative">
     <div class="play_header fadeInDown animated">
-        <a href="javascript:window.opener=null;window.open('','_self');window.close();">关闭</a>
+        <a style="font-size: 20px;color: red" href="javascript:void(0)" onclick="close_play()">关闭</a>
+        <script>
+            function close_play() {
+                window.opener = null;
+                window.open('', '_self');
+                window.close();
+            }
+        </script>
         <div class="play_userinfo">
             <?php headerInfo(); ?>
         </div>

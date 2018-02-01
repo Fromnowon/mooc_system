@@ -38,6 +38,7 @@ function index_key_search()
     $result = '';
     $count = 0;
     while ($rs = mysqli_fetch_array($r)) {
+        if ($count % 5 == 1 && $count != 1) $result .= '</tr><tr>';
         $result .= '<td><div class="port-1 effect-2">
 		                	<div class="image-box">
 		                    	<img src="../' . $rs['cover'] . '" alt="Image-1" style="width: 260px;height: 160px">
@@ -54,10 +55,9 @@ function index_key_search()
 		                </div>
 		                <div style="text-align: center;"><h4 style="line-height: 40px">' . $rs['title'] . '</h4></div></td>';
         $count++;
-        if ($count == 5) $result .= '<tr>' . $result . '</tr>';
     }
-    if ($count == 0) echo '<td><p style="color: red;font-size: 24px">无匹配结果！</p></td>';
-    echo $result;
+    if ($count == 0) echo $result . '<p style="font-size: 20px">当前检索条件：<span class="label label-info">' . $grade . '</span>+<span class="label label-info">' . $subject . '</span></p><hr><p style="color: red;font-size: 24px">无匹配结果！</p>';
+    else echo '<p style="font-size: 20px">当前检索条件：<span class="label label-success">' . $grade . '</span>+<span class="label label-info">' . $subject . '</span></p><hr><table><tr>' . $result . '</tr></table>';
     mysqli_close($conn);
 }
 
@@ -90,7 +90,9 @@ function key_search()
     }
     //输出结果
     $result_html = '';
+    $count = 0;
     foreach ($result as $val) {
+        if ($count % 5 == 1 && $count != 1) $result_html .= '</tr><tr>';
         $result_html .= '<td><div class="port-1 effect-2">
 		                	<div class="image-box">
 		                    	<img src="../' . $val['cover'] . '" alt="Image-1" style="width: 260px;height: 160px">
@@ -107,7 +109,7 @@ function key_search()
 		                </div>
 		                <div style="text-align: center"><h4 style="line-height: 40px">' . $val['title'] . '</h4></div></td>';
     }
-    if ($result_html == '') echo '<td><p style="color: red;font-size: 24px">无匹配结果！</p></td>';
-    else echo $result_html;
+    if ($result_html == '') echo '<table><tr><td style="font-size: 20px">当前搜索关键词：<span class="label label-primary">' . $search_key . '</span><hr></td></tr><tr><td><p style="color: red;font-size: 24px">无匹配结果！</p></td></tr></table>';
+    else echo '<p style="font-size: 20px">当前搜索关键词：<span class="label label-primary">' . $search_key . '</span></p><hr><table><tr>' . $result_html . '</tr></table>';
     mysqli_close($conn);
 }

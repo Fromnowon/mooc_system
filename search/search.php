@@ -23,7 +23,8 @@ include 'searchHandler.php';
                 关键词检索:</h3>
             <input type="text" class="form-control" name="search"
                    style="display: inline-block;width: 200px;margin-left: 20px">
-            <button class="btn btn-primary search_key_btn" type="submit" style="width: 100px;margin-left: 20px">搜索</button>
+            <button class="btn btn-primary search_key_btn" type="submit" style="width: 100px;margin-left: 20px">搜索
+            </button>
         </form>
         <a href="../index.php" style="float: right;padding-right: 50px;font-size: 20px">返回主页</a>
     </div>
@@ -101,7 +102,8 @@ include 'searchHandler.php';
                     <td>
                         <ul style="margin-top: 0">
                             <li>
-                                <button type="submit" class="btn btn-primary tag_search_btn" style="width: 100px">检索</button>
+                                <button type="submit" class="btn btn-primary tag_search_btn" style="width: 100px">检索
+                                </button>
                             </li>
                         </ul>
                     </td>
@@ -111,9 +113,7 @@ include 'searchHandler.php';
         <hr>
     </div>
     <div class="search_result">
-        <table>
-            <tr><?php search_result(); ?></tr>
-        </table>
+        <?php search_result(); ?>
     </div>
 </div>
 </body>

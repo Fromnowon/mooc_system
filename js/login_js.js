@@ -130,14 +130,17 @@ function regModule() {
                         $('#reg_modal').modal('hide');
                         $("#reg_form").find('input').val('');
                         $("#submit_btn").attr('disabled', false);
-                        ;
                         //启用注册按钮
                         $("#reg_submit").attr('disabled', false);
-                        ;
                     }
-                    else
-                        alert('ERROR!请联系管理员');
-                    console.log(msg);
+                    else if (msg='CONFLICT'){
+                        alert('用户名已存在');
+                        reg_tip.html('');
+                        $("#reg_submit").attr('disabled', false);
+                    }else {
+                        alert('未知错误!请联系管理员');
+                    }
+                    //console.log(msg);
                 },
                 error: function (msg) {
                     alert("ERROR!");

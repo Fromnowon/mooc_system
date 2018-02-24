@@ -52,7 +52,7 @@
             <div class="modal-body">
                 <p style="color: blue">检测到您正在使用IE浏览器</p>
                 <p>由于<span style="color: red">代(ben)码(ren)框(shui)架(ping)</span>限制，本网站只能在<span style="color: red">Chrome内核</span>浏览器中正常运行</p>
-                <p>若您正在使用360、搜狗等浏览器，请把浏览模式切换为<span style="font-weight: bold;font-size: 16px">&nbsp;&nbsp;[极速模式]</span></p>
+                <p>若您正在使用360、搜狗等浏览器，请把浏览模式切换为<span style="font-size: 16px">&nbsp;&nbsp;[极速模式]</span></p>
                 <p>或者安装谷歌浏览器（来源：百度软件）：<a href="http://sw.bos.baidu.com/sw-search-sp/software/1e5d43b6599f5/ChromeStandalone_64.0.3282.119_Setup.exe">点击下载</a></p>
             </div>
             <div class="modal-footer">

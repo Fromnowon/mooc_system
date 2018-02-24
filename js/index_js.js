@@ -1,4 +1,12 @@
 $(function () {
+    $('body').gradientify({
+        gradients: [
+            {start: [49, 76, 172], stop: [242, 159, 191]},
+            {start: [255, 103, 69], stop: [240, 154, 241]},
+            {start: [33, 229, 241], stop: [235, 236, 117]}
+        ],
+        fps: 5
+    });
     //初始化ui
     setUI();
 
@@ -54,7 +62,6 @@ function setMiscIndex() {
     $(".search_suj").on('click', function () {
         $("#search-input").val($(this).html());
     });
-
 }
 
 function setUI() {

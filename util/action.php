@@ -100,6 +100,12 @@ function register($conn, $date)
     $school = nullHandler($_POST['reg_school']);
     $contact = nullHandler($_POST['reg_contact']);
     $reg_realname = nullHandler($_POST['reg_realname']);
+    //查重
+    if (mysqli_num_rows(mysqli_query($conn, "select * from user where username='$username'")) > 0) {
+        echo "CONFLICT";
+        mysqli_close($conn);
+        exit();
+    }
     $sql = "insert into user (username,password,real_name,email,contact,school,introduction,reg_date) values ('$username','$password','$reg_realname','$email','$contact','$school','暂无','$date')";
     if (mysqli_query($conn, $sql))
         echo 'OK';

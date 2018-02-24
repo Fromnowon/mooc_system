@@ -304,11 +304,12 @@ function editData(action, uid, obj) {
 
 function editCourse(action, id, obj) {
     if (!obj.children(':first-child').hasClass('id')) {
-
+        return;
     }
     else $("#course_edit_modal").modal({backdrop: 'static'});
     $("#course_flag").val(obj.children('.flag').children('span').attr('value'));
     $("#upload_subject").val(obj.children('.subject').html());
+    $("#upload_grade").val(obj.children('.grade').html());
     $("#edit_course_title").val(obj.children('.title').html());
     $("#edit_course_introduction").val(obj.children('.introduction').html());
     //提交按钮
@@ -319,6 +320,7 @@ function editCourse(action, id, obj) {
             action: action,
             flag: $("#course_flag").val(),
             subject: $("#upload_subject").val(),
+            grade: $("#upload_grade").val(),
             title: $("#edit_course_title").val(),
             introduction: $("#edit_course_introduction").val()
         };
@@ -331,6 +333,7 @@ function editCourse(action, id, obj) {
                 var flag_arr = {'0': '正常', '1': '审核中', '-1': '屏蔽'};
                 obj.children('.flag').children('span').html(flag_arr[data['flag']]);
                 obj.children('.subject').html(data['subject']);
+                obj.children('.grade').html(data['grade']);
                 obj.children('.title').html(data['title']);
                 obj.children('.introduction').html(data['introduction']);
                 obj.children('.edit_date').html(msg);

@@ -1,14 +1,16 @@
 
 body {
-    background: url(../img/play_bg1.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed
+    /*background: url(../img/play_bg1.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed*/
+    /*为避免滑动性能过差的问题，采用佛系背景*/
+    background: #ededed;
 }
 
 .play_header {
     background: white;
     padding: 10px 30px 10px 30px;
-    box-shadow: 0px 2px 10px #2a2a2a;
+    box-shadow: 0 2px 10px #888888;
 }
 
 .play_header {

@@ -13,25 +13,29 @@ if (!isset($_GET['admin_action'])) {
 }
 include('conn.php');
 switch ($_GET['admin_action']) {
-    case 'user_status': {
-        //返回查询数据，注意判断动作类型
-        sqlUsers($conn, $_POST['page'], $_POST['action']);
-        break;
-    }
-    case 'edit_add': {
-        editOrSave($conn, $date, $_POST['action']);
-        break;
-    }
-    case 'course_status': {
-        sqlCourse($conn, $_POST['page'], $_POST['action'], $date);
-        break;
-    }
-    case 'logout': {
-        $_SESSION = [];
-        session_destroy();
-        header("Location: ../login.php");
-        break;
-    }
+    case 'user_status':
+        {
+            //返回查询数据，注意判断动作类型
+            sqlUsers($conn, $_POST['page'], $_POST['action']);
+            break;
+        }
+    case 'edit_add':
+        {
+            editOrSave($conn, $date, $_POST['action']);
+            break;
+        }
+    case 'course_status':
+        {
+            sqlCourse($conn, $_POST['page'], $_POST['action'], $date);
+            break;
+        }
+    case 'logout':
+        {
+            $_SESSION = [];
+            session_destroy();
+            header("Location: ../login.php");
+            break;
+        }
 
 }
 function sqlCourse($conn, $page, $action, $date)
@@ -41,13 +45,14 @@ function sqlCourse($conn, $page, $action, $date)
         $id = $_POST['id'];
         $flag = $_POST['flag'];//数值
         $subject = $_POST['subject'];
+        $grade = $_POST['grade'];
         $title = $_POST['title'];
         $introduction = $_POST['introduction'];
-        $sql = "update course set flag='$flag',subject='$subject',title='$title',introduction='$introduction',edit_date='$date' where id='$id'";
+        $sql = "update course set flag='$flag',subject='$subject',grade='$grade',title='$title',introduction='$introduction',edit_date='$date' where id='$id'";
         if (mysqli_query($conn, $sql))
             echo $date;
         else
-            echo $sql;//检查sql语句
+            echo 'error! : ' . $sql;//检查sql语句
         mysqli_close($conn);
         exit();
     }
@@ -388,7 +393,6 @@ function editOrSave($conn, $date, $action)
         mysqli_query($conn, $sql);
         //返回一行
         echo '<tr id="edit_complete" class="edit_complete"><td class="uid">' . $uid . '</td><td class="username">' . $username . '</td><td class="real_name">' . $realname . '</td><td class="gender"><span value="0">' . $gender_arr[$gender] . '</span></td><td class="email">' . $email . '</td><td class="contact">' . $contact . '</td><td class="school">' . $school . '</td><td class="reg_date">' . $_POST['reg_date'] . '</td><td class="introduction">' . $introduction . '</td><td class="flag"><span value="0">' . $flag_arr[$flag] . '</span></td><td class="status"><span value="1">' . $status_arr[$status] . '</span></td><td class="subject"><span value="暂无">' . $subject . '</span></td><td class="total">' . $_POST['total'] . '</td><td class="tag">暂无</td><td class="total_like">' . $_POST['total_like'] . '</td><td class="total_dislike">' . $_POST['total_dislike'] . '</td><td class="edit_date">' . $date . '</td></tr>';
-
     }
     mysqli_close($conn);
 }

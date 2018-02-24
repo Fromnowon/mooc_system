@@ -35,6 +35,14 @@
                         <option value="通用技术">通用技术</option>
                         <option value="暂无">暂无</option>
                     </select>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+                    <label for="upload_grade" class="control-label">年级：<span>&nbsp;&nbsp;</span></label>
+                    <select id="upload_grade" name="upload_grade" class="form-control">
+                        <option value="其他">其他</option>
+                        <option value="高一">高一</option>
+                        <option value="高二">高二</option>
+                        <option value="高三">高三</option>
+                    </select>
                 </div>
                 <div>
                     <br/>

@@ -37,8 +37,8 @@ if (!isset($userinfo['username'])) {
         <ul>
             <li>欢迎您！</li>
             <li><a href=""><?php echo $userinfo['username'] ?></a></li>
-            <li><a href="">修改密码</a></li>
-            <li><a href="">设置</a></li>
+<!--            <li><a href="">修改密码</a></li>-->
+<!--            <li><a href="">设置</a></li>-->
             <li><a href="../util/admin_action.php?admin_action=logout">退出</a></li>
         </ul>
     </div>
@@ -69,22 +69,22 @@ if (!isset($userinfo['username'])) {
                     <a href="javascript:void(0)">暂无</a>
                 </div>
             </li>
-            <li>
-                <h4 class="M5"><span></span>课程审核</h4>
-                <div class="list-item none">
-                    <a href="javascript:void(0)">暂无</a>
-                    <a href="javascript:void(0)">暂无</a>
-                    <a href="javascript:void(0)">暂无</a>
-                </div>
-            </li>
-            <li>
-                <h4 class="M9"><span></span>留言管理</h4>
-                <div class="list-item none">
-                    <a href="javascript:void(0)">暂无</a>
-                    <a href="javascript:void(0)">暂无</a>
-                    <a href="javascript:void(0)">暂无</a>
-                </div>
-            </li>
+<!--            <li>-->
+<!--                <h4 class="M5"><span></span>课程审核</h4>-->
+<!--                <div class="list-item none">-->
+<!--                    <a href="javascript:void(0)">暂无</a>-->
+<!--                    <a href="javascript:void(0)">暂无</a>-->
+<!--                    <a href="javascript:void(0)">暂无</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <h4 class="M9"><span></span>留言管理</h4>-->
+<!--                <div class="list-item none">-->
+<!--                    <a href="javascript:void(0)">暂无</a>-->
+<!--                    <a href="javascript:void(0)">暂无</a>-->
+<!--                    <a href="javascript:void(0)">暂无</a>-->
+<!--                </div>-->
+<!--            </li>-->
             <li>
                 <h4 class="M10"><span></span>用户管理</h4>
                 <div class="list-item none">

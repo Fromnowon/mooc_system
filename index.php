@@ -17,6 +17,7 @@ include 'index_handler.php' ?>
     <link href="css/hub-slider.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/hover-effects.css" rel="stylesheet">
+    <script src="js/jquery.gradientify.min.js" type="text/javascript"></script>
 
     <script src="js/index_js.js" type="text/javascript"></script>
     <link href="css/index_css.css?v=14" rel="stylesheet">

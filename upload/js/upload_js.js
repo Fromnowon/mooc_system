@@ -16,7 +16,7 @@ function setMisc() {
     $("#upload_file").filestyle({placeholder: "No file"});
     $(".buttonText").html('选择文件');
 
-    $(".backtoindex").on('click',function () {
+    $(".backtoindex").on('click', function () {
         window.location.href = "../index.php";
     })
 }
@@ -32,7 +32,12 @@ function uploadHandler() {
         },
         beforeSubmit: function () {
             //alert("表单提交前的操作");
-            var filesize = $("input[type='file']")[0].files[0].size / 1024 / 1024;
+            var file = $("input[type='file']")[0].files[0];
+            if (file == undefined) {
+                alert('请选择正确文件');
+                return false;
+            }
+            var filesize = file.size / 1024 / 1024;
             if (filesize > 500) {
                 alert("文件大小超过限制，最多500M");
                 return false;
@@ -45,7 +50,7 @@ function uploadHandler() {
             bar.width(percentVal)
             percent.html(percentVal);
             $(".progress").css('visibility', 'visible');
-            $("#upload_btn").attr('disabled',true);
+            $("#upload_btn").attr('disabled', true);
         },
         uploadProgress: function (event, position, total, percentComplete) {//上传的过程
             //position 已上传了多少
@@ -66,7 +71,7 @@ function uploadHandler() {
         },
         complete: function (xhr) {//完成
             status.html(xhr.responseText);
-            $("#upload_btn").attr('disabled',false);
+            $("#upload_btn").attr('disabled', false);
         }
     });
 

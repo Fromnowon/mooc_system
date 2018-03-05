@@ -12,11 +12,21 @@ $(function () {
 
     //其他
     setMiscIndex();
+
+    //bbs下拉菜单
+    bbsFilter();
 });
 
 $(window).resize(function () {
     setUI();
 })
+
+function bbsFilter() {
+    $(".bbs_list").on('click',function () {
+        var select=$(this).html();
+        $(this).parents('ul').prev().children(":first-child").html(select);
+    })
+}
 
 function setMiscIndex() {
     var width = $(window).width();

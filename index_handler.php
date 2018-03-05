@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ZZH
- * Date: 2018/1/21
- * Time: 22:21
- */
 include 'util/conn.php';
 session_start();
 if (!isset($_SESSION['userinfo'])) {

@@ -8,6 +8,7 @@ include 'index_handler.php' ?>
     <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="js/jquery.form.min.js" type="text/javascript"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="util/util_js.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="css/index_search.css"/>
@@ -270,8 +271,54 @@ include 'index_handler.php' ?>
                 </table>
             </div>
             <br>
+            <hr>
+            <!-- 论坛部分-->
+            <h3>大家在讨论什么：</h3>
+            <div class="input-group-btn">
+                <button id="user_form_search_button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false" filter="1"><span>最新发布</span><span class="caret" style="margin-left: 5px"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="bbs_list" filter="1" href="javascript:void(0)">最新发布</a></li>
+                    <li><a class="bbs_list" filter="2" href="javascript:void(0)">最新回复</a></li>
+                    <li><a class="bbs_list" filter="3" href="javascript:void(0)">最多点击</a></li>
+                    <li><a class="bbs_list" filter="4" href="javascript:void(0)">最多回复</a></li>
+                </ul>
+            </div>
+            <div class="bbs_prev"  style="margin-top: 10px">
+                <table class="bbs_prev_content table table-striped">
+                    <tr style="font-size: 18px;font-weight: bold">
+                        <td>标题</td>
+                        <td>发帖者</td>
+                        <td>回复/点击</td>
+                        <td>创建时间</td>
+                        <td>最后回复</td>
+                    </tr>
+                    <tr>
+                        <td class="title">
+                            学科深度融合相关讨论
+                        </td>
+                        <td class="uid">
+                            admin
+                        </td>
+                        <td class="partake">
+                            2/112
+                        </td>
+                        <td class="create_date">
+                            2018.3.5
+                        </td>
+                        <td class="last_date">
+                            2018.3.5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="text-align: center">
+                            <a href="bbs/bbs_index.php">点击进入完整讨论板块</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-
     </div>
 </div>
 <div class="index_bg"></div>

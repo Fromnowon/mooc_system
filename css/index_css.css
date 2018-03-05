@@ -229,3 +229,21 @@ body {
     font-weight: bold;
     color: green;
 }
+
+/*论坛部分*/
+.bbs_prev{
+    background: whitesmoke;
+    padding: 0 10px 0;
+    border:1px solid;
+    border-radius:5px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.bbs_prev_content{
+    margin: 0 auto;
+    width: 100%;
+}
+.bbs_prev_content td{
+
+}

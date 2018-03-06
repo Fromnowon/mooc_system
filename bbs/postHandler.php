@@ -8,15 +8,41 @@ if (!isset($_GET['action'])) {
 }
 
 include('../util/conn.php');
+include('../util/sqlTool.php');
 
-switch ($_GET['action']){
-    case 'newpost':{
-        newPost();
-        break;
-    }
+switch ($_GET['action']) {
+    case 'newpost':
+        {
+            newPost($conn, $date);
+            break;
+        }
+    case 'postreply':
+        {
+            postReply($conn, $date);
+            break;
+        }
 }
 
-function newPost(){
-    $title=$_POST['title'];
-    $content=$_POST['content'];
+function newPost($conn, $date)
+{
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $r = add($conn, 'bbs',
+        [$_SESSION['userinfo']['uid'], $title, $content, 0, 0, $date, $date, 1]
+    );
+    if ($r) echo 'ok';
+    else echo 'error';
+}
+
+function postReply($conn, $date)
+{
+    $id = $_POST['id'];
+    $content = $_POST['content'];
+    $r = add($conn, 'bbs_reply', [$id, $_SESSION['userinfo']['uid'], $content, $date]);
+    //回复数+1
+    update($conn, "bbs", 'reply=reply+1', "id=$id");
+    //更新回复时间
+    mysqli_query($conn, "update bbs set last_reply_date=$date where id=$id");
+    if ($r) echo 'ok';
+    else echo 'error';
 }

@@ -313,7 +313,7 @@ include 'index_handler.php' ?>
                     </tr>
                     <tr>
                         <td colspan="5" style="text-align: center">
-                            <a href="bbs/bbs_index.php">点击进入完整讨论板块</a>
+                            <a target="_blank" href="bbs/bbs_index.php">点击进入完整讨论板块</a>
                         </td>
                     </tr>
                 </table>

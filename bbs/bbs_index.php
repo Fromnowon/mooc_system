@@ -3,6 +3,8 @@ session_start();
 if (!isset($_SESSION['userinfo'])) {
     header("Location:../login.php");
 }
+include '../util/conn.php';
+include '../util/sqlTool.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,15 +15,56 @@ if (!isset($_SESSION['userinfo'])) {
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 
-    <link href="bbs.css" rel="stylesheet">
-    <script src="bbs.js" type="text/javascript"></script>
+    <script src="../util/util_js.js" type="text/javascript"></script>
+    <link href="css/bbs.css" rel="stylesheet">
+    <script src="js/bbs.js" type="text/javascript"></script>
 </head>
 <body>
 <?php
-print_r($_SESSION['userinfo']);
+//print_r($_SESSION['userinfo']);
 ?>
 <div class="container">
-    <button class="btn btn-success" id="newpost">发表主题</button>
+    <?php
+    echo "<br><p>当前登录用户：<span style='font-weight: bold'>{$_SESSION['userinfo']['username']}</span></p>";
+    ?>
+    <button class="btn btn-success" id="newpost" style="margin: 10px 0">发表主题</button>
+    <div class="posts_list">
+        <?php
+        $r = all($conn, 'bbs', 'ORDER BY last_reply_date DESC');
+        $post_list = '<table class="table table-striped">
+                      <tr style="font-size: 18px;font-weight: bold">
+                        <td>标题</td>
+                        <td>发帖者</td>
+                        <td>回复/点击</td>
+                        <td>发表时间</td>
+                        <td>最后回复</td>
+                      </tr>';
+        foreach ($r as $post) {
+            //查询uid对应信息
+            $userinfo = select($conn, 'user', "uid={$post['uid']}");
+            $post_list .= "<tr>
+                        <td class='title'>
+                            <a href='post_detail.php?postid={$post['id']}'>{$post['title']}</a>
+                        </td>
+                        <td class='username'>
+                            {$userinfo[0]['username']}
+                        </td>
+                        <td class='partake'>
+                            {$post['reply']}" . " / " . "{$post['view']}
+                        </td>
+                        <td class='create_date'>
+                            {$post['create_date']}
+                        </td>
+                        <td class='last_date'>
+                            {$post['last_reply_date']}
+                        </td>
+                    </tr>";
+        }
+        $post_list .= '</table>';
+
+        echo $post_list;
+        ?>
+    </div>
 </div>
 
 <!-- Modal -->

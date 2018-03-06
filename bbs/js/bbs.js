@@ -8,8 +8,8 @@ $(function () {
 
 function newPost() {
     $("#new_post_submit").on('click', function () {
-        var title = $(".new_post_title").text();
-        var content = $(".new_post_content").text();
+        var title = $(".new_post_title").val();
+        var content = msg_handler($(".new_post_content").val());
         $.ajax({
             type: "post",
             url: "postHandler.php?action=newpost",
@@ -17,8 +17,10 @@ function newPost() {
             dataType: "text",
             success: function (msg) {
                 //console.log(msg);
-                alert('发表主题成功！');
-                window.location.reload();
+                if (msg == 'ok') {
+                    alert('发表主题成功！');
+                    window.location.reload();
+                } else alert('发生错误！');
             },
             error: function (msg) {
                 alert("ERROR!");

@@ -275,9 +275,12 @@ include 'index_handler.php' ?>
             <!-- 论坛部分-->
             <h3>大家在讨论什么：</h3>
             <div class="input-group-btn">
-                <button id="user_form_search_button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                <button id="user_form_search_button" type="button" class="btn btn-default dropdown-toggle"
+                        data-toggle="dropdown"
                         aria-haspopup="true"
-                        aria-expanded="false" filter="1"><span>最新发布</span><span class="caret" style="margin-left: 5px"></span></button>
+                        aria-expanded="false" filter="1"><span>最新发布</span><span class="caret"
+                                                                                style="margin-left: 5px"></span>
+                </button>
                 <ul class="dropdown-menu">
                     <li><a class="bbs_list" filter="1" href="javascript:void(0)">最新发布</a></li>
                     <li><a class="bbs_list" filter="2" href="javascript:void(0)">最新回复</a></li>
@@ -285,7 +288,7 @@ include 'index_handler.php' ?>
                     <li><a class="bbs_list" filter="4" href="javascript:void(0)">最多回复</a></li>
                 </ul>
             </div>
-            <div class="bbs_prev"  style="margin-top: 10px">
+            <div class="bbs_prev" style="margin-top: 10px">
                 <table class="bbs_prev_content table table-striped">
                     <tr style="font-size: 18px;font-weight: bold">
                         <td>标题</td>
@@ -294,23 +297,31 @@ include 'index_handler.php' ?>
                         <td>创建时间</td>
                         <td>最后回复</td>
                     </tr>
-                    <tr>
-                        <td class="title">
-                            学科深度融合相关讨论
+                    <?php
+                    include 'util/sqlTool.php';
+                    $content = '';
+                    $rs = all($conn, 'bbs', 'ORDER BY create_date DESC');
+                    foreach ($rs as $post) {
+                        $user_rs = select($conn, 'bbs', "uid={$post['id']}");
+                        $content .="<tr>
+                        <td class='title'>
+                            {$post['']}
                         </td>
-                        <td class="uid">
+                        <td class='uid'>
                             admin
                         </td>
-                        <td class="partake">
+                        <td class='partake'>
                             2/112
                         </td>
-                        <td class="create_date">
+                        <td class='create_date'>
                             2018.3.5
                         </td>
-                        <td class="last_date">
+                        <td class='last_date'>
                             2018.3.5
                         </td>
-                    </tr>
+                    </tr>";
+                    }
+                    ?>
                     <tr>
                         <td colspan="5" style="text-align: center">
                             <a target="_blank" href="bbs/bbs_index.php">点击进入完整讨论板块</a>

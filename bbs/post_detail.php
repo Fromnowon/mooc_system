@@ -86,7 +86,7 @@ include '../util/sqlTool.php';
 </td>
 <td class='post_content_table' valign='top' style='position: relative'>
 <p class='post_content'>{$reply['content']}</p>
-<p class='position'>$count" . "楼</p>
+<p class='position'><span><a name='{$user_rs[0]['username']}' class='reply_to' href='javascript:void(0)'>回复TA</a>&nbsp;&nbsp;&nbsp;</span>$count" . "楼</p>
 <p class='create_date'>发表于：{$reply['date']}</p>
 </td>
 </tr>

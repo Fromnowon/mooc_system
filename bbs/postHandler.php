@@ -32,6 +32,7 @@ function newPost($conn, $date)
     );
     if ($r) echo 'ok';
     else echo 'error';
+    mysqli_close($conn);
 }
 
 function postReply($conn, $date)
@@ -39,10 +40,9 @@ function postReply($conn, $date)
     $id = $_POST['id'];
     $content = $_POST['content'];
     $r = add($conn, 'bbs_reply', [$id, $_SESSION['userinfo']['uid'], $content, $date]);
-    //回复数+1
-    update($conn, "bbs", 'reply=reply+1', "id=$id");
-    //更新回复时间
-    mysqli_query($conn, "update bbs set last_reply_date=$date where id=$id");
+    //回复数+1,更新回复时间（日期那里真是把我坑死了...）
+    update($conn, "bbs", "reply=reply+1, last_reply_date='" . $date . "'", "id=$id");
     if ($r) echo 'ok';
     else echo 'error';
+    mysqli_close($conn);
 }

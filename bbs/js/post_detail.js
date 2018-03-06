@@ -1,6 +1,20 @@
 $(function () {
+    //新增回复
     postReply();
+
+    //回复某层
+    replyTo();
 })
+
+function replyTo() {
+    $(".reply_to").on('click', function () {
+        var name = $(this).attr('name');
+        var editor = $(".post_reply");
+        var text_old = editor.val();
+        editor.val('回复 '+name+' ：\n'+text_old);
+        editor.focus();
+    })
+}
 
 function postReply() {
     $('.post_reply_btn').on('click', function () {

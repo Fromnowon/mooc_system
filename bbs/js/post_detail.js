@@ -19,6 +19,10 @@ function replyTo() {
 function postReply() {
     $('.post_reply_btn').on('click', function () {
         var content = msg_handler($('.post_reply').val());
+        if (content==''||content==null){
+            alert('请输入内容');
+            return;
+        }
         $.ajax({
             type: "post",
             url: "postHandler.php?action=postreply",

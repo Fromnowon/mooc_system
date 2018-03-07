@@ -273,8 +273,8 @@ include 'index_handler.php' ?>
             <br>
             <hr>
             <!-- 论坛部分-->
-            <h3>大家在讨论什么：</h3>
-            <div class="input-group-btn">
+            <h3>最新主题：</h3>
+            <div class="input-group-btn" style="display: none">
                 <button id="user_form_search_button" type="button" class="btn btn-default dropdown-toggle"
                         data-toggle="dropdown"
                         aria-haspopup="true"
@@ -300,27 +300,28 @@ include 'index_handler.php' ?>
                     <?php
                     include 'util/sqlTool.php';
                     $content = '';
-                    $rs = all($conn, 'bbs', 'ORDER BY create_date DESC');
+                    $rs = all($conn, 'bbs', 'ORDER BY create_date DESC LIMIT 5');
                     foreach ($rs as $post) {
-                        $user_rs = select($conn, 'bbs', "uid={$post['id']}");
-                        $content .="<tr>
+                        $user_rs = select($conn, 'user', "uid={$post['uid']}");
+                        $content .= "<tr>
                         <td class='title'>
-                            {$post['']}
+                            <a href='bbs/post_detail.php?postid={$post['id']}'>{$post['title']}</a>
                         </td>
-                        <td class='uid'>
-                            admin
+                        <td class='username'>
+                            {$user_rs[0]['username']}
                         </td>
                         <td class='partake'>
-                            2/112
+                            {$post['reply']}" . " / " . "{$post['view']}
                         </td>
                         <td class='create_date'>
-                            2018.3.5
+                            {$post['create_date']}
                         </td>
                         <td class='last_date'>
-                            2018.3.5
+                            {$post['last_reply_date']}
                         </td>
                     </tr>";
                     }
+                    echo $content;
                     ?>
                     <tr>
                         <td colspan="5" style="text-align: center">

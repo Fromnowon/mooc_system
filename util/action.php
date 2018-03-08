@@ -13,6 +13,7 @@ if (!isset($_GET['action'])) {
     exit();
 }
 include('conn.php');
+include('sqlTool.php');
 
 switch ($_GET['action']) {
     case 'login':
@@ -50,6 +51,11 @@ switch ($_GET['action']) {
             header("Location: ../login.php");
             break;
         }
+    case 'change_avatar':
+        {
+            changeAvatar($conn);
+            break;
+        }
     default :
         {
             echo 'Error';
@@ -57,6 +63,15 @@ switch ($_GET['action']) {
             break;
         }
 }
+
+function changeAvatar($conn)
+{
+    $value = $_POST['value'];
+    update($conn, 'user', "avatar=$value", "uid={$_SESSION['userinfo']['uid']}");
+    $_SESSION['userinfo']['avatar'] = $value;
+    echo 'ok';
+}
+
 //登录函数
 function login($conn, $username, $password, $checkbox)
 {

@@ -94,7 +94,7 @@ include 'index_handler.php' ?>
                     <div class="userinfo">
                         <p>
                             <?php
-                            echo "<img src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'><span>" . $_SESSION['userinfo']['username'] . "</span>";
+                            echo "<img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'><span>" . $_SESSION['userinfo']['username'] . "</span>";
                             ?>
                             <a href="upload/upload.php" style="color: green;">上传视频</a>
                             <a href="util/action.php?action=logout">注销</a>
@@ -334,5 +334,40 @@ include 'index_handler.php' ?>
     </div>
 </div>
 <div class="index_bg"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="change_avatar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">选择头像</h4>
+            </div>
+            <div class="modal-body">
+                <table class="change_avatar_list">
+                    <tr>
+                        <td><img  class="change_avatar_list_avatar" value="1" src="resource/avatar/1.png"></td>
+                        <td><img class="change_avatar_list_avatar" value="2" src="resource/avatar/2.png"></td>
+                        <td><img class="change_avatar_list_avatar" value="3" src="resource/avatar/3.png"></td>
+                    </tr>
+                    <tr>
+                        <td><img class="change_avatar_list_avatar" value="4" src="resource/avatar/4.png"></td>
+                        <td><img class="change_avatar_list_avatar" value="5" src="resource/avatar/5.png"></td>
+                        <td><img class="change_avatar_list_avatar" value="6" src="resource/avatar/6.png"></td>
+                    </tr>
+                    <tr>
+                        <td><img class="change_avatar_list_avatar" value="7" src="resource/avatar/7.png"></td>
+                        <td><img class="change_avatar_list_avatar" value="8" src="resource/avatar/8.png"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="change_avatar_submit">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

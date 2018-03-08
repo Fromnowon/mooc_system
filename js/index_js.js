@@ -72,6 +72,34 @@ function setMiscIndex() {
     $(".search_suj").on('click', function () {
         $("#search-input").val($(this).html());
     });
+
+    //更换头像
+    $(".change_avatar").on('click',function () {
+        $("#change_avatar_modal").modal({backdrop: 'static'});
+    })
+    $(".change_avatar_list_avatar").on('click',function () {
+        var all=$(".change_avatar_list_avatar");
+        all.removeAttr('flag');
+        all.removeClass('avatar_choose');
+        $(this).attr('flag',1);
+        $(this).addClass('avatar_choose');
+    })
+    $("#change_avatar_submit").on('click',function () {
+        $.ajax({
+            type: "post",
+            url: "util/action.php?action=change_avatar",
+            data: {value:$(".avatar_choose").attr('value')},
+            dataType: "text",
+            success: function (msg) {
+                //console.log(msg);
+                window.location.reload();
+            },
+            error: function (msg) {
+                alert("ERROR!");
+                //console.log(msg);
+            }
+        });
+    })
 }
 
 function setUI() {

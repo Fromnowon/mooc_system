@@ -4,6 +4,10 @@ body{
 }
 
 /*顶部*/
+.change_avatar{
+    cursor: pointer;
+}
+
 .header {
     /*visibility: hidden;*/
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.49);
@@ -38,7 +42,7 @@ body{
 }
 
 .header .userinfo img {
-    width: 30px;
+    width: 40px;
     margin: 0 5px 10px 0;
 }
 
@@ -209,7 +213,13 @@ body {
 
 
 .subject_text a{
-    padding-left: 20px;
+    padding: 0 10px;
+}
+
+.subject_text a:hover{
+    background: cadetblue;
+    text-decoration: none;
+    transition: background 1s;
 }
 
 .hub-slider{
@@ -222,12 +232,6 @@ body {
 .search_suj{
     color: dodgerblue;
     cursor: pointer;
-}
-
-.subject_nav a:hover{
-    text-decoration: none;
-    font-weight: bold;
-    color: green;
 }
 
 /*论坛部分*/
@@ -244,6 +248,14 @@ body {
     margin: 0 auto;
     width: 100%;
 }
-.bbs_prev_content td{
 
+/*头像修改*/
+.change_avatar_list img{
+    height: 50%;
+}
+.change_avatar_list_avatar{
+    cursor: pointer;
+}
+.avatar_choose{
+    background: rgba(255, 0, 0, 0.2);
 }

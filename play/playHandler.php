@@ -154,15 +154,15 @@ function teacherInfo()
 function loadReply()
 {
     global $rs_reply, $conn, $courseID, $date;
-    $a = mysqli_query($conn, "select * from reply where relate_course_id='$courseID' order by id desc");
+    $a = mysqli_query($conn, "select * from reply where relate_course_id='$courseID' order by id desc");//一级回复查询
     $rs_reply = array();
     while ($t = mysqli_fetch_array($a)) {
         $rs_reply[count($rs_reply)] = $t;
     }
-    $l = $total = count($rs_reply, COUNT_NORMAL);
+    $l = $total = count($rs_reply, COUNT_NORMAL);//统计回复数
     $i = 1;
 
-    foreach ($rs_reply as $reply) {
+    foreach ($rs_reply as $reply) {//循环拼接html语句
         $t1 = '<table class="reply_table" id="t' . $i . '" floor="' . $l . '" flag="' . $reply['id'] . '"';
         if ($i > 5) $t1 .= ' style="display: none"';
         $t2 = '>
@@ -199,11 +199,10 @@ function loadReply()
                     <div style="clear: both"></div>
                 </td>
             </tr>';
-        //查询二级回复
-        $sql_toreply = mysqli_query($conn, "select * from toreply where relate_reply_id='" . $reply['id'] . "' order by id desc");
+        $sql_toreply = mysqli_query($conn, "select * from toreply where relate_reply_id='" . $reply['id'] . "' order by id desc"); //查询二级回复
         $t3 = '';
         $j = 1;
-        while ($rs_toreply = mysqli_fetch_array($sql_toreply)) {
+        while ($rs_toreply = mysqli_fetch_array($sql_toreply)) {//循环拼接html语句
             if ($j > 5) {
                 $t3 .= '<tr style="display: none;" id="f' . $j . '">';
             } else $t3 .= '<tr id="f' . $j . '">';
@@ -218,8 +217,11 @@ function loadReply()
         $l--;
         if ($j > 5) {
             $j--;
-            echo $t1 . $t2 . $t3 . '<tr><td  colspan="2" class="toreply" style="text-align: center"><a class="more_toreply" href="javascript:void(0)" now="5" max="' . $j . '">加载更多回复</a><hr></td></tr></table> ';
+            echo $t1 . $t2 . $t3 . '<tr><td  colspan="2" class="toreply" style="text-align: center">
+                <a class="more_toreply" href="javascript:void(0)" now="5" max="'
+                . $j . '">加载更多回复</a><hr></td></tr></table> ';
         } else echo $t1 . $t2 . $t3 . '<tr><td colspan="2"><hr></td></tr></table> ';
     }
-    if ($i > 5) echo '<div style = "text-align: center;margin: 20px 0 80px 0" ><a class="btn btn-success more_reply" now = "5" max = "' . $total . '" > 显示更多讨论</a ></div > ';
+    if ($i > 5) echo '<div style = "text-align: center;margin: 20px 0 80px 0" ><a class="btn btn-success more_reply" now = "5" max = "'
+        . $total . '" > 显示更多讨论</a ></div > ';
 }

@@ -1,6 +1,7 @@
 body{
     /*background: url(../resource/index_bg1.jpg) no-repeat center center fixed;*/
-    background-attachment:fixed
+    background-attachment:fixed;
+    background: #eee !important;
 }
 
 /*顶部*/
@@ -16,8 +17,9 @@ body{
 }
 
 .header .logo_td {
+    padding-left: 20px;
     background: white;
-    min-width: 140px;
+    font-size: 24px;
 }
 
 .header .search_td {
@@ -28,12 +30,6 @@ body{
 .header .info_td {
     background: white;
     min-width: 170px;
-}
-
-.header .logo p {
-    line-height: 60px;
-    text-align: center;
-    font-size: 22px
 }
 
 .header .userinfo p {
@@ -70,7 +66,7 @@ p {
 /*展开搜索框相关*/
 .search_back {
     width: 200px;
-    height: 64px;
+    height: 60px;
     text-align: center;
     position: absolute;
     z-index: 50;
@@ -190,43 +186,53 @@ body {
     text-decoration: none;
 }
 
-/*背景*/
-.index_bg {
-
-}
-.index_tag_search {
-    width: 400px;
-    height: 130px;
-    border: 1px solid #ccc;
-    background: white;
-    opacity: 0.8;
-    box-shadow: 0 2px 10px #5d5d5d;
-}
-.index_tag_search h3 {
-    font-weight: bold;
-    height: 20px;
-    margin: 10px auto 15px;
-    padding: 0 10px;
-    text-align: center;
-    width: 100px;
-}
-
-
+/*分类导航部分*/
 .subject_text a{
     padding: 0 10px;
 }
 
-.subject_text a:hover{
-    background: cadetblue;
-    text-decoration: none;
-    transition: background 1s;
+.subject_tag_table{
+    height: 400px;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-.hub-slider{
-    width: 900px;
-    top: 30px;
-    left: 80px;
+.all_courses:hover{
+    cursor: pointer;
 }
+
+.subject_tag_table td{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 16px;
+    padding: 3px 8px;
+}
+.subject_tag_table a:link,.subject_tag_table a:visited{
+    color: whitesmoke;
+}
+
+.text_hover_ghost{
+    font-size: 18px;
+    transition: all 0.5s;
+}
+.text_hover_ghost:hover{
+    font-size: 22px;
+}
+
+.go_down{
+    cursor: pointer;
+}
+.go_down:hover,.about_me:hover{
+    color: dodgerblue;
+}
+.about_me{
+    cursor: pointer;
+}
+
+/*.hub-slider{*/
+    /*width: 900px;*/
+    /*top: 30px;*/
+    /*left: 80px;*/
+/*}*/
 
 /*搜索建议*/
 .search_suj{
@@ -241,7 +247,7 @@ body {
     border:1px solid;
     border-radius:5px;
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin: 10px 20px;
 }
 
 .bbs_prev_content{
@@ -257,5 +263,26 @@ body {
     cursor: pointer;
 }
 .avatar_choose{
-    background: rgba(255, 0, 0, 0.2);
+    background: rgba(93, 93, 93, 0.51);
 }
+
+@keyframes load {0% {width:0%;} 100% {width:100%;}}
+.trent-slider {width:100%;position:relative;overflow:hidden;}
+.t-slide {position:absolute;left:0;right:0;bottom:0;top:0;transition:.65s;}
+.t-slide img {width:100%;height:100%;}
+.t-slider-controls {position:absolute;top:0;bottom:0;left:0;right:0;}
+.t-slider-controls .arrow {min-height:100%;width:50px;position:relative;transition:.25s;}
+.t-slider-controls .arrow:hover {cursor:pointer;}
+.t-slider-controls .right-arrow {float:right;} .t-slider-controls .left-arrow {float:left;}
+.t-slider-controls .arrow .arrow-container {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:20px;}
+.t-slider-controls .arrow .arrow-container .arrow-icon {position:relative;width:42px;height:42px;color:#fafafa;border-radius:50%;}
+.t-slider-controls .arrow .arrow-container .arrow-icon i {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.t-slider-controls .t-load-bar {width:100%;height:5px;}
+.t-slider-controls .t-load-bar .inner-load-bar {background:rgba(200,200,200,0.65);height:100%;}
+.t-slider-controls .t-dots-container {position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:20px;min-width:350px;}
+.t-slider-controls .t-slide-dots-wrap {height:100%;width:100%;position:relative;}
+.t-slider-controls .t-slide-dots {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:table;content:"";clear:both;}
+.t-slider-controls .t-slide-dots .t-dot {background:#fafafa;width:8px;height:8px;margin:5px;float:left;border-radius:50%;transition:.65s;}
+.t-slider-controls .t-slide-dots .t-dot.current-dot,.t-slider-controls .t-slide-dots .t-dot:hover {transform:scale(1.65);cursor:pointer;}
+/*close slider css*/
+@media screen and (min-width:768px) {.t-slider-controls .arrow:hover {background:rgba(0,0,0,0.32);}}

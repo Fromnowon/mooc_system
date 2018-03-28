@@ -81,7 +81,7 @@ function animate_auto(obj, type, duration, function_down) {
 }
 
 //即时限制输入字数
-function textLimit(textObj, infoObj,limit_num) {
+function textLimit(textObj, infoObj, limit_num) {
     //留言框字数限制
     var text = textObj.val();
     var counter = text.length;
@@ -108,4 +108,18 @@ function msg_handler(content) {
     //content = content.replace(/[\\]/g, "\\\\");
     content = content.replace(/[ ]/g, "&nbsp;");
     return content;
+}
+
+//字符havor特效
+function charHover(obj) {
+    var ghost = $(".text_hover_ghost");
+    obj.mouseover(function () {
+        $(this).css('opacity', 0);
+        var pos = [$(this).offset().top, $(this).offset().left];//获取绝对位置
+        ghost.html($(this).html());
+        ghost.css({display: "", position: "absolute", top: pos[0], left: pos[1]});
+    });
+    obj.mouseout(function () {
+        $(this).css('opacity', 1);
+    });
 }

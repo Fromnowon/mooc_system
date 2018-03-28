@@ -35,7 +35,7 @@
 .plyr audio, .plyr video {
     width: 100%;
     min-width: 900px;
-    height: auto;
+    height: 576px;
     vertical-align: middle;
     border-radius: inherit
 }

@@ -80,8 +80,6 @@ function login($conn, $username, $password, $checkbox)
         //登录成功
         session_start();
         $_SESSION['userinfo'] = $result;
-        /*$_SESSION['username'] = $username;
-        $_SESSION['flag'] = $result['flag'];*/
         if ($checkbox) {
             //登录到后台
             if ($result['flag'] < 1) {
@@ -92,12 +90,9 @@ function login($conn, $username, $password, $checkbox)
             }
             mysqli_close($conn);
             echo 'ADMIN';
-            //header("Location: ../admin/admin_index.php");
         } else {
             mysqli_close($conn);
             echo 'NORMAL';
-            //登录到前台主页
-            //header("Location: ../index.php");
         }
     } else {
         mysqli_close($conn);
@@ -169,8 +164,6 @@ function courseUpload($conn, $date)
                     if (!move_uploaded_file($course['tmp_name'], $path)) {//执行上传操作
                         echo "上传失败";
                     } else {
-                        //echo "文件:" . time() . strtolower(strstr($course['name'], ".")) . "上传成功，大小为：" . $course['size'] . "字节";
-                        //入库
                         //生成封面
                         $movie = new ffmpeg_movie('../resource/courses/' . $dir . '/' . $filename);
                         $ff_frame = $movie->getFrame(300);
@@ -178,10 +171,11 @@ function courseUpload($conn, $date)
                         $img = "../resource/courses/" . $dir . "/cover.jpg";
                         imagejpeg($gd_image, $img);
                         imagedestroy($gd_image);
-
-
-                        $upload_arr = [nullHandler($_POST['upload_title']), nullHandler($_POST['upload_introduction']), $_POST['upload_subject'], $_POST['upload_grade']];
-                        $sql = "insert into course (path,cover,uploader_id,upload_date,grade,subject,title,introduction) values ('" . $path . "','" . substr($img, 3) . "','" . $_SESSION['userinfo']['uid'] . "','$date','$upload_arr[3]','$upload_arr[2]','$upload_arr[0]','$upload_arr[1]')";
+                        $upload_arr =
+                            [nullHandler($_POST['upload_title']), nullHandler($_POST['upload_introduction']), $_POST['upload_subject'], $_POST['upload_grade']];
+                        $sql = "insert into course (path,cover,uploader_id,upload_date,grade,subject,title,introduction) values ('"
+                            . $path . "','" . substr($img, 3) . "','" . $_SESSION['userinfo']['uid']
+                            . "','$date','$upload_arr[3]','$upload_arr[2]','$upload_arr[0]','$upload_arr[1]')";
                         if (mysqli_query($conn, $sql)) {
                             echo '<p style="color: green">上传成功！</p>';
                         } else {

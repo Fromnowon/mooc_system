@@ -55,17 +55,15 @@ function formCheck() {
     var btn = $("#submit_btn");
     var login_username = $("#login_username");
     var login_password = $("#login_password");
-    btn.attr('disabled', true);
+    btn.attr('disabled', true);//默认登录按钮为不可点击
     login_username.bind('blur keyup input', function () {
         tipHandler(login_username, login_password, 3);
-        //console.log('username' + login_username.val().length);
     });
     login_password.bind('blur keyup input', function () {
         tipHandler(login_password, login_username, 3);
-        //console.log('password' + login_password.val().length);
     });
-
     function tipHandler(object1, object2, min) {
+        //登录信息合法性本地校验
         if (object1.val().length > 0 && object1.val().length < min) {
             btn.attr('disabled', true);
             object1.next().css('visibility', 'visible');
@@ -73,8 +71,7 @@ function formCheck() {
         else {
             object1.next().css('visibility', 'hidden');
             if (object2.val().length >= min && object1.val().length >= min) {
-                btn.attr('disabled', false);
-                //btn.removeAttr('disabled');
+                btn.attr('disabled', false);//校验通过，登录按钮设为可点击
             }
         }
     }

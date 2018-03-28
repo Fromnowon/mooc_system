@@ -44,31 +44,29 @@ function noteInit(note, player) {
 
 function noteHandler(player, courseID) {
     var note_pop = $(".note_pop");
-    //console.log(courrseID);
     //新增笔记
     $("#new_note").unbind().on('click', function () {
-        //绑定取消按钮
+        //取消添加笔记
         $(".note_pop_dismiss").unbind().on('click', function () {
             $("#new_note").html('添加笔记');
-            if (player.getCurrentTime() != 0) player.play();
+            if (player.getCurrentTime() != 0) player.play();//若已开始播放则继续播放
             animate_auto(note_pop, 'bounceOut', 1000, function () {
-                note_pop.css('display', 'none');
-                // note_pop.children('input').val('');
-                // note_pop.children('textarea').val('');
+                note_pop.css('display', 'none');//隐藏笔记输入框组
             });
         });
         //判断笔记弹窗是否已经显示
         if (note_pop.css('display') == 'none') {
-            player.pause();
+            player.pause();//暂停视频播放
             $(this).html('取消添加');
             var note_pop_position = [$(this).offset().top, $(this).offset().left];
-            note_pop.css({'display': '', 'top': note_pop_position[0] + 40, 'left': note_pop_position[1]});
+            note_pop.css({'display': '', 'top': note_pop_position[0] + 40, 'left': note_pop_position[1]});//绝对定位笔记输入框组
             animate_auto(note_pop, 'bounceIn', 1000);
         } else {
+            //若笔记输入框组已经被打开
             if (player.getCurrentTime() != 0) player.play();
             $(this).html('添加笔记');
             animate_auto(note_pop, 'bounceOut', 1000, function () {
-                note_pop.css('display', 'none');
+                note_pop.css('display', 'none');//隐藏笔记输入框组
             });
         }
 
@@ -91,9 +89,9 @@ function noteHandler(player, courseID) {
             data: data,
             dataType: "text",
             success: function (msg) {
-                btn.prevAll('input').val('');
-                btn.prevAll('textarea').val('');
-                //添加结果
+                btn.prevAll('input').val('');//清空输入框组
+                btn.prevAll('textarea').val('');//清空输入框组
+                //添加结果，局部处理列表
                 var t = $(".note_content_show");
                 t.prepend(msg);
                 animate_auto(t.children(":first-child"), 'fadeInRight', 1000);

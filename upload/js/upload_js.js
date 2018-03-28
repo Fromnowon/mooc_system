@@ -28,7 +28,6 @@ function uploadHandler() {
     $('.upload_form').ajaxForm({
         beforeSerialize: function () {
             //alert("表单数据序列化前执行的操作！");
-            //$("#txt2").val("java");//如：改变元素的值
         },
         beforeSubmit: function () {
             //alert("表单提交前的操作");
@@ -42,7 +41,6 @@ function uploadHandler() {
                 alert("文件大小超过限制，最多500M");
                 return false;
             }
-            //if($("#txt1").val()==""){return false;}//如：验证表单数据是否为空
         },
         beforeSend: function () {
             status.empty();
@@ -53,8 +51,6 @@ function uploadHandler() {
             $("#upload_btn").attr('disabled', true);
         },
         uploadProgress: function (event, position, total, percentComplete) {//上传的过程
-            //position 已上传了多少
-            //total 总大小
             //已上传的百分数
             var percentVal = percentComplete + '%';
             bar.width(percentVal)

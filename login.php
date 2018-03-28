@@ -19,7 +19,9 @@
 <!--登录模块-->
 <!--<div class="login_bg"></div>-->
 <div id="login">
-    <img class="img-responsive login_logo" src="resource/doge.png"/>
+    <br>
+    <div style="text-align: center"><p style="font-size: 24px">校内微课平台</p></div>
+    <img class="img-responsive login_logo" src="resource/logo.png"/>
     <div id="login_form">
         <div>
             <table style="margin: 0 auto">
@@ -44,7 +46,6 @@
                 </tr>
             </table>
         </div>
-        <br/>
         <div id="checkbox_div">
             <table>
                 <tr>
@@ -86,7 +87,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], "Triden")) {
     setTimeout(function () {
         $("#ie_error").modal({backdrop: \'static\'});
     },2000);
-</script>';
+    </script>';
 }
 ?>
 </body>

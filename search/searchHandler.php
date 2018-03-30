@@ -43,7 +43,7 @@ function index_key_search()
     $sql = "select * from course where grade='$grade' and subject='$subject'";
     $r = mysqli_query($conn, $sql);
     $result = '';
-    $count = 0;
+    $count = 1;
     while ($rs = mysqli_fetch_array($r)) {
         if ($count % 5 == 1 && $count != 1) $result .= '</tr><tr>';
         $result .= '<td><div class="port-1 effect-2">
@@ -63,7 +63,7 @@ function index_key_search()
 		                <div style="text-align: center;"><h4 style="line-height: 40px">' . $rs['title'] . '</h4></div></td>';
         $count++;
     }
-    if ($count == 0) echo $result . '<p style="font-size: 20px">当前检索条件：<span class="label label-info">' . $grade . '</span>+<span class="label label-info">' . $subject . '</span></p><hr><p style="color: red;font-size: 24px">无匹配结果！</p>';
+    if ($count == 1) echo $result . '<p style="font-size: 20px">当前检索条件：<span class="label label-info">' . $grade . '</span>+<span class="label label-info">' . $subject . '</span></p><hr><p style="color: red;font-size: 24px">无匹配结果！</p>';
     else echo '<p style="font-size: 20px">当前检索条件：<span class="label label-success">' . $grade . '</span> / <span class="label label-info">' . $subject . '</span></p><hr><table><tr>' . $result . '</tr></table>';
     mysqli_close($conn);
 }
@@ -127,7 +127,7 @@ function index_key_search_all(){
     $sql = "select * from course";
     $r = mysqli_query($conn, $sql);
     $result = '';
-    $count = 0;
+    $count = 1;
     while ($rs = mysqli_fetch_array($r)) {
         if ($count % 5 == 1 && $count != 1) $result .= '</tr><tr>';
         $result .= '<td><div class="port-1 effect-2">
@@ -147,7 +147,7 @@ function index_key_search_all(){
 		                <div style="text-align: center;"><h4 style="line-height: 40px">' . $rs['title'] . '</h4></div></td>';
         $count++;
     }
-    if ($count == 0) echo $result . '<p style="font-size: 20px">当前检索条件：<span class="label label-danger">无限制</span></p><hr><p style="color: red;font-size: 24px">无匹配结果！</p>';
+    if ($count == 1) echo $result . '<p style="font-size: 20px">当前检索条件：<span class="label label-danger">无限制</span></p><hr><p style="color: red;font-size: 24px">无匹配结果！</p>';
     else echo '<p style="font-size: 20px">当前检索条件：<span class="label label-danger">无限制</span></p><hr><table><tr>' . $result . '</tr></table>';
     mysqli_close($conn);
 }

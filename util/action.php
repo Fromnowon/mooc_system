@@ -67,6 +67,7 @@ switch ($_GET['action']) {
 function changeAvatar($conn)
 {
     $value = $_POST['value'];
+    if ($value==''||$value==null) $value=0;
     update($conn, 'user', "avatar=$value", "uid={$_SESSION['userinfo']['uid']}");
     $_SESSION['userinfo']['avatar'] = $value;
     echo 'ok';

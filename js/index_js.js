@@ -114,6 +114,12 @@ function setMiscIndex() {
     $(".about_me").on('click',function () {
         $("#about_me").modal();
     })
+
+    //随机视频事件
+    $(".random_course").on('click',function () {
+        var id=$(this).attr('value');
+        window.open("play/play.php?playid="+id);
+    })
 }
 
 function setUI() {

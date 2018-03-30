@@ -7,7 +7,7 @@ $(document).ready(function() {
 		$hiddenSlideStylesLeft = {right: $offset, left: 0 - $offset}
 		
 		//slider functions
-		function tStartLoadBar() {$('.t-load-bar .inner-load-bar').css('animation', 'load 4.5s linear infinite');}
+		function tStartLoadBar() {$('.t-load-bar .inner-load-bar').css('animation', 'load 5s linear infinite');}
 
 		function tSliderHasStopped() {
 			if ($('.current-t-slide').css('left') === "0px" && $('.current-t-slide').css('right') === "0px") {
@@ -74,13 +74,13 @@ $(document).ready(function() {
 		//interval sllide change
 		var tSlideChange = window.setInterval(function() {
 			tSlideChangerRight();
-		}, 4500);
+		}, 5000);
 		$('.trent-slider').mouseover(function() {
 			clearInterval(tSlideChange);
 		}).mouseout(function() {
 			tSlideChange = window.setInterval(function() {
 				tSlideChangerRight();
-			},4500);
+			},5000);
 		});
 
 		// -----slider controls

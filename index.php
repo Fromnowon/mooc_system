@@ -82,13 +82,13 @@ include 'index_handler.php' ?>
                                 </button>
                             </form>
                             <div class="search__suggestion" style="color: white;">
-                                <h3>瞧瞧我们给您推荐的？</h3>
+                                <h3>热门搜索：</h3>
                                 <div style="font-weight: bold;text-align: left">
                                     <br>
                                     <p>1、<span class="search_suj">解读《滕王阁序》</span>，深入了解诗人王勃</p><br>
                                     <p>2、差之毫厘谬以千里，<span class="search_suj">H2O和H2O2的区别</span></p><br>
                                     <p>3、<span class="search_suj">详解“rather than”与“other than”的不同与用法</span></p><br>
-                                    <p>4、更多，敬请期待...</p><br>
+                                    <p>4、敬请期待...</p><br>
                                     <div style="clear: both"></div>
                                 </div>
                             </div>
@@ -212,9 +212,6 @@ include 'index_handler.php' ?>
                     <div class="t-slide">
                         <img src="resource/img/slider3.png" alt=""/>
                     </div>
-                    <div class="t-slide">
-                        <img src="resource/img/slider1.png" alt=""/>
-                    </div>
                     <div class="t-slider-controls">
                         <div class="arrow right-arrow">
                             <div class="arrow-container">
@@ -240,9 +237,22 @@ include 'index_handler.php' ?>
                         </div>
                     </div>
                 </div>
-                <div class="status_div"
-                     style="background: white;border: 1px black solid;width:300px;height: 400px;position: absolute;top:0;right: 0">
-                    <p>预留区域，广告位招租</p>
+                <div class="slider_extra" style="background: white;width:300px;height: 400px;position: absolute;top:0;right: 0;overflow: visible">
+                    <table style="padding: 10px;width: 100%">
+                        <tr>
+                            <td style="border-bottom: 1px lightgray solid" colspan="2"><h4>&nbsp;&nbsp;&nbsp;您可能感兴趣的课程：</h4></td>
+                        </tr>
+                        <?php
+                        $sql='SELECT * FROM course WHERE id >= ((SELECT MAX(id) FROM course)-(SELECT MIN(id) FROM course)) * RAND() + (SELECT MIN(id) FROM course)  LIMIT 3';
+                        $r=mysqli_query($conn,$sql);
+                        $rs_html='';
+                        while($rs=mysqli_fetch_array($r)){
+                            $rs_html.="<tr><td style='text-align: center' class='random_course' value='".$rs['id']."'><img src='".$rs['cover']."' alt=''><td style='width: 109px'><p>".$rs['title']."</p>
+                                  <p style='color: darkgray'>".$rs['subject']."</p></td></td></tr>";
+                        }
+                        echo $rs_html;
+                        ?>
+                    </table>
                 </div>
             </div>
             <!--展示最新上传的5个-->
@@ -262,7 +272,7 @@ include 'index_handler.php' ?>
             <div class="video_list most_views">
                 <table style="margin: 0 auto">
                     <tr>
-                        <td><h3 style="font-weight: bold">最多点击：</h3></td>
+                        <td><h3 style="font-weight: bold">最多浏览：</h3></td>
                     </tr>
                     <tr>
                         <?php hottest(); ?>
@@ -392,11 +402,18 @@ include 'index_handler.php' ?>
                     $num_user = mysqli_num_rows(mysqli_query($conn, $sql));
                     echo "<p style='font-size: 18px'>用户总数：<span style='color: #2e6da4;font-weight: bold'>" . $num_user . "</span></p>";
                     ?>
-                    <p>平台版本：<span>1.18.0327</span></p>
+                    <p>平台版本：<span>1.18.0330</span></p>
                 </div>
                 <div>
                     <hr>
+                    <br>
                     <p>更新日志：</p>
+                    <p>2018.3.30 版本号1.18.0330</p>
+                    <p>
+                        1、轮播右侧增加随机视频显示；
+                        2、bug修复
+                    </p>
+                    <br>
                     <p>2018.3.27 版本号1.18.0327</p>
                     <p>
                         1、替换网站logo，并在相应位置予以显示；

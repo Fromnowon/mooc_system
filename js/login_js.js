@@ -56,6 +56,7 @@ function formCheck() {
     var login_username = $("#login_username");
     var login_password = $("#login_password");
     btn.attr('disabled', true);//默认登录按钮为不可点击
+    tipHandler(login_username, login_password, 3);
     login_username.bind('blur keyup input', function () {
         tipHandler(login_username, login_password, 3);
     });

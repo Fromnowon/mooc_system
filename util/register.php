@@ -3,7 +3,8 @@
     <div class="modal-dialog" style="width: 400px;" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel">注册新用户</h4>
             </div>
             <div class="modal-body">
@@ -32,6 +33,10 @@
                         <label class="form-label">联系方式：</label>
                         <input id="reg_contatct" type="text" class="form-control" placeholder="选填">
                     </div>
+                    <div style="font-size: 14px;">
+                        <input type="checkbox" name="reg_teacher" value="0">
+                        <span>我是教师<span style="color: red">（需审核）</span></span>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -46,14 +51,17 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel" style="color: red;font-weight: bold">注意！</h4>
             </div>
             <div class="modal-body">
                 <p style="color: blue">检测到您正在使用IE浏览器</p>
                 <p>由于<span style="color: red">代码框架</span>限制，本网站只能在<span style="color: red">Chrome内核</span>浏览器中正常运行</p>
                 <p>若您正在使用360、搜狗等浏览器，请把浏览模式切换为<span style="font-size: 16px">&nbsp;&nbsp;[极速模式]</span></p>
-                <p>或者安装谷歌浏览器（来源：百度软件）：<a href="http://sw.bos.baidu.com/sw-search-sp/software/1e5d43b6599f5/ChromeStandalone_64.0.3282.119_Setup.exe">点击下载</a></p>
+                <p>或者安装谷歌浏览器（来源：百度软件）：<a
+                            href="http://sw.bos.baidu.com/sw-search-sp/software/1e5d43b6599f5/ChromeStandalone_64.0.3282.119_Setup.exe">点击下载</a>
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">好的</button>

@@ -99,12 +99,14 @@ include 'index_handler.php' ?>
                 <td class="info_td">
                     <div class="userinfo" style="float: right">
                         <?php
-                        echo "<table style='margin-right:30px'><tr>
+                        $r = "<table style='margin-right:30px'><tr>
                                        <td><img style='padding-top:10px;' class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'></td>
                                        <td><span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></td>
-                                       <td><a class=\"btn btn-success\" href=\"upload/upload.php\" style=\"font-size: 14px\">上传视频</a></td>
+                                       <td><a class=\"btn btn-success upload_btn\" href=\"upload/upload.php\" style=\"font-size: 14px;\">上传视频</a></td>
                                        <td><a href=\"util/action.php?action=logout\" style='font-size: 16px;padding-left: 20px'>注销</a></td>
                                        </tr></table>";
+                        if ($_SESSION['userinfo']['flag'] == 0) $r .= "<style>.upload_btn{display: none}</style>";
+                        echo $r;
                         ?>
                     </div>
                 </td>
@@ -121,138 +123,142 @@ include 'index_handler.php' ?>
     </div>
     <div class="content_div optiscroll">
         <div class="content_main">
-            <table style="font-size: 22px;margin: 0 15px;">
-                <tr>
-                    <td class="all_courses" style="width:292px;background: #00bf00;padding: 10px;color: white"><i
-                                class="fa fa-reorder"></i>&nbsp;&nbsp;&nbsp;所有课程
-                    </td>
-                    <td style="padding-left: 10px"><p class="go_down">讨论区</p></td>
-                    <td style="padding-left: 20px"><p class="about_me">关于本站</p></td>
-                </tr>
-            </table>
-            <div style="background: #d6d6d6;margin: 0 15px;position: relative" class="neck_layout">
-                <table class="subject_tag_table">
+            <div style="max-width: 1400px;margin: 0 auto">
+                <table style="font-size: 22px;margin: 0 15px;">
                     <tr>
-                        <td style="text-align: left;">
-                            <h4 style="font-weight: bold">高一</h4>
+                        <td class="all_courses" style="width:292px;background: #00bf00;padding: 10px;color: white"><i
+                                    class="fa fa-reorder"></i>&nbsp;&nbsp;&nbsp;所有课程
                         </td>
-                    </tr>
-                    <tr value="高一">
-                        <td class="subject_tag_nav">语文</td>
-                        <td class="subject_tag_nav">数学</td>
-                        <td class="subject_tag_nav">英语</td>
-                    </tr>
-                    <tr value="高一">
-                        <td class="subject_tag_nav">物理</td>
-                        <td class="subject_tag_nav">生物</td>
-                        <td class="subject_tag_nav">化学</td>
-                        <td class="subject_tag_nav">政治</td>
-                        <td class="subject_tag_nav">历史</td>
-                        <td class="subject_tag_nav">地理</td>
-                    </tr>
-                    <tr value="高一">
-                        <td class="subject_tag_nav">信息</td>
-                        <td class="subject_tag_nav">心理</td>
-                        <td class="subject_tag_nav">其他</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;border-top: 1px white solid;" colspan="6">
-                            <h4 style="font-weight: bold">高二</h4>
-                        </td>
-                    </tr>
-                    <tr value="高二">
-                        <td class="subject_tag_nav">语文</td>
-                        <td class="subject_tag_nav">数学</td>
-                        <td class="subject_tag_nav">英语</td>
-                    </tr>
-                    <tr value="高二">
-                        <td class="subject_tag_nav">物理</td>
-                        <td class="subject_tag_nav">生物</td>
-                        <td class="subject_tag_nav">化学</td>
-                        <td class="subject_tag_nav">政治</td>
-                        <td class="subject_tag_nav">历史</td>
-                        <td class="subject_tag_nav">地理</td>
-                    </tr>
-                    <tr value="高二">
-                        <td class="subject_tag_nav">信息</td>
-                        <td class="subject_tag_nav">心理</td>
-                        <td class="subject_tag_nav">其他</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;border-top: 1px white solid;" colspan="6">
-                            <h4 style="font-weight: bold">高三</h4>
-                        </td>
-                    </tr>
-                    <tr value="高三">
-                        <td class="subject_tag_nav">语文</td>
-                        <td class="subject_tag_nav">数学</td>
-                        <td class="subject_tag_nav">英语</td>
-                    </tr>
-                    <tr value="高三">
-                        <td class="subject_tag_nav">物理</td>
-                        <td class="subject_tag_nav">生物</td>
-                        <td class="subject_tag_nav">化学</td>
-                        <td class="subject_tag_nav">政治</td>
-                        <td class="subject_tag_nav">历史</td>
-                        <td class="subject_tag_nav">地理</td>
-                    </tr>
-                    <tr value="高三">
-                        <td class="subject_tag_nav">信息</td>
-                        <td class="subject_tag_nav">心理</td>
-                        <td class="subject_tag_nav">其他</td>
+                        <td style="padding-left: 10px"><p class="go_down">讨论区</p></td>
+                        <td style="padding-left: 20px"><p class="about_me">关于本站</p></td>
                     </tr>
                 </table>
-                <div class="trent-slider" style="position: absolute;top:0;right: 300px">
-                    <div class="t-slide current-t-slide">
-                        <img src="resource/img/slider1.png" alt=""/>
-                    </div>
-                    <div class="t-slide">
-                        <img src="resource/img/slider2.png" alt=""/>
-                    </div>
-                    <div class="t-slide">
-                        <img src="resource/img/slider3.png" alt=""/>
-                    </div>
-                    <div class="t-slider-controls">
-                        <div class="arrow right-arrow">
-                            <div class="arrow-container">
-                                <div class="arrow-icon"><i class="fa fa-chevron-right"
-                                                           aria-hidden="true"></i></div>
+                <div style="background: #d6d6d6;margin: 0 15px;position: relative" class="neck_layout">
+                    <table class="subject_tag_table">
+                        <tr>
+                            <td style="text-align: left;">
+                                <h4 style="font-weight: bold">高一</h4>
+                            </td>
+                        </tr>
+                        <tr value="高一">
+                            <td class="subject_tag_nav">语文</td>
+                            <td class="subject_tag_nav">数学</td>
+                            <td class="subject_tag_nav">英语</td>
+                        </tr>
+                        <tr value="高一">
+                            <td class="subject_tag_nav">物理</td>
+                            <td class="subject_tag_nav">生物</td>
+                            <td class="subject_tag_nav">化学</td>
+                            <td class="subject_tag_nav">政治</td>
+                            <td class="subject_tag_nav">历史</td>
+                            <td class="subject_tag_nav">地理</td>
+                        </tr>
+                        <tr value="高一">
+                            <td class="subject_tag_nav">信息</td>
+                            <td class="subject_tag_nav">心理</td>
+                            <td class="subject_tag_nav">其他</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;border-top: 1px white solid;" colspan="6">
+                                <h4 style="font-weight: bold">高二</h4>
+                            </td>
+                        </tr>
+                        <tr value="高二">
+                            <td class="subject_tag_nav">语文</td>
+                            <td class="subject_tag_nav">数学</td>
+                            <td class="subject_tag_nav">英语</td>
+                        </tr>
+                        <tr value="高二">
+                            <td class="subject_tag_nav">物理</td>
+                            <td class="subject_tag_nav">生物</td>
+                            <td class="subject_tag_nav">化学</td>
+                            <td class="subject_tag_nav">政治</td>
+                            <td class="subject_tag_nav">历史</td>
+                            <td class="subject_tag_nav">地理</td>
+                        </tr>
+                        <tr value="高二">
+                            <td class="subject_tag_nav">信息</td>
+                            <td class="subject_tag_nav">心理</td>
+                            <td class="subject_tag_nav">其他</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;border-top: 1px white solid;" colspan="6">
+                                <h4 style="font-weight: bold">高三</h4>
+                            </td>
+                        </tr>
+                        <tr value="高三">
+                            <td class="subject_tag_nav">语文</td>
+                            <td class="subject_tag_nav">数学</td>
+                            <td class="subject_tag_nav">英语</td>
+                        </tr>
+                        <tr value="高三">
+                            <td class="subject_tag_nav">物理</td>
+                            <td class="subject_tag_nav">生物</td>
+                            <td class="subject_tag_nav">化学</td>
+                            <td class="subject_tag_nav">政治</td>
+                            <td class="subject_tag_nav">历史</td>
+                            <td class="subject_tag_nav">地理</td>
+                        </tr>
+                        <tr value="高三">
+                            <td class="subject_tag_nav">信息</td>
+                            <td class="subject_tag_nav">心理</td>
+                            <td class="subject_tag_nav">其他</td>
+                        </tr>
+                    </table>
+                    <div class="trent-slider" style="position: absolute;top:0;right: 300px">
+                        <div class="t-slide current-t-slide">
+                            <img src="resource/img/slider1.png" alt=""/>
+                        </div>
+                        <div class="t-slide">
+                            <img src="resource/img/slider2.png" alt=""/>
+                        </div>
+                        <div class="t-slide">
+                            <img src="resource/img/slider3.png" alt=""/>
+                        </div>
+                        <div class="t-slider-controls">
+                            <div class="arrow right-arrow">
+                                <div class="arrow-container">
+                                    <div class="arrow-icon"><i class="fa fa-chevron-right"
+                                                               aria-hidden="true"></i></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="arrow left-arrow">
-                            <div class="arrow-container">
-                                <div class="arrow-icon"><i class="fa fa-chevron-left"
-                                                           aria-hidden="true"></i></div>
+                            <div class="arrow left-arrow">
+                                <div class="arrow-container">
+                                    <div class="arrow-icon"><i class="fa fa-chevron-left"
+                                                               aria-hidden="true"></i></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="t-load-bar">
-                            <div class="inner-load-bar"></div>
-                        </div>
-                        <div class="t-dots-container">
-                            <div class="t-slide-dots-wrap">
-                                <div class="t-slide-dots">
+                            <div class="t-load-bar">
+                                <div class="inner-load-bar"></div>
+                            </div>
+                            <div class="t-dots-container">
+                                <div class="t-slide-dots-wrap">
+                                    <div class="t-slide-dots">
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slider_extra" style="background: white;width:300px;height: 400px;position: absolute;top:0;right: 0;overflow: visible">
-                    <table style="padding: 10px;width: 100%">
-                        <tr>
-                            <td style="border-bottom: 1px lightgray solid" colspan="2"><h4>&nbsp;&nbsp;&nbsp;您可能感兴趣的课程：</h4></td>
-                        </tr>
-                        <?php
-                        $sql='SELECT * FROM course WHERE id >= ((SELECT MAX(id) FROM course)-(SELECT MIN(id) FROM course)) * RAND() + (SELECT MIN(id) FROM course)  LIMIT 3';
-                        $r=mysqli_query($conn,$sql);
-                        $rs_html='';
-                        while($rs=mysqli_fetch_array($r)){
-                            $rs_html.="<tr><td style='text-align: center' class='random_course' value='".$rs['id']."'><img src='".$rs['cover']."' alt=''><td style='width: 109px'><p>".$rs['title']."</p>
-                                  <p style='color: darkgray'>".$rs['subject']."</p></td></td></tr>";
-                        }
-                        echo $rs_html;
-                        ?>
-                    </table>
+                    <div class="slider_extra"
+                         style="background: white;width:300px;height: 400px;position: absolute;top:0;right: 0;overflow: visible">
+                        <table style="padding: 10px;width: 100%">
+                            <tr>
+                                <td style="border-bottom: 1px lightgray solid" colspan="2"><h4>&nbsp;&nbsp;&nbsp;您可能感兴趣的课程：</h4>
+                                </td>
+                            </tr>
+                            <?php
+                            $sql = 'SELECT * FROM course WHERE id >= ((SELECT MAX(id) FROM course)-(SELECT MIN(id) FROM course)) * RAND() + (SELECT MIN(id) FROM course)  LIMIT 3';
+                            $r = mysqli_query($conn, $sql);
+                            $rs_html = '';
+                            while ($rs = mysqli_fetch_array($r)) {
+                                $rs_html .= "<tr><td style='text-align: center' class='random_course' value='" . $rs['id'] . "'><img src='" . $rs['cover'] . "' alt=''><td style='width: 109px'><p>" . $rs['title'] . "</p>
+                                  <p style='color: darkgray'>" . $rs['subject'] . "</p></td></td></tr>";
+                            }
+                            echo $rs_html;
+                            ?>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!--展示最新上传的5个-->

@@ -67,7 +67,7 @@ switch ($_GET['action']) {
 function changeAvatar($conn)
 {
     $value = $_POST['value'];
-    if ($value==''||$value==null) $value=0;
+    if ($value == '' || $value == null) $value = 0;
     update($conn, 'user', "avatar=$value", "uid={$_SESSION['userinfo']['uid']}");
     $_SESSION['userinfo']['avatar'] = $value;
     echo 'ok';
@@ -104,20 +104,23 @@ function login($conn, $username, $password, $checkbox)
 //注册函数
 function register($conn, $date)
 {
-    //echo 'OK';exit();
     $username = $_POST['reg_username'];
     $password = md5($_POST['reg_password']);
     $email = nullHandler($_POST['reg_mail']);
     $school = nullHandler($_POST['reg_school']);
     $contact = nullHandler($_POST['reg_contact']);
     $reg_realname = nullHandler($_POST['reg_realname']);
+    if (isset($_POST['reg_flag']))
+        $flag = $_POST['reg_flag'];//是否注册为教师身份
+    else $flag = 0;
     //查重
     if (mysqli_num_rows(mysqli_query($conn, "select * from user where username='$username'")) > 0) {
-        echo "CONFLICT";
+        echo "CONFLICT";//账户已存在
         mysqli_close($conn);
         exit();
     }
-    $sql = "insert into user (username,password,real_name,email,contact,school,introduction,reg_date) values ('$username','$password','$reg_realname','$email','$contact','$school','暂无','$date')";
+    $sql = "insert into user (username,password,real_name,email,contact,school,introduction,flag,reg_date) values 
+          ('$username','$password','$reg_realname','$email','$contact','$school','暂无','$flag','$date')";
     if (mysqli_query($conn, $sql))
         echo 'OK';
     else
@@ -155,9 +158,6 @@ function courseUpload($conn, $date)
                 echo "上传文件格式不正确";
             } else {
                 $dir = time();
-//                if (!is_dir("../resource/courses")) {//判断指定目录是否存在
-//                    mkdir("../resource/courses" . $dir);//创建目录
-//                }
                 mkdir("../resource/courses/" . $dir);//创建目录
                 $filename = $dir . strtolower(strstr($course['name'], "."));//定义上传文件名
                 $path = '../resource/courses/' . $dir . '/' . $filename;

@@ -63,6 +63,7 @@ function formCheck() {
     login_password.bind('blur keyup input', function () {
         tipHandler(login_password, login_username, 3);
     });
+
     function tipHandler(object1, object2, min) {
         //登录信息合法性本地校验
         if (object1.val().length > 0 && object1.val().length < min) {
@@ -131,11 +132,11 @@ function regModule() {
                         //启用注册按钮
                         $("#reg_submit").attr('disabled', false);
                     }
-                    else if (msg='CONFLICT'){
+                    else if (msg = 'CONFLICT') {
                         alert('用户名已存在');
                         reg_tip.html('');
                         $("#reg_submit").attr('disabled', false);
-                    }else {
+                    } else {
                         alert('未知错误!请联系管理员');
                     }
                     //console.log(msg);
@@ -200,11 +201,9 @@ function ajaxLogin() {
         Cookies.remove('username');
         Cookies.remove('password');
     }
-
+    var logintoadmin = 0;//是否登录到后台
     if ($("#login_checkbox_logintoadmin").is(':checked'))
-        var logintoadmin = 1;
-    else
-        var logintoadmin = 0;
+        logintoadmin = 1;
     $.ajax({
         type: "post",
         url: "./util/action.php?action=login",
@@ -221,11 +220,11 @@ function ajaxLogin() {
                     break;
                 }
                 case 'NORMAL': {
-                    $(location).attr('href', 'index.php');
+                    $(location).attr('href', 'index.php');//普通用户登录，跳转到主页
                     break;
                 }
                 case 'ADMIN': {
-                    $(location).attr('href', 'admin/admin_index.php');
+                    $(location).attr('href', 'admin/admin_index.php');//管理员登录，跳转到后台页面
                     break;
                 }
                 default: {
@@ -234,12 +233,9 @@ function ajaxLogin() {
                     break;
                 }
             }
-            //alert(msg);
-            //console.log("DONE:" + msg);
         },
         error: function (msg) {
-            alert(msg);
-            //console.log("error:" + msg);
+            console.log(msg);
         }
     });
 }

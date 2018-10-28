@@ -34,7 +34,7 @@
                         <input id="reg_contatct" type="text" class="form-control" placeholder="选填">
                     </div>
                     <div style="font-size: 14px;">
-                        <input type="checkbox" name="reg_teacher" value="0">
+                        <input type="checkbox" name="reg_teacher" value="1">
                         <span>我是教师<span style="color: red">（需审核）</span></span>
                     </div>
                 </form>

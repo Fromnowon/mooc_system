@@ -34,7 +34,7 @@ include 'index_handler.php' ?>
                     <div class="logo">
                         <table>
                             <tr>
-                                <td><img src="resource/logo.png" alt="logo" width="50px"></td>
+                                <td><img src="resource/logo_.png" alt="logo" width="50px"></td>
                                 <td style="padding-left: 10px"><p>校内微课平台</p></td>
                             </tr>
                         </table>

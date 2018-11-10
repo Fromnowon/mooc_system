@@ -29,7 +29,7 @@ include 'index_handler.php' ?>
 <body>
 <div class="content">
     <!--    <div class="search_bg"></div>-->
-    <div class="ui menu fixed header_menu">
+    <div class="ui menu fixed header_menu borderless">
         <div class="header item">
             <img src="resource/doge.png" alt="logo" style="width: 36px;margin-right: 20px"/>
             <span style="font-size: 22px">校内微课平台</span>
@@ -37,14 +37,16 @@ include 'index_handler.php' ?>
         <div class="right menu">
             <div class="item">
                 <div class="ui icon input">
-                    <input type="text" placeholder="Search...">
+                    <input type="text" placeholder="Search..." style="min-width: 300px">
                     <i class="search link icon"></i>
                 </div>
             </div>
+        </div>
+        <div class="right menu">
             <?php
-            $r = "<div class='ui item'><img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>" .
+            $r = "<div class='item'><img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>" .
                 "<span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></div>" .
-                "<div class='ui item'><a class='ui button green small upload_btn' href='upload/upload.php' style='font-size: 14px;'>上传视频</a></div>";
+                "<div class='item'><a class='ui button green small upload_btn' href='upload/upload.php' style='font-size: 14px;'>上传视频</a></div>";
 
             // $r = "<table style='margin-right:30px'><tr>
             //                                       <td><img style='padding-top:10px;' class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'></td>
@@ -56,7 +58,7 @@ include 'index_handler.php' ?>
             echo $r;
             ?>
 
-            <a class="ui item" href="util/action.php?action=logout">
+            <a class="item" href="util/action.php?action=logout">
                 注销
             </a>
         </div>

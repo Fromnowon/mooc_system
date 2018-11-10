@@ -173,6 +173,7 @@ function setMisc() {
 //异步登录
 function ajaxLogin() {
   if (typeof($("#submit_btn").attr("disabled")) != "undefined") return false;
+  $('.login_loader').fadeIn();
   var login_username = $("#login_username").val();
   var login_password = $("#login_password").val();
 
@@ -196,10 +197,12 @@ function ajaxLogin() {
       switch (msg) {
         case 'REFUSED': {
           alert('您的账户没有管理权限');
+          $('.login_loader').fadeOut();
           break;
         }
         case 'WRONG': {
           alert('用户名或密码错误');
+          $('.login_loader').fadeOut();
           break;
         }
         case 'NORMAL': {
@@ -212,6 +215,7 @@ function ajaxLogin() {
         }
         default: {
           alert('未知错误');
+          $('.login_loader').fadeOut();
           console.log(msg);
           break;
         }

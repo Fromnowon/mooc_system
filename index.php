@@ -20,21 +20,55 @@ include 'index_handler.php' ?>
     <link href="css/hover-effects.css" rel="stylesheet">
     <script src="js/jquery.gradientify.min.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/semantic.min.js" type="text/javascript"></script>
+    <link href="css/semantic.min.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
-    <link href="css/index_css.css?v=14" rel="stylesheet">
+    <link href="css/index_css.css" rel="stylesheet">
 </head>
 <body>
 <div class="content">
-    <div class="search_bg"></div>
-    <div class="header">
+    <!--    <div class="search_bg"></div>-->
+    <div class="ui menu fixed header_menu">
+        <div class="header item">
+            <img src="resource/doge.png" alt="logo" style="width: 36px;margin-right: 20px"/>
+            <span style="font-size: 22px">校内微课平台</span>
+        </div>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+            <?php
+            $r = "<div class='ui item'><img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>" .
+                "<span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></div>" .
+                "<div class='ui item'><a class='ui button green small upload_btn' href='upload/upload.php' style='font-size: 14px;'>上传视频</a></div>";
+
+            // $r = "<table style='margin-right:30px'><tr>
+            //                                       <td><img style='padding-top:10px;' class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'></td>
+            //                                       <td><span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></td>
+            //                                       <td><a class=\"btn btn-success upload_btn\" href=\"upload/upload.php\" style=\"font-size: 14px;\">上传视频</a></td>
+            //                                       <td><a href=\"util/action.php?action=logout\" style='font-size: 16px;padding-left: 20px'>注销</a></td>
+            //                                       </tr></table>";
+            if ($_SESSION['userinfo']['flag'] == 0) $r .= "<style>.upload_btn{display: none}</style>";
+            echo $r;
+            ?>
+
+            <a class="ui item" href="util/action.php?action=logout">
+                注销
+            </a>
+        </div>
+    </div>
+    <div class="header hide">
         <table style="table-layout: fixed;">
             <tr>
                 <td class="logo_td">
                     <div class="logo">
                         <table>
                             <tr>
-                                <td><img src="resource/logo_.png" alt="logo" width="50px"></td>
+                                <td><img src="resource/doge.png" alt="logo" width="50px"></td>
                                 <td style="padding-left: 10px"><p>校内微课平台</p></td>
                             </tr>
                         </table>

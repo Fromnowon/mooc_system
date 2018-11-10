@@ -18,6 +18,12 @@
 
 </head>
 <body style="visibility: hidden;overflow: hidden">
+<div class="ui segment login_loader">
+    <div class="ui active inverted dimmer">
+        <div class="ui text loader">登录中...</div>
+    </div>
+    <p></p>
+</div>
 <!--登录模块-->
 <!--<div class="login_bg"></div>-->
 <div style="padding: 20px">
@@ -116,7 +122,7 @@
                 <label class="form-label">联系方式：</label>
                 <input id="reg_contatct" type="text" class="form-control" placeholder="选填">
             </div>
-            <div style="font-size: 14px;">
+            <div style="font-size: 14px;" class="hide">
                 <input type="checkbox" name="reg_teacher" value="1">
                 <span>我是教师<span style="color: red">（需审核）</span></span>
             </div>

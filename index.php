@@ -7,8 +7,8 @@ include 'index_handler.php' ?>
     <title>首页</title>
     <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="js/jquery.form.min.js" type="text/javascript"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <!--    <link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <!--    <script src="js/bootstrap.min.js" type="text/javascript"></script>-->
     <script src="util/util_js.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="css/index_search.css"/>
@@ -22,6 +22,7 @@ include 'index_handler.php' ?>
     <script src="js/main.js" type="text/javascript"></script>
     <script src="js/semantic.min.js" type="text/javascript"></script>
     <link href="css/semantic.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
     <link href="css/index_css.css" rel="stylesheet">
@@ -36,129 +37,173 @@ include 'index_handler.php' ?>
         </div>
         <div class="right menu">
             <div class="item">
-                <div class="ui icon input">
-                    <input type="text" placeholder="Search..." style="min-width: 300px">
-                    <i class="search link icon"></i>
-                </div>
+
+                <form class="search__form" action="search/search.php?action=key_search" method="post">
+                    <div class="ui icon input">
+                        <input type="text" id="search-input" class="search__input" name="search" placeholder="Search..."
+                               style="min-width: 300px">
+                        <i class="search link icon"></i>
+                        <script>
+                        $('.search.link.icon').click(function () {
+                          $('.search__form').submit();
+                        })
+                        </script>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="right menu">
-            <?php
-            $r = "<div class='item'><img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>" .
-                "<span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></div>" .
-                "<div class='item'><a class='ui button green small upload_btn' href='upload/upload.php' style='font-size: 14px;'>上传视频</a></div>";
 
-            // $r = "<table style='margin-right:30px'><tr>
-            //                                       <td><img style='padding-top:10px;' class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'></td>
-            //                                       <td><span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></td>
-            //                                       <td><a class=\"btn btn-success upload_btn\" href=\"upload/upload.php\" style=\"font-size: 14px;\">上传视频</a></td>
-            //                                       <td><a href=\"util/action.php?action=logout\" style='font-size: 16px;padding-left: 20px'>注销</a></td>
-            //                                       </tr></table>";
-            if ($_SESSION['userinfo']['flag'] == 0) $r .= "<style>.upload_btn{display: none}</style>";
-            echo $r;
-            ?>
+            <!--            --><?php
+            //            $r = "<div class='item'><img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>" .
+            //                "<span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></div>" .
+            //                "<div class='item'><a class='ui button green small upload_btn' href='upload/upload.php' style='font-size: 14px;'>上传视频</a></div>";
+            //            if ($_SESSION['userinfo']['flag'] == 0) $r .= "<style>.upload_btn{display: none}</style>";
+            //            echo $r;
+            //            ?>
+            <!---->
+            <!--            <a class="item" href="util/action.php?action=logout">-->
+            <!--                注销-->
+            <!--            </a>-->
 
-            <a class="item" href="util/action.php?action=logout">
-                注销
-            </a>
-        </div>
-    </div>
-    <div class="header hide">
-        <table style="table-layout: fixed;">
-            <tr>
-                <td class="logo_td">
-                    <div class="logo">
-                        <table>
-                            <tr>
-                                <td><img src="resource/doge.png" alt="logo" width="50px"></td>
-                                <td style="padding-left: 10px"><p>校内微课平台</p></td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-                <td class="search_td">
-                    <div class="searcher">
-                        <svg class="hidden">
-                            <defs>
-                                <symbol id="icon-arrow" viewBox="0 0 24 24">
-                                    <title>arrow</title>
-                                    <polygon
-                                            points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "></polygon>
-                                </symbol>
-                                <symbol id="icon-drop" viewBox="0 0 24 24">
-                                    <title>drop</title>
-                                    <path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"></path>
-                                    <path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"></path>
-                                </symbol>
-                                <symbol id="icon-search" viewBox="0 0 24 24">
-                                    <title>search</title>
-                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                                </symbol>
-                                <symbol id="icon-cross" viewBox="0 0 24 24">
-                                    <title>cross</title>
-                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                                </symbol>
-                            </defs>
-                        </svg>
-                        <div class="search">
-                            <button id="btn-search-close" class="btn btn--search-close"
-                                    aria-label="Close search form">
-                                <svg class="icon icon--cross">
-                                    <use xlink:href="#icon-cross"></use>
-                                </svg>
-                            </button>
-                            <form class="search__form" action="search/search.php?action=key_search" method="post">
-                                <input id="search-input" class="search__input" name="search" type="search"
-                                       placeholder=""
-                                       autocomplete="off"/>
-                                <button class="btn btn--search">
-                                    <svg class="icon icon--search">
-                                        <use xlink:href="#icon-search"></use>
-                                    </svg>
-                                </button>
-                            </form>
-                            <div class="search__suggestion" style="color: white;">
-                                <h3>热门搜索：</h3>
-                                <div style="font-weight: bold;text-align: left">
-                                    <br>
-                                    <p>1、<span class="search_suj">解读《滕王阁序》</span>，深入了解诗人王勃</p><br>
-                                    <p>2、差之毫厘谬以千里，<span class="search_suj">H2O和H2O2的区别</span></p><br>
-                                    <p>3、<span class="search_suj">详解“rather than”与“other than”的不同与用法</span></p><br>
-                                    <p>4、敬请期待...</p><br>
-                                    <div style="clear: both"></div>
-                                </div>
+            <div class="ui text right menu" style="margin-right: 20px;">
+                <div class="ui buttons">
+                    <div class="ui button"
+                         style="min-width: 100px"><?php echo $_SESSION['userinfo']['username']; ?></div>
+                    <div class="ui floating dropdown icon button">
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item"><i class="edit icon"></i><a href='upload/upload.php' style="color: black">上传视频</a>
+                            </div>
+                            <div class="ui divider"></div>
+                            <div class="item"><i class="power off icon"></i><span style="color: red;font-weight: bold">注销</span>
                             </div>
                         </div>
-                        <script src="js/index_search.js" type="text/javascript"></script>
                     </div>
-                </td>
-                <td class="info_td">
-                    <div class="userinfo" style="float: right">
-                        <?php
-                        $r = "<table style='margin-right:30px'><tr>
-                                       <td><img style='padding-top:10px;' class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'></td>
-                                       <td><span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></td>
-                                       <td><a class=\"btn btn-success upload_btn\" href=\"upload/upload.php\" style=\"font-size: 14px;\">上传视频</a></td>
-                                       <td><a href=\"util/action.php?action=logout\" style='font-size: 16px;padding-left: 20px'>注销</a></td>
-                                       </tr></table>";
-                        if ($_SESSION['userinfo']['flag'] == 0) $r .= "<style>.upload_btn{display: none}</style>";
-                        echo $r;
-                        ?>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="open_search_content" style="opacity: 0;">
-        <div class="search_back">
-            <p>返回</p>
-        </div>
-        <div class="search_title">
-            <span>搜你所想</span>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="content_div optiscroll">
         <div class="content_main">
+
+            <div class="ui horizontal menu">
+                <a class="item">
+                    所有课程
+                </a>
+                <div class="ui pointing dropdown link item">
+                    高一
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">文科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">理科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">其他</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui pointing dropdown link item">
+                    高二
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">文科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">理科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">其他</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui pointing dropdown link item">
+                    高三
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">文科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">理科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">其他</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui pointing dropdown link item">
+                    其他
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">ddddddd</div>
+                        <div class="item">ddddddd</div>
+                        <div class="item">ddddddd</div>
+                    </div>
+                </div>
+            </div>
+
+
             <div style="max-width: 1400px;margin: 0 auto">
                 <table style="font-size: 22px;margin: 0 15px;">
                     <tr>

@@ -100,8 +100,9 @@ body {
 }
 
 .content_main {
-    margin: 80px 10px 10px 10px;
+    padding-top: 80px;
     height: 1000px;
+    margin: 0 20px 0 15px;
 }
 
 /*视频列表*/

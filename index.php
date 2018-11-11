@@ -12,8 +12,6 @@ include 'index_handler.php' ?>
     <script src="util/util_js.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="css/index_search.css"/>
-    <script src="js/jquery.optiscroll.min.js" type="text/javascript"></script>
-    <link href="css/optiscroll.css" rel="stylesheet">
     <script src="js/hubslider.min.js" type="text/javascript"></script>
     <link href="css/hub-slider.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -85,301 +83,140 @@ include 'index_handler.php' ?>
 
         </div>
     </div>
-    <div class="content_div optiscroll">
+    <div class="content_div">
+        <div class="ui horizontal large attached menu">
+            <div class="ui container">
+                <a class="item">
+                    所有课程
+                </a>
+                <div class="ui pointing dropdown link item">
+                    高一
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">文科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">理科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">其他</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui pointing dropdown link item">
+                    高二
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">文科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">理科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">其他</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui pointing dropdown link item">
+                    高三
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">文科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">理科</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">其他</span>
+                            <div class="menu">
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                                <div class="item">ddddddd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui pointing dropdown link item">
+                    其他
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">ddddddd</div>
+                        <div class="item">ddddddd</div>
+                        <div class="item">ddddddd</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="content_main">
 
-            <div class="ui horizontal large attached stackable menu">
-                <div class="ui container">
-                    <a class="item">
-                        所有课程
-                    </a>
-                    <div class="ui pointing dropdown link item">
-                        高一
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">文科</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">理科</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">其他</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui pointing dropdown link item">
-                        高二
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">文科</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">理科</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">其他</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui pointing dropdown link item">
-                        高三
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">文科</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">理科</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="dropdown icon"></i>
-                                <span class="text">其他</span>
-                                <div class="menu">
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                    <div class="item">ddddddd</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ui pointing dropdown link item">
-                        其他
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item">ddddddd</div>
-                            <div class="item">ddddddd</div>
-                            <div class="item">ddddddd</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!--展示最新上传的5个-->
-
-            <div class="ui five column stackable grid">
-                <div class="column">
-                    <div class="ui special fluid cards">
-                        <div class="card">
-                            <div class="blurring dimmable image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <div class="ui buttons">
-                                                <button class="ui positive button"><i class="icon play"></i>播放</button>
-                                                <div class="or"></div>
-                                                <button class="ui button"><i class="icon plus"></i>加入列表</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <img src="./resource/courses/1516585796/cover.jpg">
-                            </div>
-                            <div class="content">
-                                <a class="header">Team Fu</a>
-                                <div class="meta">
-                                    <span class="date">Created in Sep 2014</span>
-                                </div>
-                            </div>
-<!--                            <div class="extra content">-->
-<!--                                <a><i class="clock outline icon"></i> 212次播放</a>-->
-<!--                            </div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui special fluid cards">
-                        <div class="card">
-                            <div class="blurring dimmable image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <div class="ui buttons">
-                                                <button class="ui positive button"><i class="icon play"></i>播放</button>
-                                                <div class="or"></div>
-                                                <button class="ui button"><i class="icon plus"></i>加入列表</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <img src="./resource/courses/1516585796/cover.jpg">
-                            </div>
-                            <div class="content">
-                                <a class="header">Team Fu</a>
-                                <div class="meta">
-                                    <span class="date">Created in Sep 2014</span>
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <a><i class="clock outline icon"></i> 212次播放</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui special fluid cards">
-                        <div class="card">
-                            <div class="blurring dimmable image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <div class="ui buttons">
-                                                <button class="ui positive button"><i class="icon play"></i>播放</button>
-                                                <div class="or"></div>
-                                                <button class="ui button"><i class="icon plus"></i>加入列表</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <img src="./resource/courses/1516585796/cover.jpg">
-                            </div>
-                            <div class="content">
-                                <a class="header">Team Fu</a>
-                                <div class="meta">
-                                    <span class="date">Created in Sep 2014</span>
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <a><i class="clock outline icon"></i> 212次播放</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui special fluid cards">
-                        <div class="card">
-                            <div class="blurring dimmable image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <div class="ui buttons">
-                                                <button class="ui positive button"><i class="icon play"></i>播放</button>
-                                                <div class="or"></div>
-                                                <button class="ui button"><i class="icon plus"></i>加入列表</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <img src="./resource/courses/1516585796/cover.jpg">
-                            </div>
-                            <div class="content">
-                                <a class="header">Team Fu</a>
-                                <div class="meta">
-                                    <span class="date">Created in Sep 2014</span>
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <a><i class="clock outline icon"></i> 212次播放</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui special fluid cards">
-                        <div class="card">
-                            <div class="blurring dimmable image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <div class="ui buttons">
-                                                <button class="ui positive button"><i class="icon play"></i>播放</button>
-                                                <div class="or"></div>
-                                                <button class="ui button"><i class="icon plus"></i>加入列表</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <img src="./resource/courses/1516585796/cover.jpg">
-                            </div>
-                            <div class="content">
-                                <a class="header">Team Fu</a>
-                                <div class="meta">
-                                    <span class="date">Created in Sep 2014</span>
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <a><i class="clock outline icon"></i> 212次播放</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <br>
+            <h4 class="ui horizontal divider header"><i class="tag icon"></i> 最新上传： </h4>
+            <div class="newest_list card_list">
+                <?php newest(); ?>
             </div>
 
-
-            <br>
-            <div class="video_list newest_upload">
-                <table style="margin: 0 auto">
-                    <tr>
-                        <td><h3 style="font-weight: bold">最新上传：</h3></td>
-                    </tr>
-                    <tr>
-                        <?php newest(); ?>
-                    </tr>
-                </table>
-            </div>
-            <br>
+            <div style="clear: both;"></div>
+            <h4 class="ui horizontal divider header"><i class="tag icon"></i> 最多观看： </h4>
             <!--最多点击的5个-->
-            <div class="video_list most_views">
-                <table style="margin: 0 auto">
-                    <tr>
-                        <td><h3 style="font-weight: bold">最多浏览：</h3></td>
-                    </tr>
-                    <tr>
-                        <?php hottest(); ?>
-                    </tr>
-                </table>
+            <div class="card_list">
+                <?php hottest(); ?>
             </div>
-            <br>
+            <div style="clear: both;">
+            </div>
             <hr>
             <!-- 论坛部分-->
             <div class="input-group-btn" style="display: none">
@@ -442,10 +279,9 @@ include 'index_handler.php' ?>
         </div>
     </div>
 </div>
-<div class="index_bg"></div>
 
 <!-- Modal -->
-<div class="modal fade" id="change_avatar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="hide modal fade" id="change_avatar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -482,7 +318,7 @@ include 'index_handler.php' ?>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="about_me" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="hide modal fade" id="about_me" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

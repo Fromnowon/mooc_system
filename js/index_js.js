@@ -22,6 +22,8 @@ function bbsFilter() {
 }
 
 function setMiscIndex() {
+  var width = $(window).width();
+  var height = $(window).height();
   //semanticUI 初始化
   $('.ui.dropdown')
     .dropdown({
@@ -30,24 +32,12 @@ function setMiscIndex() {
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
+  var width_ = $('.card_list').width();
+  $.each($('.card_list').children(), function (index, value) {
+    $(this).css({width: width_ * 0.18, 'margin-left': 0});
+    if (index != 4) $(this).css({'margin-right': width_ * 0.025 - 12});
+  })
 
-
-  var width = $(window).width();
-  var height = $(window).height();
-  //滑动区域
-  var content = $(".content_div");
-  content.css('height', height);
-  content.optiscroll({scrollStopDelay: 100});
-
-  $('.hub-slider-slides ul').hubSlider({
-    selector: $('li'),
-    button: {
-      next: $('.hub-slider-arrow_next'),
-      prev: $('.hub-slider-arrow_prev')
-    },
-    auto: true,
-    time: 5
-  });
 
   //滚动事件
   // var scroll_before;
@@ -100,11 +90,6 @@ function setMiscIndex() {
   //所有课程按钮
   $(".all_courses").on('click', function () {
     window.location.href = "search/search.php?action=index_key_search_all";
-  })
-
-  //滚到底部
-  $(".go_down").on('click', function () {
-    content.data('optiscroll').scrollTo(false, 'bottom', 500);
   })
 
   //关于按钮

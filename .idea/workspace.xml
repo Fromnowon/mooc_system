@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc0c9183-17bc-4918-9d6c-5041d8b7ac4e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index_css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index_js.js" afterDir="false" />
@@ -20,16 +21,16 @@
           <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="5" />
           <entry key="js" value="5" />
-          <entry key="php" value="10" />
+          <entry key="php" value="11" />
           <entry key="png" value="8" />
         </counts>
       </usages-collector>
@@ -38,21 +39,22 @@
           <entry key="CSS" value="5" />
           <entry key="Image" value="8" />
           <entry key="JavaScript" value="5" />
-          <entry key="PHP" value="10" />
+          <entry key="PHP" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="185" />
-          <entry key="js" value="333" />
-          <entry key="php" value="993" />
+          <entry key="css" value="287" />
+          <entry key="js" value="435" />
+          <entry key="php" value="1396" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="185" />
-          <entry key="JavaScript" value="333" />
-          <entry key="PHP" value="993" />
+          <entry key="CSS" value="287" />
+          <entry key="HTML" value="4" />
+          <entry key="JavaScript" value="435" />
+          <entry key="PHP" value="1392" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class" />
@@ -69,18 +71,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="195" column="22" lean-forward="true" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
+            <state relative-caret-position="412">
+              <caret line="233" column="32" lean-forward="true" selection-start-line="233" selection-start-column="32" selection-end-line="235" selection-end-column="38" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2537#2686#0#PHP" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#3;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#4;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#h3#0;n#td#0;n#tr#0;n#table#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#p#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
@@ -91,10 +91,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index_handler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="113" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/index_css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+            <state relative-caret-position="460">
+              <caret line="310" lean-forward="true" selection-start-line="310" selection-end-line="310" />
             </state>
           </provider>
         </entry>
@@ -102,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/index_js.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+            <state relative-caret-position="342">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -121,9 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pause</find>
-      <find>player</find>
-      <find>height</find>
       <find>hr</find>
       <find>hrbr</find>
       <find>subject_nav</find>
@@ -151,6 +157,9 @@
       <find>container`</find>
       <find>reg_btn</find>
       <find>reg_modal</find>
+      <find>trent-slider</find>
+      <find>slider_extra</find>
+      <find>slider</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,13 +216,13 @@
         <option value="$PROJECT_DIR$/util/register.php" />
         <option value="$PROJECT_DIR$/util/action.php" />
         <option value="$PROJECT_DIR$/test.php" />
-        <option value="$PROJECT_DIR$/index_handler.php" />
         <option value="$PROJECT_DIR$/js/semantic.min.js" />
         <option value="$PROJECT_DIR$/css/login_css.css" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/js/login_js.js" />
-        <option value="$PROJECT_DIR$/js/index_js.js" />
         <option value="$PROJECT_DIR$/css/index_css.css" />
+        <option value="$PROJECT_DIR$/index_handler.php" />
+        <option value="$PROJECT_DIR$/js/index_js.js" />
         <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
@@ -237,10 +246,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="246" />
-    <option name="y" value="39" />
-    <option name="width" value="1356" />
-    <option name="height" value="699" />
+    <option name="x" value="245" />
+    <option name="y" value="37" />
+    <option name="width" value="1357" />
+    <option name="height" value="701" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -250,6 +259,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,7 +271,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -525,6 +534,7 @@
       <workItem from="1541775932690" duration="7752000" />
       <workItem from="1541856227090" duration="3728000" />
       <workItem from="1541860100035" duration="5787000" />
+      <workItem from="1541865925721" duration="7498000" />
     </task>
     <servers />
   </component>
@@ -537,16 +547,15 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="846581000" />
+    <option name="totallyTimeSpent" value="854079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1431" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25345957" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25710124" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -558,7 +567,8 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32980973" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32970452" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -786,9 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_handler.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/animate.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-116" />
@@ -811,34 +818,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/index_js.js">
+    <entry file="file://$PROJECT_DIR$/css/index_css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+        <state relative-caret-position="460">
+          <caret line="310" lean-forward="true" selection-start-line="310" selection-end-line="310" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index_css.css">
+    <entry file="file://$PROJECT_DIR$/index_handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+        <state relative-caret-position="252">
+          <caret line="14" column="113" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="195" column="22" lean-forward="true" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
+        <state relative-caret-position="412">
+          <caret line="233" column="32" lean-forward="true" selection-start-line="233" selection-start-column="32" selection-end-line="235" selection-end-column="38" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#2537#2686#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#4;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#h3#0;n#td#0;n#tr#0;n#table#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />

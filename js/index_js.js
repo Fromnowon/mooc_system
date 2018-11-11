@@ -27,6 +27,9 @@ function setMiscIndex() {
     .dropdown({
       on: 'hover'
     });
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
 
 
   var width = $(window).width();
@@ -47,24 +50,24 @@ function setMiscIndex() {
   });
 
   //滚动事件
-  var scroll_before;
-  content.on('scrollstart', function (e) {
-    scroll_before = e.detail.scrollTop;
-  })
-  var scroll_after;
-  content.on('scrollstop', function (e) {
-    var header = $(".header_menu");
-    scroll_after = e.detail.scrollTop;
-    if (scroll_before > scroll_after) {
-      header.stop(true, false).animate({opacity: 1}, 300);//显示
-    } else if (scroll_before < scroll_after) {
-      header.stop(true, false).animate({opacity: 0}, 300);//隐藏
-    }
-  });
-  content.on('scrollreachtop', function () {
-    //若到顶部强制停止所有动画瞬间显示
-    $(".header_menu").stop(true, true).css('opacity', 1);
-  });
+  // var scroll_before;
+  // content.on('scrollstart', function (e) {
+  //   scroll_before = e.detail.scrollTop;
+  // })
+  // var scroll_after;
+  // content.on('scrollstop', function (e) {
+  //   var header = $(".header_menu");
+  //   scroll_after = e.detail.scrollTop;
+  //   if (scroll_before > scroll_after) {
+  //     header.stop(true, false).animate({opacity: 1}, 300);//显示
+  //   } else if (scroll_before < scroll_after) {
+  //     header.stop(true, false).animate({opacity: 0}, 300);//隐藏
+  //   }
+  // });
+  // content.on('scrollreachtop', function () {
+  //   //若到顶部强制停止所有动画瞬间显示
+  //   $(".header_menu").stop(true, true).css('opacity', 1);
+  // });
 
   //更换头像
   $(".change_avatar").on('click', function () {
@@ -119,10 +122,10 @@ function setMiscIndex() {
 function setUI() {
   var width = $(window).width();
   var height = $(window).height();
-  $(".logo_td").css('width', width / 3);
-  $(".info_td").css('width', width / 3);
-  $(".search_td").css('width', 2 * width / 3);
-  $(".trent-slider").css({width: $(".neck_layout").width() - $(".subject_tag_table").width() - 300, height: 400});
+  // console.log(width);
+  // //调整幻灯片尺寸
+  // $(".trent-slider").css({width: width / 2, height: width * 9 / 32});
+  // $('.slider_extra').css({width: $(".trent-slider").width() / 3, height: width * 9 / 32});
 
   //动态添加导航链接
   $(".subject_tag_nav").each(function () {

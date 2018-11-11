@@ -6,34 +6,34 @@ body {
 
 /*顶部*/
 /*.change_avatar {*/
-    /*cursor: pointer;*/
+/*cursor: pointer;*/
 /*}*/
 
 /*.header {*/
-    /*!*visibility: hidden;*!*/
-    /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.31);*/
-    /*position: absolute;*/
-    /*z-index: 20;*/
+/*!*visibility: hidden;*!*/
+/*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.31);*/
+/*position: absolute;*/
+/*z-index: 20;*/
 /*}*/
 /*.header td{*/
-    /*background: white;*/
+/*background: white;*/
 /*}*/
 /*.header .logo_td {*/
-    /*padding-left: 20px;*/
-    /*font-size: 24px;*/
+/*padding-left: 20px;*/
+/*font-size: 24px;*/
 /*}*/
 
 /*.header .search_td {*/
-    /*min-width: 315px;*/
+/*min-width: 315px;*/
 /*}*/
 
 /*.header .info_td {*/
-    /*min-width: 170px;*/
+/*min-width: 170px;*/
 /*}*/
 
 /*.header .userinfo p {*/
-    /*line-height: 60px;*/
-    /*text-align: center;*/
+/*line-height: 60px;*/
+/*text-align: center;*/
 /*}*/
 
 .change_avatar {
@@ -41,12 +41,12 @@ body {
 }
 
 /*.header .userinfo span {*/
-    /*font-size: 26px;*/
+/*font-size: 26px;*/
 /*}*/
 
 /*.header .userinfo a {*/
-    /*margin-left: 20px;*/
-    /*font-size: 18px;*/
+/*margin-left: 20px;*/
+/*font-size: 18px;*/
 /*}*/
 
 p {
@@ -100,9 +100,23 @@ body {
 }
 
 .content_main {
-    padding-top: 80px;
+    padding-top: 70px;
     height: 1000px;
-    margin: 0 20px 0 15px;
+    /*margin: 0 40px 0 35px;*/
+}
+
+/*覆盖原定义*/
+.ui.menu .item {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.ui.text.menu {
+    margin: .5rem -.5rem;
+}
+
+.hide {
+    display: none;
 }
 
 /*视频列表*/
@@ -233,18 +247,18 @@ body {
     cursor: pointer;
 }
 
-.slider_extra img {
-    height: 100px;
-    width: 150px;
-    margin: 3px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.49);
-}
+/*.slider_extra img {*/
+/*height: 100px;*/
+/*width: 150px;*/
+/*margin: 3px;*/
+/*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.49);*/
+/*}*/
 
 /*随机视频*/
-.slider_extra td {
-    padding: 5px;
-    cursor: pointer;
-}
+/*.slider_extra td {*/
+/*padding: 5px;*/
+/*cursor: pointer;*/
+/*}*/
 
 /*.hub-slider{*/
 /*width: 900px;*/
@@ -292,132 +306,5 @@ body {
     }
     100% {
         width: 100%;
-    }
-}
-
-.trent-slider {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.t-slide {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    transition: .65s;
-}
-
-.t-slide img {
-    width: 100%;
-    height: 100%;
-}
-
-.t-slider-controls {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.t-slider-controls .arrow {
-    min-height: 100%;
-    width: 50px;
-    position: relative;
-    transition: .25s;
-}
-
-.t-slider-controls .arrow:hover {
-    cursor: pointer;
-}
-
-.t-slider-controls .right-arrow {
-    float: right;
-}
-
-.t-slider-controls .left-arrow {
-    float: left;
-}
-
-.t-slider-controls .arrow .arrow-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-}
-
-.t-slider-controls .arrow .arrow-container .arrow-icon {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    color: #fafafa;
-    border-radius: 50%;
-}
-
-.t-slider-controls .arrow .arrow-container .arrow-icon i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.t-slider-controls .t-load-bar {
-    width: 100%;
-    height: 5px;
-}
-
-.t-slider-controls .t-load-bar .inner-load-bar {
-    background: rgba(200, 200, 200, 0.65);
-    height: 100%;
-}
-
-.t-slider-controls .t-dots-container {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 20px;
-    min-width: 350px;
-}
-
-.t-slider-controls .t-slide-dots-wrap {
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-.t-slider-controls .t-slide-dots {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: table;
-    content: "";
-    clear: both;
-}
-
-.t-slider-controls .t-slide-dots .t-dot {
-    background: #fafafa;
-    width: 8px;
-    height: 8px;
-    margin: 5px;
-    float: left;
-    border-radius: 50%;
-    transition: .65s;
-}
-
-.t-slider-controls .t-slide-dots .t-dot.current-dot, .t-slider-controls .t-slide-dots .t-dot:hover {
-    transform: scale(1.65);
-    cursor: pointer;
-}
-
-/*close slider css*/
-@media screen and (min-width: 768px) {
-    .t-slider-controls .arrow:hover {
-        background: rgba(0, 0, 0, 0.32);
     }
 }

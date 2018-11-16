@@ -201,16 +201,18 @@ include 'index_handler.php' ?>
             </div>
         </div>
         <div class="content_main">
-
+            <div style="text-align: center">
+                <img src="./resource/img/slider1.png" style="width: 80%" alt="">
+            </div>
             <!--展示最新上传的5个-->
             <br>
-            <h4 class="ui horizontal divider header"><i class="tag icon"></i> 最新上传： </h4>
+            <h4 class="ui horizontal divider header"><i class="clock icon"></i> 最新上传： </h4>
             <div class="newest_list card_list">
                 <?php newest(); ?>
             </div>
 
             <div style="clear: both;"></div>
-            <h4 class="ui horizontal divider header"><i class="tag icon"></i> 最多观看： </h4>
+            <h4 class="ui horizontal divider header"><i class="hotjar icon"></i> 最多观看： </h4>
             <!--最多点击的5个-->
             <div class="card_list">
                 <?php hottest(); ?>

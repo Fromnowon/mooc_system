@@ -1,5 +1,6 @@
 <?php
-include 'index_handler.php' ?>
+include 'index_handler.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,6 @@ include 'index_handler.php' ?>
         </div>
         <div class="right menu">
             <div class="item">
-
                 <form class="search__form" action="search/search.php?action=key_search" method="post">
                     <div class="ui icon input">
                         <input type="text" id="search-input" class="search__input" name="search" placeholder="Search..."

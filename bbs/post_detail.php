@@ -12,8 +12,8 @@ include '../util/sqlTool.php';
     <meta charset="UTF-8">
     <title>贴子详情</title>
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/semantic.min.js" type="text/javascript"></script>
+    <link href="../css/semantic.min.css" rel="stylesheet">
 
     <script src="../util/util_js.js" type="text/javascript"></script>
     <link href="css/post_detail.css" rel="stylesheet">

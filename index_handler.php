@@ -22,16 +22,15 @@ function pull_list($sql)
                                 <div class="content">
                                     <div class="center">
                                         <div>
-                                            <button class="small ui positive button" style="width: 120px" onclick="(function() {
+                                            <button class="mini ui positive button" style="width: 100px" onclick="(function() {
                                               window.open('play/play.php?playid=' + {$rs['id']});
-                                            })()"><i
-                                                        class="icon play"></i>播放
+                                            })()"><i class="icon play"></i>播&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;放
                                             </button>
                                         </div>
                                         <br>
                                         <div>
-                                            <button class="small ui button" style="width: 120px"><i
-                                                        class="icon plus"></i>加入列表
+                                            <button class="mini ui button" style="width: 100px">
+                                            <i class="icon plus"></i>加入列表
                                             </button>
                                         </div>
                                     </div>
@@ -40,9 +39,10 @@ function pull_list($sql)
                             <img class="cover_img" style="width: 224px;height: 130px;" src="{$rs['cover']}">
                         </div>
                         <div class="content">
-                            <a class="header">{$rs['title']}</a>
-                            <div class="meta">
-                                <span class="date">上传时间：{$rs['upload_date']}</span>
+                            <a class="header"  style="overflow:hidden;text-overflow:ellipsis"><nobr>{$rs['title']}</nobr></a>
+                            <div class="meta" style="margin-top: 10px">
+                                <span class="date">上传时间：{$rs['upload_date']}</span><br>
+                                <span class="date">观看数：222</span>
                             </div>
                         </div>
                     </div>

@@ -18,9 +18,10 @@ include 'index_handler.php';
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/hover-effects.css" rel="stylesheet">
     <script src="js/jquery.gradientify.min.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
     <script src="js/semantic.min.js" type="text/javascript"></script>
     <link href="css/semantic.min.css" rel="stylesheet">
+    <script src="js/jquery.sliderPro.min.js" type="text/javascript"></script>
+    <link href="css/slider-pro.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
 
     <script src="js/index_js.js" type="text/javascript"></script>
@@ -28,8 +29,13 @@ include 'index_handler.php';
 </head>
 <body>
 <div class="content">
+    <div class="to_top">
+        <a href="javascript:void(0)" onclick="(function() {
+          $('html,body').animate( {scrollTop: 0}, 300);
+        })()"><i class="circular arrow up inverted teal large icon"></i></a>
+    </div>
     <!--    <div class="search_bg"></div>-->
-    <div class="ui menu fixed header_menu borderless">
+    <div class="ui menu fixed header_menu borderless" style="box-shadow: unset">
         <div class="header item">
             <img src="resource/doge.png" alt="logo" style="width: 36px;margin-right: 20px"/>
             <span style="font-size: 22px">校内微课平台</span>
@@ -37,33 +43,21 @@ include 'index_handler.php';
         <div class="right menu">
             <div class="item">
                 <form class="search__form" action="search/search.php?action=key_search" method="post">
-                    <div class="ui icon input">
-                        <input type="text" id="search-input" class="search__input" name="search" placeholder="Search..."
-                               style="min-width: 300px">
-                        <i class="search link icon"></i>
-                        <script>
-                        $('.search.link.icon').click(function () {
-                          $('.search__form').submit();
-                        })
-                        </script>
+                    <div class="ui search">
+                        <div class="ui icon input">
+                            <input type="text" id="search-input" class="search__input prompt" name="search"
+                                   placeholder="Search..."
+                                   style="min-width: 300px">
+                            <i class="search link icon"></i>
+                            <script>
+                            $('.search.link.icon').click(function () {
+                              $('.search__form').submit();
+                            })
+                            </script>
+                        </div>
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="right menu">
-
-            <!--            --><?php
-            //            $r = "<div class='item'><img class='change_avatar' title='点击更换头像' src='resource/avatar/" . $_SESSION['userinfo']['avatar'] . ".png'>" .
-            //                "<span style='font-size: 24px'>" . $_SESSION['userinfo']['username'] . "</span></div>" .
-            //                "<div class='item'><a class='ui button green small upload_btn' href='upload/upload.php' style='font-size: 14px;'>上传视频</a></div>";
-            //            if ($_SESSION['userinfo']['flag'] == 0) $r .= "<style>.upload_btn{display: none}</style>";
-            //            echo $r;
-            //            ?>
-            <!---->
-            <!--            <a class="item" href="util/action.php?action=logout">-->
-            <!--                注销-->
-            <!--            </a>-->
-
             <div class="ui text right menu" style="margin-right: 20px;">
                 <div class="ui buttons" style="height: 38px">
                     <div class="ui button"
@@ -201,8 +195,29 @@ include 'index_handler.php';
             </div>
         </div>
         <div class="content_main">
-            <div style="text-align: center">
-                <img src="./resource/img/slider1.png" style="width: 80%" alt="">
+            <!--颈部-->
+            <div>
+                <div class="slider-pro" id="my-slider">
+                    <div class="sp-slides">
+                        <!-- Slide 1 -->
+                        <div class="sp-slide">
+                            <img class="sp-image" src="./resource/img/slider1.png"/>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="sp-slide">
+                            <img class="sp-image" src="./resource/img/slider2.png"/>
+                            <p>Lorem ipsum dolor sit amet</p>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="sp-slide">
+                            <img class="sp-image" src="./resource/img/slider3.png"/>
+                            <h3 class="sp-layer">Lorem ipsum dolor sit amet</h3>
+                            <p class="sp-layer">consectetur adipisicing elit</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--展示最新上传的5个-->
             <br>
@@ -219,32 +234,20 @@ include 'index_handler.php';
             </div>
             <div style="clear: both;">
             </div>
-            <hr>
             <!-- 论坛部分-->
-            <div class="input-group-btn" style="display: none">
-                <button id="user_form_search_button" type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false" filter="1"><span>最新发布</span><span class="caret"
-                                                                                style="margin-left: 5px"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="bbs_list" filter="1" href="javascript:void(0)">最新发布</a></li>
-                    <li><a class="bbs_list" filter="2" href="javascript:void(0)">最新回复</a></li>
-                    <li><a class="bbs_list" filter="3" href="javascript:void(0)">最多点击</a></li>
-                    <li><a class="bbs_list" filter="4" href="javascript:void(0)">最多回复</a></li>
-                </ul>
-            </div>
+            <h4 class="ui horizontal divider header"><i class="comment icon"></i> 讨论版： </h4>
             <div class="bbs_prev" style="margin-top: 10px">
                 <h3>最新主题：</h3>
-                <table class="bbs_prev_content table table-striped">
-                    <tr style="font-size: 18px;font-weight: bold">
-                        <td>标题</td>
-                        <td>发帖者</td>
-                        <td>回复/点击</td>
-                        <td>创建时间</td>
-                        <td>最后回复</td>
-                    </tr>
+                <table class="bbs_prev_content ui table celled selectable">
+                    <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th>发帖者</th>
+                            <th>回复/点击</th>
+                            <th>创建时间</th>
+                            <th>最后回复</th>
+                        </tr>
+                    </thead>
                     <?php
                     include 'util/sqlTool.php';
                     $content = '';

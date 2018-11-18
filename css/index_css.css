@@ -4,7 +4,6 @@ body {
     background: #eee !important;
 }
 
-
 .change_avatar {
     width: 36px;
 }
@@ -24,7 +23,7 @@ p {
 /*页面主体*/
 
 .content_div {
-    margin-top: 56px;
+    margin-top: 55px;
     position: relative;
 }
 
@@ -96,19 +95,21 @@ p {
     cursor: pointer;
 }
 
-
-/*搜索建议*/
-.search_suj {
-    color: dodgerblue;
+/*跳到顶部*/
+.to_top {
+    position: fixed;
+    z-index: 999;
+    bottom: 80px;
+    right: 30px;
     cursor: pointer;
 }
 
+/*轮播*/
+
+
 /*论坛部分*/
 .bbs_prev {
-    background: whitesmoke;
     padding: 0 10px 0;
-    border: 1px solid;
-    border-radius: 5px;
     padding-bottom: 10px;
     margin: 10px 20px;
 }

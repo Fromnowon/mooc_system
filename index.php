@@ -60,9 +60,9 @@ include 'index_handler.php';
             </div>
             <div class="ui text right menu" style="margin-right: 20px;">
                 <div class="ui buttons" style="height: 38px">
-                    <div class="ui button"
+                    <div class="ui button positive"
                          style="min-width: 100px"><?php echo $_SESSION['userinfo']['username']; ?></div>
-                    <div class="ui floating dropdown icon button">
+                    <div class="ui floating dropdown icon positive button">
                         <i class="dropdown icon"></i>
                         <div class="menu">
                             <div class="item"><i class="edit icon"></i><a href='upload/upload.php' style="color: black">上传视频</a>

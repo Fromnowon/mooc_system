@@ -43,7 +43,6 @@ function setMiscIndex() {
 
   //滚动条到顶部取消导航栏阴影
   $(window).scroll(function () {
-
     if ($(document).scrollTop() <= 0) {
       $('.header_menu').css('box-shadow', 'unset');
       $('.to_top').fadeOut();

@@ -2,49 +2,62 @@ p {
     margin: 0;
 }
 
-.user_avatar {
-    padding-top: 10px;
-    height: 30%;
-}
-
-.post_table {
-    border: 1px solid;
-    width: 100%;
-    margin: 10px 0;
-    box-shadow:3px 3px 5px #a8a8a8;
-    transition: all 1s;
-    -moz-transition: all 1s; /* Firefox 4 */
-    -webkit-transition: all 1s; /* Safari and Chrome */
-    -o-transition: all 1s; /* Opera */
-}
-.post_table:hover{
-    background: #ececec;
-}
-
-.post_body{
+.post_body {
     margin: 0 80px;
-}
-
-.post_table table {
-    width: 100%;
-}
-
-.post_content_table{
-    border-left: 1px solid;
 }
 
 .post_content {
     padding: 10px 10px 30px;
 }
-
-.position{
-    position: absolute;
-    right: 220px;
-    bottom: 10px;
+.avatar{
+    width: 42px;
 }
 
-.create_date {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
+/* table 样式 */
+.post_content table {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+.post_content table td,
+.post_content table th {
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 3px 5px;
+}
+
+.post_content table th {
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+}
+
+/* blockquote 样式 */
+.post_content blockquote {
+    display: block;
+    border-left: 8px solid #d0e5f2;
+    padding: 5px 10px;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 100%;
+    background-color: #f1f1f1;
+}
+
+/* code 样式 */
+.post_content code {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    padding: 3px 5px;
+    margin: 0 3px;
+}
+
+.post_content pre code {
+    display: block;
+}
+
+/* ul ol 样式 */
+.post_content ul, ol {
+    margin: 10px 0 10px 20px;
 }

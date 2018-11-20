@@ -101,25 +101,11 @@ function textLimit(textObj, infoObj, limit_num) {
 
 //处理转义
 function msg_handler(content) {
-    content = content.replace(/[\r\n]/g, "<br/>");
+    //content = content.replace(/[\r\n]/g, "<br/>");
     //content = content.replace(/[\r]/g, "<br/>");
     content = content.replace(/["]/g, "&quot;");
     content = content.replace(/[']/g, "&#039;");
     //content = content.replace(/[\\]/g, "\\\\");
-    content = content.replace(/[ ]/g, "&nbsp;");
+    //content = content.replace(/[ ]/g, "&nbsp;");
     return content;
-}
-
-//字符havor特效
-function charHover(obj) {
-    var ghost = $(".text_hover_ghost");
-    obj.mouseover(function () {
-        $(this).css('opacity', 0);
-        var pos = [$(this).offset().top, $(this).offset().left];//获取绝对位置
-        ghost.html($(this).html());
-        ghost.css({display: "", position: "absolute", top: pos[0], left: pos[1]});
-    });
-    obj.mouseout(function () {
-        $(this).css('opacity', 1);
-    });
 }

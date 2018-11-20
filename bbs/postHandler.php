@@ -26,7 +26,7 @@ switch ($_GET['action']) {
 function newPost($conn, $date)
 {
     $title = $_POST['title'];
-    $content = $_POST['content'];
+    $content = htmlspecialchars($_POST['content']);
     $r = add($conn, 'bbs',
         [$_SESSION['userinfo']['uid'], $title, $content, 0, 0, $date, $date, 1]
     );

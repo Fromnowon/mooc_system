@@ -22,14 +22,14 @@ function pull_list($sql)
                                 <div class="content">
                                     <div class="center">
                                         <div>
-                                            <button class="mini ui positive button" style="width: 100px" onclick="(function() {
+                                            <button class="mini ui positive button" style="width: 110px" onclick="(function() {
                                               window.open('play/play.php?playid=' + {$rs['id']});
                                             })()"><i class="icon play"></i>播&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;放
                                             </button>
                                         </div>
                                         <br>
                                         <div>
-                                            <button class="mini ui button" style="width: 100px">
+                                            <button class="mini ui button" style="width: 110px">
                                             <i class="icon plus"></i>加入列表
                                             </button>
                                         </div>

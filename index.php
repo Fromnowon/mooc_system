@@ -32,7 +32,7 @@ include 'index_handler.php';
     <div class="to_top">
         <a href="javascript:void(0)" onclick="(function() {
           $('html,body').animate( {scrollTop: 0}, 300);
-        })()"><i class="circular arrow up inverted teal large icon"></i></a>
+        })()"><i class="circular arrow up grey large icon"></i></a>
     </div>
     <!--    <div class="search_bg"></div>-->
     <div class="ui menu fixed header_menu borderless" style="box-shadow: unset">
@@ -60,9 +60,9 @@ include 'index_handler.php';
             </div>
             <div class="ui text right menu" style="margin-right: 20px;">
                 <div class="ui buttons" style="height: 38px">
-                    <div class="ui button positive"
+                    <div class="ui button primary"
                          style="min-width: 100px"><?php echo $_SESSION['userinfo']['username']; ?></div>
-                    <div class="ui floating dropdown icon positive button">
+                    <div class="ui floating dropdown icon primary button">
                         <i class="dropdown icon"></i>
                         <div class="menu">
                             <div class="item"><i class="edit icon"></i><a href='upload/upload.php' style="color: black">上传视频</a>
@@ -236,10 +236,11 @@ include 'index_handler.php';
             </div>
             <!-- 论坛部分-->
             <h4 class="ui horizontal divider header"><i class="comment icon"></i> 讨论版： </h4>
-            <div class="bbs_prev" style="margin-top: 10px">
+            <div class="bbs_prev" style="margin: 10px 0 20px">
                 <h3>最新主题：</h3>
-                <table class="bbs_prev_content ui table celled selectable">
-                    <thead>
+                <div class="ui attached">
+                    <table class="bbs_prev_content ui table celled selectable">
+                        <thead>
                         <tr>
                             <th>标题</th>
                             <th>发帖者</th>
@@ -247,14 +248,14 @@ include 'index_handler.php';
                             <th>创建时间</th>
                             <th>最后回复</th>
                         </tr>
-                    </thead>
-                    <?php
-                    include 'util/sqlTool.php';
-                    $content = '';
-                    $rs = all($conn, 'bbs', 'ORDER BY create_date DESC LIMIT 5');
-                    foreach ($rs as $post) {
-                        $user_rs = select($conn, 'user', "uid={$post['uid']}");
-                        $content .= "<tr>
+                        </thead>
+                        <?php
+                        include 'util/sqlTool.php';
+                        $content = '';
+                        $rs = all($conn, 'bbs', 'ORDER BY create_date DESC LIMIT 5');
+                        foreach ($rs as $post) {
+                            $user_rs = select($conn, 'user', "uid={$post['uid']}");
+                            $content .= "<tr>
                         <td class='title'>
                             <a href='bbs/post_detail.php?postid={$post['id']}'>{$post['title']}</a>
                         </td>
@@ -271,100 +272,16 @@ include 'index_handler.php';
                             {$post['last_reply_date']}
                         </td>
                     </tr>";
-                    }
-                    echo $content;
-                    ?>
-                    <tr>
-                        <td colspan="5" style="text-align: center">
-                            <a target="_blank" href="bbs/bbs_index.php">点击进入完整讨论板块</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="hide modal fade" id="change_avatar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">选择头像</h4>
-            </div>
-            <div class="modal-body">
-                <table class="change_avatar_list">
-                    <tr>
-                        <td><img class="change_avatar_list_avatar" value="1" src="resource/avatar/1.png"
-                                 style="transform: scale(0.95)"></td>
-                        <td><img class="change_avatar_list_avatar" value="2" src="resource/avatar/2.png"></td>
-                        <td><img class="change_avatar_list_avatar" value="3" src="resource/avatar/3.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img class="change_avatar_list_avatar" value="4" src="resource/avatar/4.png"></td>
-                        <td><img class="change_avatar_list_avatar" value="5" src="resource/avatar/5.png"></td>
-                        <td><img class="change_avatar_list_avatar" value="6" src="resource/avatar/6.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img class="change_avatar_list_avatar" value="7" src="resource/avatar/7.png"
-                                 style="transform: scale(0.9)"></td>
-                        <td><img class="change_avatar_list_avatar" value="8" src="resource/avatar/8.png"></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" id="change_avatar_submit">确定</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="hide modal fade" id="about_me" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">关于本站</h4>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <?php
-                    $sql = 'select * from course';
-                    $num_course = mysqli_num_rows(mysqli_query($conn, $sql));
-                    echo "<p style='font-size: 18px'>课程总数：<span style='color: #2e6da4;font-weight: bold'>" . $num_course . "</span></p>";
-                    ?>
-                    <?php
-                    $sql = 'select * from user';
-                    $num_user = mysqli_num_rows(mysqli_query($conn, $sql));
-                    echo "<p style='font-size: 18px'>用户总数：<span style='color: #2e6da4;font-weight: bold'>" . $num_user . "</span></p>";
-                    ?>
-                    <p>平台版本：<span>1.18.0330</span></p>
+                        }
+                        echo $content;
+                        ?>
+                        <tr>
+                            <td colspan="5" style="text-align: center;padding: 0">
+                                <a class="ui button attached bottom" style="border-radius: 0" target="_blank" href="bbs/bbs_index.php">点击进入完整讨论板块</a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div>
-                    <hr>
-                    <br>
-                    <p>更新日志：</p>
-                    <p>2018.3.30 版本号1.18.0330</p>
-                    <p>
-                        1、轮播右侧增加随机视频显示；
-                        2、bug修复
-                    </p>
-                    <br>
-                    <p>2018.3.27 版本号1.18.0327</p>
-                    <p>
-                        1、替换网站logo，并在相应位置予以显示；
-                        2、重写分类导航和更换轮播组件；
-                        3、若干界面微调；
-                    </p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
             </div>
         </div>
     </div>

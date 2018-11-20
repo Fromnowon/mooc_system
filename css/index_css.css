@@ -99,8 +99,8 @@ p {
 .to_top {
     position: fixed;
     z-index: 999;
-    bottom: 80px;
-    right: 30px;
+    bottom: 20%;
+    right: 2%;
     cursor: pointer;
 }
 

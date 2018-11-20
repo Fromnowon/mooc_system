@@ -99,13 +99,3 @@ function textLimit(textObj, infoObj, limit_num) {
     });
 }
 
-//处理转义
-function msg_handler(content) {
-    //content = content.replace(/[\r\n]/g, "<br/>");
-    //content = content.replace(/[\r]/g, "<br/>");
-    content = content.replace(/["]/g, "&quot;");
-    content = content.replace(/[']/g, "&#039;");
-    //content = content.replace(/[\\]/g, "\\\\");
-    //content = content.replace(/[ ]/g, "&nbsp;");
-    return content;
-}

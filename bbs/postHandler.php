@@ -38,7 +38,7 @@ function newPost($conn, $date)
 function postReply($conn, $date)
 {
     $id = $_POST['id'];
-    $content = $_POST['content'];
+    $content = htmlspecialchars($_POST['content']);
     $r = add($conn, 'bbs_reply', [$id, $_SESSION['userinfo']['uid'], $content, $date]);
     update($conn, "bbs", "reply=reply+1, last_reply_date='" . $date . "'", "id=$id");
     if ($r) echo 'ok';

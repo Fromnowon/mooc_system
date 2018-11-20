@@ -56,10 +56,11 @@ include '../util/sqlTool.php';
 
     //加载回复
     $rs = select($conn, 'bbs_reply', "relate_id=$id");
-    $count = 2;
+    $count = 2;//回复楼层计数始于2楼
     $content .= "<div class='ui comments'><h3 class='ui dividing header'>回复</h3>";
     foreach ($rs as $reply) {
         $user_rs = select($conn, 'user', "uid={$reply['uid']}");
+        $reply['content'] = htmlspecialchars_decode($reply['content']);
         $content .= "<div class='comment'>
 <span style='font-weight: bold'>{$user_rs[0]['username']}</span>
 <span style='margin-left: 10px'>{$count}楼</span>
@@ -69,12 +70,16 @@ include '../util/sqlTool.php';
 </div>";
         $count++;
     }
+    if ($count == 2) {
+        //无回复
+        $content .= "<div>暂无回复！</div>";
+    }
     echo $content . "</div>";
     ?>
     <!--回复框-->
-    <div style="margin: 20px 0">
+    <div style="margin: 50px 0">
         <div class="form-control post_reply" id="reply_editor"></div>
-        <button class="btn btn-primary post_reply_btn" style="width: 100px;margin:20px 0">回复</button>
+        <button class="ui button positive post_reply_btn" style="width: 100px;margin:20px 0">回复</button>
     </div>
 </div>
 </body>

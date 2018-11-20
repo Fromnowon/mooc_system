@@ -46,11 +46,11 @@ function replyTo() {
 
 function postReply() {
     $('.post_reply_btn').on('click', function () {
-        var content = msg_handler($('.post_reply').val());
-        if (content == '' || content == null) {
+        if (editor.txt.text() == '' || editor.txt.text() == null) {
             alert('请输入内容');
             return;
         }
+        var content = editor.txt.html();
         $.ajax({
             type: "post",
             url: "postHandler.php?action=postreply",
@@ -64,7 +64,7 @@ function postReply() {
             },
             error: function (msg) {
                 alert("ERROR!");
-                //console.log(msg);
+                console.log(msg);
             }
         });
     })

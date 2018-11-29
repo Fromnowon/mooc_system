@@ -35,6 +35,17 @@ p {
     padding-left: 20px;
 }
 
+/*用户信息*/
+.user_info .user_avatar {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.user_info .user_avatar img {
+    width: 80px;
+    cursor: pointer;
+}
+
 /*覆盖原定义*/
 .ui.menu .item {
     padding-top: 0.5rem;
@@ -105,7 +116,6 @@ p {
 }
 
 /*轮播*/
-
 
 /*论坛部分*/
 .bbs_prev {

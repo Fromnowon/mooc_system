@@ -58,51 +58,15 @@ function setMiscIndex() {
     height: 500,
     arrows: true,
     buttons: true,
-    fullScreen:true
+    fullScreen: false
   });
 
-  //更换头像
-  $(".change_avatar").on('click', function () {
-    $("#change_avatar_modal").modal({backdrop: 'static'});
-  })
-  $(".change_avatar_list_avatar").on('click', function () {
-    var all = $(".change_avatar_list_avatar");
-    all.removeAttr('flag');
-    all.removeClass('avatar_choose');
-    $(this).attr('flag', 1);
-    $(this).addClass('avatar_choose');
-  })
-  $("#change_avatar_submit").on('click', function () {
-    $.ajax({
-      type: "post",
-      url: "util/action.php?action=change_avatar",
-      data: {value: $(".avatar_choose").attr('value')},
-      dataType: "text",
-      success: function (msg) {
-        //console.log(msg);
-        window.location.reload();
-      },
-      error: function (msg) {
-        alert("ERROR!");
-        //console.log(msg);
-      }
-    });
-  })
-
-  //所有课程按钮
-  $(".all_courses").on('click', function () {
-    window.location.href = "search/search.php?action=index_key_search_all";
-  })
-
-  //关于按钮
-  $(".about_me").on('click', function () {
-    $("#about_me").modal();
-  })
-
-  //随机视频事件
-  $(".random_course").on('click', function () {
-    var id = $(this).attr('value');
-    window.open("play/play.php?playid=" + id);
+  //用户信息
+  $('.user_info_btn').click(function () {
+    $('.user_info').modal({
+      closable: false,
+      autofocus:false
+    }).modal('show')
   })
 }
 

@@ -60,7 +60,7 @@ include 'index_handler.php';
             </div>
             <div class="ui text right menu" style="margin-right: 20px;">
                 <div class="ui buttons" style="height: 38px">
-                    <div class="ui button primary"
+                    <div class="ui button primary user_info_btn"
                          style="min-width: 100px"><?php echo $_SESSION['userinfo']['username']; ?></div>
                     <div class="ui floating dropdown icon primary button">
                         <i class="dropdown icon"></i>
@@ -284,6 +284,51 @@ include 'index_handler.php';
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<!--用户信息-->
+<div class="ui modal tiny user_info">
+    <i class="close icon"></i>
+    <div class="content">
+        <div class="user_avatar">
+            <?php echo "<img style='display: inline-block' title='点击更换头像' class='ui circular image' src='./resource/avatar/{$user_rs[0]['avatar']}.png'>";?>
+        </div>
+        <div class="ui equal width form">
+            <h4 class="ui dividing header">个人信息</h4>
+            <div class="fields">
+                <div class="field">
+                    <label>账号</label>
+                    <div class="ui disabled input">
+                        <input type="text" placeholder="Username">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>密码</label>
+                    <input type="password" placeholder="(未修改)">
+                </div>
+            </div>
+            <div class="fields">
+                <div class="field">
+                    <label>隶属角色</label>
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="role" checked="" tabindex="0" class="hidden">
+                        <label>教师</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>学校</label>
+                    <input type="text">
+                </div>
+                <div class="field">
+                    <label>邮箱</label>
+                    <input type="email">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui button positive">保存</div>
+        <div class="ui button deny">关闭</div>
     </div>
 </div>
 </body>

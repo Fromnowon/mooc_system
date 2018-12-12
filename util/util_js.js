@@ -95,7 +95,7 @@ function textLimit(textObj, infoObj, limit_num) {
             textObj.val(textObj.val().substr(0, limit_num));
             infoObj.css({"color": "red", "font-weight": "bold"});
         }
-        else infoObj.css({"color": "blue", "font-weight": "normal"});
+        else infoObj.css({"color": "black", "font-weight": "normal"});
     });
 }
 

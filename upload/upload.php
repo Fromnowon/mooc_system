@@ -38,7 +38,7 @@
         </div>
         <div class="input_upload">
             <h2>简介：</h2>
-            <textarea rows="6" style="resize: none" name="upload_introduction" class="form-control"
+            <textarea rows="10" style="resize: none" name="upload_introduction" class="form-control"
                       placeholder="课程知识点重点难点等"></textarea>
         </div>
         <div class="form-group form-group1 form-inline input_upload">

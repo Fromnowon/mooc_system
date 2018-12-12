@@ -52,10 +52,11 @@ function courseSource($action)
                 echo '<source src="' . $rs['path'] . '" type="video/mp4"/>';
                 break;
             }
-        case 'cover':{
-            echo $rs['cover'];
-            break;
-        }
+        case 'cover':
+            {
+                echo $rs['cover'];
+                break;
+            }
         default:
             {
                 echo 'error';
@@ -65,45 +66,49 @@ function courseSource($action)
 
 
 //加载笔记
-function loadNote()
-{
-    global $r, $conn, $uid, $courseID;
-    $sql = "select * from note where relate_user_id='$uid' and relate_course_id='$courseID' order by note_time desc";
-    $r = mysqli_query($conn, $sql);
-    $p = '';
-    while ($rs = mysqli_fetch_array($r)) {
-        //拼接笔记html
-        $p1 = '<div class="panel panel-default">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <div class="note_mark" style="display: none">';
-        $p2 = '<p class="id">' . $rs['id'] . '</p>' . '<p class="mark_time">' . $rs['note_time'] . '</p>' . '<p class="mark_courseid">' . $rs['relate_course_id'] . '</p>' . '<p class="mark_userid">' . $rs['relate_user_id'] . '</p>';
-        $t = floor($rs['note_time']);//向下取整
-        $s = $rs['note_time'] % 60;//秒
-        $m = floor($rs['note_time'] / 60);//分
-        $h = floor($rs['note_time'] / 3600);//时
-        $p3_t = ($h == 0 ? '' : '0' . $h . ':') . ($m < 10 ? ('0' . $m) : $m) . ':' . ($s < 10 ? ('0' . $s) : $s);
-        $p3 = '</div><a title="点击从此时间点播放" href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
-            . $p3_t . '</span></a>';
-
-        $p4 = '<span>&nbsp;&nbsp;</span>
-            <a style="color: blue" title="点击展开或收起笔记" class="collapsed" role="button" data-toggle="collapse" href="#collapse' . $rs['id'] . '" aria-expanded="false">'
-            . $rs['title']
-            . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
-            . '<div id="collapse' . $rs['id'] . '" class="panel-collapse collapse" role="tabpanel">';
-
-        $p5 = '<div class="panel-body">'
-            . $rs['content']
-            . '</div></div></div>';
-        $p .= $p1 . $p2 . $p3 . $p4 . $p5;
-    }
-    echo $p;
-}
+//function loadNote()
+//{
+//    global $r, $conn, $uid, $courseID;
+//    $sql = "select * from note where relate_user_id='$uid' and relate_course_id='$courseID' order by note_time desc";
+//    $r = mysqli_query($conn, $sql);
+//    $p = '';
+//    while ($rs = mysqli_fetch_array($r)) {
+//        //拼接笔记html
+//        $p1 = '<div class="panel panel-default">
+//    <div class="panel-heading" role="tab">
+//        <h4 class="panel-title">
+//            <div class="note_mark" style="display: none">';
+//        $p2 = '<p class="id">' . $rs['id'] . '</p>' . '<p class="mark_time">' . $rs['note_time'] . '</p>' . '<p class="mark_courseid">' . $rs['relate_course_id'] . '</p>' . '<p class="mark_userid">' . $rs['relate_user_id'] . '</p>';
+//        $t = floor($rs['note_time']);//向下取整
+//        $s = $rs['note_time'] % 60;//秒
+//        $m = floor($rs['note_time'] / 60);//分
+//        $h = floor($rs['note_time'] / 3600);//时
+//        $p3_t = ($h == 0 ? '' : '0' . $h . ':') . ($m < 10 ? ('0' . $m) : $m) . ':' . ($s < 10 ? ('0' . $s) : $s);
+//        $p3 = '</div><a title="点击从此时间点播放" href="javascript:void(0)"><span class="glyphicon glyphicon-play note_play" aria-hidden="true">'
+//            . $p3_t . '</span></a>';
+//
+//        $p4 = '<span>&nbsp;&nbsp;</span>
+//            <a style="color: blue" title="点击展开或收起笔记" class="collapsed" role="button" data-toggle="collapse" href="#collapse' . $rs['id'] . '" aria-expanded="false">'
+//            . $rs['title']
+//            . '</a><a class="note_del" href="javascript:void(0)" style="color: red;float: right">删除</a></h4></div>'
+//            . '<div id="collapse' . $rs['id'] . '" class="panel-collapse collapse" role="tabpanel">';
+//
+//        $p5 = '<div class="panel-body">'
+//            . $rs['content']
+//            . '</div></div></div>';
+//        $p .= $p1 . $p2 . $p3 . $p4 . $p5;
+//    }
+//    echo $p;
+//}
 
 //加载课程信息块
 function courseInfo()
 {
     global $rs;
+    global $conn, $uploaderID;
+    $sql_t = "select * from user where uid='" . $uploaderID . "'";
+    $rs_t = mysqli_fetch_array(mysqli_query($conn, $sql_t));
+
     $course_info = '<div class="course_info_p1">
             <div class="p1_title">' . $rs['title'] . '</div>
             <div class="course_rating">
@@ -113,41 +118,48 @@ function courseInfo()
             <div class="course_rating_count">评分数：<span>' . $rs['rating_count'] . '</span>次</div>
             <div class="course_views">浏览量：<span>' . $rs['views'] . '</span>次，</div>
         </div>
-        <div class="clear"></div>
         <div class="course_info_p2">
             <p class="p2_subject">年级：<span>' . $rs['grade'] . '</span></p>
             <p class="p2_subject">科目：<span>' . $rs['subject'] . '</span></p>
         </div>
-        <hr/>
         <div class="course_info_p3">
             <div class="p3_content">' . $rs['introduction'] . '</div>
         </div>';
-    echo $course_info;
-}
 
-//加载教师信息块
-function teacherInfo()
-{
-    global $conn, $uploaderID;
-    $sql_t = "select * from user where uid='" . $uploaderID . "'";
-    $rs_t = mysqli_fetch_array(mysqli_query($conn, $sql_t));
-    $t = '<div class="teacher_info_p1">
+    print <<<EOT
+<div class="ui pointing secondary menu course_info_tabs">
+  <a class="item active" data-tab="first">简介</a>
+  <a class="item" data-tab="second">教师</a>
+  <a class="item" data-tab="third">附件</a>
+</div>
+<div class="ui tab active" data-tab="first">
+  {$course_info}
+</div>
+<div class="ui tab" data-tab="second">
+<div class="teacher_info_p1">
             <table>
                 <tr>
-                    <td><img src="../resource/avatar/' . $rs_t['avatar'] . '.png"></td>
+                    <td><img src="../resource/avatar/{$rs_t['avatar']}.png"></td>
                     <td>
                         <div>
-                            <p>' . $rs_t['real_name'] . '</p>
-                            <p>' . $rs_t['school'] . '</p>
-                        </div></td>
+                            <p>{$rs_t['real_name']}</p>
+                            <p>{$rs_t['school']}</p>
+                        </div>
+                     </td>
                 </tr>
             </table>
-            <hr/>
             <div class="teacher_info_p2">
-                <p>' . $rs_t['introduction'] . '</p>
+                <p>{$rs_t['introduction']}</p>
             </div>
-        </div>';
-    echo $t;
+        </div>
+</div>
+<div class="ui tab" data-tab="third">
+  Third
+</div>
+
+EOT;
+
+    //echo $course_info;
 }
 
 //加载回复、二级回复
@@ -167,9 +179,9 @@ function loadReply()
         if ($i > 5) $t1 .= ' style="display: none"';
         $t2 = '>
             <tr>
-                <td>
-                    <img class="avatar" src="../resource/avatar/' . $reply['avatar'] . '.png" alt="avatar">
-                    <span class="reply_username">' . $reply['real_name'] . '</span>
+                <td >
+                    <img style="vertical-align: middle" class="avatar" src="../resource/avatar/' . $reply['avatar'] . '.png" alt="avatar">
+                    <span style="vertical-align: middle" class="reply_username">' . $reply['real_name'] . '</span>
                 </td>
                 <td style="text-align: right">
                     <span>' . $l . '楼&nbsp;&nbsp;&nbsp;</span><span>发布于：<span class="time">' . $reply['sub_date'] . '</span></span>
@@ -185,13 +197,12 @@ function loadReply()
             <tr>
                 <td colspan="2">
                     <div style="text-align: right">
-                        <a class="reply_btn" style="font-size: 16px">参与讨论</a>
+                        <a class="reply_btn">参与讨论</a>
                     </div>
-                    <div></div>
-                    <div class="reply_edit" style="height: 0;overflow: hidden">
-                        <textarea class="form-control" rows="6" style="resize: none"></textarea>
-                        <br/>
-                        <button class="btn btn-sm btn-default">提交</button>
+                    <div class="reply_edit ui reply form" style="display: none;overflow: hidden">
+                        <textarea style="resize: none"></textarea>
+                        <br/><br>
+                        <button class="ui button primary">提交</button>
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <span style="color: blue" class="reply_edit_limit"></span>
                         <span>/200</span>
@@ -207,8 +218,8 @@ function loadReply()
                 $t3 .= '<tr style="display: none;" id="f' . $j . '">';
             } else $t3 .= '<tr id="f' . $j . '">';
             $t3 .= '<td colspan="2" class="toreply">
-            <div><span style="font-weight: bold">' . $rs_toreply['real_name'] . ':</span><p style="word-break: break-all">' . $rs_toreply['content'] . '</p></div>
-            <div><span>' . $date . ' </span ><a href = "javascript:void(0)" style = "float: right" class="replytoreply"> 回复TA</a ></div >
+            <div><span style="font-weight: bold" class="name">' . $rs_toreply['real_name'] . ':</span><p style="word-break: break-all">' . $rs_toreply['content'] . '</p></div>
+            <div><span style="color: darkgrey">' . $date . ' </span ><a href = "javascript:void(0)" style = "float: right" class="replytoreply"> 回复TA</a ></div >
             </td >
             </tr >';
             $j++;
@@ -219,8 +230,8 @@ function loadReply()
             $j--;
             echo $t1 . $t2 . $t3 . '<tr><td  colspan="2" class="toreply" style="text-align: center">
                 <a class="more_toreply" href="javascript:void(0)" now="5" max="'
-                . $j . '">加载更多回复</a><hr></td></tr></table> ';
-        } else echo $t1 . $t2 . $t3 . '<tr><td colspan="2"><hr></td></tr></table> ';
+                . $j . '">加载更多回复</a></td></tr></table> ';
+        } else echo $t1 . $t2 . $t3 . '<tr><td colspan="2"></td></tr></table> ';
     }
     if ($i > 5) echo '<div style = "text-align: center;margin: 20px 0 80px 0" ><a class="btn btn-success more_reply" now = "5" max = "'
         . $total . '" > 显示更多讨论</a ></div > ';

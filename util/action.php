@@ -299,12 +299,12 @@ function replyHandler($conn, $date)
         $content = $_POST['content'];
         $avatar = $_SESSION['userinfo']['avatar'];
         $real_name = $_SESSION['userinfo']['real_name'];
-        $sql = "insert into toreply (relate_reply_id,relate_user_id,avatar,real_name,content,sub_date) values ('$id','$userID','$avatar','$real_name','$content','$date')";
+        $sql = "insert into `toreply` (relate_reply_id,relate_user_id,avatar,real_name,content,sub_date) values ('$id','$userID','$avatar','$real_name','$content','$date')";
         if (mysqli_query($conn, $sql)) {
             echo '<tr>
             <td colspan="2" class="toreply">
             <div><span style="font-weight: bold">' . $_SESSION['userinfo']['real_name'] . ':</span><p style="word-break: break-all">' . $content . '</p></div>
-            <div><span>' . $date . '</span><a href="javascript:void(0)" style="float: right" class="replytoreply">回复TA</a></div>
+            <div><span style="color: darkgrey">' . $date . '</span><a href="javascript:void(0)" style="float: right" class="replytoreply">回复TA</a></div>
             </td>
             </tr>';
         } else echo $sql;
@@ -353,7 +353,7 @@ function replyHandler($conn, $date)
                     <div style="clear: both"></div>
                 </td>
             </tr>
-            <tr><td colspan="2"><hr></td></tr>
+            <tr><td colspan="2"></td></tr>
         </table>';
         } else echo $sql;
     }

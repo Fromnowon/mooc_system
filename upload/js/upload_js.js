@@ -45,7 +45,7 @@ function uploadHandler() {
         beforeSend: function () {
             status.empty();
             var percentVal = '0%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
             $(".progress").css('visibility', 'visible');
             $("#upload_btn").attr('disabled', true);
@@ -53,13 +53,13 @@ function uploadHandler() {
         uploadProgress: function (event, position, total, percentComplete) {//上传的过程
             //已上传的百分数
             var percentVal = percentComplete + '%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
             //console.log(percentVal, position, total);
         },
         success: function (data) {//成功
             var percentVal = '100%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
         },
         error: function (err) {//失败

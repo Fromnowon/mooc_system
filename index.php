@@ -65,7 +65,7 @@ include 'index_handler.php';
                     <div class="ui floating dropdown icon primary button">
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <div class="item"><i class="edit icon"></i><a href='upload/upload.php' style="color: black">上传视频</a>
+                            <div class="item"><i class="edit icon"></i><a href='./upload/upload.php' style="color: black">上传视频</a>
                             </div>
                             <div class="ui divider"></div>
                             <div class="item"><i class="power off icon"></i><span style="color: red;font-weight: bold">注销</span>

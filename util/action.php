@@ -132,6 +132,7 @@ function register($conn, $date)
 function courseUpload($conn, $date)
 {
     $course = $_FILES['course_upload'];
+    $attachment = $_FILES['upload_attachments'];
     if (!empty($course)) {//判断上传内容是否为空
         if ($course['error'] > 0) {//判断上传错误信息
             echo "上传错误：";

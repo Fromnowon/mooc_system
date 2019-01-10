@@ -1,5 +1,5 @@
 .upload_form {
-    width: 440px;
+    width: 60%;
     margin: 0 auto
 }
 
@@ -8,15 +8,6 @@
 }
 .form-group{
  margin: 20px 0;
-}
-.form-group1{
-    display: inline-block;
-    float: left;
-}
-.form-group2{
-    display: inline-block;
-    float: left;
-    margin-left: 30px;
 }
 
 /*进度条相关*/

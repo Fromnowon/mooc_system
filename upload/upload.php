@@ -69,12 +69,19 @@
             </select>
         </div>
         <div>
+            <span style="font-weight: bold">上传课程：</span><p style="color: red;">注意：文件大小限制500MB以下，并为avi，mp4，flv，mov，mkv格式</p>
             <input type="file" id="upload_file" name="course_upload" class="filestyle" data-placeholder="No file"
                    accept="video/*" onchange="showSize()">
-            <br/>
             <p class="upload_size"></p>
-            <p style="color: red;">注意：文件大小限制500MB以下，并为avi，mp4，flv，mov，mkv格式</p>
-            <button class="btn btn-primary col-md-2" id="upload_btn">上传</button>
+
+            <br>
+
+            <span style="font-weight: bold">上传附件：</span>
+            <br>
+            <input type="file" id="upload_attachments" name="upload_attachments" class="filestyle" data-placeholder="No file"
+                   accept="*/*">
+            <br>
+            <button class="btn btn-primary col-md-2 btn-lg" id="upload_btn">上传</button>
         </div>
         <div class="progress" style="margin-top: 60px">
             <div class="bar"></div>
